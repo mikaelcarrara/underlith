@@ -344,21 +344,7 @@
     </section>
   </footer>
 
-  <script>
-    (function () {
-      var hero = document.querySelector('.bg-hero');
-      var links = document.querySelectorAll('a[href="getting-started"], a[href="getting-started.html"]');
-      if (!hero || !links.length) return;
-      var original = hero.getAttribute('src');
-      var swap = 'svg/topic-04-2.svg';
-      links.forEach(function (link) {
-        link.addEventListener('mouseenter', function () { hero.setAttribute('src', swap); });
-        link.addEventListener('mouseleave', function () { hero.setAttribute('src', original); });
-        link.addEventListener('focus', function () { hero.setAttribute('src', swap); });
-        link.addEventListener('blur', function () { hero.setAttribute('src', original); });
-      });
-    })();
-  </script>
+  <!-- interaction removed: keep default banner animation -->
 
 </body>
 
