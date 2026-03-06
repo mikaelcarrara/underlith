@@ -94,4 +94,32 @@
     gap: var(--space-4);
     text-align: center;
   }
+
+  /* Prism code blocks: smaller font on mobile */
+  pre[class*="language-"],
+  code[class*="language-"] {
+    font-size: var(--font-size-xs) !important;
+    line-height: var(--line-height-normal);
+  }
+  pre[class*="language-"] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Typography demo: stack meta under sample to avoid narrow columns */
+  .typography .type-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  .typography .type-meta {
+    margin-top: var(--space-1);
+  }
+  .typography .type-sample h1,
+  .typography .type-sample h2,
+  .typography .type-sample h3,
+  .typography .type-sample h4,
+  .typography .type-sample p {
+    margin-bottom: 0;
+  }
 }

@@ -66,3 +66,15 @@ table th {
 table td {
   padding-right: var(--space-6);
 }
+
+@media (max-width: 768px) {
+
+  h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-lg);
+  }
+
+}
