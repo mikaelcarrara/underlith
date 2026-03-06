@@ -1,8 +1,14 @@
 # Underlith
 
-Underlith is a framework-agnostic design tokens system built with CSS Variables. It serves as a **single source of truth** for design decisions, enabling consistent UI foundations across any framework, platform, or tech stack.
+Your design system shouldn't break every time you switch frameworks.
 
-Unlike a UI library, Underlith provides the *definitions* (tokens) that drive the UI, ensuring that design intent is preserved from design tools to production code.
+Most teams rebuild their design system from scratch after a stack migration — not because the design decisions changed, but because those decisions were never separated from the implementation. Colors hardcoded in components. Spacing defined per-framework. No single place where design intent actually lives.
+
+Underlith fixes the root cause: it treats design decisions as infrastructure.
+
+A framework-agnostic token system built on CSS Variables, Underlith is the **governance layer beneath your UI** — a stable, semantic, versionable source of truth that survives framework changes, platform expansions, and team growth.
+
+Unlike a UI library, Underlith defines only primitives: colors, spacing, typography, and motion — expressed as strict contracts, not conventions. The implementation is yours. The foundation is shared.
 
 **[Documentation](https://mikaelcarrara.github.io/underlith)**
 
