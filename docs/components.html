@@ -4,29 +4,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Substrata - Framework-agnostic design tokens system</title>
+  <title>Underlith - Framework-agnostic design tokens system</title>
   <link rel="icon" type="image/svg+xml" href="./svg/logo.svg">
   <meta name="description"
     content="A single source of truth for design decisions that survives frameworks, platforms, and time.">
 
   <!-- Social Media Meta Tags -->
-  <meta property="og:url" content="https://mikaelcarrara.github.io/substrata/">
+  <meta property="og:url" content="https://mikaelcarrara.github.io/Underlith/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Substrata - Framework-agnostic design tokens system">
+  <meta property="og:title" content="Underlith - Framework-agnostic design tokens system">
   <meta property="og:description"
     content="A single source of truth for design decisions that survives frameworks, platforms, and time.">
-  <meta property="og:image" content="https://mikaelcarrara.github.io/substrata/docs/svg/social.jpg">
+  <meta property="og:image" content="https://mikaelcarrara.github.io/Underlith/docs/svg/social.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="mikaelcarrara.github.io">
-  <meta property="twitter:url" content="https://mikaelcarrara.github.io/substrata/">
-  <meta name="twitter:title" content="Substrata - Framework-agnostic design tokens system">
+  <meta property="twitter:url" content="https://mikaelcarrara.github.io/Underlith/">
+  <meta name="twitter:title" content="Underlith - Framework-agnostic design tokens system">
   <meta name="twitter:description"
     content="A single source of truth for design decisions that survives frameworks, platforms, and time.">
-  <meta name="twitter:image" content="https://mikaelcarrara.github.io/substrata/docs/svg/social.jpg">
+  <meta name="twitter:image" content="https://mikaelcarrara.github.io/Underlith/docs/svg/social.jpg">
 
   <!-- Design System -->
-  <link rel="stylesheet" href="../src/substrata.css">
+  <link rel="stylesheet" href="../src/Underlith.css">
   <link rel="stylesheet" href="css/documentation.css">
   <link rel="stylesheet" href="../src/components/components.css">
 </head>
@@ -40,8 +40,8 @@
     <section>
       <h1>
         <a href="./">
-          <img src="svg/logo.svg" alt="Logo">
-          <span>Substrata</span>
+          <img src="svg/logo.svg" alt="Underlith logo">
+          <span>Underlith</span>
         </a>
       </h1>
 
@@ -58,9 +58,6 @@
         <li><a href="tokens">Tokens</a></li>
         <li>Components</li>
         <li><a href="consumption">Consumption</a></li>
-        <li><a href="automation">Automation</a></li>
-        <li><a href="w3c-alignment">W3C alignment</a></li>
-        <li><a href="governance">Governance</a></li>
       </ul>
     </section>
   </header>
@@ -82,87 +79,72 @@
          Typography
     ========================== -->
     <section class="typography">
-      <h2>Typography</h2>
+      <h2 id="typography">Typography</h2>
 
-      <h1>Heading 1</h1>
-      <span class="token-doc">--font-size-2xl</span>
-      <span class="class-doc">h1</span>
-
-      <h2>Heading 2</h2>
-      <span class="token-doc">--font-size-xl</span>
-      <span class="class-doc">h2</span>
-
-      <h3>Heading 3</h3>
-      <span class="token-doc">--font-size-lg</span>
-      <span class="class-doc">h3</span>
-
-      <h4>Heading 4</h4>
-      <span class="token-doc">--font-size-md</span>
-      <span class="class-doc">h4</span>
-
-      <p class="text-default">
-        Default text used for continuous reading and primary content.
-      </p>
-      <span class="token-doc">--font-size-md</span>
-      <span class="class-doc">.text-default</span>
-
-      <p class="text-secondary">
-        Secondary text used for descriptions, supporting content, and auxiliary information.
-      </p>
-      <span class="token-doc">--font-size-sm</span>
-      <span class="class-doc">.text-secondary</span>
-
-      <p class="text-small">
-        Small text used for captions, metadata, or less relevant information.
-      </p>
-      <span class="token-doc">--font-size-xs</span>
-      <span class="class-doc">.text-small</span>
-    </section>
-
-    <!-- =========================
-         Spacing
-    ========================== -->
-    <section>
-      <h2>Spacing</h2>
-      <div class="spacing-grid">
-        <div class="spacing-item">
-          <div class="token-doc">--space-1</div>
-          <div class="spacing-visual" data-space="1"></div>
-          <div class="spacing-value">4px / 0.25rem</div>
+      <div class="type-list card">
+        <div class="type-row">
+          <div class="type-sample"><h1>Heading 1</h1></div>
+          <div class="type-meta">
+            <span class="badge badge-layer-01">--font-size-2xl</span>
+            <span class="badge badge-layer-02">h1</span>
+          </div>
         </div>
-        <div class="spacing-item">
-          <div class="token-doc">--space-2</div>
-          <div class="spacing-visual" data-space="2"></div>
-          <div class="spacing-value">8px / 0.5rem</div>
+
+        <div class="type-row">
+          <div class="type-sample"><h2>Heading 2</h2></div>
+          <div class="type-meta">
+            <span class="badge badge-layer-01">--font-size-xl</span>
+            <span class="badge badge-layer-02">h2</span>
+          </div>
         </div>
-        <div class="spacing-item">
-          <div class="token-doc">--space-3</div>
-          <div class="spacing-visual" data-space="3"></div>
-          <div class="spacing-value">12px / 0.75rem</div>
+        <div class="type-row">
+          <div class="type-sample"><h3>Heading 3</h3></div>
+          <div class="type-meta">
+            <span class="badge badge-layer-01">--font-size-lg</span>
+            <span class="badge badge-layer-02">h3</span>
+          </div>
         </div>
-        <div class="spacing-item">
-          <div class="token-doc">--space-4</div>
-          <div class="spacing-visual" data-space="4"></div>
-          <div class="spacing-value">16px / 1rem</div>
+        <div class="type-row">
+          <div class="type-sample"><h4>Heading 4</h4></div>
+          <div class="type-meta">
+            <span class="badge badge-layer-01">--font-size-md</span>
+            <span class="badge badge-layer-02">h4</span>
+          </div>
         </div>
-        <div class="spacing-item">
-          <div class="token-doc">--space-5</div>
-          <div class="spacing-visual" data-space="5"></div>
-          <div class="spacing-value">24px / 1.5rem</div>
+        <div class="type-row">
+          <div class="type-sample">
+            <p class="text-default">Default text used for continuous reading and primary content.</p>
+          </div>
+          <div class="type-meta">
+            <span class="badge badge-layer-01">--font-size-md</span> 
+            <span class="badge badge-layer-03">.text-default</span>
+          </div>
         </div>
-        <div class="spacing-item">
-          <div class="token-doc">--space-6</div>
-          <div class="spacing-visual" data-space="6"></div>
-          <div class="spacing-value">32px / 2rem</div>
+        <div class="type-row">
+          <div class="type-sample">
+            <p class="text-secondary">Secondary text used for descriptions, supporting content, and auxiliary information.</p>
+          </div>
+          <div class="type-meta">
+            <span class="badge badge-layer-01">--font-size-sm</span>
+            <span class="badge badge-layer-03">.text-secondary</span>
+          </div>
+        </div>
+        <div class="type-row">
+          <div class="type-sample">
+            <p class="text-small">Small text used for captions, metadata, or less relevant information.</p>
+          </div>
+          <div class="type-meta">
+            <span class="badge badge-layer-01">--font-size-xs</span>
+            <span class="badge badge-layer-03">.text-small</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- =========================
-         Colors
-    ========================== -->
+
+    <!-- Colors moved above Spacing -->
     <section>
-      <h2>Colors</h2>
+      <h2 id="colors">Colors</h2>
 
       <div class="palette">
         <div class="palette-item" data-color="neutral-0">neutral-0</div>
@@ -182,11 +164,83 @@
       </div>
     </section>
 
+
+    <!-- Spacing moved below Colors -->
+    <section>
+      <h2 id="spacing">Spacing</h2>
+      <div class="spacing-list">
+        <div class="spacing-row">
+          <div class="spacing-sample"><div class="spacing-visual" data-space="1"></div></div>
+          <div class="spacing-meta">
+            <span class="badge badge-layer-01">--space-1</span>
+          </div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-sample"><div class="spacing-visual" data-space="2"></div></div>
+          <div class="spacing-meta">
+            <span class="badge badge-layer-01">--space-2</span>
+          </div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-sample"><div class="spacing-visual" data-space="3"></div></div>
+          <div class="spacing-meta">
+            <span class="badge badge-layer-01">--space-3</span>
+          </div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-sample"><div class="spacing-visual" data-space="4"></div></div>
+          <div class="spacing-meta">
+            <span class="badge badge-layer-01">--space-4</span>
+          </div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-sample"><div class="spacing-visual" data-space="5"></div></div>
+          <div class="spacing-meta">
+            <span class="badge badge-layer-01">--space-5</span>
+          </div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-sample"><div class="spacing-visual" data-space="6"></div></div>
+          <div class="spacing-meta">
+            <span class="badge badge-layer-01">--space-6</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="grid">Grid</h2>
+      <div class="grid grid-2 doc-grid-row">
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+      </div>
+      <div class="grid grid-3 doc-grid-row">
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+      </div>
+      <div class="grid grid-4">
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+        <div class="doc-grid-box"></div>
+      </div>
+    </section>
+
     <!-- =========================
          Card
     ========================== -->
     <section>
-      <h2>Card</h2>
+      <h2 id="card">Card</h2>
       <div class="card">
         <div class="banner">
           <!--
@@ -194,15 +248,15 @@
           -->
         </div>
         <h4>Card Title</h4>
-        <p class="text-secondary">
+        <p class="text-small">
           A neutral container for grouping related content, fully defined by tokens.
         </p>
       </div>
-      <div class="grid">
+      <div class="grid grid-2">
         <div class="card">
           <div class="banner"></div>
           <h4>Card Title</h4>
-          <p class="text-secondary">
+          <p class="text-small">
             A neutral container for grouping related content, fully defined by tokens.
           </p>
         </div>
@@ -213,7 +267,7 @@
             -->
           </div>
           <h4>Card Title</h4>
-          <p class="text-secondary">
+          <p class="text-small">
             A neutral container for grouping related content, fully defined by tokens.
           </p>
         </div>
@@ -265,89 +319,464 @@
     <section>
       <h2 class="doc-h2">Form</h2>
 
-      <form class="card">
+      <div class="card">
+        <form>
 
-        <!-- Text -->
-        <div class="form-group">
-          <label class="form-label" for="name">Name</label>
-          <input class="form-input" type="text" id="name" />
-        </div>
+          <div class="grid grid-2">
+            <div>
+              <!-- Text -->
+              <div class="form-group">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-input" type="text" id="name" />
+              </div>
 
-        <!-- Email -->
-        <div class="form-group">
-          <label class="form-label" for="email">E-mail</label>
-          <input class="form-input" type="email" id="email" />
-        </div>
+              <!-- Email -->
+              <div class="form-group">
+                <label class="form-label" for="email">E-mail</label>
+                <input class="form-input" type="email" id="email" />
+              </div>
+            </div>
+            <div>
+              <!-- CPF -->
+              <div class="form-group">
+                <label class="form-label" for="cpf">CPF</label>
+                <input class="form-input" type="text" id="cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" autocomplete="off" />
+              </div>
 
-        <!-- Select -->
-        <div class="form-group">
-          <label class="form-label" for="country">Country</label>
-
-          <div class="form-select-wrapper">
-            <select class="form-select" id="country">
-              <option value="">Select an option</option>
-              <option>Brazil</option>
-              <option>United States</option>
-              <option>Germany</option>
-            </select>
+              <!-- Select -->
+              <div class="form-group">
+                <label class="form-label" for="country">Country</label>
+                <div class="form-select-wrapper">
+                  <select class="form-select" id="country">
+                    <option value="">Select an option</option>
+                    <option>Brazil</option>
+                    <option>United States</option>
+                    <option>Germany</option>
+                  </select>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <!-- Textarea -->
-        <div class="form-group">
-          <label class="form-label" for="message">Message</label>
-          <textarea class="form-textarea" id="message" placeholder="Write your message"></textarea>
-        </div>
-
-        <!-- Radio -->
-        <div class="form-group">
-          <span class="form-label">Plan</span>
-
-          <div class="form-options">
-            <label class="form-option">
-              <input type="radio" name="plan" checked>
-              Básico
-            </label>
-
-            <label class="form-option">
-              <input type="radio" name="plan">
-              Pro
-            </label>
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-textarea" id="message" placeholder="Write your message"></textarea>
           </div>
-        </div>
 
-        <!-- Checkbox -->
-        <div class="form-group">
-          <span class="form-label">Preferences</span>
+          <!-- Radio -->
+          <div class="form-group">
+            <span class="form-label">Plan</span>
 
-          <div class="form-options">
-            <label class="form-option">
-              <input type="checkbox" checked>
-              Receive news
-            </label>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="radio" name="plan" checked>
+                Básico
+              </label>
 
-            <label class="form-option">
-              <input type="checkbox">
-              Accept terms
-            </label>
+              <label class="form-option">
+                <input type="radio" name="plan">
+                Pro
+              </label>
+            </div>
           </div>
-        </div>
 
-        <button class="form-button" type="submit">
-          Send
-        </button>
+          <!-- Checkbox -->
+          <div class="form-group">
+            <span class="form-label">Preferences</span>
 
-      </form>
+            <div class="form-options">
+              <label class="form-option">
+                <input type="checkbox" checked>
+                Receive news
+              </label>
+
+              <label class="form-option">
+                <input type="checkbox">
+                Accept terms
+              </label>
+            </div>
+          </div>
+
+          <button class="form-button" type="submit">
+            Send
+          </button>
+
+        </form>
+      </div>
 
     </section>
 
+    <!-- =========================
+         Buttons
+    ========================== -->
+    <section>
+      <h2 id="buttons">Buttons</h2>
+      <div class="grid grid-2">
+        <div>
+          <button class="button">Primary</button>
+        </div>
+        <div>
+          <button class="button button-outline">Outline</button>
+          <button class="button button-ghost">Ghost</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="switch">Switch</h2>
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span>Enabled</span>
+      </label>
+    </section>
+
+    <!-- =========================
+        Badge
+    ========================== -->
+    <section>
+      <h2 id="badge">Badge</h2>
+      <div class="grid grid-2">
+        <div>
+          <span class="badge">Default</span>
+        </div>
+        <div>
+          <span class="badge badge-layer-01">Badge 01</span>
+          <span class="badge badge-layer-02">Badge 02</span>
+          <span class="badge badge-layer-03">Badge 03</span>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section>
+      <h2 id="progress">Progress</h2>
+      <div class="progress">
+        <div class="progress-bar" style="width: 60%;"></div>
+      </div>
+      <p class="text-secondary">60%</p>
+    </section>
+
+    <section>
+      <h2 id="table">Table</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ana Silva</td>
+            <td>Design</td>
+            <td><span class="badge badge-success">Active</span></td>
+          </tr>
+          <tr>
+            <td>João Pereira</td>
+            <td>Frontend</td>
+            <td><span class="badge">Pending</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+
+
+    <!-- Switch moved above Badge -->
+
+    <!-- =========================
+        Breadcrumb
+    ========================== -->
+    <section>
+      <h2 id="breadcrumb">Breadcrumb</h2>
+      <nav class="breadcrumb">
+        <a href="#">Home</a>
+        <span class="separator">/</span>
+        <a href="#">Library</a>
+        <span class="separator">/</span>
+        <span>Data</span>
+      </nav>
+    </section>
+
+    <section>
+      <h2 id="tabs">Tabs</h2>
+      <div class="tabs">
+        <div class="tab-list">
+          <button class="tab active">Overview</button>
+          <button class="tab">Details</button>
+          <button class="tab">Activity</button>
+        </div>
+        <div class="tab-panels">
+          <div class="tab-panel">
+            <p class="text-secondary">Static demo showing how tabs are styled with tokens.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="pagination">Pagination</h2>
+      <div class="pagination">
+        <button class="prev">Prev</button>
+        <button class="page">1</button>
+        <button class="page active">2</button>
+        <button class="page">3</button>
+        <button class="next">Next</button>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="menu">Menu</h2>
+      <details class="menu">
+        <summary class="menu-trigger">Actions</summary>
+        <ul class="menu-items">
+          <li><a href="#">Edit</a></li>
+          <li><a href="#">Duplicate</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Delete</a></li>
+        </ul>
+      </details>
+    </section>
+
+    <section>
+      <h2 id="accordion">Accordion</h2>
+      <div class="accordion">
+        <details>
+          <summary>Section 1</summary>
+          <div class="accordion-content">Content of the first section.</div>
+        </details>
+        <details>
+          <summary>Section 2</summary>
+          <div class="accordion-content">Content of the second section.</div>
+        </details>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="tooltip">Tooltip</h2>
+      <div class="grid grid-2">
+        <div>
+          <span class="tooltip" data-tooltip="Tooltip text">
+            <button class="button">Hover me</button>
+          </span>
+        </div>
+        <div class="text-secondary">
+          Simple tooltip using data-attribute and tokens for contrast.
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 id="dialog">Dialog</h2>
+      <div class="grid grid-2">
+        <div>
+          <div class="card">
+            <h4>Confirm action</h4>
+            <p class="text-small">Token-driven dialog container. No behavior attached.</p>
+            <div class="dialog-actions">
+              <button class="button button-primary">Confirm</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <h4>Attention</h4>
+            <p class="text-small">Review the details before proceeding. No confirm available.</p>
+            <div class="dialog-actions">
+              <button class="button button-outline">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Grid section moved above Card -->
+
+    <section>
+      <h2 id="alert">Alert</h2>
+      <div class="grid grid-2">
+        <div>
+          <div class="alert">Informational message using neutral tokens.</div>
+        </div>
+        <div class="stack">
+          <div class="alert alert-success">Success message</div>
+          <div class="alert alert-warning">Warning message</div>
+          <div class="alert alert-danger">Danger message</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="motion">Motion</h2>
+      <div class="grid grid-3 motion-stagger" data-motion="stagger">
+        <div class="card motion-demo">
+          <button class="button" data-motion="enter" style="--index: 0; animation: var(--motion-fade-up);">Fade up</button>
+          <span class="text-small token-label">--motion-fade-up</span>
+        </div>
+        <div class="card motion-demo">
+          <button class="button" data-motion="enter" style="--index: 1; animation: var(--motion-scale-pop);">Pop</button>
+          <span class="text-small token-label">--motion-scale-pop</span>
+        </div>
+        <div class="card motion-demo">
+          <div class="sample">
+            <span class="badge" data-motion="enter" style="--index: 2; animation: var(--motion-drop-bounce);">New</span>
+          </div>
+          <span class="text-small token-label">--motion-drop-bounce</span>
+        </div>
+        <div class="card motion-demo">
+          <span class="badge badge-layer-02" style="--index: 3; animation: var(--motion-glow-breath);">Glow</span>
+          <span class="text-small token-label">--motion-glow-breath</span>
+        </div>
+        <div class="card motion-demo">
+          <span class="badge badge-layer-01" style="--index: 4; animation: var(--motion-pulse);">Pulse</span>
+          <span class="text-small token-label">--motion-pulse</span>
+        </div>
+        <div class="card motion-demo">
+          <button class="button button-outline" data-motion="enter" style="--index: 5; animation: var(--motion-slide-left);">Slide in</button>
+          <span class="text-small token-label">--motion-slide-left</span>
+        </div>
+        <div class="card motion-demo">
+          <div style="--index: 6; width: 16px; height: 16px; border-radius: 999px; background: var(--brand-500); animation: var(--motion-float);"></div>
+          <span class="text-small token-label">--motion-float</span>
+        </div>
+        <div class="card motion-demo">
+          <div style="--index: 7; width: 140px; height: 14px; border-radius: var(--radius-md); background-color: var(--brand-500); background-image: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.18) 20%, rgba(255,255,255,0.6) 35%, rgba(255,255,255,0.18) 50%, rgba(255,255,255,0) 65%, rgba(255,255,255,0.1) 80%, rgba(255,255,255,0) 100%); background-repeat: no-repeat; background-size: 200% 100%; animation: var(--motion-shimmer);"></div>
+          <span class="text-small token-label">--motion-shimmer</span>
+        </div>
+        <div class="card motion-demo" style="perspective: 800px;">
+          <div class="sample">
+            <span class="badge badge-layer-03" data-motion="enter" style="--index: 8; animation: var(--motion-flip-in); transform-style: preserve-3d;">Flip</span>
+          </div>
+          <span class="text-small token-label">--motion-flip-in</span>
+        </div>
+        <div class="card motion-demo">
+          <button class="button" data-motion="enter" style="--index: 9; animation: var(--motion-slide-right);">Slide right</button>
+          <span class="text-small token-label">--motion-slide-right</span>
+        </div>
+        <div class="card motion-demo">
+          <button class="button button-outline" data-motion="enter" style="--index: 10; animation: var(--motion-fade-in);">Fade in</button>
+          <span class="text-small token-label">--motion-fade-in</span>
+        </div>
+        <div class="card motion-demo">
+          <div style="position: relative; width: 120px; height: 64px;">
+            <span style="position: absolute; left: 10%; top: 60%; width: 8px; height: 8px; border-radius: 999px; background: var(--brand-500); --particle-dx: 28px; --particle-dy: -20px; --particle-spread: 1.2; --opacity-seed: .9; --scale-seed: .9; animation: var(--motion-particle);"></span>
+            <span style="position: absolute; left: 30%; top: 70%; width: 6px; height: 6px; border-radius: 999px; background: var(--brand-500); --particle-dx: 18px; --particle-dy: -28px; --particle-spread: 1.1; --opacity-seed: .6; --scale-seed: .7; animation: var(--motion-particle);"></span>
+            <span style="position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; border-radius: 999px; background: var(--brand-500); --particle-dx: 36px; --particle-dy: -14px; --particle-spread: 1.3; --opacity-seed: .75; --scale-seed: 1.0; animation: var(--motion-particle);"></span>
+            <span style="position: absolute; left: 70%; top: 65%; width: 7px; height: 7px; border-radius: 999px; background: var(--brand-500); --particle-dx: 24px; --particle-dy: -18px; --particle-spread: 1.0; --opacity-seed: .5; --scale-seed: .8; animation: var(--motion-particle);"></span>
+            <span style="position: absolute; left: 85%; top: 55%; width: 6px; height: 6px; border-radius: 999px; background: var(--brand-500); --particle-dx: 22px; --particle-dy: -24px; --particle-spread: 1.15; --opacity-seed: .65; --scale-seed: .7; animation: var(--motion-particle);"></span>
+          </div>
+          <span class="text-small token-label">--motion-particle</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+        Skeleton
+    ========================== -->
+    <section class="doc-section-mb">
+      <h2 id="skeleton">Skeleton</h2>
+      <div class="card">
+        <div class="skeleton doc-w-60p doc-h-24 doc-mb-3"></div>
+        <div class="skeleton doc-w-100p"></div>
+        <div class="skeleton doc-w-90p doc-mt-2"></div>
+      </div>
+      <div class="grid grid-3">
+        <div class="card doc-flex-col doc-gap-2 doc-pad-4">
+          <div class="skeleton doc-w-70p doc-h-18"></div>
+          <div class="skeleton doc-w-100p doc-h-12"></div>
+          <div class="skeleton doc-w-85p doc-h-12"></div>
+          <div class="skeleton doc-w-60p doc-h-12"></div>
+        </div>
+        <div class="card doc-flex-col doc-gap-3 doc-pad-4">
+          <div class="doc-row doc-gap-3">
+            <div class="skeleton doc-w-40 doc-h-40 doc-rounded-full"></div>
+            <div class="doc-flex-1">
+              <div class="skeleton doc-w-50p doc-h-14 doc-mb-1"></div>
+              <div class="skeleton doc-w-80p doc-h-12"></div>
+            </div>
+          </div>
+          <div class="doc-row doc-gap-3">
+            <div class="skeleton doc-w-40 doc-h-40 doc-rounded-full"></div>
+            <div class="doc-flex-1">
+              <div class="skeleton doc-w-55p doc-h-14 doc-mb-1"></div>
+              <div class="skeleton doc-w-70p doc-h-12"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card doc-flex-col doc-gap-3 doc-pad-4">
+          <div class="skeleton doc-w-100p doc-h-96 doc-rounded-md"></div>
+          <div class="skeleton doc-w-60p doc-h-16"></div>
+          <div class="skeleton doc-w-100p doc-h-12"></div>
+          <div class="skeleton doc-w-85p doc-h-12"></div>
+        </div>
+        </div>
+      </div>
+    </section>
+
   </main>
+
   <footer>
     <section>
-      <p>Substrata - Framework-agnostic design tokens system</p>
-      <p>
-        <a href="https://github.com/mikaelcarrara/substrata" target="_blank">GitHub Repository</a>
-      </p>
+      <div class="footer-main">
+        <div style="text-align: center;">
+          <img src="svg/logo.svg" alt="Underlith logo">
+        </div>
+        <div>
+          <h3>Documentation</h3>
+          <ul>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li><a href="tokens.html">Tokens</a></li>
+            <li><a href="components.html">Components</a></li>
+            <li><a href="consumption.html">Consumption</a></li>
+            <li><a href="automation.html">Automation</a></li>
+            <li><a href="w3c-alignment.html">W3C Alignment</a></li>
+            <li><a href="governance.html">Governance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="https://github.com/mikaelcarrara/underlith" target="_blank">GitHub Repository <span
+                  class="external-link"></span></a></li>
+            <li><a href="https://www.npmjs.com/package/@mikaelcarrara/underlith" target="_blank">NPM Package <span
+                  class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/issues" target="_blank">Report an Issue <span
+                  class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/discussions" target="_blank">Discussions <span
+                  class="external-link"></span></a></li>
+          </ul>
+        </div>
+        <div class="footer-mds">
+          <h3>Project</h3>
+          <ul>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/README.md"
+                target="_blank">README.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/ARCHITECTURE.md"
+                target="_blank">ARCHITECTURE.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/CONTRIBUTING.md"
+                target="_blank">CONTRIBUTING.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/GOVERNANCE.md"
+                target="_blank">GOVERNANCE.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/ROADMAP.md"
+                target="_blank">ROADMAP.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/CI.md" target="_blank">CI.md <span
+                  class="external-link"></span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 <a href="https://www.behance.net/mikaelmcarrara" target="_blank">Mikael Carrara</a>. Released
+          under the <a href="https://github.com/mikaelcarrara/underlith/blob/main/LICENSE"
+            target="_blank">MIT License</a>.</p>
+        <a class="css-valid-badge" href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank" rel="noopener">
+          <span class="wrap">
+            <span class="inner"><span class="dot" aria-hidden="true"></span>Valid CSS</span>
+          </span>
+        </a>
+      </div>
     </section>
   </footer>
 </body>

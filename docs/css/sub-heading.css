@@ -1,0 +1,16 @@
+.sub-heading {
+  margin-bottom: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.sub-heading-tag {
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--font-size-xs);
+  color: var(--neutral-500);
+}
+
+.sub-heading h2 {
+  margin: var(--space-3) 0 var(--space-2) 0;
+  font-size: var(--font-size-2xl);
+}
+

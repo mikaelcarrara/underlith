@@ -4,29 +4,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Substrata - Framework-agnostic design tokens system</title>
+  <title>Underlith - Framework-agnostic design tokens system</title>
   <meta name="description"
     content="A single source of truth for design decisions that survives frameworks, platforms, and time.">
 
   <!-- Social Media Meta Tags -->
-  <meta property="og:url" content="https://mikaelcarrara.github.io/substrata/">
+  <meta property="og:url" content="https://mikaelcarrara.github.io/Underlith/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Substrata - Framework-agnostic design tokens system">
+  <meta property="og:title" content="Underlith - Framework-agnostic design tokens system">
   <meta property="og:description"
     content="A single source of truth for design decisions that survives frameworks, platforms, and time.">
-  <meta property="og:image" content="https://mikaelcarrara.github.io/substrata/docs/svg/social.jpg">
+  <meta property="og:image" content="https://mikaelcarrara.github.io/Underlith/docs/svg/social.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="mikaelcarrara.github.io">
-  <meta property="twitter:url" content="https://mikaelcarrara.github.io/substrata/">
-  <meta name="twitter:title" content="Substrata - Framework-agnostic design tokens system">
+  <meta property="twitter:url" content="https://mikaelcarrara.github.io/Underlith/">
+  <meta name="twitter:title" content="Underlith - Framework-agnostic design tokens system">
   <meta name="twitter:description"
     content="A single source of truth for design decisions that survives frameworks, platforms, and time.">
-  <meta name="twitter:image" content="https://mikaelcarrara.github.io/substrata/docs/svg/social.jpg">
+  <meta name="twitter:image" content="https://mikaelcarrara.github.io/Underlith/docs/svg/social.jpg">
 
   <link rel="icon" type="image/svg+xml" href="./svg/logo.svg">
   <!-- Design System -->
-  <link rel="stylesheet" href="../src/substrata.css">
+  <link rel="stylesheet" href="../src/Underlith.css">
   <link rel="stylesheet" href="css/documentation.css">
   <link rel="stylesheet" href="../src/components/components.css">
 
@@ -42,8 +42,8 @@
     <section>
       <h1>
         <a href="./">
-          <img src="svg/logo.svg" alt="Substrata logo">
-          <span>Substrata</span>
+          <img src="svg/logo.svg" alt="Underlith logo">
+          <span>Underlith</span>
         </a>
       </h1>
 
@@ -60,170 +60,306 @@
         <li><a href="tokens">Tokens</a></li>
         <li><a href="components">Components</a></li>
         <li><a href="consumption">Consumption</a></li>
-        <li><a href="automation">Automation</a></li>
-        <li><a href="w3c-alignment">W3C alignment</a></li>
-        <li><a href="governance">Governance</a></li>
       </ul>
     </section>
   </header>
 
   <div class="main-banner">
-    <img src="svg/logo-wire.svg" alt="Substrata logo">
-    <h2>Framework-agnostic design tokens system</h2>
-    <p class="text-secondary">
-      A single source of truth for design decisions that survives frameworks, platforms, and time.
+    <img class="bg-hero" src="svg/hero3.svg" alt="" aria-hidden="true">
+    <h1>The governance layer<br> for <span>design tokens</span></h1>
+    <p>
+      A single source of truth for design decisions that survives<br> frameworks, platforms, and time.
     </p>
     <div class="buttons">
-      <a class="cta-getting-started" href="getting-started">
-        <span>Getting started</span>
-      </a>
-      <a class="cta-github" href="https://github.com/mikaelcarrara/substrata">GitHub</a>
+      <div class="cta-wrap">
+        <a class="cta" href="getting-started">
+          <span>Getting started</span>
+        </a>
+      </div>
+      <div class="cta-git-wrap">
+        <a class="cta-git" href="https://github.com/mikaelcarrara/Underlith">
+          GitHub
+        </a>
+      </div>
     </div>
   </div>
 
   <main>
 
     <section>
-
-      <div class="grid">
+      <div class="grid grid-2">
         <div>
-          <h2>What is Substrata?</h2>
+          <div class="sub-heading">
+            <p class="sub-heading-tag">
+              WHAT IS UNDERLITH?
+            </p>
+            <h2>Design decisions as<br> infrastructure.</h2>
+          </div>
           <p>
-            Substrata is a design token system built on CSS Variables, providing a stable, framework-agnostic foundation
-            beneath the UI. It defines design decisions as constraints - not implementations.
+            Underlith is a design token system built on CSS Variables, providing a stable, framework-agnostic foundation
+            beneath the UI. It defines design decisions as constraints — not implementations.
           </p>
           <p>
-            Unlike UI libraries that couple design to components, Substrata defines only primitives: colors, spacing,
-            typography, and other core decisions expressed as semantic, versionable tokens.
+            Unlike UI libraries that couple design to components, Underlith defines only primitives: colors, spacing, typography, and core decisions expressed as semantic, versionable tokens.
           </p>
           <p>
-            This separation preserves design intent across platforms (Web, iOS, Android) and implementation layers
-            (React,
-            Vue, plain HTML, Sass, Tailwind, CSS-in-JS), without rewriting the design system as stacks evolve.
+            This separation preserves design intent across platforms and implementation layers without rewriting the design system as stacks evolve.
           </p>
         </div>
         <div>
-          <img src="svg/diagram2.jpg" alt="Diagram">
+          <img src="svg/arter.svg" alt="Underlith illustration" class="main-art">
         </div>
       </div>
 
     </section>
 
     <section>
-      <h2>Why Substrata exists</h2>
-      <p>
-        Most design systems are tightly coupled to specific frameworks or component models. When the stack changes, the
-        system must be rebuilt, causing design decisions to be duplicated, lost, or drift across products.
-      </p>
-      <p>
-        Substrata addresses this by treating design decisions as infrastructure - stable, explicit, framework-agnostic
-        contracts that outlive any single implementation.
-      </p>
-      <ul class="features-list">
-        <li>
-          <p class="text-default">Tokens as contracts</p>
-          <p class="text-secondary">Design decisions become stable, versionable interfaces between design and code.</p>
-        </li>
-        <li>
-          <p class="text-default">Framework independence</p>
-          <p class="text-secondary">Consume tokens in Tailwind, Sass, CSS-in-JS, or plain CSS without coupling to a
-            specific stack.</p>
-        </li>
-        <li>
-          <p class="text-default">Automation-ready</p>
-          <p class="text-secondary">Explicit tokens enable safe automation, including AI-assisted generation,
-            refactoring, and validation.</p>
-        </li>
-        <li>
-          <p class="text-default">Shared design language</p>
-          <p class="text-secondary">A common vocabulary that designers, developers, and tools can interpret and apply
-            consistently.</p>
-        </li>
-      </ul>
+      <div class="sub-heading">
+        <p class="sub-heading-tag">
+          WHY UNDERLITH EXISTS
+        </p>
+        <h2>Design systems shouldn't<br> break when stacks change.</h2>
+        <p class="text-secondary">
+          Most design systems are framework-dependent — when the stack changes, they must be rebuilt.<br>
+          Underlith treats design decisions as infrastructure: stable, explicit contracts that outlive any implementation.
+        </p>
+      </div>
+      <div class="grid grid-3 no-gap-cards">
+        <div class="card">
+          <img src="svg/topic-01-2.svg" alt="" aria-hidden="true" class="topic-art">
+          <h3>Tokens as contracts</h3>
+          <p class="text-small">Design decisions become stable, versionable interfaces between design and code.</p>
+        </div>
+        <div class="card">
+          <img src="svg/topic-02-2.svg" alt="" aria-hidden="true" class="topic-art">
+          <h3>Framework independence</h3>
+          <p class="text-small">Consume tokens in Tailwind, Sass, CSS-in-JS, or plain CSS without coupling to a specific stack.</p>
+        </div>
+        <div class="card">
+          <img src="svg/topic-03-2.svg" alt="" aria-hidden="true" class="topic-art">
+          <h3>Shared design language</h3>
+          <p class="text-small">A common vocabulary that designers, developers, and tools can interpret and apply consistently.</p>
+        </div>
+      </div>
     </section>
 
     <section>
-      <h2>Substrata is composed of independent layers.</h2>
+ 
+      <div class="sub-heading">
+        <p class="sub-heading-tag">
+          PHILOSOPHY
+        </p>
+        <h2>Principles that guide every decision.</h2>
+        <p class="text-secondary">
+          These principles define the architectural foundation of Underlith<br> across all its layers.
+        </p>
+      </div>
 
-      <p>
-        Substrata is structured into three decoupled layers. Each layer can evolve independently, without impacting the
-        others.
-      </p>
-
-      <ul class="grid">
-        <li>
-          <img src="svg/layer-01.svg" alt="Layer 01">
-          <p class="text-secondary">
-            <strong>Tokens</strong> define design decisions as CSS Variables: colors, spacing, typography, and core
-            primitives. They are semantic, stable, versionable, and platform-agnostic.
-          </p>
-        </li>
-        <li>
-          <img src="svg/layer-02.svg" alt="Layer 02">
-          <p class="text-secondary">
-            <strong>Base styles</strong> apply tokens to native HTML elements, establishing predictable defaults and
-            consistent rendering, without adding abstractions or components.
-          </p>
-        </li>
-        <li>
-          <img src="svg/layer-03.svg" alt="Layer 03">
-          <p class="text-secondary">
-            <strong>Components</strong> (optional) show reference patterns for consuming tokens in real interfaces. They
-            demonstrate usage, not prescribe a UI library.
-          </p>
-        </li>
-      </ul>
+      <div class="grid grid-3 no-gap-cards">
+        <div class="card">
+          <img src="svg/topic-04-2.svg" alt="" aria-hidden="true" class="topic-art">
+          <h3>Tokens as the Foundation</h3>
+          <p class="text-small">Design tokens are the atomic units of design meaning.</p>
+        </div>
+        <div class="card">
+          <img src="svg/topic-05-2.svg" alt="" aria-hidden="true" class="topic-art">
+          <h3>Framework Agnosticism</h3>
+          <p class="text-small">Design infrastructure must outlive frameworks.</p>
+        </div>
+        <div class="card"> 
+          <img src="svg/topic-06-2.svg" alt="" aria-hidden="true" class="topic-art">
+          <h3>Single Source of Truth</h3>
+          <p class="text-small">One system. One truth. Zero divergence.</p>
+        </div>
+      </div>
+ 
     </section>
 
     <section>
-      <h2>File structure</h2>
-      <pre><code class="language-text">substrata/
- ├── src/
- │    ├── tokens/
- │    │    ├── typography.css
- │    │    ├── spacing.css
- │    │    ├── colors.css
- │    │    ├── radius-and-borders.css
- │    │    ├── elevation.css
- │    │    ├── motion.css
- │    │    ├── opacity.css
- │    │    ├── breakpoints.css
- │    │    └── semantic-aliases.css
- │    ├── components/
- │    ├── consumption/
- │    ├── base.css
- │    └── substrata.css</code></pre>
+
+      <div class="sub-heading">
+        <p class="sub-heading-tag">
+          ARCHITECTURE
+        </p>
+        <h2>Three independent, decoupled layers.</h2>
+        <p class="text-secondary">
+          Underlith is structured so each layer can evolve independently<br> without impacting the others.
+        </p>
+      </div>
+
+      <div class="grid grid-3 no-gap-cards">
+        <div class="card">
+          <span class="badge badge-layer-01">Layer 01</span>
+          <h3>Tokens</h3>
+          <p class="text-small">
+            Define design decisions as CSS Variables: colors, spacing, typography, and core primitives. Semantic, stable, and platform-agnostic.
+          </p>
+        </div>
+        <div class="card">
+          <span class="badge badge-layer-02">Layer 02</span>
+          <h3>Base styles</h3>
+          <p class="text-small">
+            Apply tokens to native HTML elements, establishing predictable defaults and consistent rendering — without adding abstractions.
+          </p>
+        </div>
+        <div class="card">
+          <span class="badge badge-layer-03">Layer 03</span>
+          <h3>Components</h3>
+          <p class="text-small">
+            Optional reference patterns for consuming tokens in real interfaces. Demonstrate usage — never prescribe a UI library.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section>
-      <h2>Philosophy</h2>
-      <p>
-        Design decisions are infrastructure.
-      </p>
+      <div class="sub-heading">
+        <p class="sub-heading-tag">
+          IMPLEMENTATION
+        </p>
+        <h2>Multi-Stack Implementation</h2>
+        <p class="text-secondary">
+          Underlith is designed as stack-agnostic infrastructure.<br>
+          Tokens can be consumed directly or integrated into different styling pipelines.
+        </p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card big-text">
+          <h3>CSS Variables</h3>
+          <p class="text-small">Tokens are published as CSS Custom Properties in <code>:root</code>, keeping stable contracts between design and code.</p>
+          <p class="text-small">Themes are applied via scopes like <code>[data-theme]</code> — only values change, rules remain identical.</p>
+          <p class="text-small">Compatible with any frontend stack. Consume directly with <code>var(--token)</code>.</p>
+          <p class="text-small">
+            <a class="view-more" href="tokens.html">View tokens →</a>
+          </p>
+        </div>
+        <div class="card big-text">
+          <h3>Tailwind (v4)</h3>
 
-      <ul class="features-list text-secondary">
-        <li>Design decisions should be explicit, not implicit</li>
-        <li>Consistency should survive framework migrations</li>
-        <li>Tokens are stable contracts, not arbitrary values</li>
-        <li>Substrata is infrastructure - the foundation beneath the UI</li>
-      </ul>
+          <p class="text-small">Native integration: connect tokens directly via <code>@theme</code> in your CSS, eliminating complex JS configuration.</p>
 
-      <p>
-        This philosophy aligns with the <a href="w3c-alignment">W3C Design Tokens Community Group</a> model and is
-        designed for long-term evolution across platforms and teams.
-      </p>
+          <p class="text-small">Utilities use <code>var(--token)</code> directly, preserving the visual contract without build-time plugins.</p>
 
+          <p class="text-small">Zero-config architecture — the design system lives in CSS, independent of tooling.</p>
+
+          <p class="text-small">Native theming support via media queries or attribute selectors, delegating logic to modern CSS.</p>
+
+          <p class="text-small">
+            <a class="view-more" href="consumption.html">Consumption examples →</a>
+          </p>
+        </div>
+        <div class="card big-text">
+          <h3>Sass / Less</h3>
+          <p class="text-small">Tokens can also be consumed in Sass or Less pipelines. Reference them via <code>var(--token)</code> inside variables or mixins, exposing reusable helpers across the stylesheet.</p>
+          <div class="mini-code-block">
+            <code class="del">color: $color-text;</code>
+            <code>color: var(--color-text);</code>
+          </div>
+          <p class="text-small">This enables adopting Underlith in legacy projects without rewriting existing CSS.</p>
+          <p class="text-small" style="margin-top: var(--space-2);">
+            <a class="view-more" href="tokens.html">Available tokens →</a>
+          </p>
+        </div>
+      </div>
     </section>
 
+    <section class="final-cta">
+      <div>
+        <h2>
+          Stop rebuilding your<br> design system every time<br> you switch frameworks.
+        </h2>
+        <p class="text-secondary">
+          One token layer. Every platform. Zero divergence.
+        </p>
+        <div class="buttons">
+          <div class="cta-wrap">
+            <a class="cta" href="getting-started">
+              <span>Getting started</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
   <footer>
     <section>
-      <p>Substrata - Framework-agnostic design tokens system</p>
-      <p>
-        <a href="https://github.com/mikaelcarrara/substrata" target="_blank">GitHub Repository</a>
-      </p>
+      <div class="footer-main">
+        <div style="text-align: center;">
+          <img src="svg/logo.svg" alt="Underlith logo">
+        </div>
+        <div>
+          <h3>Documentation</h3>
+          <ul>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li><a href="tokens.html">Tokens</a></li>
+            <li><a href="components.html">Components</a></li>
+            <li><a href="consumption.html">Consumption</a></li>
+            <li><a href="automation.html">Automation</a></li>
+            <li><a href="w3c-alignment.html">W3C Alignment</a></li>
+            <li><a href="governance.html">Governance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="https://github.com/mikaelcarrara/underlith" target="_blank">GitHub Repository <span
+                  class="external-link"></span></a></li>
+            <li><a href="https://www.npmjs.com/package/@mikaelcarrara/underlith" target="_blank">NPM Package <span
+                  class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/issues" target="_blank">Report an Issue <span
+                  class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/discussions" target="_blank">Discussions <span
+                  class="external-link"></span></a></li>
+          </ul>
+        </div>
+        <div class="footer-mds">
+          <h3>Project</h3>
+          <ul>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/README.md"
+                target="_blank">README.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/ARCHITECTURE.md"
+                target="_blank">ARCHITECTURE.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/CONTRIBUTING.md"
+                target="_blank">CONTRIBUTING.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/GOVERNANCE.md"
+                target="_blank">GOVERNANCE.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/ROADMAP.md"
+                target="_blank">ROADMAP.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/CI.md" target="_blank">CI.md <span
+                  class="external-link"></span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 <a href="https://www.behance.net/mikaelmcarrara" target="_blank">Mikael Carrara</a>. Released
+          under the <a href="https://github.com/mikaelcarrara/underlith/blob/main/LICENSE"
+            target="_blank">MIT License</a>.</p>
+        <a class="css-valid-badge" href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank" rel="noopener">
+          <span class="wrap">
+            <span class="inner"><span class="dot" aria-hidden="true"></span>Valid CSS</span>
+          </span>
+        </a>
+      </div>
     </section>
   </footer>
+
+  <script>
+    (function () {
+      var hero = document.querySelector('.bg-hero');
+      var links = document.querySelectorAll('a[href="getting-started"], a[href="getting-started.html"]');
+      if (!hero || !links.length) return;
+      var original = hero.getAttribute('src');
+      var swap = 'svg/topic-04-2.svg';
+      links.forEach(function (link) {
+        link.addEventListener('mouseenter', function () { hero.setAttribute('src', swap); });
+        link.addEventListener('mouseleave', function () { hero.setAttribute('src', original); });
+        link.addEventListener('focus', function () { hero.setAttribute('src', swap); });
+        link.addEventListener('blur', function () { hero.setAttribute('src', original); });
+      });
+    })();
+  </script>
+
 </body>
 
 </html>

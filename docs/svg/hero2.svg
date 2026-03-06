@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 210" width="900" height="210">
+<defs>
+<filter id="fg" x="-100%" y="-100%" width="300%" height="300%">
+<feGaussianBlur stdDeviation="45"/>
+</filter>
+<filter id="fp" x="-100%" y="-100%" width="300%" height="300%">
+<feGaussianBlur stdDeviation="50"/>
+</filter>
+<filter id="fc" x="-100%" y="-100%" width="300%" height="300%">
+<feGaussianBlur stdDeviation="47"/>
+</filter>
+</defs>
+<style>
+/* lights pulse */
+.lg { animation: pulse 3.6s ease-in-out infinite; }
+.lp { animation: pulse 3.6s ease-in-out 1.2s infinite; }
+.lc { animation: pulse 3.6s ease-in-out 2.4s infinite; }
+@keyframes pulse {
+0%,60%,100% { opacity: .04; }
+28%          { opacity: .15; }
+}
+/* partículas descem, somem antes de chegar embaixo */
+.p { animation: fall linear infinite; will-change: transform, opacity; }
+@keyframes fall {
+0%   { transform: translateY(0);     opacity: 0; }
+8%   { opacity: .8; }
+65%  { opacity: .5; }
+100% { transform: translateY(200px); opacity: 0; }
+}
+</style>
+<rect width="900" height="210" fill="#111111"/>
+<ellipse class="lg" cx="180" cy="-50" rx="180" ry="100" fill="#C8F542" filter="url(#fg)" opacity=".04"/>
+<ellipse class="lp" cx="450" cy="-55" rx="200" ry="110" fill="#E187CA" filter="url(#fp)" opacity=".04"/>
+<ellipse class="lc" cx="720" cy="-50" rx="185" ry="105" fill="#4AF0C8" filter="url(#fc)" opacity=".04"/>
+<circle class="p" cx="75"  cy="5"  r="1.5" fill="#C8F542" style="animation-duration:6s;  animation-delay:0s"/>
+<circle class="p" cx="130" cy="12" r="1"   fill="#C8F542" style="animation-duration:8s;  animation-delay:1.5s"/>
+<circle class="p" cx="200" cy="3"  r="2"   fill="#C8F542" style="animation-duration:7s;  animation-delay:3s"/>
+<circle class="p" cx="55"  cy="8"  r="1.2" fill="#C8F542" style="animation-duration:9s;  animation-delay:5s"/>
+<circle class="p" cx="160" cy="1"  r="1.8" fill="#C8F542" style="animation-duration:7.5s;animation-delay:2s"/>
+<circle class="p" cx="390" cy="6"  r="1.5" fill="#E187CA" style="animation-duration:7s;  animation-delay:0.8s"/>
+<circle class="p" cx="450" cy="10" r="1"   fill="#E187CA" style="animation-duration:9s;  animation-delay:2.5s"/>
+<circle class="p" cx="510" cy="4"  r="2"   fill="#E187CA" style="animation-duration:6.5s;animation-delay:4s"/>
+<circle class="p" cx="420" cy="14" r="1.3" fill="#E187CA" style="animation-duration:8s;  animation-delay:6s"/>
+<circle class="p" cx="475" cy="2"  r="1.7" fill="#E187CA" style="animation-duration:7.2s;animation-delay:1s"/>
+<circle class="p" cx="650" cy="7"  r="1.5" fill="#4AF0C8" style="animation-duration:6.8s;animation-delay:0.4s"/>
+<circle class="p" cx="720" cy="11" r="1"   fill="#4AF0C8" style="animation-duration:8.5s;animation-delay:2s"/>
+<circle class="p" cx="790" cy="3"  r="2"   fill="#4AF0C8" style="animation-duration:7.3s;animation-delay:3.5s"/>
+<circle class="p" cx="690" cy="9"  r="1.2" fill="#4AF0C8" style="animation-duration:9.2s;animation-delay:5.5s"/>
+<circle class="p" cx="755" cy="5"  r="1.8" fill="#4AF0C8" style="animation-duration:7.8s;animation-delay:1.2s"/>
+</svg>

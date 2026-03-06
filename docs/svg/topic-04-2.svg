@@ -1,0 +1,44 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"><defs><style>
+@keyframes pulse{0%,100%{opacity:.03}50%{opacity:.12}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+@keyframes ripple{0%{r:34;opacity:.5}100%{r:180;opacity:0}}
+@keyframes ripple2{0%{r:34;opacity:.4}100%{r:180;opacity:0}}
+@keyframes ripple3{0%{r:34;opacity:.3}100%{r:180;opacity:0}}
+@keyframes p1{0%{offset-distance:0%;opacity:0}10%{opacity:1}80%{opacity:.6}100%{offset-distance:100%;opacity:0}}
+.pulse{animation:pulse 3s ease-in-out infinite}
+.blink{animation:blink 2.4s ease-in-out infinite}
+.rip1{animation:ripple  3s ease-out infinite 0s}
+.rip2{animation:ripple2 3s ease-out infinite 1s}
+.rip3{animation:ripple3 3s ease-out infinite 2s}
+.pa{offset-path:path("M200,200 L200,20");animation:p1 3.2s ease-out infinite 0s}
+.pb{offset-path:path("M200,200 L340,60");animation:p1 3.2s ease-out infinite 0.3s}
+.pc{offset-path:path("M200,200 L380,200");animation:p1 3.2s ease-out infinite 0.6s}
+.pd{offset-path:path("M200,200 L340,340");animation:p1 3.2s ease-out infinite 0.9s}
+.pe{offset-path:path("M200,200 L200,380");animation:p1 3.2s ease-out infinite 1.2s}
+.pf{offset-path:path("M200,200 L60,340");animation:p1 3.2s ease-out infinite 1.5s}
+.pg{offset-path:path("M200,200 L20,200");animation:p1 3.2s ease-out infinite 1.8s}
+.ph{offset-path:path("M200,200 L60,60");animation:p1 3.2s ease-out infinite 2.1s}
+</style></defs>
+
+<!-- Ripple waves -->
+<circle cx="200" cy="200" fill="none" stroke="#C8F542" stroke-width="0.6" class="rip1"/>
+<circle cx="200" cy="200" fill="none" stroke="#C8F542" stroke-width="0.6" class="rip2"/>
+<circle cx="200" cy="200" fill="none" stroke="#C8F542" stroke-width="0.6" class="rip3"/>
+
+<!-- Particles radiating outward in 8 directions -->
+<circle r="2.5" fill="#C8F542" class="pa"/>
+<circle r="2" fill="#C8F542" class="pb"/>
+<circle r="2.5" fill="#C8F542" class="pc"/>
+<circle r="2" fill="#C8F542" class="pd"/>
+<circle r="2.5" fill="#C8F542" class="pe"/>
+<circle r="2" fill="#C8F542" class="pf"/>
+<circle r="2.5" fill="#C8F542" class="pg"/>
+<circle r="2" fill="#C8F542" class="ph"/>
+
+<!-- Core glow -->
+<circle cx="200" cy="200" r="34" fill="none" stroke="#C8F542" stroke-width="22" class="pulse"/>
+<!-- Core ring -->
+<circle cx="200" cy="200" r="28" fill="none" stroke="#C8F542" stroke-width="0.8" opacity="0.8"/>
+<!-- Core dot -->
+<circle cx="200" cy="200" r="3" fill="#C8F542" class="blink"/>
+</svg>

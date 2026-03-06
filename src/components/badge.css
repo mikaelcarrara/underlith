@@ -1,0 +1,16 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--neutral-400);
+  border: 1px solid var(--neutral-700);
+  height: 10px;
+  line-height: 10px;
+}
+.badge-layer-01 { border-color: var(--layer-01); color: var(--layer-01); }
+.badge-layer-02 { border-color: var(--layer-02); color: var(--layer-02); }
+.badge-layer-03  { border-color: var(--layer-03); color: var(--layer-03); }

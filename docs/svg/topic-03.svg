@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 27 280 165" width="300" height="240">
+<defs>
+  <filter id="gs" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="8"/>
+  </filter>
+  <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05"/>
+  </linearGradient>
+  <linearGradient id="lg2" x1="1" y1="0" x2="0" y2="0">
+    <stop offset="0%" stop-color="#4AF0C8" stop-opacity="0.8"/>
+    <stop offset="100%" stop-color="#4AF0C8" stop-opacity="0.05"/>
+  </linearGradient>
+</defs>
+<style>
+  .t { font-family: 'Courier New', monospace; }
+
+  .nd { animation: nd-p 5s ease-in-out infinite; }
+  @keyframes nd-p { 0%,100%{opacity:0.3;} 40%{opacity:1;} }
+
+  .nc { animation: nc-p 5s ease-in-out 1.5s infinite; }
+  @keyframes nc-p { 0%,100%{opacity:0.3;} 40%{opacity:1;} }
+
+  /* dot left→right */
+  .dot-lr { animation: dot-lr 3s linear infinite; }
+  @keyframes dot-lr {
+    0%   { transform:translateX(0);    opacity:0; }
+    6%   { opacity:1; }
+    90%  { transform:translateX(110px); opacity:0.9; }
+    95%  { opacity:0; }
+    100% { opacity:0; }
+  }
+  /* dot right→left */
+  .dot-rl { animation: dot-rl 3s linear 1.5s infinite; }
+  @keyframes dot-rl {
+    0%   { transform:translateX(0);     opacity:0; }
+    6%   { opacity:1; }
+    90%  { transform:translateX(-110px); opacity:0.9; }
+    95%  { opacity:0; }
+    100% { opacity:0; }
+  }
+
+  /* card flash on dot arrival */
+  .flash-r { animation: fl-r 3s ease-in-out infinite; }
+  @keyframes fl-r { 0%,86%,100%{opacity:0;} 92%{opacity:0.14;} }
+  .flash-l { animation: fl-l 3s ease-in-out 1.5s infinite; }
+  @keyframes fl-l { 0%,86%,100%{opacity:0;} 92%{opacity:0.14;} }
+
+  /* wire pulse */
+  .wire-lr { animation: nd-p 5s ease-in-out infinite; }
+  .wire-rl { animation: nc-p 5s ease-in-out 1.5s infinite; }
+
+  .scan { animation: scan 7s linear infinite; }
+  @keyframes scan { 0%{transform:translateY(-130px);opacity:0;} 5%{opacity:0.07;} 95%{opacity:0.07;} 100%{transform:translateY(130px);opacity:0;} }
+</style>
+
+<rect class="scan" x="0" y="115" width="300" height="1" fill="#C8F542"/>
+
+<!-- ── LEFT CARD: design — white ── -->
+<g class="nd">
+  <rect x="22" y="55" width="90" height="110" rx="4" fill="none" stroke="#ffffff" stroke-width="0.9"/>
+  <rect x="34" y="68" width="66" height="44" rx="2" fill="none" stroke="#ffffff" stroke-width="0.6" opacity="0.4"/>
+  <rect x="40" y="74" width="20" height="14" rx="1" fill="#ffffff" opacity="0.12"/>
+  <rect x="63" y="74" width="28" height="6" rx="1" fill="#ffffff" opacity="0.06"/>
+  <rect x="63" y="83" width="20" height="5" rx="1" fill="#ffffff" opacity="0.04"/>
+  <rect x="40" y="92" width="50" height="3" rx="1" fill="#ffffff" opacity="0.07"/>
+  <rect x="40" y="98" width="38" height="3" rx="1" fill="#ffffff" opacity="0.05"/>
+  <rect x="40" y="104" width="44" height="3" rx="1" fill="#ffffff" opacity="0.06"/>
+  <text class="t" x="67" y="127" font-size="5.5" text-anchor="middle" fill="#ffffff" opacity="0.35">design</text>
+  <text class="t" x="67" y="139" font-size="6.5" text-anchor="middle" fill="#ffffff">Frame.fig</text>
+  <rect x="32" y="147" width="26" height="8" rx="1.5" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+  <text class="t" x="45" y="153" font-size="4.5" text-anchor="middle" fill="#ffffff" opacity="0.4">color</text>
+  <rect x="62" y="147" width="34" height="8" rx="1.5" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+  <text class="t" x="79" y="153" font-size="4.5" text-anchor="middle" fill="#ffffff" opacity="0.4">spacing</text>
+</g>
+
+<!-- flash on left card when dot arrives from right -->
+<rect class="flash-l" x="22" y="55" width="90" height="110" rx="4" fill="#C8F542" filter="url(#gs)" opacity="0"/>
+
+<!-- ── RIGHT CARD: code — cyan ── -->
+<g class="nc">
+  <rect x="188" y="55" width="90" height="110" rx="4" fill="none" stroke="#ffffff" stroke-width="0.9"/>
+  <text class="t" x="204" y="78" font-size="6.5" fill="#4AF0C8" opacity="0.4">&lt;div</text>
+  <text class="t" x="212" y="90" font-size="6.5" fill="#4AF0C8" opacity="0.3">class=</text>
+  <text class="t" x="212" y="102" font-size="6.5" fill="#4AF0C8" opacity="0.5">"btn"</text>
+  <text class="t" x="204" y="114" font-size="6.5" fill="#4AF0C8" opacity="0.4">&gt;</text>
+  <text class="t" x="233" y="129" font-size="5.5" text-anchor="middle" fill="#ffffff" opacity="0.35">code</text>
+  <text class="t" x="233" y="141" font-size="6.5" text-anchor="middle" fill="#ffffff">tokens.js</text>
+  <rect x="196" y="148" width="26" height="8" rx="1.5" fill="none" stroke="#C8F542" stroke-width="0.5" opacity="0.3"/>
+  <text class="t" x="209" y="154" font-size="4.5" text-anchor="middle" fill="#C8F542" opacity="0.4">color</text>
+  <rect x="226" y="148" width="34" height="8" rx="1.5" fill="none" stroke="#C8F542" stroke-width="0.5" opacity="0.3"/>
+  <text class="t" x="243" y="154" font-size="4.5" text-anchor="middle" fill="#C8F542" opacity="0.4">spacing</text>
+</g>
+
+<!-- flash on right card when dot arrives from left -->
+<rect class="flash-r" x="188" y="55" width="90" height="110" rx="4" fill="#C8F542" filter="url(#gs)" opacity="0"/>
+
+<!-- ── WIRES ── -->
+<g class="wire-lr">
+  <line x1="112" y1="103" x2="188" y2="103" stroke="url(#lg1)" stroke-width="0.7" fill="none" stroke-dasharray="3 3"/>
+</g>
+<g class="wire-rl">
+  <line x1="188" y1="112" x2="112" y2="112" stroke="url(#lg2)" stroke-width="0.7" fill="none" stroke-dasharray="3 3"/>
+</g>
+
+<!-- ── DOTS traveling left→right and right→left ── -->
+<circle class="dot-lr" cx="112" cy="103" r="2" fill="#C8F542" opacity="0"/>
+<circle class="dot-rl" cx="188" cy="112" r="2" fill="#C8F542" opacity="0"/>
+
+</svg>

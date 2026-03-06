@@ -1,0 +1,18 @@
+.tooltip { position: relative; display: inline-block; }
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + var(--space-2));
+  transform: translateX(-50%);
+  background: var(--neutral-800);
+  color: var(--neutral-0);
+  font-size: var(--font-size-xs);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-inout);
+}
+.tooltip:hover::after { opacity: 1; }

@@ -1,0 +1,3 @@
+.table { width: 100%; border-collapse: collapse; font-size: var(--font-size-sm); }
+.table th, .table td { padding: var(--space-3); border-bottom: var(--border-width) solid var(--border-color); }
+.table th { color: var(--neutral-200); font-weight: var(--font-weight-medium); }

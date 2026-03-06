@@ -1,0 +1,17 @@
+.content {
+  margin-bottom: var(--space-6);
+}
+
+.content h2 {
+  margin: 2.7rem 0 var(--space-5) 0;
+}
+
+.content h3 {
+  margin: 2.7rem 0 var(--space-5) 0;
+}
+
+.content p,
+.content li {
+  line-height: var(--line-height-relaxed);
+  color: var(--neutral-300);
+}

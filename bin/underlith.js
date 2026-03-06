@@ -8,20 +8,20 @@ const args = process.argv.slice(2);
 const command = args[0];
 
 if (!command) {
-    console.log('Usage: substrata <command>');
+    console.log('Usage: underlith <command>');
     console.log('Commands:');
-    console.log('  init      Initialize a new Substrata configuration');
+    console.log('  init      Initialize a new Underlith configuration');
     console.log('  generate  Generate tokens.json from source');
     process.exit(1);
 }
 
 if (command === 'init') {
-    console.log('Initializing Substrata...');
+    console.log('Initializing Underlith...');
     // For MVP, just creating a basic config file or verifying structure
-    const configPath = path.join(process.cwd(), 'substrata.config.js');
+    const configPath = path.join(process.cwd(), 'underlith.config.js');
 
     if (fs.existsSync(configPath)) {
-        console.log('⚠️  substrata.config.js already exists.');
+        console.log('⚠️  underlith.config.js already exists.');
     } else {
         const defaultConfig = `module.exports = {
   tokens: './src/tokens',
@@ -29,7 +29,7 @@ if (command === 'init') {
 };
 `;
         fs.writeFileSync(configPath, defaultConfig);
-        console.log('✅ Created substrata.config.js');
+        console.log('✅ Created underlith.config.js');
     }
 }
 

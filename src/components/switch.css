@@ -1,0 +1,32 @@
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  user-select: none;
+}
+.switch input {
+  appearance: none;
+  width: 40px;
+  height: 22px;
+  background: var(--neutral-600);
+  border-radius: 999px;
+  position: relative;
+  outline: none;
+  border: none;
+  transition: background var(--duration-fast) var(--ease-inout);
+}
+.switch input::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: var(--neutral-0);
+  border-radius: 50%;
+  transition: transform var(--duration-fast) var(--ease-inout);
+  box-shadow: var(--shadow-sm);
+}
+.switch input:checked { background: var(--brand-500); }
+.switch input:checked::before { transform: translateX(18px); }

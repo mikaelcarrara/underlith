@@ -1,0 +1,26 @@
+.pagination {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.pagination .page,
+.pagination .prev,
+.pagination .next {
+  min-width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--neutral-0);
+  background: var(--neutral-800);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+.pagination .active {
+  background: var(--brand-500);
+  color: var(--neutral-0);
+  border-color: var(--brand-500);
+}

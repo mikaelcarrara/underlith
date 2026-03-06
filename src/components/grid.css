@@ -1,0 +1,27 @@
+.grid {
+  --grid-gap: var(--space-6);
+  --columns: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+
+.grid-2 { --columns: 2; }
+.grid-2 { column-gap: calc(var(--grid-gap) * 3); }
+.grid-3 { --columns: 3; }
+.grid-4 { --columns: 4; }
+.grid-5 { --columns: 5; }
+
+@media (max-width: 1024px) {
+  .grid { --grid-gap: var(--space-4); }
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr !important; }
+}
+
+.grid img { width: 100%; height: auto; display: block; }
+
+.no-gap-cards {
+  gap: 0;
+}

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 240" width="300" height="240">
+<defs>
+  <filter id="glow-soft" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="8"/>
+  </filter>
+</defs>
+<style>
+  .s { stroke: #C8F542; fill: none; }
+  .f { fill: #C8F542; }
+  .t { fill: #C8F542; font-family: 'Courier New', monospace; }
+
+  .orb-glow { animation: breathe 4s ease-in-out infinite; }
+  @keyframes breathe {
+    0%,100% { opacity: 0.08; }
+    50%      { opacity: 0.2; }
+  }
+  .orb-ring { animation: breathe2 4s ease-in-out infinite; }
+  @keyframes breathe2 {
+    0%,100% { opacity: 0.5; }
+    50%      { opacity: 1; }
+  }
+
+  .orbit-inner { animation: spin 18s linear infinite; transform-origin: 150px 120px; }
+  .orbit-outer { animation: spin 26s linear infinite reverse; transform-origin: 150px 120px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .node { animation: node-blink 3s ease-in-out infinite; }
+  .n1 { animation-delay: 0s; }
+  .n2 { animation-delay: 0.7s; }
+  .n3 { animation-delay: 1.4s; }
+  .n4 { animation-delay: 2.1s; }
+  @keyframes node-blink {
+    0%,100% { opacity: 0.2; }
+    40%      { opacity: 1; }
+  }
+
+  .lock { animation: lock-pulse 2.5s ease-in-out infinite; }
+  @keyframes lock-pulse {
+    0%,100% { opacity: 0.5; }
+    50%      { opacity: 1; }
+  }
+
+  .scan { animation: scan 6s linear infinite; }
+  @keyframes scan {
+    0%   { transform: translateY(-130px); opacity: 0; }
+    5%   { opacity: 0.12; }
+    95%  { opacity: 0.12; }
+    100% { transform: translateY(130px); opacity: 0; }
+  }
+
+  .dot { animation: dot-fade 3s ease-in-out infinite; }
+  .d1 { animation-delay: 0s; }
+  .d2 { animation-delay: 1s; }
+  .d3 { animation-delay: 2s; }
+  @keyframes dot-fade {
+    0%,100% { opacity: 0; }
+    50%      { opacity: 0.8; }
+  }
+</style>
+
+<!-- scan line -->
+<rect class="scan" x="0" y="110" width="300" height="1.5" fill="#C8F542"/>
+
+<!-- orbit rings -->
+<circle class="s" cx="150" cy="120" r="72"  stroke-width="0.4" opacity="0.15"/>
+<circle class="s" cx="150" cy="120" r="98"  stroke-width="0.3" opacity="0.08"/>
+
+<!-- orb glow -->
+<circle class="orb-glow f" cx="150" cy="120" r="36" filter="url(#glow-soft)"/>
+
+<!-- orb ring -->
+<circle class="s orb-ring" cx="150" cy="120" r="34" stroke-width="0.9"/>
+<circle class="s" cx="150" cy="120" r="26" stroke-width="0.4" opacity="0.3" stroke-dasharray="3 5"/>
+
+<!-- lock -->
+<g class="lock" transform="translate(138,106)">
+  <rect class="s" x="0" y="7" width="22" height="16" rx="3" stroke-width="1.1"/>
+  <path class="s" d="M4 7 Q4 0 11 0 Q18 0 18 7" stroke-width="1.1"/>
+  <circle class="f" cx="11" cy="16" r="2.2"/>
+  <line x1="11" y1="18" x2="11" y2="21" stroke="#C8F542" stroke-width="1.1"/>
+</g>
+
+<!-- inner orbit: token boxes -->
+<g class="orbit-inner">
+  <g class="node n1" transform="translate(150,48)">
+    <rect class="s" x="-24" y="-10" width="48" height="20" rx="2" stroke-width="0.9"/>
+    <text class="t" x="0" y="4" font-size="7" text-anchor="middle">color.primary</text>
+  </g>
+  <g class="node n2" transform="translate(150,192)">
+    <rect class="s" x="-20" y="-10" width="40" height="20" rx="2" stroke-width="0.9"/>
+    <text class="t" x="0" y="4" font-size="7" text-anchor="middle">space.md</text>
+  </g>
+  <g class="node n3" transform="translate(78,120)">
+    <rect class="s" x="-22" y="-10" width="44" height="20" rx="2" stroke-width="0.9"/>
+    <text class="t" x="0" y="4" font-size="7" text-anchor="middle">radius.sm</text>
+  </g>
+  <g class="node n4" transform="translate(222,120)">
+    <rect class="s" x="-26" y="-10" width="52" height="20" rx="2" stroke-width="0.9"/>
+    <text class="t" x="0" y="4" font-size="7" text-anchor="middle">type.body-sm</text>
+  </g>
+</g>
+
+<!-- outer orbit: css var dots -->
+<g class="orbit-outer">
+  <circle class="s dot d1" cx="150" cy="22" r="3.5" stroke-width="0.8"/>
+  <circle class="s dot d2" cx="248" cy="70" r="3.5" stroke-width="0.8"/>
+  <circle class="s dot d3" cx="248" cy="170" r="3.5" stroke-width="0.8"/>
+  <circle class="s dot d1" cx="150" cy="218" r="3.5" stroke-width="0.8"/>
+  <circle class="s dot d2" cx="52"  cy="170" r="3.5" stroke-width="0.8"/>
+  <circle class="s dot d3" cx="52"  cy="70"  r="3.5" stroke-width="0.8"/>
+</g>
+
+</svg>

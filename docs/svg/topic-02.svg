@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 240" width="300" height="240">
+<defs>
+  <filter id="gc" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="10"/></filter>
+  <filter id="gs" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="7"/>
+  </filter>
+
+<linearGradient id="wg1" x1="124" y1="100" x2="44" y2="46" gradientUnits="userSpaceOnUse">
+  <stop offset="0%" stop-color="#4AF0C8" stop-opacity="1"/>
+  <stop offset="100%" stop-color="#4AF0C8" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="wg2" x1="124" y1="130" x2="44" y2="184" gradientUnits="userSpaceOnUse">
+  <stop offset="0%" stop-color="#4AF0C8" stop-opacity="1"/>
+  <stop offset="100%" stop-color="#4AF0C8" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="wg3" x1="176" y1="100" x2="256" y2="46" gradientUnits="userSpaceOnUse">
+  <stop offset="0%" stop-color="#E187CA" stop-opacity="1"/>
+  <stop offset="100%" stop-color="#E187CA" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="wg4" x1="176" y1="130" x2="256" y2="184" gradientUnits="userSpaceOnUse">
+  <stop offset="0%" stop-color="#E187CA" stop-opacity="1"/>
+  <stop offset="100%" stop-color="#E187CA" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<style>
+  .t { font-family: 'Courier New', monospace; }
+  .tok-glow { animation: breathe 3.5s ease-in-out infinite; }
+  @keyframes breathe { 0%,100%{opacity:0.08;} 50%{opacity:0.2;} }
+  .tok-ring { animation: tok-r 3.5s ease-in-out infinite; }
+  @keyframes tok-r { 0%,100%{opacity:0.45;} 50%{opacity:1;} }
+  .cn { animation: cn-b 4s ease-in-out infinite; }
+  .cn1 { animation-delay:0s; }
+  .cn2 { animation-delay:1.5s; }
+  @keyframes cn-b { 0%,100%{opacity:0.2;} 30%{opacity:1;} }
+  .pn { animation: pn-b 4s ease-in-out infinite; }
+  .pn1 { animation-delay:0.7s; }
+  .pn2 { animation-delay:2.2s; }
+  @keyframes pn-b { 0%,100%{opacity:0.2;} 30%{opacity:1;} }
+  .wc { stroke:#4AF0C8; fill:none; stroke-dasharray:4 4; animation:cn-b 4s ease-in-out infinite; }
+  .wc1 { animation-delay:0s; }
+  .wc2 { animation-delay:1.5s; }
+  .wp { stroke:#E187CA; fill:none; stroke-dasharray:4 4; animation:pn-b 4s ease-in-out infinite; }
+  .wp1 { animation-delay:0.7s; }
+  .wp2 { animation-delay:2.2s; }
+  .scan { animation:scan 7s linear infinite; }
+  @keyframes scan { 0%{transform:translateY(-130px);opacity:0;} 5%{opacity:0.08;} 95%{opacity:0.08;} 100%{transform:translateY(130px);opacity:0;} }
+</style>
+
+<rect class="scan" x="0" y="115" width="300" height="1.5" fill="#C8F542"/>
+
+<!-- center token -->
+<circle class="tok-glow" cx="150" cy="115" r="30" fill="#C8F542" filter="url(#gs)"/>
+<circle class="tok-ring" cx="150" cy="115" r="28" fill="none" stroke="#C8F542" stroke-width="1"/>
+<circle cx="150" cy="115" r="20" fill="none" stroke="#C8F542" stroke-width="0.4" opacity="0.3" stroke-dasharray="2 4"/>
+<text class="t" x="150" y="111" font-size="7" text-anchor="middle" fill="#C8F542">color.</text>
+<text class="t" x="150" y="121" font-size="7" text-anchor="middle" fill="#C8F542">primary</text>
+
+<!-- wires -->
+<g class="wc wc1"><line x1="124" y1="100" x2="44" y2="46" stroke="url(#wg1)" stroke-width="0.75" fill="none" stroke-dasharray="4 4"/></g>
+<g class="wc wc2"><line x1="124" y1="130" x2="44" y2="184" stroke="url(#wg2)" stroke-width="0.75" fill="none" stroke-dasharray="4 4"/></g>
+<g class="wp wp1"><line x1="176" y1="100" x2="256" y2="46" stroke="url(#wg3)" stroke-width="0.75" fill="none" stroke-dasharray="4 4"/></g>
+<g class="wp wp2"><line x1="176" y1="130" x2="256" y2="184" stroke="url(#wg4)" stroke-width="0.75" fill="none" stroke-dasharray="4 4"/></g>
+
+<!-- glow Button -->
+<circle cx="40" cy="45" r="30" fill="#C8F542" filter="url(#gc)" opacity="0">
+  <animate attributeName="opacity" values="0;0;0.12;0" keyTimes="0;0.88;0.95;1" dur="2.5s" begin="0s" repeatCount="indefinite"/>
+</circle>
+<!-- glow Card -->
+<circle cx="40" cy="195" r="30" fill="#C8F542" filter="url(#gc)" opacity="0">
+  <animate attributeName="opacity" values="0;0;0.12;0" keyTimes="0;0.88;0.95;1" dur="2.5s" begin="1.5s" repeatCount="indefinite"/>
+</circle>
+<!-- glow h1 -->
+<circle cx="260" cy="45" r="30" fill="#C8F542" filter="url(#gc)" opacity="0">
+  <animate attributeName="opacity" values="0;0;0.12;0" keyTimes="0;0.88;0.95;1" dur="2.5s" begin="0.7s" repeatCount="indefinite"/>
+</circle>
+<!-- glow h2 -->
+<circle cx="260" cy="195" r="30" fill="#C8F542" filter="url(#gc)" opacity="0">
+  <animate attributeName="opacity" values="0;0;0.12;0" keyTimes="0;0.88;0.95;1" dur="2.5s" begin="2.2s" repeatCount="indefinite"/>
+</circle>
+
+<!-- SASS -->
+<g class="cn cn1">
+  <rect x="4" y="22" width="72" height="46" rx="3" fill="none" stroke="#4AF0C8" stroke-width="0.9"/>
+  <text class="t" x="40" y="39" font-size="6" text-anchor="middle" fill="#4AF0C8" opacity="0.5">Components</text>
+  <text class="t" x="40" y="52" font-size="8.5" text-anchor="middle" fill="#4AF0C8">&lt;Button /&gt;</text>
+</g>
+
+<!-- CSS-in-JS -->
+<g class="cn cn2">
+  <rect x="4" y="172" width="72" height="46" rx="3" fill="none" stroke="#4AF0C8" stroke-width="0.9"/>
+  <text class="t" x="40" y="189" font-size="6" text-anchor="middle" fill="#4AF0C8" opacity="0.5">Components</text>
+  <text class="t" x="40" y="202" font-size="8.5" text-anchor="middle" fill="#4AF0C8">&lt;Card /&gt;</text>
+</g>
+
+<!-- h1 -->
+<g class="pn pn1">
+  <rect x="224" y="22" width="72" height="46" rx="3" fill="none" stroke="#E187CA" stroke-width="0.9"/>
+  <text class="t" x="260" y="39" font-size="6" text-anchor="middle" fill="#E187CA" opacity="0.5">base styles</text>
+  <text class="t" x="260" y="52" font-size="13" text-anchor="middle" fill="#E187CA" font-weight="bold">h1</text>
+</g>
+
+<!-- h2 -->
+<g class="pn pn2">
+  <rect x="224" y="172" width="72" height="46" rx="3" fill="none" stroke="#E187CA" stroke-width="0.9"/>
+  <text class="t" x="260" y="189" font-size="6" text-anchor="middle" fill="#E187CA" opacity="0.5">base styles</text>
+  <text class="t" x="260" y="202" font-size="11" text-anchor="middle" fill="#E187CA" font-weight="bold">h2</text>
+</g>
+
+<!-- dots cyan -->
+<circle r="2" fill="#C8F542" opacity="0">
+  <animateMotion dur="2.5s" repeatCount="indefinite" begin="0s"><mpath href="#wp1"/></animateMotion>
+  <animate attributeName="opacity" values="0;1;0.8;0" keyTimes="0;0.08;0.9;1" dur="2.5s" begin="0s" repeatCount="indefinite"/>
+</circle>
+<circle r="2" fill="#C8F542" opacity="0">
+  <animateMotion dur="2.5s" repeatCount="indefinite" begin="1.5s"><mpath href="#wp2"/></animateMotion>
+  <animate attributeName="opacity" values="0;1;0.8;0" keyTimes="0;0.08;0.9;1" dur="2.5s" begin="1.5s" repeatCount="indefinite"/>
+</circle>
+
+<!-- dots pink -->
+<circle r="2" fill="#C8F542" opacity="0">
+  <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.7s"><mpath href="#wp3"/></animateMotion>
+  <animate attributeName="opacity" values="0;1;0.8;0" keyTimes="0;0.08;0.9;1" dur="2.5s" begin="0.7s" repeatCount="indefinite"/>
+</circle>
+<circle r="2" fill="#C8F542" opacity="0">
+  <animateMotion dur="2.5s" repeatCount="indefinite" begin="2.2s"><mpath href="#wp4"/></animateMotion>
+  <animate attributeName="opacity" values="0;1;0.8;0" keyTimes="0;0.08;0.9;1" dur="2.5s" begin="2.2s" repeatCount="indefinite"/>
+</circle>
+
+<path id="wp1" d="M124,100 L44,46" fill="none"/>
+<path id="wp2" d="M124,130 L44,184" fill="none"/>
+<path id="wp3" d="M176,100 L256,46" fill="none"/>
+<path id="wp4" d="M176,130 L256,184" fill="none"/>
+
+</svg>

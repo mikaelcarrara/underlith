@@ -1,0 +1,31 @@
+.card {
+  background: var(--neutral-800);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+
+.card .banner {
+  width: 100%;
+  min-height: 100px;
+  border-radius: var(--radius-md);
+  background: var(--neutral-700);
+  margin-bottom: var(--space-5);
+}
+.card .banner img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.card h3,
+.card h4  {
+  margin: 0 0 var(--space-2);
+}
+
+.card p {
+  margin: 0;
+}
+
+.card .badge {
+  margin: var(--space-1) 0 var(--space-5) 0;
+}

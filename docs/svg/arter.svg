@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="55 45 450 415" width="450" height="415">
+  <defs>
+    <style>
+      @keyframes drop {
+        from { opacity:0; transform:translateY(-60px); }
+        to   { opacity:1; transform:translateY(0); }
+      }
+      .layer-lime { animation: drop 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s both; }
+      .layer-pink { animation: drop 0.7s cubic-bezier(0.22,1,0.36,1) 0.8s both; }
+      .layer-cyan { animation: drop 0.7s cubic-bezier(0.22,1,0.36,1) 1.5s both; }
+
+      @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+      @keyframes pulse  { 0%,100%{opacity:0.45} 50%{opacity:1} }
+
+      .tk1 { opacity:0; animation: fadeIn 0.4s ease 0.55s forwards, pulse 2.8s ease-in-out 1.4s infinite; }
+      .tk2 { opacity:0; animation: fadeIn 0.4s ease 0.70s forwards, pulse 2.8s ease-in-out 1.7s infinite; }
+      .tk3 { opacity:0; animation: fadeIn 0.4s ease 0.85s forwards, pulse 2.8s ease-in-out 2.0s infinite; }
+      .tk4 { opacity:0; animation: fadeIn 0.4s ease 1.00s forwards, pulse 2.8s ease-in-out 2.3s infinite; }
+
+      .mk1 { opacity:0; animation: fadeIn 0.4s ease 1.25s forwards, pulse 2.8s ease-in-out 2.0s infinite; }
+      .mk2 { opacity:0; animation: fadeIn 0.4s ease 1.40s forwards, pulse 2.8s ease-in-out 2.3s infinite; }
+      .mk3 { opacity:0; animation: fadeIn 0.4s ease 1.55s forwards, pulse 2.8s ease-in-out 2.6s infinite; }
+
+      .ck1 { opacity:0; animation: fadeIn 0.4s ease 1.95s forwards, pulse 2.8s ease-in-out 2.6s infinite; }
+      .ck2 { opacity:0; animation: fadeIn 0.4s ease 2.10s forwards, pulse 2.8s ease-in-out 2.9s infinite; }
+      .ck3 { opacity:0; animation: fadeIn 0.4s ease 2.25s forwards, pulse 2.8s ease-in-out 3.2s infinite; }
+
+      @keyframes beamRise {
+        0%   { opacity:0;    transform:translateY(0); }
+        15%  { opacity:0.25; }
+        70%  { opacity:0.07; transform:translateY(-190px); }
+        100% { opacity:0;    transform:translateY(-250px); }
+      }
+      .glow-beam {
+        opacity:0;
+        transform-origin: 280px 365px;
+        animation: beamRise 3s ease-out 2.4s infinite;
+      }
+
+      @keyframes pUp {
+        0%   { opacity:0;   transform:translateY(0); }
+        10%  { opacity:0.9; }
+        85%  { opacity:0.3; }
+        100% { opacity:0;   transform:translateY(-290px); }
+      }
+      .p { opacity:0; animation: pUp linear infinite; }
+      .p1  { animation-duration:2.4s; animation-delay:2.5s; }
+      .p2  { animation-duration:2.9s; animation-delay:2.9s; }
+      .p3  { animation-duration:2.2s; animation-delay:3.2s; }
+      .p4  { animation-duration:2.7s; animation-delay:2.7s; }
+      .p5  { animation-duration:2.5s; animation-delay:3.0s; }
+      .p6  { animation-duration:2.1s; animation-delay:3.5s; }
+      .p7  { animation-duration:3.1s; animation-delay:2.6s; }
+      .p8  { animation-duration:2.3s; animation-delay:3.8s; }
+      .p9  { animation-duration:2.8s; animation-delay:4.1s; }
+      .p10 { animation-duration:2.6s; animation-delay:3.3s; }
+    </style>
+
+    <clipPath id="clip-lime">
+      <path fill-rule="evenodd" d="M0,0 H560 V520 H0 Z M280,165 L500,255 L280,345 L60,255 Z"/>
+    </clipPath>
+    <clipPath id="clip-pink">
+      <path fill-rule="evenodd" d="M0,0 H560 V520 H0 Z M280,55 L500,145 L280,235 L60,145 Z"/>
+    </clipPath>
+    <clipPath id="clip-tower">
+      <rect x="60" y="55" width="440" height="420"/>
+    </clipPath>
+    <clipPath id="clip-lime-inside">
+      <polygon points="280,275 500,365 280,455 60,365"/>
+    </clipPath>
+    <clipPath id="clip-pink-inside">
+      <polygon points="280,165 500,255 280,345 60,255"/>
+    </clipPath>
+    <clipPath id="clip-cyan-inside">
+      <polygon points="280,55 500,145 280,235 60,145"/>
+    </clipPath>
+
+    <radialGradient id="glow-grad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#c8f030" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#c8f030" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- LIME layer -->
+  <polygon class="layer-lime"
+    clip-path="url(#clip-lime)"
+    points="280,275 500,365 280,455 60,365"
+    fill="none" stroke="#c8f030" stroke-width="5" stroke-linejoin="miter"/>
+
+  <g class="tk1" clip-path="url(#clip-lime-inside)">
+    <line x1="60"  y1="365" x2="500" y2="365" stroke="#c8f030" stroke-width="1" opacity="0.3"/>
+    <line x1="280" y1="275" x2="280" y2="455" stroke="#c8f030" stroke-width="1" opacity="0.3"/>
+  </g>
+
+  <text class="tk1" clip-path="url(#clip-lime-inside)"
+    x="280" y="316" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700"
+    fill="#c8f030" text-anchor="middle">color</text>
+  <text class="tk2" clip-path="url(#clip-lime-inside)"
+    x="390" y="369" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700"
+    fill="#c8f030" text-anchor="middle">spacing</text>
+  <text class="tk3" clip-path="url(#clip-lime-inside)"
+    x="280" y="422" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700"
+    fill="#c8f030" text-anchor="middle">radius</text>
+  <text class="tk4" clip-path="url(#clip-lime-inside)"
+    x="170" y="369" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700"
+    fill="#c8f030" text-anchor="middle">typo</text>
+
+  <!-- PINK layer -->
+  <polygon class="layer-pink"
+    clip-path="url(#clip-pink)"
+    points="280,165 500,255 280,345 60,255"
+    fill="none" stroke="#e87dd0" stroke-width="5" stroke-linejoin="miter"/>
+
+  <g class="mk1" clip-path="url(#clip-pink-inside)">
+    <line x1="60"  y1="255" x2="500" y2="255" stroke="#e87dd0" stroke-width="1" opacity="0.3"/>
+    <line x1="280" y1="165" x2="280" y2="345" stroke="#e87dd0" stroke-width="1" opacity="0.3"/>
+  </g>
+
+  <!-- Pink center: (280,255). Quadrants: top(280,205) right(393,255) bottom(280,305) left(167,255) -->
+  <!-- top: h1, left: p, right: li, bottom: empty -->
+  <text class="mk1" clip-path="url(#clip-pink-inside)"
+    x="280" y="206" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700"
+    fill="#e87dd0" text-anchor="middle">h1</text>
+  <text class="mk2" clip-path="url(#clip-pink-inside)"
+    x="170" y="259" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700"
+    fill="#e87dd0" text-anchor="middle">p</text>
+  <text class="mk3" clip-path="url(#clip-pink-inside)"
+    x="390" y="259" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700"
+    fill="#e87dd0" text-anchor="middle">li</text>
+
+  <!-- CYAN layer -->
+  <polygon class="layer-cyan"
+    points="280,55 500,145 280,235 60,145"
+    fill="none" stroke="#3ef5d0" stroke-width="5" stroke-linejoin="miter"/>
+
+  <g class="ck1" clip-path="url(#clip-cyan-inside)">
+    <line x1="60"  y1="145" x2="500" y2="145" stroke="#3ef5d0" stroke-width="1" opacity="0.3"/>
+    <line x1="280" y1="55"  x2="280" y2="235" stroke="#3ef5d0" stroke-width="1" opacity="0.3"/>
+  </g>
+
+  <!-- Cyan center: (280,145). Quadrants: top(280,97) right(393,145) bottom(280,193) left(167,145) -->
+  <!-- top: Button, left: Input, right: Card, bottom: empty -->
+  <text class="ck1" clip-path="url(#clip-cyan-inside)"
+    x="280" y="98" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700"
+    fill="#3ef5d0" text-anchor="middle">Button</text>
+  <text class="ck2" clip-path="url(#clip-cyan-inside)"
+    x="170" y="149" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700"
+    fill="#3ef5d0" text-anchor="middle">Input</text>
+  <text class="ck3" clip-path="url(#clip-cyan-inside)"
+    x="390" y="149" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700"
+    fill="#3ef5d0" text-anchor="middle">Card</text>
+
+  <!-- GLOW BEAM -->
+  <ellipse class="glow-beam"
+    cx="280" cy="365" rx="160" ry="80"
+    fill="url(#glow-grad)"/>
+
+  <!-- PARTICLES -->
+  <g clip-path="url(#clip-tower)">
+    <circle class="p p1"  cx="230" cy="365" r="2"   fill="#c8f030"/>
+    <circle class="p p2"  cx="255" cy="372" r="1.5" fill="#c8f030"/>
+    <circle class="p p3"  cx="280" cy="363" r="2.5" fill="#c8f030"/>
+    <circle class="p p4"  cx="305" cy="372" r="1.5" fill="#c8f030"/>
+    <circle class="p p5"  cx="330" cy="365" r="2"   fill="#c8f030"/>
+    <circle class="p p6"  cx="265" cy="376" r="1.5" fill="#c8f030"/>
+    <circle class="p p7"  cx="295" cy="376" r="2"   fill="#c8f030"/>
+    <circle class="p p8"  cx="245" cy="368" r="1"   fill="#c8f030"/>
+    <circle class="p p9"  cx="315" cy="361" r="1.5" fill="#c8f030"/>
+    <circle class="p p10" cx="280" cy="380" r="2"   fill="#c8f030"/>
+  </g>
+</svg>

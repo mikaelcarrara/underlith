@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 210" width="900" height="210">
+  <defs>
+    <filter id="f-green" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="45"/>
+    </filter>
+    <filter id="f-pink" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="50"/>
+    </filter>
+    <filter id="f-cyan" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="47"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="210" fill="#111111"/>
+
+  <!-- GREEN — esquerda, bem espalhado -->
+  <ellipse cx="180" cy="260" rx="180" ry="100" fill="#C8F542" filter="url(#f-green)" opacity="0.04">
+    <animate attributeName="opacity"
+      values="0.04;0.14;0.04;0.04"
+      keyTimes="0;0.28;0.6;1"
+      dur="3.6s" begin="0s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- PINK — centro, sobrepondo ambos -->
+  <ellipse cx="450" cy="255" rx="200" ry="110" fill="#E187CA" filter="url(#f-pink)" opacity="0.04">
+    <animate attributeName="opacity"
+      values="0.04;0.14;0.04;0.04"
+      keyTimes="0;0.28;0.6;1"
+      dur="3.6s" begin="1.2s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- CYAN — direita, bem espalhado -->
+  <ellipse cx="720" cy="260" rx="185" ry="105" fill="#4AF0C8" filter="url(#f-cyan)" opacity="0.04">
+    <animate attributeName="opacity"
+      values="0.04;0.14;0.04;0.04"
+      keyTimes="0;0.28;0.6;1"
+      dur="3.6s" begin="2.4s" repeatCount="indefinite"/>
+  </ellipse>
+
+</svg>

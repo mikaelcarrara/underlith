@@ -2,7 +2,7 @@
    Responsive
    ============================== */
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   body {
     overflow-x: hidden;
     padding-top: 0;
@@ -39,19 +39,19 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background: var(--neutral-100);
+    background: var(--neutral-900);
     flex-direction: column;
     padding: var(--space-4) 0;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     z-index: 100;
-    border-top: 1px solid var(--neutral-200);
+    border-top: 1px solid var(--neutral-800);
   }
 
   header ul li {
     margin-left: 0;
     padding: 0 var(--space-5);
     line-height: 40px;
-    border-bottom: 1px solid var(--neutral-200);
+    border-bottom: 1px solid var(--neutral-800);
     width: 100%;
     box-sizing: border-box;
   }
@@ -77,40 +77,10 @@
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  main {
-    max-width: 100%;
-    padding-left: var(--space-5);
-    padding-right: var(--space-5);
+  .heading {
+    padding-top: 20px;
   }
-
-  .grid {
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-
-  .grid>div {
-    width: 100% !important;
-  }
-
-  ul.grid {
-    display: flex;
-    flex-direction: column;
-  }
-
-  ul.grid>li {
-    width: 100%;
-    margin-bottom: var(--space-4);
-  }
-
-  .features-list {
-    flex-direction: column;
-    gap: var(--space-1);
-  }
-
-  .features-list li {
-    width: 100% !important;
-  }
-
+  
   .main-banner h2 {
     font-size: 1.8rem;
   }

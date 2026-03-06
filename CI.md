@@ -1,15 +1,15 @@
 # CI & Automation
 
-This document defines how **CI, automation, and AI-assisted workflows** interact with Substrata as a **canonical design token system**.
+This document defines how **CI, automation, and AI-assisted workflows** interact with Underlith as a **canonical design token system**.
 
-Substrata is designed to operate as a **stable, machine-readable design layer** that enables:
+Underlith is designed to operate as a **stable, machine-readable design layer** that enables:
 - deterministic CI validation
 - safe automation
 - AI-assisted UI generation and refactoring
 
 Tokens act as **hard constraints**, not suggestions.
 
-## Role of CI in Substrata
+## Role of CI in Underlith
 
 CI is responsible for enforcing governance rules automatically.
 
@@ -37,9 +37,9 @@ CI is **not optional** and **cannot be bypassed**.
 - Source code from consumer projects (for validation)
 
 ### Outputs
-- `substrata.css` — CSS Custom Properties
-- `substrata.json` — token data for tools and agents
-- `substrata.d.ts` — TypeScript types
+- `underlith.css` — CSS Custom Properties
+- `underlith.json` — token data for tools and agents (optional, when generated)
+- `underlith.d.ts` — TypeScript types (optional, when generated)
 - CI reports (lint, breaking changes, audits)
 
 ## Required CI jobs
@@ -52,9 +52,9 @@ Generate all distributable artifacts from the canonical token source.
 **Responsibilities**
 - Read canonical token definitions
 - Generate:
-  - `substrata.css`
-  - `substrata.json`
-  - `substrata.d.ts`
+  - `underlith.css`
+  - `underlith.json`
+  - `underlith.d.ts`
 - Ensure deterministic output
 
 **Failure conditions**
@@ -73,6 +73,7 @@ Validate the structural and semantic correctness of tokens.
 - Alias resolution
 - Deprecated token usage
 - Token type consistency
+- Motion policy compliance (e.g., ease/duration naming)
 
 **Failure conditions**
 - Invalid schema
@@ -105,6 +106,7 @@ Prevent hardcoded design values from entering codebases.
 - Detect raw colors, spacing, font sizes, radii
 - Compare against allowed token whitelist
 - Report violations with suggested replacements
+- Detect raw durations or cubic-bezier values; suggest `--duration-*` and `--ease-*`
 
 **Use cases**
 - PR validation
@@ -152,8 +154,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: npm ci
-      - run: npm run build:tokens
-      - run: npm run lint:tokens
+      - run: npm run build:tokens        # generates CSS/JSON/TS as configured
+      - run: npm run lint:tokens         # schema + governance checks
 
   breaking-changes:
     runs-on: ubuntu-latest
@@ -169,7 +171,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: npm run lint:tokens-check
 
-  visual-regression:
+      - run: npm run lint:tokens-check   # token-aware static analysis (no hardcoded values)
     runs-on: ubuntu-latest
     if: needs.breaking-changes.result == 'success'
     steps:
@@ -179,7 +181,9 @@ jobs:
 
 ## AI-assisted workflows
 
-Substrata is designed to be safely consumed by AI and automation systems.
+## AI-assisted workflows
+
+Underlith is designed to be safely consumed by AI and automation systems.
 
 Tokens are:
 

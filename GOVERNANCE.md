@@ -1,7 +1,7 @@
 # Token Governance
 
 **Executive summary**  
-This document defines policies, responsibilities, and procedures to ensure Substrata operates as the **Single Source of Truth** for visual design decisions. It includes principles, change processes, recommended CI jobs, practical templates, and success metrics. Copy this content to `Governance.md` in the canonical repository.
+This document defines policies, responsibilities, and procedures to ensure Underlith operates as the **Single Source of Truth** for visual design decisions. It includes principles, change processes, recommended CI jobs, practical templates, and success metrics. Copy this content to `Governance.md` in the canonical repository.
 
 ---
 
@@ -34,17 +34,48 @@ This document defines policies, responsibilities, and procedures to ensure Subst
 1. **Open a PR** with description, category, and assigned owner.  
 2. **Run automated validations** (schema validation, breaking-change detection, token-aware lint).  
 3. **Review and approval** by category owners and the design team when applicable.  
-4. **Merge and release**: publish artifacts `substrata.css`, `substrata.json`, `substrata.d.ts`.  
+4. **Merge and release**: publish artifacts `underlith.css`, `underlith.json`, `underlith.d.ts`.  
 5. **Deprecation**: mark tokens as `deprecated` in files and changelog; maintain compatibility for **at least two releases** before removal.
 
 ---
 
 ## Release artifacts
 
-- **substrata.css** — tokens as CSS Custom Properties  
-- **substrata.json** — tokens in JSON for tools and agents  
-- **substrata.d.ts** — TypeScript declaration files for app consumption  
+- **underlith.css** — tokens as CSS Custom Properties  
+- **underlith.json** — tokens in JSON for tools and agents (optional, when generated)  
+- **underlith.d.ts** — TypeScript declaration files for app consumption (optional)  
 - **CHANGELOG.md** — change history and deprecation instructions
+
+---
+
+## Accessibility and Motion policy
+
+- All transitions and animations must use `--duration-*` and `--ease-*` variables.
+- Prefer composite motion tokens (e.g., `--motion-skeleton`) when available.
+- Motion must not be required for core functionality.
+- Respect `prefers-reduced-motion: reduce` by collapsing durations to near-zero and limiting iterations.
+
+Example reference implemented in `src/tokens/motion.css`:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-nano: 0ms;
+    --duration-micro: 0ms;
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-moderate: 0ms;
+    --duration-slow: 0ms;
+    --duration-glacial: 0ms;
+    --duration-epic: 0ms;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
 
 ---
 
@@ -76,7 +107,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: npm ci
-      - run: npm run build:tokens # generates substrata.css, substrata.json, substrata.d.ts
+      - run: npm run build:tokens # generates underlith.css, underlith.json, underlith.d.ts
       - run: npm run test:tokens  # validates schema and breaking changes
 
   validate-code:

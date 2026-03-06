@@ -1,0 +1,33 @@
+.skeleton {
+  width: 100%;
+  height: 16px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, var(--neutral-700), var(--neutral-600), var(--neutral-700));
+  background-size: 200% 100%;
+  animation: var(--motion-skeleton);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton--mix::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--neutral-600), var(--neutral-500));
+  transform-origin: left;
+  animation: var(--motion-skeleton-fill);
+}
+
+.skeleton--fill-only {
+  background: var(--neutral-700);
+  background-size: 100% 100%;
+  animation: none;
+}
+.skeleton--fill-only::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--neutral-600), var(--neutral-500));
+  transform-origin: left;
+  animation: var(--motion-skeleton-fill);
+}

@@ -1,0 +1,36 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"><defs><style>@keyframes pulse-ring{0%,100%{opacity:.04}50%{opacity:.14}}@keyframes blink{0%,100%{opacity:.9}50%{opacity:.25}}@keyframes dot-out{0%{offset-distance:0%;opacity:0}8%{opacity:1}92%{opacity:1}100%{offset-distance:100%;opacity:0}}.pulse-circle{animation:pulse-ring 3s ease-in-out infinite}.blink{animation:blink 2.4s ease-in-out infinite}.dot-tl{offset-path:path("M172,172 L84,84");animation:dot-out 3s linear infinite}.dot-tr{offset-path:path("M228,172 L316,84");animation:dot-out 3s linear infinite 0.75s}.dot-bl{offset-path:path("M172,228 L84,316");animation:dot-out 3s linear infinite 1.5s}.dot-br{offset-path:path("M228,228 L316,316");animation:dot-out 3s linear infinite 2.25s}</style><linearGradient id="g-tl" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#C8F542" stop-opacity="0"/><stop offset="20%" stop-color="#C8F542" stop-opacity="0.35"/><stop offset="80%" stop-color="#C8F542" stop-opacity="0.35"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0"/></linearGradient><linearGradient id="g-tr" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#C8F542" stop-opacity="0"/><stop offset="20%" stop-color="#C8F542" stop-opacity="0.35"/><stop offset="80%" stop-color="#C8F542" stop-opacity="0.35"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0"/></linearGradient><linearGradient id="g-bl" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#C8F542" stop-opacity="0"/><stop offset="20%" stop-color="#C8F542" stop-opacity="0.35"/><stop offset="80%" stop-color="#C8F542" stop-opacity="0.35"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0"/></linearGradient><linearGradient id="g-br" x1="100%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#C8F542" stop-opacity="0"/><stop offset="20%" stop-color="#C8F542" stop-opacity="0.35"/><stop offset="80%" stop-color="#C8F542" stop-opacity="0.35"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0"/></linearGradient></defs>
+<!-- Center glow + circle -->
+<circle cx="200" cy="200" r="34" fill="none" stroke="#C8F542" stroke-width="18" class="pulse-circle"/>
+<circle cx="200" cy="200" r="28" fill="none" stroke="#C8F542" stroke-width="0.8" opacity="0.7"/>
+<!-- Lines: from circle edge (±28*cos45≈20) to card center (±116) -->
+<line x1="172" y1="172" x2="84" y2="84" stroke="url(#g-tl)" stroke-width="0.7" stroke-dasharray="3 5"/>
+<line x1="228" y1="172" x2="316" y2="84" stroke="url(#g-tr)" stroke-width="0.7" stroke-dasharray="3 5"/>
+<line x1="172" y1="228" x2="84" y2="316" stroke="url(#g-bl)" stroke-width="0.7" stroke-dasharray="3 5"/>
+<line x1="228" y1="228" x2="316" y2="316" stroke="url(#g-br)" stroke-width="0.7" stroke-dasharray="3 5"/>
+<!-- Traveling dots -->
+<circle r="3" fill="#C8F542" class="dot-tl"/>
+<circle r="3" fill="#C8F542" class="dot-tr"/>
+<circle r="3" fill="#C8F542" class="dot-bl"/>
+<circle r="3" fill="#C8F542" class="dot-br"/>
+<!-- Cards centered at (84,84) (316,84) (84,316) (316,316) — each 80x52 -->
+<!-- top-left (cyan) center=84,84 → rect x=44,y=58 -->
+<rect x="44" y="58" width="80" height="52" rx="4" fill="none" stroke="#00e5cc" stroke-width="0.8" opacity="0.5"/>
+<text x="84" y="78" text-anchor="middle" font-family="monospace" font-size="7" fill="#00e5cc" opacity="0.5">Components</text>
+<text x="84" y="100" text-anchor="middle" font-family="monospace" font-size="10" fill="#00e5cc">&lt;Button /&gt;</text>
+<!-- top-right (pink) center=316,84 → rect x=276,y=58 -->
+<rect x="276" y="58" width="80" height="52" rx="4" fill="none" stroke="#E187CA" stroke-width="0.8" opacity="0.5"/>
+<text x="316" y="78" text-anchor="middle" font-family="monospace" font-size="7" fill="#E187CA" opacity="0.5">base styles</text>
+<text x="316" y="100" text-anchor="middle" font-family="monospace" font-size="18" fill="#E187CA" font-weight="bold">h1</text>
+<!-- bottom-left (cyan) center=84,316 → rect x=44,y=290 -->
+<rect x="44" y="290" width="80" height="52" rx="4" fill="none" stroke="#00e5cc" stroke-width="0.8" opacity="0.5"/>
+<text x="84" y="310" text-anchor="middle" font-family="monospace" font-size="7" fill="#00e5cc" opacity="0.5">Components</text>
+<text x="84" y="332" text-anchor="middle" font-family="monospace" font-size="10" fill="#00e5cc">&lt;Card /&gt;</text>
+<!-- bottom-right (pink) center=316,316 → rect x=276,y=290 -->
+<rect x="276" y="290" width="80" height="52" rx="4" fill="none" stroke="#E187CA" stroke-width="0.8" opacity="0.5"/>
+<text x="316" y="310" text-anchor="middle" font-family="monospace" font-size="7" fill="#E187CA" opacity="0.5">base styles</text>
+<text x="316" y="332" text-anchor="middle" font-family="monospace" font-size="18" fill="#E187CA" font-weight="bold">h2</text>
+<!-- Center label -->
+<text x="200" y="196" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#C8F542">--color</text>
+<text x="200" y="208" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#C8F542">-primary</text>
+<circle cx="200" cy="200" r="1.5" fill="#C8F542" class="blink"/>
+</svg>

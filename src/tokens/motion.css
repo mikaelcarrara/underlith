@@ -1,11 +1,268 @@
 :root {
+  --duration-nano: 80ms;
+  --duration-micro: 120ms;
+  --duration-fast: 180ms;
+  --duration-base: 250ms;
+  --duration-moderate: 350ms;
+  --duration-slow: 500ms;
+  --duration-glacial: 900ms;
+  --duration-epic: 1400ms;
 
-  /* ============================== 
-    Motion
-  ============================== */
+  --ease-linear: cubic-bezier(0, 0, 1, 1);
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ease-enter-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-enter-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ease-exit-sharp: cubic-bezier(0.6, 0, 0.8, 0.2);
+  --ease-inout: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-inout-soft: cubic-bezier(0.37, 0, 0.63, 1);
+  --ease-inout-strong: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce-strong: cubic-bezier(0.2, 1.8, 0.5, 0.8);
+  --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-anticipate: cubic-bezier(0.36, -0.4, 0.64, 1.4);
+  --ease-sine-in: cubic-bezier(0.47, 0, 0.745, 0.715);
+  --ease-sine-out: cubic-bezier(0.39, 0.575, 0.565, 1);
+  --ease-sine-inout: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  --ease-breath: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  --ease-float: cubic-bezier(0.37, 0.13, 0.63, 0.87);
+  --ease-drift: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  --motion-fast: 200ms;
-  --motion-normal: 300ms;
-  --motion-slow: 400ms;
+  --delay-none: 0ms;
+  --delay-xs: 30ms;
+  --delay-sm: 60ms;
+  --delay-md: 100ms;
+  --delay-lg: 160ms;
+  --delay-xl: 240ms;
+  --delay-2xl: 380ms;
+  --delay-3xl: 600ms;
 
+  --stagger-unit: 40ms;
+
+  --motion-drop-bounce: drop-bounce var(--duration-moderate) var(--ease-enter-spring) var(--delay-none) 1 normal both;
+  --motion-fade-up: fade-up var(--duration-base) var(--ease-enter) var(--delay-none) 1 normal both;
+  --motion-fade-in: fade-in var(--duration-base) var(--ease-enter) var(--delay-none) 1 normal both;
+  --motion-scale-pop: scale-pop var(--duration-fast) var(--ease-enter-spring) var(--delay-none) 1 normal both;
+  --motion-glow-breath: glow-breath var(--duration-epic) var(--ease-breath) var(--delay-none) infinite alternate both;
+  --motion-pulse: pulse-sine var(--duration-glacial) var(--ease-sine-inout) var(--delay-none) infinite alternate both;
+  --motion-particle: particle-drift var(--duration-epic) var(--ease-drift) var(--delay-none) infinite normal both;
+  --motion-slide-left: slide-from-right var(--duration-base) var(--ease-enter) var(--delay-none) 1 normal both;
+  --motion-slide-right: slide-from-left var(--duration-base) var(--ease-enter) var(--delay-none) 1 normal both;
+  --motion-float: float var(--duration-slow) var(--ease-float) var(--delay-none) infinite alternate both;
+  --motion-shimmer: shimmer var(--duration-epic) var(--ease-linear) var(--delay-none) infinite normal both;
+  --motion-skeleton: shimmer var(--duration-epic) var(--ease-linear) var(--delay-none) infinite normal both;
+  --motion-skeleton-fill: skeleton-fill var(--duration-glacial) var(--ease-inout-soft) var(--delay-none) infinite alternate both;
+  --motion-flip-in: flip-in var(--duration-moderate) var(--ease-anticipate) var(--delay-none) 1 normal both;
+}
+
+:where(*, *::before, *::after) {
+  animation-fill-mode: both;
+}
+
+/* Scroll-triggered enter tokens (progressive enhancement) */
+:root {
+  --motion-enter-timeline: auto;
+  --motion-enter-range: normal;
+}
+@supports (animation-timeline: view()) {
+  :root {
+    --motion-enter-timeline: view();
+    --motion-enter-range: entry 0% 30%;
+  }
+}
+:where(.motion-enter, [data-motion~="enter"]) {
+  animation-timeline: var(--motion-enter-timeline);
+  animation-range: var(--motion-enter-range);
+}
+:where(.motion-stagger, [data-motion~="stagger"]) > * {
+  animation-delay: calc(var(--stagger-unit) * var(--index, 0));
+}
+
+:where(.motion-stagger, [data-motion~="stagger"]) :where(.motion-enter, [data-motion~="enter"]) {
+  animation-delay: calc(var(--stagger-unit) * var(--index, 0));
+}
+
+@keyframes drop-bounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(4px);
+  }
+  80% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes glow-breath {
+  0% {
+    opacity: 0.85;
+    filter: brightness(1) blur(0);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.15) blur(1px);
+  }
+  100% {
+    opacity: 0.85;
+    filter: brightness(1) blur(0);
+  }
+}
+
+@keyframes pulse-sine {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.92;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes particle-drift {
+  0% {
+    opacity: var(--opacity-seed, 0.8);
+    transform: translate(0, 0) scale(var(--scale-seed, 0.8)) rotate(0deg);
+  }
+  50% {
+    opacity: calc(var(--opacity-seed, 0.8) * 0.7);
+    transform: translate(
+      calc(var(--particle-dx, 24px) * 0.6 * var(--particle-spread, 1)),
+      calc(var(--particle-dy, -16px) * 0.6 * var(--particle-spread, 1))
+    ) scale(calc(var(--scale-seed, 0.8) * 1.1)) rotate(15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc(var(--particle-dx, 24px) * 1.2 * var(--particle-spread, 1)),
+      calc(var(--particle-dy, -16px) * 1.2 * var(--particle-spread, 1))
+    ) scale(calc(var(--scale-seed, 0.8) * 0.9)) rotate(30deg);
+  }
+}
+
+/* shake motion removed */
+
+@keyframes slide-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes skeleton-fill {
+  0% {
+    transform: scaleX(0.2);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes flip-in {
+  0% {
+    opacity: 0;
+    transform: perspective(800px) rotateY(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(800px) rotateY(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-nano: 0ms;
+    --duration-micro: 0ms;
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-moderate: 0ms;
+    --duration-slow: 0ms;
+    --duration-glacial: 0ms;
+    --duration-epic: 0ms;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

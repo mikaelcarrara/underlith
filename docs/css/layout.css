@@ -1,0 +1,47 @@
+/* ==============================
+   Layout
+============================== */
+
+main,
+.footer-main {
+  width: 65%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+main section {
+  padding: var(--space-6) 0;
+}
+
+main .card {
+  margin-bottom: var(--space-6);
+}
+
+.grid .card {
+  margin-bottom: 0;
+}
+
+.dialog.dialog-compact {
+  padding-top: var(--space-2);
+}
+
+
+/* ==============================
+   Responsive
+============================== */
+
+@media (max-width: 1024px) {
+
+  main,
+  .footer-main {
+    width: 90%;
+  }
+
+}
+
+@media (max-width: 640px) {
+}
+
+@media (max-width: 420px) {
+}
+

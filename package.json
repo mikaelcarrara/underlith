@@ -1,9 +1,9 @@
 {
-    "name": "@mikaelcarrara/substrata",
+    "name": "@mikaelcarrara/underlith",
     "version": "1.0.2",
     "description": "Framework-agnostic design tokens system",
     "bin": {
-        "substrata": "./bin/substrata.js"
+        "underlith": "./bin/underlith.js"
     },
     "main": "index.js",
     "scripts": {
@@ -24,6 +24,6 @@
         "index.js",
         "tokens.json",
         "README.md",
-        "substrata.config.js"
+        "underlith.config.js"
     ]
 }

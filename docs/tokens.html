@@ -4,29 +4,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Substrata - Framework-agnostic design tokens system</title>
+  <title>Underlith - Framework-agnostic design tokens system</title>
   <link rel="icon" type="image/svg+xml" href="./svg/logo.svg">
   <meta name="description"
     content="A single source of truth for design decisions that survives frameworks, platforms, and time.">
 
   <!-- Social Media Meta Tags -->
-  <meta property="og:url" content="https://mikaelcarrara.github.io/substrata/">
+  <meta property="og:url" content="https://mikaelcarrara.github.io/Underlith/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Substrata - Framework-agnostic design tokens system">
+  <meta property="og:title" content="Underlith - Framework-agnostic design tokens system">
   <meta property="og:description"
     content="A single source of truth for design decisions that survives frameworks, platforms, and time.">
-  <meta property="og:image" content="https://mikaelcarrara.github.io/substrata/docs/svg/social.jpg">
+  <meta property="og:image" content="https://mikaelcarrara.github.io/Underlith/docs/svg/social.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="mikaelcarrara.github.io">
-  <meta property="twitter:url" content="https://mikaelcarrara.github.io/substrata/">
-  <meta name="twitter:title" content="Substrata - Framework-agnostic design tokens system">
+  <meta property="twitter:url" content="https://mikaelcarrara.github.io/Underlith/">
+  <meta name="twitter:title" content="Underlith - Framework-agnostic design tokens system">
   <meta name="twitter:description"
     content="A single source of truth for design decisions that survives frameworks, platforms, and time.">
-  <meta name="twitter:image" content="https://mikaelcarrara.github.io/substrata/docs/svg/social.jpg">
+  <meta name="twitter:image" content="https://mikaelcarrara.github.io/Underlith/docs/svg/social.jpg">
 
   <!-- Design System -->
-  <link rel="stylesheet" href="../src/substrata.css">
+  <link rel="stylesheet" href="../src/Underlith.css">
   <link rel="stylesheet" href="css/documentation.css">
   <link rel="stylesheet" href="../src/components/components.css">
 
@@ -38,15 +38,12 @@
 
 <body>
 
-  <!-- =========================
-        Header
-  ========================== -->
   <header>
     <section>
       <h1>
         <a href="./">
-          <img src="svg/logo.svg" alt="Logo">
-          <span>Substrata</span>
+          <img src="svg/logo.svg" alt="Underlith logo">
+          <span>Underlith</span>
         </a>
       </h1>
 
@@ -63,9 +60,6 @@
         <li>Tokens</li>
         <li><a href="components">Components</a></li>
         <li><a href="consumption">Consumption</a></li>
-        <li><a href="automation">Automation</a></li>
-        <li><a href="w3c-alignment">W3C alignment</a></li>
-        <li><a href="governance">Governance</a></li>
       </ul>
     </section>
   </header>
@@ -74,19 +68,19 @@
 
     <section class="heading">
       <h1>Tokens</h1>
-      <p>Tokens are the foundation layer of Substrata.</p>
+      <p>Tokens are the foundation layer of Underlith.</p>
     </section>
 
-    <section>
+    <section class="content">
       <p>
         They represent design decisions expressed as variables, not components.<br>
-        In Substrata, a token is a CSS Custom Property, such as:
+        In Underlith, a token is a CSS Custom Property, such as:
       </p>
 
-      <pre><code class="language-css">--space-1
+      <div class="card code-card"><pre><code class="language-css">--space-1
 --font-size-md
 --color-neutral-900
---radius-md</code></pre>
+--radius-md</code></pre></div>
 
       <p>
         They define constraints, scales, and semantic meaning that other layers consume.
@@ -122,9 +116,7 @@
         Each file exposes a set of CSS variables focused on a single decision domain.
       </p>
 
-      <h3>Typography</h3>
-
-      <pre><code class="language-text">typography.css</code></pre>
+      <h3>Typography <span class="badge">typography.css</span></h3>
 
       <p>
         Defines typographic scales as tokens.
@@ -132,19 +124,17 @@
 
       <h4>Example</h4>
 
-      <pre><code class="language-css">--font-size-sm
+      <div class="card code-card"><pre><code class="language-css">--font-size-sm
 --font-size-md
 --font-size-lg
 --line-height-tight
---font-weight-regular</code></pre>
+--font-weight-regular</code></pre></div>
 
       <p>
         These tokens describe typographic intent, not headings or text styles.
       </p>
 
-      <h3>Spacing</h3>
-
-      <pre><code class="language-text">spacing.css</code></pre>
+      <h3>Spacing <span class="badge">spacing.css</span></h3>
 
       <p>
         Defines the spacing scale used across the system.
@@ -152,125 +142,216 @@
 
       <h4>Example</h4>
 
-      <pre><code class="language-css">--space-1
+      <div class="card code-card"><pre><code class="language-css">--space-1
 --space-2
 --space-3
 --space-4
---space-5</code></pre>
+--space-5</code></pre></div>
 
       <p>Spacing tokens replace arbitrary values like 8px or 12px with a consistent scale.</p>
 
 
-      <h3>Colors</h3>
-
-      <pre><code class="language-text">colors.css</code></pre>
+      <h3>Colors <span class="badge">colors.css</span></h3>
 
       <p>Defines raw color values.</p>
 
       <h4>Examples</h4>
 
-      <pre><code class="language-css">--color-brand-300
+      <div class="card code-card"><pre><code class="language-css">--color-brand-300
 --color-brand-500
 --color-neutral-0
---color-neutral-900</code></pre>
+--color-neutral-900</code></pre></div>
 
       <p>These tokens are value-based, without semantic context.</p>
 
-      <h3>Radius and borders</h3>
-
-      <pre><code class="language-text">radius-and-borders.css</code></pre>
+      <h3>Radius and borders <span class="badge">radius-and-borders.css</span></h3>
 
       <p>Defines shape-related decisions.</p>
 
       <h4>Examples</h4>
 
-      <pre><code class="language-css">--radius-sm
+      <div class="card code-card"><pre><code class="language-css">--radius-sm
 --radius-md
 --radius-lg
---border-width-hairline</code></pre>
+--border-width-hairline</code></pre></div>
 
       <p>Used to ensure consistent geometry across all consumers.</p>
 
-      <h3>Elevation</h3>
-
-      <pre><code class="language-text">elevation.css</code></pre>
+      <h3>Elevation <span class="badge">elevation.css</span></h3>
 
       <p>Defines depth tokens.</p>
 
       <h4>Examples</h4>
 
-      <pre><code class="language-css">--elevation-1
+      <div class="card code-card"><pre><code class="language-css">--elevation-1
 --elevation-2
---elevation-3</code></pre>
+--elevation-3</code></pre></div>
 
       <p>Elevation tokens express relative depth, not specific components.</p>
 
-      <h3>Motion</h3>
+      <h3>Motion <span class="badge">motion.css</span></h3>
 
-      <pre><code class="language-text">motion.css</code></pre>
+      <p>Motion tokens: durations, easings, delays and composite tokens; reduced-motion policy.</p>
 
-      <p>Defines motion scales.</p>
+      <h4>Durations</h4>
+      <div class="card code-card"><pre><code class="language-css">--duration-nano
+--duration-micro
+--duration-fast
+--duration-base
+--duration-moderate
+--duration-slow
+--duration-glacial
+--duration-epic</code></pre></div>
 
-      <h4>Examples</h4>
+      <h4>Easing</h4>
+      <div class="card code-card"><pre><code class="language-css">--ease-linear
+--ease-enter
+--ease-enter-back
+--ease-enter-spring
+--ease-exit
+--ease-exit-sharp
+--ease-inout
+--ease-inout-soft
+--ease-inout-strong
+--ease-bounce
+--ease-bounce-strong
+--ease-elastic
+--ease-anticipate
+--ease-sine-in
+--ease-sine-out
+--ease-sine-inout
+--ease-breath
+--ease-float
+--ease-drift</code></pre></div>
 
-      <pre><code class="language-css">--motion-duration-fast
---motion-duration-medium
---motion-easing-standard</code></pre>
+      <h4>Delays</h4>
+      <div class="card code-card"><pre><code class="language-css">--delay-none
+--delay-xs
+--delay-sm
+--delay-md
+--delay-lg
+--delay-xl
+--delay-2xl
+--delay-3xl
+--stagger-unit</code></pre></div>
 
-      <p>Motion tokens control timing and rhythm, not animations themselves.</p>
+      <h4>Composite motion tokens</h4>
+      <div class="card code-card"><pre><code class="language-css">--motion-drop-bounce
+--motion-fade-up
+--motion-fade-in
+--motion-scale-pop
+--motion-glow-breath
+--motion-pulse
+--motion-particle
+--motion-slide-left
+--motion-slide-right
+--motion-float
+--motion-shimmer
+--motion-skeleton
+--motion-skeleton-fill
+--motion-flip-in</code></pre></div>
 
-      <h3>Opacity</h3>
+      <p>Use durations/easings for fine control, or the composite tokens for common effects.</p>
 
-      <pre><code class="language-text">opacity.css</code></pre>
+      <h3>Opacity <span class="badge">opacity.css</span></h3>
 
       <p>Defines transparency levels.</p>
 
       <h4>Examples</h4>
 
-      <pre><code class="language-css">--opacity-disabled
+      <div class="card code-card"><pre><code class="language-css">--opacity-disabled
 --opacity-muted
---opacity-overlay</code></pre>
+--opacity-overlay</code></pre></div>
 
       <p>Opacity tokens avoid arbitrary alpha values.</p>
 
-      <h3>Breakpoints</h3>
-
-      <pre><code class="language-text">breakpoints.css</code></pre>
+      <h3>Breakpoints <span class="badge">breakpoints.css</span></h3>
 
       <p>Defines responsive thresholds as tokens.</p>
 
       <h4>Examples</h4>
 
-      <pre><code class="language-css">--breakpoint-sm
+      <div class="card code-card"><pre><code class="language-css">--breakpoint-sm
 --breakpoint-md
---breakpoint-lg</code></pre>
+--breakpoint-lg</code></pre></div>
 
       <p>Breakpoints define when layout decisions change.</p>
 
-      <h3>Semantic aliases</h3>
-
-      <pre><code class="language-text">semantic-aliases.css</code></pre>
+      <h3>Semantic aliases <span class="badge">semantic-aliases.css</span></h3>
 
       <p>Maps raw tokens to semantic meaning.</p>
 
       <h4>Examples</h4>
 
-      <pre><code class="language-css">--color-text-primary
+      <div class="card code-card"><pre><code class="language-css">--color-text-primary
 --color-text-secondary
 --color-background-surface
---color-border-subtle</code></pre>
+--color-border-subtle</code></pre></div>
 
       <p>Semantic aliases allow design intent to evolve without changing the underlying scale.</p>
 
     </section>
-
   </main>
+
   <footer>
     <section>
-      <p>Substrata - Framework-agnostic design tokens system</p>
-      <p>
-        <a href="https://github.com/mikaelcarrara/substrata" target="_blank">GitHub Repository</a>
-      </p>
+      <div class="footer-main">
+        <div style="text-align: center;">
+          <img src="svg/logo.svg" alt="Underlith logo">
+        </div>
+        <div>
+          <h3>Documentation</h3>
+          <ul>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li><a href="tokens.html">Tokens</a></li>
+            <li><a href="components.html">Components</a></li>
+            <li><a href="consumption.html">Consumption</a></li>
+            <li><a href="automation.html">Automation</a></li>
+            <li><a href="w3c-alignment.html">W3C Alignment</a></li>
+            <li><a href="governance.html">Governance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="https://github.com/mikaelcarrara/underlith" target="_blank">GitHub Repository <span
+                  class="external-link"></span></a></li>
+            <li><a href="https://www.npmjs.com/package/@mikaelcarrara/underlith" target="_blank">NPM Package <span
+                  class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/issues" target="_blank">Report an Issue <span
+                  class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/discussions" target="_blank">Discussions <span
+                  class="external-link"></span></a></li>
+          </ul>
+        </div>
+        <div class="footer-mds">
+          <h3>Project</h3>
+          <ul>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/README.md"
+                target="_blank">README.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/ARCHITECTURE.md"
+                target="_blank">ARCHITECTURE.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/CONTRIBUTING.md"
+                target="_blank">CONTRIBUTING.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/GOVERNANCE.md"
+                target="_blank">GOVERNANCE.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/ROADMAP.md"
+                target="_blank">ROADMAP.md <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/CI.md" target="_blank">CI.md <span
+                  class="external-link"></span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 <a href="https://www.behance.net/mikaelmcarrara" target="_blank">Mikael Carrara</a>. Released
+          under the <a href="https://github.com/mikaelcarrara/underlith/blob/main/LICENSE"
+            target="_blank">MIT License</a>.</p>
+        <a class="css-valid-badge" href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank" rel="noopener">
+          <span class="wrap">
+            <span class="inner"><span class="dot" aria-hidden="true"></span>Valid CSS</span>
+          </span>
+        </a>
+      </div>
     </section>
   </footer>
 </body>

@@ -1,16 +1,16 @@
-# Substrata
+# Underlith
 
-Substrata is a framework-agnostic design tokens system built with CSS Variables. It serves as a **single source of truth** for design decisions, enabling consistent UI foundations across any framework, platform, or tech stack.
+Underlith is a framework-agnostic design tokens system built with CSS Variables. It serves as a **single source of truth** for design decisions, enabling consistent UI foundations across any framework, platform, or tech stack.
 
-Unlike a UI library, Substrata provides the *definitions* (tokens) that drive the UI, ensuring that design intent is preserved from Figma to production code.
+Unlike a UI library, Underlith provides the *definitions* (tokens) that drive the UI, ensuring that design intent is preserved from design tools to production code.
 
-**[Documentation](https://mikaelcarrara.github.io/substrata)**
+**[Documentation](https://mikaelcarrara.github.io/underlith)**
 
 ---
 
-## Why Substrata?
+## Why Underlith?
 
-*   **Framework Agnostic**: Works with plain CSS, Tailwind, Sass, CSS-in-JS, or any other styling solution.
+*   **Framework Agnostic**: Works with plain CSS, Sass, CSS-in-JS, or any other styling solution.
 *   **W3C Aligned**: Follows the W3C Design Tokens Community Group architecture (Definition → Transformation → Source → Consumption).
 *   **Automation Ready**: Designed to be consumed by CI pipelines and AI agents for safe, deterministic refactors.
 *   **Governance First**: Enforces design rules via strict token contracts, not just conventions.
@@ -19,7 +19,7 @@ Unlike a UI library, Substrata provides the *definitions* (tokens) that drive th
 
 ## Core Principles
 
-Substrata operates under strict governance to ensure it remains a reliable foundation.
+Underlith operates under strict governance to ensure it remains a reliable foundation.
 
 *   **Single Source of Truth**: The canonical repository is the only place where tokens are defined.
 *   **Tokens as Contracts**: Changing a token value is a breaking change.
@@ -35,11 +35,11 @@ For deep dives into our operating model:
 
 ## Architecture & W3C Alignment
 
-Substrata implements the "Source of Truth" layer in the W3C reference architecture:
+Underlith implements the "Source of Truth" layer in the W3C reference architecture:
 
-1.  **Definition**: Design intent defined in design tools (e.g., Figma).
+1.  **Definition**: Design intent defined in design tools.
 2.  **Transformation**: Raw data processed into usable artifacts.
-3.  **Source of Truth (Substrata)**: The detailed, versioned, and semantic definition of all tokens (CSS variables, JSON).
+3.  **Source of Truth (Underlith)**: The detailed, versioned, and semantic definition of all tokens (CSS variables, JSON).
 4.  **Consumption**: Applications (React, Vue, iOS, Android) consuming these tokens.
 
 Read more in [W3C Alignment](./docs/w3c-alignment.html).
@@ -51,76 +51,84 @@ Read more in [W3C Alignment](./docs/w3c-alignment.html).
 ### Via NPM (Recommended)
 
 ```bash
-npm install @mikaelcarrara/substrata
+npm install @mikaelcarrara/underlith
 ```
 
-### Via CLI
+### From Source (local)
 
-```bash
-# Initialize configuration
-npx substrata init
-
-# Generate machine-readable tokens
-npx substrata generate
-```
+- Copy the `src/` folder into your project and import what you need.
+- Or preview the documentation locally by opening `docs/index.html` in a browser.
 
 ### Manual Download
 
 Clone or download from GitHub:
 
 ```bash
-git clone https://github.com/mikaelcarrara/substrata.git
+git clone https://github.com/mikaelcarrara/underlith.git
 ```
 
 Or download directly and include in your project.
 
 ## Usage
 
-Substrata is designed to be consumed, not imposed. You can use it in multiple ways:
+Underlith is designed to be consumed, not imposed. You can use it in multiple ways.  
+CSS consumption examples across plain CSS and CSS-in-JS.
 
 ### 1. Plain CSS
 Import the full system or valid subsets from the package:
 ```css
 /* Import everything */
-@import "@mikaelcarrara/substrata/src/substrata.css";
+@import "@mikaelcarrara/underlith/src/underlith.css";
 
 /* Or just tokens */
-@import "@mikaelcarrara/substrata/src/tokens/colors.css";
+@import "@mikaelcarrara/underlith/src/tokens/colors.css";
 ```
 
-### 2. Tailwind CSS
-Substrata feeds Tailwind. It does not replace it.
-```css
-@import "@mikaelcarrara/substrata/src/substrata.css";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-*See [Consumption Strategies](./docs/consumption.html) for `tailwind.config.js` mapping.*
+### 2. CSS-in-JS (styled-components/emotion)
+Use CSS Variables directly in template literals:
 
-### 3. JavaScript / TypeScript
-Import tokens as a JSON object:
 ```js
-import tokens from '@mikaelcarrara/substrata';
-
 const Button = styled.button`
-  padding: ${tokens.space[3].value} ${tokens.space[4].value};
-  background: ${tokens.color.brand[500].value};
-  border-radius: ${tokens.radius.md.value};
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-brand-primary);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-sm);
+  transition: background var(--duration-fast) var(--ease-inout);
 `;
+```
+
+### 3. Motion tokens
+Motion tokens: durations, easings, delays and composite tokens; reduced-motion policy.  
+Available in `src/tokens/motion.css`.
+
+```css
+.tooltip {
+  transition: opacity var(--duration-fast) var(--ease-inout);
+}
+
+.skeleton {
+  animation: var(--motion-skeleton);
+}
 ```
 
 ---
 
 ## Documentation
 
-*   [**Presentation**](https://mikaelcarrara.github.io/substrata/)
-*   [**Getting Started**](https://mikaelcarrara.github.io/substrata/getting-started)
-*   [**Tokens Reference**](https://mikaelcarrara.github.io/substrata/tokens)
-*   [**Reference Components**](https://mikaelcarrara.github.io/substrata/components)
-*   [**Consumption Strategies**](https://mikaelcarrara.github.io/substrata/consumption)
-*   [**Automation & AI**](https://mikaelcarrara.github.io/substrata/automation)
-*   [**W3C Alignment**](https://mikaelcarrara.github.io/substrata/w3c-alignment)
+*   [**Presentation**](https://mikaelcarrara.github.io/underlith/)
+*   [**Getting Started**](https://mikaelcarrara.github.io/underlith/getting-started)
+*   [**Tokens Reference**](https://mikaelcarrara.github.io/underlith/tokens)
+*   [**Reference Components**](https://mikaelcarrara.github.io/underlith/components)
+*   [**Consumption Strategies**](https://mikaelcarrara.github.io/underlith/consumption)
+*   [**Automation & AI**](https://mikaelcarrara.github.io/underlith/automation)
+*   [**W3C Alignment**](https://mikaelcarrara.github.io/underlith/w3c-alignment)
+
+---
+
+## Accessibility
+
+- Motion respects `prefers-reduced-motion: reduce` by collapsing durations to near-zero.
+- Avoid introducing hardcoded cubic-beziers or durations; use `--duration-*` and `--ease-*`.
 
 ---
 

@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"><defs><style>
+@keyframes pulse{0%,100%{opacity:.03}50%{opacity:.12}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+@keyframes dot-in{0%{offset-distance:0%;opacity:0}10%{opacity:1}90%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.pulse{animation:pulse 3s ease-in-out infinite}
+.blink{animation:blink 2.4s ease-in-out infinite}
+.d1{offset-path:path("M48,48 L172,172");animation:dot-in 3s linear infinite 0s}
+.d2{offset-path:path("M200,28 L200,172");animation:dot-in 3s linear infinite 0.4s}
+.d3{offset-path:path("M352,48 L228,172");animation:dot-in 3s linear infinite 0.8s}
+.d4{offset-path:path("M372,200 L228,200");animation:dot-in 3s linear infinite 1.2s}
+.d5{offset-path:path("M352,352 L228,228");animation:dot-in 3s linear infinite 1.6s}
+.d6{offset-path:path("M200,372 L200,228");animation:dot-in 3s linear infinite 2s}
+.d7{offset-path:path("M48,352 L172,228");animation:dot-in 3s linear infinite 2.4s}
+.d8{offset-path:path("M28,200 L172,200");animation:dot-in 3s linear infinite 2.8s}
+</style>
+<linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#C8F542" stop-opacity="0"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0.2"/></linearGradient>
+<linearGradient id="g2" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#C8F542" stop-opacity="0"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0.2"/></linearGradient>
+<linearGradient id="g3" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#C8F542" stop-opacity="0"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0.2"/></linearGradient>
+<linearGradient id="g4" x1="100%" y1="50%" x2="0%" y2="50%"><stop offset="0%" stop-color="#C8F542" stop-opacity="0"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0.2"/></linearGradient>
+</defs>
+
+<!-- 8 lines converging into the core -->
+<!-- diagonal TL->core and BR->core: 00e5cc -->
+<line x1="48"  y1="48"  x2="172" y2="172" stroke="#00e5cc" stroke-width="0.6" stroke-dasharray="2 5" opacity="0.35"/>
+<line x1="352" y1="352" x2="228" y2="228" stroke="#00e5cc" stroke-width="0.6" stroke-dasharray="2 5" opacity="0.35"/>
+<!-- diagonal TR->core and BL->core: E187CA -->
+<line x1="352" y1="48"  x2="228" y2="172" stroke="#E187CA" stroke-width="0.6" stroke-dasharray="2 5" opacity="0.35"/>
+<line x1="48"  y1="352" x2="172" y2="228" stroke="#E187CA" stroke-width="0.6" stroke-dasharray="2 5" opacity="0.35"/>
+<!-- straight lines: C8F542 -->
+<line x1="200" y1="28"  x2="200" y2="172" stroke="url(#g2)" stroke-width="0.6" stroke-dasharray="2 5"/>
+<line x1="372" y1="200" x2="228" y2="200" stroke="url(#g4)" stroke-width="0.6" stroke-dasharray="2 5"/>
+<line x1="200" y1="372" x2="200" y2="228" stroke="url(#g2)" stroke-width="0.6" stroke-dasharray="2 5"/>
+<line x1="28"  y1="200" x2="172" y2="200" stroke="url(#g4)" stroke-width="0.6" stroke-dasharray="2 5"/>
+
+<!-- Dots traveling inward -->
+<circle r="2.5" fill="#C8F542" class="d1"/>
+<circle r="2.5" fill="#C8F542" class="d2"/>
+<circle r="2.5" fill="#C8F542" class="d3"/>
+<circle r="2.5" fill="#C8F542" class="d4"/>
+<circle r="2.5" fill="#C8F542" class="d5"/>
+<circle r="2.5" fill="#C8F542" class="d6"/>
+<circle r="2.5" fill="#C8F542" class="d7"/>
+<circle r="2.5" fill="#C8F542" class="d8"/>
+
+<!-- Small origin dots at line ends -->
+<circle cx="48"  cy="48"  r="2" fill="#00e5cc" opacity="0.4"/>
+<circle cx="200" cy="28"  r="2" fill="#C8F542" opacity="0.3"/>
+<circle cx="352" cy="48"  r="2" fill="#E187CA" opacity="0.4"/>
+<circle cx="372" cy="200" r="2" fill="#C8F542" opacity="0.3"/>
+<circle cx="352" cy="352" r="2" fill="#00e5cc" opacity="0.4"/>
+<circle cx="200" cy="372" r="2" fill="#C8F542" opacity="0.3"/>
+<circle cx="48"  cy="352" r="2" fill="#E187CA" opacity="0.4"/>
+<circle cx="28"  cy="200" r="2" fill="#C8F542" opacity="0.3"/>
+
+<!-- Core -->
+<circle cx="200" cy="200" r="34" fill="none" stroke="#C8F542" stroke-width="18" class="pulse"/>
+<circle cx="200" cy="200" r="28" fill="none" stroke="#C8F542" stroke-width="0.9" opacity="0.85"/>
+<circle cx="200" cy="200" r="3"  fill="#C8F542" class="blink"/>
+
+</svg>

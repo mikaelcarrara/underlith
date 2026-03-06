@@ -26,7 +26,7 @@ function parseCssVariables(cssContent) {
             const variableName = match[1]; // e.g. "color-neutral-100"
             const value = match[2].trim(); // e.g. "#ffffff"
 
-            // Remove "substrata-" prefix if present to cleaner structure, 
+            // Remove "underlith-" prefix if present to cleaner structure, 
             // or keep it if that's the preferred token name. 
             // For now, we'll split by hyphen.
             const parts = variableName.split('-');
@@ -47,9 +47,9 @@ async function generateTokens() {
         let outputFile = path.join(__dirname, '../tokens.json');
 
         // Check for user config
-        const configPath = path.join(process.cwd(), 'substrata.config.js');
+        const configPath = path.join(process.cwd(), 'underlith.config.js');
         if (fs.existsSync(configPath)) {
-            console.log('Found substrata.config.js');
+            console.log('Found underlith.config.js');
             const config = require(configPath);
             if (config.tokens) {
                 tokensDir = path.resolve(process.cwd(), config.tokens);

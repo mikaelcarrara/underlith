@@ -1,11 +1,234 @@
-@import "general.css";
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 @import "header.css";
 @import "footer.css";
 @import "banner.css";
 @import "heading.css";
-@import "prism-overrides.css";
-@import "token-labels.css";
-@import "features.css";
+@import "sub-heading.css";
+@import "card.css";
+@import "no-gap-cards.css";
+@import "content.css";
+@import "layout.css";
+@import "final-cta.css";
 @import "palette.css";
 @import "spacing-doc.css";
 @import "responsive.css";
+
+
+/* ==============================
+   Home
+============================== */
+
+.main-art {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 70px;
+}
+
+.grid .sub-heading {
+  margin-top: 0;
+}
+
+.topic-art {
+  margin-top: -20px;
+}
+
+
+/* ==============================
+   Implementation section layout
+============================== */
+
+.card.big-text p {
+  margin: var(--space-3) 0 0 0;
+}
+
+.card.big-text h4 {
+  margin: var(--space-4) 0 0 0;
+}
+
+.card.big-text .view-more {
+  margin: var(--space-2) 0 0 0;
+}
+
+.big-text code {
+  background-color: var(--neutral-700);
+  padding: 3px 5px;
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-md);
+  color: var(--neutral-200);
+}
+
+.mini-code-block {
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin: var(--space-3) 0 var(--space-4) 0;
+}
+.mini-code-title {
+  font-size: var(--font-size-xs);
+  color: var(--neutral-500);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-3) 0;
+}
+.mini-code-block code {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: var(--font-size-xs);
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: var(--neutral-100);
+}
+.mini-code-block code.del {
+  text-decoration: line-through;
+  color: var(--neutral-500);
+  opacity: .7;
+}
+
+
+/* ==============================
+   Typography section layout
+============================== */
+
+.typography .type-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.typography .type-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: var(--border-width) solid var(--border-color);
+}
+.typography .type-row:last-child {
+  border-bottom: 0;
+}
+
+.typography .type-sample h1,
+.typography .type-sample h2,
+.typography .type-sample h3,
+.typography .type-sample h4 {
+  margin: 0;
+}
+
+.typography .type-meta {
+  display: inline-flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+
+/* ==============================
+   Code blocks (Prism inside card)
+============================== */
+
+.code-card pre[class*="language-"] {
+  margin: 0;
+  background: transparent !important;
+  border: 0;
+  box-shadow: none;
+  border-radius: var(--radius-md);
+  padding: 0 !important;
+}
+.code-card pre[class*="language-"] code {
+  background: transparent !important;
+  padding: 0 !important;
+  display: block;
+}
+
+.code-card {
+  margin-bottom: 0;
+  background-color: transparent !important;
+}
+
+.doc-toc {
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+.doc-toc-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.doc-toc-list a { color: var(--neutral-300); }
+
+
+/* ==============================
+   Motion demos: consistent spacing
+============================== */
+
+.motion-demo {
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.motion-demo .sample {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ==============================
+   Docs-only helpers for Grid & Skeleton demos
+============================== */
+
+.doc-grid-row { margin-bottom: var(--space-6); }
+.doc-grid-box {
+  height: 80px;
+  border-radius: var(--radius-md);
+  border: var(--border-width) solid var(--border-color);
+}
+
+.doc-flex-col { display: flex; flex-direction: column; }
+.doc-row { display: flex; align-items: center; }
+.doc-pad-4 { padding: var(--space-4); }
+.doc-gap-2 { gap: var(--space-2); }
+.doc-gap-3 { gap: var(--space-3); }
+.doc-flex-1 { flex: 1; }
+.doc-section-mb { margin-bottom: 80px; }
+
+.doc-w-60p { width: 60%; }
+.doc-w-50p { width: 50%; }
+.doc-w-55p { width: 55%; }
+.doc-w-70p { width: 70%; }
+.doc-w-80p { width: 80%; }
+.doc-w-85p { width: 85%; }
+.doc-w-90p { width: 90%; }
+.doc-w-100p { width: 100%; }
+.doc-w-40 { width: 40px; }
+.doc-h-12 { height: 12px; }
+.doc-h-14 { height: 14px; }
+.doc-h-16 { height: 16px; }
+.doc-h-18 { height: 18px; }
+.doc-h-24 { height: 24px; }
+.doc-h-40 { height: 40px; }
+.doc-h-96 { height: 96px; }
+
+.doc-mb-1 { margin-bottom: var(--space-1); }
+.doc-mb-3 { margin-bottom: var(--space-3); }
+.doc-mt-2 { margin-top: var(--space-2); }
+
+.doc-rounded-md { border-radius: var(--radius-md); }
+.doc-rounded-full { border-radius: 999px; }
+
+.doc-skel-brand {
+  background: linear-gradient(90deg, var(--brand-700), var(--brand-500), var(--brand-700)) !important;
+  background-size: 200% 100% !important;
+}
+.doc-fast { animation-duration: var(--duration-fast) !important; }

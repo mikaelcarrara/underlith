@@ -4,11 +4,11 @@
     Semantic Aliases
   ============================== */
 
-  --color-bg: var(--neutral-50);
-  --color-surface: var(--neutral-50);
+  --color-bg: var(--neutral-0);
+  --color-surface: var(--neutral-0);
   --color-text-primary: var(--neutral-900);
   --color-text-secondary: var(--neutral-700);
-  --color-border: var(--neutral-200);
+  --color-border: var(--neutral-300);
 
   --color-brand-primary: var(--brand-500);
   --color-brand-hover: var(--brand-700);

@@ -1,0 +1,12 @@
+.text-default {
+  font-size: var(--font-size-lg);
+  color: var(--neutral-100);
+}
+.text-secondary {
+  font-size: var(--font-size-md);
+  color: var(--neutral-300);
+}
+.text-small {
+  font-size: var(--font-size-sm);
+  color: var(--neutral-400);
+}

@@ -1,5 +1,14 @@
 /* Heading */
 
 .heading {
-  margin-bottom: -50px;
+  margin-bottom: -20px;
+  padding: 120px 0 0 0;
+}
+
+.heading p {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-medium);
+  margin-bottom: var(--space-3);
+  color: var(--neutral-400);
 }

@@ -1,9 +1,9 @@
-# Contributing to Substrata
+# Contributing to Underlith
 
-Thank you for your interest in contributing to **Substrata**.  
+Thank you for your interest in contributing to **Underlith**.  
 This document explains **how to contribute safely and consistently** to the canonical design tokens repository.
 
-Substrata operates as a **single source of truth** for visual decisions.  
+Underlith operates as a **single source of truth** for visual decisions.  
 All contributions must follow the governance rules defined in [`GOVERNANCE.md`](./GOVERNANCE.md).
 
 ---
@@ -24,7 +24,7 @@ It does **not** contain:
 - Application-specific styles
 - Product UI implementations
 
-If you want to showcase usage, create a **separate repository** that consumes Substrata.
+If you want to showcase usage, create a **separate repository** that consumes Underlith.
 
 ---
 
@@ -33,7 +33,6 @@ If you want to showcase usage, create a **separate repository** that consumes Su
 Please make sure you have read:
 - [`README.md`](./README.md)
 - [`GOVERNANCE.md`](./GOVERNANCE.md)
-- [`CHANGELOG.md`](./CHANGELOG.md)
 
 If you are unsure whether a change should live here, open an **Issue** before submitting a PR.
 
@@ -92,6 +91,7 @@ Every PR must include:
 - Updated examples if consumption changes
 - Changelog entry
 - CI checks passing
+- Motion/accessibility compliance (respects `prefers-reduced-motion`, uses `--duration-*` and `--ease-*`)
 
 PRs that do not meet these requirements will be blocked.
 
@@ -149,6 +149,7 @@ All PRs automatically run token-aware CI jobs, including:
 - Breaking change detection
 - Token linting
 - Optional visual regression tests
+- Static checks to prevent hardcoded durations/easings and enforce motion tokens
 
 If CI fails:
 
@@ -163,7 +164,7 @@ If your change impacts design decisions:
 
 - Ensure it aligns with design-contract.json
 - Coordinate with design owners
-- Provide references to Figma styles when applicable
+- Provide references to design tool styles when applicable
 
 Tokens must remain consistent across design and code.
 
@@ -209,4 +210,4 @@ If you need help:
 - Reach out to a category owner
 - Consult GOVERNANCE.md for policy clarification
 
-By contributing to Substrata, you agree to follow this document and the governance rules that keep the system stable, auditable and scalable.
+By contributing to Underlith, you agree to follow this document and the governance rules that keep the system stable, auditable and scalable.

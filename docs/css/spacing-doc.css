@@ -2,19 +2,13 @@
    Spacing
 ============================== */
 
-.spacing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: var(--space-5);
-  margin-top: var(--space-4);
-}
+.spacing-list { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-3); }
+.spacing-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-3) 0; border-bottom: var(--border-width) solid var(--border-color); }
+.spacing-row:last-child { border-bottom: 0; }
+.spacing-sample { min-width: 200px; flex: 1; }
+.spacing-meta { display: inline-flex; gap: var(--space-2); flex-shrink: 0; }
 
-.spacing-item {
-  padding: var(--space-3);
-  border: var(--border-default);
-  border-radius: var(--radius-md);
-  background: var(--bg-surface);
-}
+/* legacy card visuals no longer needed for rows */
 
 .spacing-token {
   margin-bottom: var(--space-2);
@@ -22,15 +16,12 @@
 
 .spacing-visual {
   height: 12px;
-  background: var(--neutral-900);
+  background: var(--neutral-100);
   border-radius: var(--radius-sm);
   margin-top: var(--space-3);
 }
 
-.spacing-value {
-  margin-top: var(--space-2);
-  font-size: var(--font-size-md);
-}
+/* spacing-value removido */
 
 /*-*/
 

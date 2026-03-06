@@ -1,20 +1,20 @@
-# Substrata Project Architecture
+# Underlith Project Architecture
 
-This document provides a comprehensive view of the **Substrata** design tokens system, covering both its conceptual model and concrete file structure.
+This document provides a comprehensive view of the **Underlith** design tokens system, covering both its conceptual model and concrete file structure.
 
 ## 1. Conceptual Model: The Single Source of Truth
 
-Substrata acts as the bridge between design intent and code implementation. It is designed to be **framework-agnostic**, serving as a central repository for design decisions that propagate to various platforms.
+Underlith acts as the bridge between design intent and code implementation. It is designed to be **framework-agnostic**, serving as a central repository for design decisions that propagate to various platforms.
 
 ```mermaid
 graph TD
     %% Layers
     subgraph "Layer 1: Design Definition"
-        Figma[Figma / Design Tools]
+        DesignTools[Design Tools]
         Intent[Design Decisions]
     end
 
-    subgraph "Layer 2: Substrata System"
+    subgraph "Layer 2: Underlith System"
         direction TB
         Tokens[Atomic Tokens<br/>(Variables)]
         Aliases[Semantic Aliases]
@@ -26,7 +26,6 @@ graph TD
 
     subgraph "Layer 3: Consumption Adapters"
         Vanilla[Direct CSS Import]
-        Tailwind[Tailwind Config]
         CSSJS[CSS-in-JS]
     end
 
@@ -37,17 +36,15 @@ graph TD
     end
 
     %% Flow
-    Figma -.->|Specifies| Tokens
+    DesignTools -.->|Specifies| Tokens
     Intent -.->|Guards| Tokens
 
     %% Internal Flow
     Tokens ---> Vanilla
-    Tokens ---> Tailwind
     Tokens ---> CSSJS
 
     %% Consumption Flow
     Vanilla --> Marketing
-    Tailwind --> WebApp
     CSSJS --> Dashboards
     Base --> Marketing
     Base --> WebApp
@@ -58,9 +55,9 @@ graph TD
     classDef adapter fill:#e0f2f1,stroke:#00695c;
     classDef app fill:#f3e5f5,stroke:#7b1fa2;
 
-    class Figma,Intent design;
+    class DesignTools,Intent design;
     class Tokens,Aliases,Base system;
-    class Vanilla,Tailwind,CSSJS adapter;
+    class Vanilla,CSSJS adapter;
     class WebApp,Marketing,Dashboards app;
 ```
 
@@ -88,7 +85,7 @@ graph TD
 
     subgraph "Core System"
         Base[src/base.css]
-        Substrata[src/substrata.css]
+        Underlith[src/underlith.css]
     end
 
     subgraph "Reference Implementation"
@@ -102,30 +99,28 @@ graph TD
 
     subgraph "External Consumption"
         UserApp[User Application]
-        Tailwind[Tailwind Config]
         CSSJS[CSS-in-JS]
     end
 
     %% Relationships
     
     %% Aggregation
-    Typography --> Substrata
-    Spacing --> Substrata
-    Colors --> Substrata
-    OtherTokens --> Substrata
-    Base --> Substrata
+    Typography --> Underlith
+    Spacing --> Underlith
+    Colors --> Underlith
+    OtherTokens --> Underlith
+    Base --> Underlith
 
     %% Dependencies
-    Substrata -.-> Components
+    Underlith -.-> Components
     
     %% Documentation Consumption
-    Substrata --> Docs
+    Underlith --> Docs
     Components --> Docs
     DocStyles --> Docs
 
     %% External Consumption
-    Substrata --> UserApp
-    Tokens --> Tailwind
+    Underlith --> UserApp
     Tokens --> CSSJS
 
     %% Styling
@@ -134,34 +129,40 @@ graph TD
     classDef consumer fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
 
     class Typography,Spacing,Colors,OtherTokens,Base,DocStyles,Components file;
-    class Substrata aggregate;
-    class Docs,UserApp,Tailwind,CSSJS consumer;
+    class Underlith aggregate;
+    class Docs,UserApp,CSSJS consumer;
 ```
 
 ## Component Breakdown
 
 ### 1. Definitions (Tokens)
 Located in `src/tokens/`, these files are the atomic units of the design system. They contain **only** CSS variables (Custom Properties).
-*   **`typography.css`**: Font families, sizes, weights.
-*   **`spacing.css`**: Spacing scale (margins, paddings).
-*   **`colors.css`**: Color palette tokens.
-*   **`radius-and-borders.css`**, **`elevation.css`**, etc.
+*   **`typography.css`** — Font families, sizes, weights.
+*   **`spacing.css`** — Spacing scale (margins, paddings).
+*   **`colors.css`** — Color palette tokens.
+*   **`radius-and-borders.css`**, **`elevation.css`**, **`opacity.css`**, **`breakpoints.css`**.
+*   **`motion.css`** — Durations, easings, delays and composite motion tokens (e.g. `--motion-skeleton`, `--motion-fade-up`). Motion automatically respects `prefers-reduced-motion`.
 
 ### 2. Core System (Aggregation)
 *   **`src/base.css`**: Contains bare-minimum global styles (resets, box-sizing) to ensure tokens render consistently.
-*   **`src/substrata.css`**: The main entry point. It imports all token files and the base styles. This is the primary file consumers import to get the "full system".
+*   **`src/underlith.css`**: The main entry point. It imports all token files and the base styles. This is the primary file consumers import to get the "full system".
 
 ### 3. Reference Implementation
-*   **`src/components/components.css`**: A lightweight, optional layer that demonstrates how tokens can be applied to standard UI elements (buttons, cards, inputs). It explicitly depends on the tokens defined in the Core System but is decoupled from the main `substrata.css` bundle to keep the core lightweight.
+*   **`src/components/components.css`**: A lightweight, optional layer that demonstrates how tokens can be applied to standard UI elements (buttons, cards, inputs). It explicitly depends on the tokens defined in the Core System but is decoupled from the main `underlith.css` bundle to keep the core lightweight.
 
 ### 4. Documentation
-The `docs/` folder contains the static HTML site that serves as the manual for Substrata.
-*   It consumes **`src/substrata.css`** to display the design system in action.
+The `docs/` folder contains the static HTML site that serves as the manual for Underlith.
+*   It consumes **`src/underlith.css`** to display the design system in action.
 *   It consumes **`src/components/components.css`** to show component examples.
-*   It uses **`src/documentation.css`** for its own layout and specific styling (grids, headers, code blocks).
+*   It uses **`docs/css/**`** for site layout and specific styling (grids, headings, code blocks with Prism).
+*   Sections are organized with a Table of Contents for quick navigation.
 
 ### 5. External Consumption
-Substrata is designed to be framework-agnostic:
-*   **Plain CSS**: Import `substrata.css`.
-*   **Tailwind**: Map `src/tokens/*.css` variables to `tailwind.config.js`.
-*   **CSS-in-JS**: Use the CSS variables directly in styled-components or emotion strings.
+Underlith is designed to be framework-agnostic:
+*   **Plain CSS**: Import `underlith.css`.
+*   **CSS-in-JS**: Use the CSS variables directly in styled-components or emotion.
+
+#### Motion guidance
+- Use `--duration-*` and `--ease-*` for transitions.
+- Prefer composite tokens (e.g. `--motion-skeleton`) for common effects.
+- Reduced motion is enforced by collapsing durations under `prefers-reduced-motion: reduce`.

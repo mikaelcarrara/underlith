@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 210" width="900" height="210">
+<style>
+.p{animation:fly linear infinite;will-change:transform,opacity;}
+@keyframes fly{
+0%{transform:translateX(0);opacity:0;}
+30%{opacity:.3;}
+70%{opacity:.75;}
+100%{transform:translateX(920px);opacity:0;}
+}
+@keyframes pulse-g{0%,100%{opacity:0.15;}50%{opacity:1.0;}}
+.pg{animation:pulse-g 3.6s ease-in-out infinite;}
+</style>
+<rect width="900" height="210" fill="#111111"/>
+<defs><linearGradient id="gv0" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8F542" stop-opacity="0.2"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0.0"/></linearGradient><linearGradient id="gv1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E187CA" stop-opacity="0.2"/><stop offset="100%" stop-color="#E187CA" stop-opacity="0.0"/></linearGradient><linearGradient id="gv2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4AF0C8" stop-opacity="0.2"/><stop offset="100%" stop-color="#4AF0C8" stop-opacity="0.0"/></linearGradient><linearGradient id="gv3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8F542" stop-opacity="0.2"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0.0"/></linearGradient><linearGradient id="gv4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E187CA" stop-opacity="0.2"/><stop offset="100%" stop-color="#E187CA" stop-opacity="0.0"/></linearGradient><linearGradient id="gv5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4AF0C8" stop-opacity="0.2"/><stop offset="100%" stop-color="#4AF0C8" stop-opacity="0.0"/></linearGradient><linearGradient id="gv6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8F542" stop-opacity="0.2"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0.0"/></linearGradient><linearGradient id="gv7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E187CA" stop-opacity="0.2"/><stop offset="100%" stop-color="#E187CA" stop-opacity="0.0"/></linearGradient><linearGradient id="gv8" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4AF0C8" stop-opacity="0.2"/><stop offset="100%" stop-color="#4AF0C8" stop-opacity="0.0"/></linearGradient><linearGradient id="gv9" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8F542" stop-opacity="0.2"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0.0"/></linearGradient><linearGradient id="gv10" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E187CA" stop-opacity="0.2"/><stop offset="100%" stop-color="#E187CA" stop-opacity="0.0"/></linearGradient><linearGradient id="gv11" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4AF0C8" stop-opacity="0.2"/><stop offset="100%" stop-color="#4AF0C8" stop-opacity="0.0"/></linearGradient><linearGradient id="gv12" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8F542" stop-opacity="0.2"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0.0"/></linearGradient><linearGradient id="gv13" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E187CA" stop-opacity="0.2"/><stop offset="100%" stop-color="#E187CA" stop-opacity="0.0"/></linearGradient><linearGradient id="gv14" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4AF0C8" stop-opacity="0.2"/><stop offset="100%" stop-color="#4AF0C8" stop-opacity="0.0"/></linearGradient><linearGradient id="gv15" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8F542" stop-opacity="0.2"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0.0"/></linearGradient><linearGradient id="gv16" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E187CA" stop-opacity="0.2"/><stop offset="100%" stop-color="#E187CA" stop-opacity="0.0"/></linearGradient><linearGradient id="gv17" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4AF0C8" stop-opacity="0.2"/><stop offset="100%" stop-color="#4AF0C8" stop-opacity="0.0"/></linearGradient><linearGradient id="gv18" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8F542" stop-opacity="0.2"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0.0"/></linearGradient><linearGradient id="gv19" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E187CA" stop-opacity="0.2"/><stop offset="100%" stop-color="#E187CA" stop-opacity="0.0"/></linearGradient><linearGradient id="gv20" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4AF0C8" stop-opacity="0.2"/><stop offset="100%" stop-color="#4AF0C8" stop-opacity="0.0"/></linearGradient><linearGradient id="gv21" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8F542" stop-opacity="0.2"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0.0"/></linearGradient><linearGradient id="gv22" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E187CA" stop-opacity="0.2"/><stop offset="100%" stop-color="#E187CA" stop-opacity="0.0"/></linearGradient><linearGradient id="gh0" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C8F542" stop-opacity="0.0925"/><stop offset="100%" stop-color="#C8F542" stop-opacity="0.0925"/></linearGradient><linearGradient id="gh1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#E187CA" stop-opacity="0.035"/><stop offset="100%" stop-color="#E187CA" stop-opacity="0.035"/></linearGradient></defs>
+<!-- GRID -->
+<rect class="pg" x="10" y="0" width="1" height="105" fill="url(#gv0)"/>
+<rect x="50" y="0" width="1" height="105" fill="url(#gv1)"/>
+<rect x="90" y="0" width="1" height="105" fill="url(#gv2)"/>
+<rect class="pg" x="130" y="0" width="1" height="105" fill="url(#gv3)"/>
+<rect x="170" y="0" width="1" height="105" fill="url(#gv4)"/>
+<rect x="210" y="0" width="1" height="105" fill="url(#gv5)"/>
+<rect class="pg" x="250" y="0" width="1" height="105" fill="url(#gv6)"/>
+<rect x="290" y="0" width="1" height="105" fill="url(#gv7)"/>
+<rect x="330" y="0" width="1" height="105" fill="url(#gv8)"/>
+<rect class="pg" x="370" y="0" width="1" height="105" fill="url(#gv9)"/>
+<rect x="410" y="0" width="1" height="105" fill="url(#gv10)"/>
+<rect x="450" y="0" width="1" height="105" fill="url(#gv11)"/>
+<rect class="pg" x="490" y="0" width="1" height="105" fill="url(#gv12)"/>
+<rect x="530" y="0" width="1" height="105" fill="url(#gv13)"/>
+<rect x="570" y="0" width="1" height="105" fill="url(#gv14)"/>
+<rect class="pg" x="610" y="0" width="1" height="105" fill="url(#gv15)"/>
+<rect x="650" y="0" width="1" height="105" fill="url(#gv16)"/>
+<rect x="690" y="0" width="1" height="105" fill="url(#gv17)"/>
+<rect class="pg" x="730" y="0" width="1" height="105" fill="url(#gv18)"/>
+<rect x="770" y="0" width="1" height="105" fill="url(#gv19)"/>
+<rect x="810" y="0" width="1" height="105" fill="url(#gv20)"/>
+<rect class="pg" x="850" y="0" width="1" height="105" fill="url(#gv21)"/>
+<rect x="890" y="0" width="1" height="105" fill="url(#gv22)"/>
+<rect class="pg" x="0" y="40" width="900" height="1" fill="url(#gh0)"/>
+<rect x="0" y="80" width="900" height="1" fill="url(#gh1)"/>
+
+<rect class="p" x="-5" y="24"  width="3" height="3" fill="#C8F542" style="animation-duration:7s;  animation-delay:0s"/>
+<rect class="p" x="-5" y="59"  width="2" height="2" fill="#C8F542" style="animation-duration:9s;  animation-delay:1.2s"/>
+<rect class="p" x="-5" y="99"  width="4" height="4" fill="#C8F542" style="animation-duration:6.5s;animation-delay:2.8s"/>
+<rect class="p" x="-5" y="139" width="2.5" height="2.5" fill="#C8F542" style="animation-duration:8s;  animation-delay:0.5s"/>
+<rect class="p" x="-5" y="169" width="3.5" height="3.5" fill="#C8F542" style="animation-duration:7.5s;animation-delay:4s"/>
+<rect class="p" x="-5" y="44"  width="2.5" height="2.5" fill="#C8F542" style="animation-duration:10s; animation-delay:3.5s"/>
+<rect class="p" x="-5" y="84"  width="3.5" height="3.5" fill="#C8F542" style="animation-duration:8.5s;animation-delay:6s"/>
+<rect class="p" x="-5" y="119" width="2" height="2"   fill="#C8F542" style="animation-duration:7.2s;animation-delay:1.8s"/>
+<rect class="p" x="-5" y="154" width="4" height="4"   fill="#C8F542" style="animation-duration:9.5s;animation-delay:5s"/>
+<rect class="p" x="-5" y="189" width="3" height="3"   fill="#C8F542" style="animation-duration:6.8s;animation-delay:2s"/>
+</svg>
