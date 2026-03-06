@@ -28,7 +28,7 @@ jobs:
           rm -rf docs/src
           mkdir -p docs/src
           cp -r src/* docs/src/
-          find docs -type f -name "*.html" -print0 | xargs -0 sed -i 's#\\.\\./src/#./src/#g'
+          find docs -type f -name "*.html" -exec sed -i 's#\.\./src/#./src/#g' {} +
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs
