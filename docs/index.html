@@ -121,7 +121,7 @@
         <h2>Design systems shouldn't<br> break when stacks change.</h2>
         <p class="text-secondary">
           Most design systems are framework-dependent — when the stack changes, they must be rebuilt.<br>
-          Underlith treats design decisions as infrastructure: stable, explicit contracts that outlive any implementation.
+          Underlith separates design decisions from implementation, so one can change without breaking the other.
         </p>
       </div>
       <div class="grid grid-3 no-gap-cards">
@@ -138,7 +138,9 @@
         <div class="card">
           <img src="svg/topic-03-2.svg" alt="" aria-hidden="true" class="topic-art">
           <h3>Shared design language</h3>
-          <p class="text-small">A common vocabulary that designers, developers, and tools can interpret and apply consistently.</p>
+          <p class="text-small">
+            Designers name it color-brand-primary. Developers use --color-brand-primary. Same thing, always in sync.
+          </p>
         </div>
       </div>
     </section>
@@ -159,17 +161,17 @@
         <div class="card">
           <img src="svg/topic-04-2.svg" alt="" aria-hidden="true" class="topic-art">
           <h3>Tokens as the Foundation</h3>
-          <p class="text-small">Design tokens are the atomic units of design meaning.</p>
+          <p class="text-small">Change a token once. Every platform updates automatically.</p>
         </div>
         <div class="card">
           <img src="svg/topic-05-2.svg" alt="" aria-hidden="true" class="topic-art">
           <h3>Framework Agnosticism</h3>
-          <p class="text-small">Design infrastructure must outlive frameworks.</p>
+          <p class="text-small">Migrate from React to anything. Your design decisions stay intact.</p>
         </div>
         <div class="card"> 
           <img src="svg/topic-06-2.svg" alt="" aria-hidden="true" class="topic-art">
           <h3>Single Source of Truth</h3>
-          <p class="text-small">One system. One truth. Zero divergence.</p>
+          <p class="text-small">Designers and developers reference the same values. Always.</p>
         </div>
       </div>
  
@@ -183,7 +185,7 @@
         </p>
         <h2>Three independent, decoupled layers.</h2>
         <p class="text-secondary">
-          Underlith is structured so each layer can evolve independently<br> without impacting the others.
+          Update your token values without touching components. Swap your component library without redefining your tokens.<br> Each layer owns its responsibility — nothing else.
         </p>
       </div>
 
@@ -192,21 +194,21 @@
           <span class="badge badge-layer-01">Layer 01</span>
           <h3>Tokens</h3>
           <p class="text-small">
-            Define design decisions as CSS Variables: colors, spacing, typography, and core primitives. Semantic, stable, and platform-agnostic.
+            The only place where design decisions are defined. Change here, everything downstream follows.
           </p>
         </div>
         <div class="card">
           <span class="badge badge-layer-02">Layer 02</span>
           <h3>Base styles</h3>
           <p class="text-small">
-            Apply tokens to native HTML elements, establishing predictable defaults and consistent rendering — without adding abstractions.
+            Apply tokens to native HTML elements, establishing predictable defaults and consistent rendering across every context.
           </p>
         </div>
         <div class="card">
           <span class="badge badge-layer-03">Layer 03</span>
           <h3>Components</h3>
           <p class="text-small">
-            Optional reference patterns for consuming tokens in real interfaces. Demonstrate usage — never prescribe a UI library.
+            Reference patterns, not mandates. Use them as a starting point or ignore them entirely — the token layer works either way.
           </p>
         </div>
       </div>
