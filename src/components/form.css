@@ -117,3 +117,13 @@ form {
   resize: vertical;
 }
 .form-textarea:focus { outline: none; border-color: var(--brand-500); }
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  form {
+    padding: 0;
+  }
+
+}

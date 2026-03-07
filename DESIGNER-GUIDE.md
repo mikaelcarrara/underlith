@@ -37,9 +37,9 @@ everywhere.
 ### ✅ Correct way
 
 1. Identify which token needs to change
-2. Open an issue or PR on the [Kobana UI repository](https://github.com/universokobana/kobana-ui)
+2. Open an issue or PR on the [Underlith repository](https://github.com/mikaelcarrara/underlith)
    with the new value and the reason
-3. After merge, the token is updated in Kobana UI
+3. After approval, the change propagates to all products automatically
 
 ### ❌ Wrong way
 
