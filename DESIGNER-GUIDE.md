@@ -1,6 +1,6 @@
 # Designer Guide — Working with Underlith Tokens
 
-This guide explains how designers should work with the Kobana design system
+This guide explains how designers should work with the yourproject design system
 to keep design and code in sync — without breaking things.
 
 ---
@@ -11,23 +11,23 @@ to keep design and code in sync — without breaking things.
 > **change the token, not the component.**
 
 Tokens are the single source of truth. When a token changes, every component
-that uses it updates automatically — across all Kobana products.
+that uses it updates automatically — across all yourproject products.
 
 ---
 
 ## What is a token?
 
 A token is a named design decision. Instead of saying "that green button color",
-you say `kobana-lime`. Instead of "that small border radius", you say `radius-sm`.
+you say `yourproject-lime`. Instead of "that small border radius", you say `radius-sm`.
 
 Names have meaning. Values can change. The name stays the same.
 
 ```
-Token name:   kobana-lime
+Token name:   yourproject-lime
 Token value:  73 99% 66%  (a specific shade of lime green)
 ```
 
-If the brand color changes, only the value changes — the name stays `kobana-lime`
+If the brand color changes, only the value changes — the name stays `yourproject-lime`
 everywhere.
 
 ---
@@ -54,18 +54,18 @@ everywhere.
 Use the same names in Figma variables as in Underlith tokens.
 This creates a shared vocabulary between design and code.
 
-| Figma variable      | Underlith token         |
-|---------------------|-------------------------|
-| `kobana-lime`       | `--ul-kobana-lime`      |
-| `kobana-purple`     | `--ul-kobana-purple`    |
-| `kobana-black`      | `--ul-kobana-black`     |
-| `font-sans`         | `--ul-font-sans`        |
-| `font-display`      | `--ul-font-display`     |
-| `radius-sm`         | `--ul-radius-sm`        |
-| `radius-md`         | `--ul-radius-md`        |
+| Figma variable      | Underlith token           |
+|---------------------|---------------------------|
+| `yourproject-lime`  | `--ul-yourproject-lime`   |
+| `yourproject-purple`| `--ul-yourproject-purple` |
+| `yourproject-black` | `--ul-yourproject-black`  |
+| `font-sans`         | `--ul-font-sans`          |
+| `font-display`      | `--ul-font-display`       |
+| `radius-sm`         | `--ul-radius-sm`          |
+| `radius-md`         | `--ul-radius-md`          |
 
-When these names match, a designer saying `kobana-lime` and a developer saying
-`--ul-kobana-lime` are talking about exactly the same thing.
+When these names match, a designer saying `yourproject-lime` and a developer saying
+`--ul-yourproject-lime` are talking about exactly the same thing.
 
 ---
 
@@ -89,7 +89,7 @@ When these names match, a designer saying `kobana-lime` and a developer saying
 
 ## Signs something went wrong
 
-- A dev receives "change this button to #D3FD54" instead of "update kobana-lime"
+- A dev receives "change this button to #D3FD54" instead of "update yourproject-lime"
 - A component was changed directly without updating the token
 - Figma and code have different names for the same color
 

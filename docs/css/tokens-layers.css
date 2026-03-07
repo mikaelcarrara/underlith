@@ -1,0 +1,67 @@
+
+.layer-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 24px 0 32px;
+}
+
+.layer-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    position: relative;
+}
+
+.layer-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.layer-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    min-width: 100px;
+    color: var(--ul-layer-01);
+}
+
+.layer-desc {
+    font-size: 13px;
+    color: #888;
+    flex: 1;
+}
+
+.layer-example {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 11px;
+    color: var(--ul-layer-01);
+}
+
+.token-group {
+    margin-bottom: var(--ul-space-6);
+
+}
+
+.token-group-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+
+.token-group-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--ul-layer-01);
+    margin-top: -3px;
+    flex-shrink: 0;
+}

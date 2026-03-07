@@ -1,16 +1,16 @@
 .card {
-  background: var(--neutral-800);
-  border: var(--border-width) solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: var(--space-5);
+  background: var(--ul-neutral-800);
+  border: var(--ul-border-width) solid var(--ul-border-color);
+  border-radius: var(--ul-radius-lg);
+  padding: var(--ul-space-5);
 }
 
 .card .banner {
   width: 100%;
   min-height: 100px;
-  border-radius: var(--radius-md);
-  background: var(--neutral-700);
-  margin-bottom: var(--space-5);
+  border-radius: var(--ul-radius-md);
+  background: var(--ul-neutral-700);
+  margin-bottom: var(--ul-space-5);
 }
 .card .banner img {
   width: 100%;
@@ -19,7 +19,7 @@
 
 .card h3,
 .card h4  {
-  margin: 0 0 var(--space-2);
+  margin: 0 0 var(--ul-space-2);
 }
 
 .card p {
@@ -27,5 +27,5 @@
 }
 
 .card .badge {
-  margin: var(--space-1) 0 var(--space-5) 0;
+  margin: var(--ul-space-1) 0 var(--ul-space-5) 0;
 }

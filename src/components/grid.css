@@ -1,5 +1,5 @@
 .grid {
-  --grid-gap: var(--space-6);
+  --grid-gap: var(--ul-space-6);
   --columns: 1;
   display: grid;
   grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
@@ -13,7 +13,7 @@
 .grid-5 { --columns: 5; }
 
 @media (max-width: 1024px) {
-  .grid { --grid-gap: var(--space-4); }
+  .grid { --grid-gap: var(--ul-space-4); }
 }
 
 @media (max-width: 640px) {

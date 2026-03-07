@@ -3,23 +3,23 @@
     Typography
   ============================== */
 
-  --font-family-base: "Geist", system-ui, -apple-system, BlinkMacSystemFont,
+  --ul-font-family-base: "Geist", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-md: 1rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 2.1rem;
-  --font-size-3xl: 2.7rem;
+  --ul-font-size-xs: 0.75rem;
+  --ul-font-size-sm: 0.875rem;
+  --ul-font-size-md: 1rem;
+  --ul-font-size-lg: 1.25rem;
+  --ul-font-size-xl: 1.5rem;
+  --ul-font-size-2xl: 2.1rem;
+  --ul-font-size-3xl: 2.7rem;
 
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
+  --ul-font-weight-regular: 400;
+  --ul-font-weight-medium: 500;
+  --ul-font-weight-semibold: 600;
+  --ul-font-weight-bold: 700;
 
-  --line-height-tight: 1.25;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.75;
+  --ul-line-height-tight: 1.25;
+  --ul-line-height-normal: 1.5;
+  --ul-line-height-relaxed: 1.75;
 }

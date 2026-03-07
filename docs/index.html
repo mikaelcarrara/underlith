@@ -68,7 +68,7 @@
     <img class="bg-hero" src="svg/hero3.svg" alt="" aria-hidden="true">
     <h1>The governance layer<br> for <span>design tokens</span></h1>
     <p>
-      A single source of truth for design decisions that survives<br> frameworks, platforms, and time.
+      The foundation for design decisions that survives<br> frameworks, platforms, and time.
     </p>
     <div class="buttons">
       <div class="cta-wrap">
@@ -215,54 +215,210 @@
     </section>
 
     <section>
+
       <div class="sub-heading">
         <p class="sub-heading-tag">
           IMPLEMENTATION
         </p>
-        <h2>Multi-Stack Implementation</h2>
+        <h2>Works with your stack. Any stack.</h2>
         <p class="text-secondary">
-          Underlith is designed as stack-agnostic infrastructure.<br>
-          Tokens can be consumed directly or integrated into different styling pipelines.
+          Install the package once. From there, consume tokens exactly the way your stack expects —<br>
+          no adapters, no plugins, no build-time magic required.
         </p>
       </div>
-      <div class="grid grid-3">
+
+      <div class="grid grid-3 no-gap-cards">
+
+        <!-- CSS Variables -->
         <div class="card big-text">
-          <h3>CSS Variables</h3>
-          <p class="text-small">Tokens are published as CSS Custom Properties in <code>:root</code>, keeping stable contracts between design and code.</p>
-          <p class="text-small">Themes are applied via scopes like <code>[data-theme]</code> — only values change, rules remain identical.</p>
-          <p class="text-small">Compatible with any frontend stack. Consume directly with <code>var(--token)</code>.</p>
+          <div class="stack-badge css-badge"><span class="dot"></span>CSS Variables</div>
+          <h3>Plain CSS</h3>
+          <p class="text-small">Import the token file and use CSS custom properties directly. Works in any project — no framework needed.</p>
+
+          <div class="impl-code">
+            <span class="c"># Install</span><br>
+            <span class="cmd">npm install @mikaelcarrara/underlith</span><br>
+            <br>
+            <span class="c"># Import</span><br>
+            <span class="at">@import</span> <span class="s">"underlith/src/underlith.tokens.css"</span>;<br>
+            <br>
+            <span class="c"># Use</span><br>
+            <span class="p">color</span>: var(<span style="color: var(--ul-layer-01);">--ul-color-text</span>);<br>
+            <span class="p">gap</span>: var(<span style="color: var(--ul-layer-01);">--ul-space-4</span>);<br>
+            <span class="p">border-radius</span>: var(<span style="color: var(--ul-layer-01);">--ul-radius-md</span>);
+          </div>
+
           <p class="text-small">
-            <a class="view-more" href="tokens.html">View tokens →</a>
+            <a class="view-more" href="tokens.html">View all tokens →</a>
           </p>
         </div>
+
+        <!-- Tailwind v4 -->
         <div class="card big-text">
-          <h3>Tailwind (v4)</h3>
+          <div class="stack-badge tw-badge"><span class="dot"></span>Tailwind v4</div>
+          <h3>Native @theme</h3>
+          <p class="text-small">Tailwind v4 reads CSS variables natively via <code>@theme</code>. Import Underlith tokens and Tailwind utilities consume them automatically — no config file needed.</p>
 
-          <p class="text-small">Native integration: connect tokens directly via <code>@theme</code> in your CSS, eliminating complex JS configuration.</p>
-
-          <p class="text-small">Utilities use <code>var(--token)</code> directly, preserving the visual contract without build-time plugins.</p>
-
-          <p class="text-small">Zero-config architecture — the design system lives in CSS, independent of tooling.</p>
-
-          <p class="text-small">Native theming support via media queries or attribute selectors, delegating logic to modern CSS.</p>
+          <div class="impl-code">
+            <span class="c"># Import in your main CSS</span><br>
+            <span class="at">@import</span> <span class="s">"underlith/src/underlith.tokens.css"</span>;<br>
+            <br>
+            <span class="at">@theme</span> {<br>
+            &nbsp;&nbsp;<span class="p">--color-brand</span>: var(<span style="color: var(--ul-layer-01);">--ul-color-brand-primary</span>);<br>
+            &nbsp;&nbsp;<span class="p">--radius-md</span>: var(<span style="color: var(--ul-layer-01);">--ul-radius-md</span>);<br>
+            }<br>
+            <br>
+            <span class="c"># Use Tailwind classes normally</span><br>
+            <pre style="color: var(--ul-layer-03);">&lt;button className="bg-brand text-white" /&gt;</pre>
+          </div>
 
           <p class="text-small">
             <a class="view-more" href="consumption.html">Consumption examples →</a>
           </p>
         </div>
+
+        <!-- Sass / Less -->
         <div class="card big-text">
-          <h3>Sass / Less</h3>
-          <p class="text-small">Tokens can also be consumed in Sass or Less pipelines. Reference them via <code>var(--token)</code> inside variables or mixins, exposing reusable helpers across the stylesheet.</p>
-          <div class="mini-code-block">
-            <code class="del">color: $color-text;</code>
-            <code>color: var(--color-text);</code>
+          <div class="stack-badge sass-badge"><span class="dot"></span>Sass / Less</div>
+          <h3>Variables & Mixins</h3>
+          <p class="text-small">Reference Underlith tokens inside Sass variables or mixins. Adopt without rewriting a single existing rule.</p>
+
+          <div class="impl-code">
+            <span class="c"># Import</span><br>
+            <span class="at">@import</span> <span class="s">"underlith/src/underlith.tokens.css"</span>;<br>
+            <br>
+            <span class="c"># Map to Sass variable</span><br>
+            <span class="p">$color-text</span>: var(<span style="color: var(--ul-layer-01);">--ul-color-text</span>);<br>
+            <br>
+            <span class="c"># Before → After</span><br>
+            <span class="del">color: $old-text-color;</span><br>
+<pre style="color: var(--ul-layer-03);">@mixin button-primary {
+&nbsp;&nbsp;background: $old-text-color;
+}</pre>
           </div>
-          <p class="text-small">This enables adopting Underlith in legacy projects without rewriting existing CSS.</p>
-          <p class="text-small" style="margin-top: var(--space-2);">
+
+          <p class="text-small">
             <a class="view-more" href="tokens.html">Available tokens →</a>
           </p>
         </div>
+
       </div>
+    </section>
+
+    <section>
+      <div class="sub-heading">
+        <p class="sub-heading-tag">TWO PATHS</p>
+        <h2>The infrastructure for your<br>own source of truth.</h2>
+        <p class="text-secondary">
+          Underlith doesn't replace your design decisions — it gives you the infrastructure to own them.<br>
+          Whether you're starting from scratch or migrating an existing system, the destination is the same:<br>
+          one package where your brand lives, versioned and shareable across every product.
+        </p>
+      </div>
+
+      <div class="grid grid-2 no-gap-cards">
+
+        <!-- Greenfield -->
+        <div class="card big-text">
+          <div class="stack-badge badge-green">New project</div>
+          <h3>Two commands. Done.</h3>
+          <p class="text-small">
+            Define your brand tokens, scaffold the package, publish.
+            Every product your org builds from here installs <code>@your-org/tokens</code>
+            and inherits your design decisions automatically.
+          </p>
+
+          <div class="pipeline">
+            <span class="pipeline-cmd">$ underlith brand init</span>
+            <span class="pipeline-arrow">→</span>
+            <span class="pipeline-cmd">$ npm publish</span>
+          </div>
+
+          <div class="impl-code">
+            <span class="c"># Scaffold your brand package</span><br>
+            <span class="cmd">underlith brand init --org acme</span><br>
+            <br>
+            <span class="c"># Publish to npm</span><br>
+            <span class="cmd">cd @acme/tokens && npm publish --access public</span><br>
+            <br>
+            <span class="c"># Any project installs it</span><br>
+            <span class="cmd">npm install @acme/tokens</span><br>
+            <span class="at">@import</span> <span class="s">"@acme/tokens/acme.brand.css"</span>;
+          </div>
+
+          <div class="steps">
+            <div class="step">
+              <span class="step-num green">1</span>
+              <p class="text-small">
+                <strong>Run brand init:</strong> Define your brand values. The command scaffolds a ready-to-publish npm package.
+              </p>
+            </div>
+            <div class="step">
+              <span class="step-num green">2</span>
+              <p class="text-small">
+                <strong>Publish once:</strong> <code>@your-org/tokens</code> becomes the shared source of truth across every product your org builds.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Existing project -->
+        <div class="card big-text">
+          <div class="stack-badge badge-brown">Existing project</div>
+          <h3>Three commands. Zero rewrites.</h3>
+          <p class="text-small">
+            Already have a design system? Map your existing variables to Underlith tokens,
+            extract your brand layer into a standalone package, publish.
+            Components keep working exactly as before.
+          </p>
+
+          <div class="pipeline">
+            <span class="pipeline-cmd">$ underlith init --shadcn</span>
+            <span class="pipeline-arrow">→</span>
+            <span class="pipeline-cmd">$ underlith brand init</span>
+            <span class="pipeline-arrow">→</span>
+            <span class="pipeline-cmd">$ npm publish</span>
+          </div>
+
+          <div class="impl-code">
+            <span class="c"># 1. Map existing variables to Underlith tokens</span><br>
+            <span class="cmd">underlith init --shadcn \</span><br>
+            <span class="cmd">&nbsp;&nbsp;--globals ./styles/globals.css</span><br>
+            <br>
+            <span class="c"># Before → After (zero component changes)</span><br>
+            <span class="p">--primary</span>: var(<span style="color: var(--ul-layer-01);">--ul-primary</span>);<br>
+            <br>
+            <span class="c"># 2. Extract brand layer and scaffold package</span><br>
+            <span class="cmd">underlith brand init --org acme</span><br>
+            <br>
+            <span class="c"># 3. Publish</span><br>
+            <span class="cmd">npm publish --access public</span>
+          </div>
+
+          <div class="steps">
+            <div class="step">
+              <span class="step-num amber">1</span>
+              <p class="text-small">
+                <strong>Integrate:</strong> Existing variables are mapped to Underlith tokens. No component rewrites.
+              </p>
+            </div>
+            <div class="step">
+              <span class="step-num amber">2</span>
+              <p class="text-small">
+                <strong>Extract:</strong> Brand values are separated from framework primitives and scaffolded into <code>@your-org/tokens</code>.
+              </p>
+            </div>
+            <div class="step">
+              <span class="step-num amber">3</span>
+              <p class="text-small">
+                <strong>Publish:</strong> Every product in your org installs the package. Change once, update everywhere.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </section>
 
     <section class="final-cta">

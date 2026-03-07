@@ -1,12 +1,17 @@
 .text-default {
-  font-size: var(--font-size-lg);
-  color: var(--neutral-100);
+  font-size: var(--ul-font-size-lg);
+  color: var(--ul-neutral-100);
 }
 .text-secondary {
-  font-size: var(--font-size-md);
-  color: var(--neutral-300);
+  font-size: var(--ul-font-size-md);
+  color: var(--ul-neutral-300);
 }
 .text-small {
-  font-size: var(--font-size-sm);
-  color: var(--neutral-400);
+  font-size: var(--ul-font-size-sm);
+  color: var(--ul-neutral-400);
+}
+
+.text-small code {
+  font-weight: var(--ul-font-weight-semibold);
+  color: var(--ul-neutral-200);
 }

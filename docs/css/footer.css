@@ -1,8 +1,8 @@
 footer {
-  font-size: var(--font-size-sm);
-  margin-top: var(--space-6);
-  background: var(--neutral-1000);
-  padding-top: var(--space-6);
+  font-size: var(--ul-font-size-sm);
+  margin-top: var(--ul-space-6);
+  background: var(--ul-neutral-1000);
+  padding-top: var(--ul-space-6);
   padding-bottom: 400px;
   background-image: url("../svg/footer-illustration.svg");
   background-size: cover;
@@ -17,9 +17,9 @@ footer > section {
 .footer-main {
   display: flex;
   justify-content: space-between;
-  gap: var(--space-5);
+  gap: var(--ul-space-5);
   box-sizing: border-box;
-  padding-top: var(--space-6);
+  padding-top: var(--ul-space-6);
 }
 
 .footer-main img {
@@ -31,10 +31,10 @@ footer > section {
 }
 
 footer h3 {
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--ul-font-size-md);
+  font-weight: var(--ul-font-weight-bold);
   margin-top: 0;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--ul-space-3);
 }
 
 footer ul {
@@ -43,23 +43,23 @@ footer ul {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--ul-space-2);
 }
 
 footer ul a {
   text-decoration: none;
-  color: var(--neutral-400);
+  color: var(--ul-neutral-400);
 }
 
 footer ul a:hover {
-  color: var(--neutral-100);
+  color: var(--ul-neutral-100);
 }
 
 .external-link {
   display: inline-block;
   width: .8em;
   height: .8em;
-  margin-left: var(--space-1);
+  margin-left: var(--ul-space-1);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-external-link'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
@@ -70,15 +70,15 @@ footer ul a:hover {
 .footer-bottom {
   text-align: center;
   padding: 80px 0 30px 0;
-  font-size: var(--font-size-xs);
+  font-size: var(--ul-font-size-xs);
 }
 
 .footer-bottom p {
-  color: var(--neutral-500);
+  color: var(--ul-neutral-500);
 }
 
 .footer-bottom a {
-  color: var(--neutral-400);
+  color: var(--ul-neutral-400);
   text-decoration: none;
 }
 
@@ -89,25 +89,25 @@ footer ul a:hover {
 .css-valid-badge .wrap {
   display: inline-block;
   padding: 1px;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--layer-01), #E187CA 50%, #4AF0C8);
+  border-radius: var(--ul-radius-lg);
+  background: linear-gradient(135deg, var(--ul-layer-01), #E187CA 50%, #4AF0C8);
 }
 .css-valid-badge .inner {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 6px 10px;
-  border-radius: var(--radius-lg);
-  background: var(--neutral-900);
-  color: var(--neutral-0);
-  font-size: var(--font-size-xs);
+  border-radius: var(--ul-radius-lg);
+  background: var(--ul-neutral-900);
+  color: var(--ul-neutral-0);
+  font-size: var(--ul-font-size-xs);
   line-height: 1;
 }
 .css-valid-badge .dot {
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: var(--layer-01);
+  background: var(--ul-layer-01);
   box-shadow: 0 0 6px rgba(200, 245, 66, 0.4);
 }
 /* Responsive */
@@ -115,20 +115,20 @@ footer ul a:hover {
 
   footer section {
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--ul-space-4);
     text-align: center;
   }
 
   .footer-main {
     flex-direction: column;
     text-align: center;
-    gap: var(--space-5);
+    gap: var(--ul-space-5);
     align-items: center;
   }
 
   .footer-main>div {
     flex-direction: column;
-    gap: var(--space-5);
+    gap: var(--ul-space-5);
     width: 100%;
     text-align: center;
   }

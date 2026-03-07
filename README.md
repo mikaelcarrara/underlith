@@ -95,11 +95,11 @@ Use CSS Variables directly in template literals:
 
 ```js
 const Button = styled.button`
-  padding: var(--space-2) var(--space-4);
-  background: var(--color-brand-primary);
-  color: var(--color-text-inverse);
-  border-radius: var(--radius-sm);
-  transition: background var(--duration-fast) var(--ease-inout);
+  padding: var(--ul-space-2) var(--ul-space-4);
+  background: var(--ul-color-brand-primary);
+  color: var(--ul-color-text-inverse);
+  border-radius: var(--ul-radius-sm);
+  transition: background var(--ul-duration-fast) var(--ul-ease-inout);
 `;
 ```
 
@@ -109,11 +109,11 @@ Available in `src/tokens/motion.css`.
 
 ```css
 .tooltip {
-  transition: opacity var(--duration-fast) var(--ease-inout);
+  transition: opacity var(--ul-duration-fast) var(--ul-ease-inout);
 }
 
 .skeleton {
-  animation: var(--motion-skeleton);
+  animation: var(--ul-motion-skeleton);
 }
 ```
 

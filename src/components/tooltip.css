@@ -3,16 +3,16 @@
   content: attr(data-tooltip);
   position: absolute;
   left: 50%;
-  bottom: calc(100% + var(--space-2));
+  bottom: calc(100% + var(--ul-space-2));
   transform: translateX(-50%);
-  background: var(--neutral-800);
-  color: var(--neutral-0);
-  font-size: var(--font-size-xs);
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
+  background: var(--ul-neutral-800);
+  color: var(--ul-neutral-0);
+  font-size: var(--ul-font-size-xs);
+  padding: var(--ul-space-1) var(--ul-space-2);
+  border-radius: var(--ul-radius-sm);
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--duration-fast) var(--ease-inout);
+  transition: opacity var(--ul-duration-fast) var(--ul-ease-inout);
 }
 .tooltip:hover::after { opacity: 1; }

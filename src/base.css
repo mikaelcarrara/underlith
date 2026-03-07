@@ -3,12 +3,12 @@
 ============================== */
 
 body {
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-normal);
-  color: var(--neutral-100);
-  background-color: var(--neutral-900);
+  font-family: var(--ul-font-family-base);
+  font-size: var(--ul-font-size-md);
+  font-weight: var(--ul-font-weight-regular);
+  line-height: var(--ul-line-height-normal);
+  color: var(--ul-neutral-100);
+  background-color: var(--ul-neutral-900);
   margin: 0;
 }
 
@@ -17,31 +17,31 @@ body {
 ============================== */
 
 h1 {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-tight);
-  margin-bottom: var(--space-3);
+  font-size: var(--ul-font-size-3xl);
+  font-weight: var(--ul-font-weight-bold);
+  line-height: var(--ul-line-height-tight);
+  margin-bottom: var(--ul-space-3);
 }
 
 h2 {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-tight);
-  margin-bottom: var(--space-6);
+  font-size: var(--ul-font-size-xl);
+  font-weight: var(--ul-font-weight-semibold);
+  line-height: var(--ul-line-height-tight);
+  margin-bottom: var(--ul-space-6);
   margin-top: 40px;
 }
 
 h3 {
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--space-3);
-  margin-top: var(--space-6);
+  font-size: var(--ul-font-size-md);
+  font-weight: var(--ul-font-weight-semibold);
+  margin-bottom: var(--ul-space-3);
+  margin-top: var(--ul-space-6);
 }
 
 h4 {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  margin-bottom: var(--space-3);
+  font-size: var(--ul-font-size-sm);
+  font-weight: var(--ul-font-weight-medium);
+  margin-bottom: var(--ul-space-3);
 }
 
 a {
@@ -50,31 +50,31 @@ a {
 }
 
 p {
-  line-height: var(--line-height-relaxed);
+  line-height: var(--ul-line-height-relaxed);
 }
 
 table {
-  margin: var(--space-5) 0 var(--space-5) 0;
+  margin: var(--ul-space-5) 0 var(--ul-space-5) 0;
 }
 
 table th {
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--ul-font-weight-semibold);
   text-align: left;
-  color: var(--neutral-300);
+  color: var(--ul-neutral-300);
 }
 
 table td {
-  padding-right: var(--space-6);
+  padding-right: var(--ul-space-6);
 }
 
 @media (max-width: 768px) {
 
   h1 {
-    font-size: var(--font-size-2xl);
+    font-size: var(--ul-font-size-2xl);
   }
 
   h2 {
-    font-size: var(--font-size-lg);
+    font-size: var(--ul-font-size-lg);
   }
 
 }

@@ -34,6 +34,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
 </head>
 
 <body>
@@ -68,227 +69,228 @@
 
     <section class="heading">
       <h1>Tokens</h1>
-      <p>Tokens are the foundation layer of Underlith.</p>
+      <p>
+        Design decisions expressed as contracts.<br>
+        Not components. Not styles. The layer everything else consumes.
+      </p>
     </section>
 
     <section class="content">
+
+      <!-- ── THREE LAYERS ── -->
+      <h2>Three layers, one pipeline</h2>
       <p>
-        They represent design decisions expressed as variables, not components.<br>
-        In Underlith, a token is a CSS Custom Property, such as:
+        Underlith organizes tokens into three distinct types. Each type has a single responsibility —
+        and together they form the pipeline from raw values to your publishable brand package.
       </p>
 
-      <div class="card code-card"><pre><code class="language-css">--space-1
---font-size-md
---color-neutral-900
---radius-md</code></pre></div>
+      <div class="grid grid-3 no-gap-cards" style="margin-top: var(--ul-space-6);">
+        <div class="card">
+          <span class="layer-label">Base tokens</span>
+          <span class="layer-desc">Raw scales. Numbers, sizes, durations. Framework primitives.</span>
+          <span class="layer-example">--ul-space-4, --ul-radius-md</span>
+        </div>
+        <div class="card">
+          <span class="layer-label">Brand tokens</span>
+          <span class="layer-desc">Your org's values. Colors, typography, identity decisions.</span>
+          <span class="layer-example">--ul-color-brand-primary</span>
+        </div>
+        <div class="card">
+          <span class="layer-label">Semantic aliases</span>
+          <span class="layer-desc">Intent over value. What something means, not what it is.</span>
+          <span class="layer-example">--ul-color-text, --ul-color-bg-surface</span>
+        </div>
+      </div>
 
-      <p>
-        They define constraints, scales, and semantic meaning that other layers consume.
+      <p class="alert text-small">
+        When you run <code>underlith brand init</code>, Underlith separates brand tokens from base tokens and scaffolds them into a publishable <code>@your-org/tokens</code> package. Semantic aliases travel with the brand layer.
       </p>
 
-      <h2>What tokens are (and are not)</h2>
+      <hr class="section-divider">
 
-      <h3>Tokens are:</h3>
-
-      <ul>
-        <li>Named CSS variables (--space-1, --color-brand-500)</li>
-        <li>Explicit design decisions</li>
-        <li>Stable and versionable contracts</li>
-        <li>Independent from layout and components</li>
-      </ul>
-
-      <h3>Tokens are not:</h3>
-
-      <ul>
-        <li>UI elements</li>
-        <li>Styled components</li>
-        <li>Visual examples</li>
-        <li>Framework-specific utilities</li>
-      </ul>
-
+      <!-- ── BASE TOKENS ── -->
+      <h2>Base tokens</h2>
       <p>
-        If something has a default appearance, it belongs to Components, not here.
+        Framework primitives. Raw values that define the scale of your system.
+        These live in the Underlith package and are shared across all consumers.
       </p>
 
-      <h2>Token structure</h2>
+      <div class="token-group">
+        <div class="token-group-header">
+          <span class="token-group-dot"></span>
+          <h3 style="margin:0">Spacing <span class="badge">spacing.css</span></h3>
+        </div>
+        <p>The spacing scale used across the system. Replaces arbitrary values like <code>8px</code> or <code>12px</code> with a consistent, named scale.</p>
+        <div class="card code-card"><pre><code class="language-css">--ul-space-1
+--ul-space-2
+--ul-space-3
+--ul-space-4
+--ul-space-5</code></pre></div>
+      </div>
 
+      <div class="token-group">
+        <div class="token-group-header">
+          <span class="token-group-dot"></span>
+          <h3 style="margin:0">Typography <span class="badge">typography.css</span></h3>
+        </div>
+        <p>Typographic scales as tokens. Describes intent — not headings or text styles.</p>
+        <div class="card code-card"><pre><code class="language-css">--ul-font-size-sm
+--ul-font-size-md
+--ul-font-size-lg
+--ul-line-height-tight
+--ul-font-weight-regular</code></pre></div>
+      </div>
+
+      <div class="token-group">
+        <div class="token-group-header">
+          <span class="token-group-dot"></span>
+          <h3 style="margin:0">Radius & Borders <span class="badge">radius-and-borders.css</span></h3>
+        </div>
+        <p>Shape-related decisions. Ensures consistent geometry across all consumers.</p>
+        <div class="card code-card"><pre><code class="language-css">--ul-radius-sm
+--ul-radius-md
+--ul-radius-lg
+--ul-border-width-hairline</code></pre></div>
+      </div>
+
+      <div class="token-group">
+        <div class="token-group-header">
+          <span class="token-group-dot"></span>
+          <h3 style="margin:0">Elevation <span class="badge">elevation.css</span></h3>
+        </div>
+        <p>Depth tokens. Relative depth, not specific components.</p>
+        <div class="card code-card"><pre><code class="language-css">--ul-elevation-1
+--ul-elevation-2
+--ul-elevation-3</code></pre></div>
+      </div>
+
+      <div class="token-group">
+        <div class="token-group-header">
+          <span class="token-group-dot"></span>
+          <h3 style="margin:0">Opacity <span class="badge">opacity.css</span></h3>
+        </div>
+        <p>Named transparency levels. Avoids arbitrary alpha values.</p>
+        <div class="card code-card"><pre><code class="language-css">--ul-opacity-disabled
+--ul-opacity-muted
+--ul-opacity-overlay</code></pre></div>
+      </div>
+
+      <div class="token-group">
+        <div class="token-group-header">
+          <span class="token-group-dot"></span>
+          <h3 style="margin:0">Breakpoints <span class="badge">breakpoints.css</span></h3>
+        </div>
+        <p>Responsive thresholds as tokens. Defines when layout decisions change.</p>
+        <div class="card code-card"><pre><code class="language-css">--ul-breakpoint-sm
+--ul-breakpoint-md
+--ul-breakpoint-lg</code></pre></div>
+      </div>
+
+      <div class="token-group">
+        <div class="token-group-header">
+          <span class="token-group-dot"></span>
+          <h3 style="margin:0">Motion <span class="badge">motion.css</span></h3>
+        </div>
+        <p>Durations, easings, delays, and composite motion tokens. Use individual tokens for fine control, or composite tokens for common effects.</p>
+
+        <h4>Durations</h4>
+        <div class="card code-card"><pre><code class="language-css">--ul-duration-nano
+--ul-duration-micro
+--ul-duration-fast
+--ul-duration-base
+--ul-duration-moderate
+--ul-duration-slow
+--ul-duration-glacial
+--ul-duration-epic</code></pre></div>
+
+        <h4>Easing</h4>
+        <div class="card code-card"><pre><code class="language-css">--ul-ease-linear
+--ul-ease-enter
+--ul-ease-enter-back
+--ul-ease-enter-spring
+--ul-ease-exit
+--ul-ease-exit-sharp
+--ul-ease-inout
+--ul-ease-inout-soft
+--ul-ease-inout-strong
+--ul-ease-bounce
+--ul-ease-bounce-strong
+--ul-ease-elastic
+--ul-ease-anticipate</code></pre></div>
+
+        <h4>Composite motion tokens</h4>
+        <div class="card code-card"><pre><code class="language-css">--ul-motion-drop-bounce
+--ul-motion-fade-up
+--ul-motion-fade-in
+--ul-motion-scale-pop
+--ul-motion-glow-breath
+--ul-motion-pulse
+--ul-motion-float
+--ul-motion-shimmer
+--ul-motion-skeleton</code></pre></div>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ── BRAND TOKENS ── -->
+      <h2>Brand tokens</h2>
       <p>
-        Each file exposes a set of CSS variables focused on a single decision domain.
+        Your org's identity decisions. Colors, brand palette, identity values.
+        These are the tokens that <code>underlith brand init</code> extracts and packages
+        into your publishable <code>@your-org/tokens</code>.
       </p>
 
-      <h3>Typography <span class="badge">typography.css</span></h3>
+      <div class="token-group">
+        <div class="token-group-header">
+          <span class="token-group-dot brand"></span>
+          <h3 style="margin:0">Colors <span class="badge">colors.css</span></h3>
+        </div>
+        <p>Raw color values. Value-based, without semantic context. Your brand palette lives here.</p>
+        <div class="card code-card"><pre><code class="language-css">--ul-color-brand-300
+--ul-color-brand-500
+--ul-color-neutral-0
+--ul-color-neutral-900</code></pre></div>
+      </div>
 
+      <hr class="section-divider">
+
+      <!-- ── SEMANTIC ALIASES ── -->
+      <h2>Semantic aliases</h2>
       <p>
-        Defines typographic scales as tokens.
+        The most important layer. Maps raw tokens to intent — what something <em>means</em>,
+        not what it looks like. Semantic aliases are what components consume.
+        When your brand evolves, you update the alias. Components never change.
       </p>
 
-      <h4>Example</h4>
+      <div class="token-group">
+        <div class="token-group-header">
+          <span class="token-group-dot semantic"></span>
+          <h3 style="margin:0">Semantic aliases <span class="badge">semantic-aliases.css</span></h3>
+        </div>
 
-      <div class="card code-card"><pre><code class="language-css">--font-size-sm
---font-size-md
---font-size-lg
---line-height-tight
---font-weight-regular</code></pre></div>
+        <div class="card code-card"><pre><code class="language-css">/* Text */
+--ul-color-text
+--ul-color-text-secondary
+--ul-color-text-inverse
 
-      <p>
-        These tokens describe typographic intent, not headings or text styles.
+/* Surfaces */
+--ul-color-bg-surface
+--ul-color-bg-elevated
+
+/* Borders */
+--ul-color-border-subtle
+--ul-color-border-strong
+
+/* Interactive */
+--ul-color-brand-primary
+--ul-color-brand-primary-hover</code></pre></div>
+      </div>
+
+      <p class="alert text-small">
+        Semantic aliases travel with your brand package. When you publish <code>@your-org/tokens</code>,
+        any project that installs it gets the complete alias map — and can safely use
+        <code>var(--ul-color-text)</code> without ever knowing what the underlying value is.
       </p>
-
-      <h3>Spacing <span class="badge">spacing.css</span></h3>
-
-      <p>
-        Defines the spacing scale used across the system.
-      </p>
-
-      <h4>Example</h4>
-
-      <div class="card code-card"><pre><code class="language-css">--space-1
---space-2
---space-3
---space-4
---space-5</code></pre></div>
-
-      <p>Spacing tokens replace arbitrary values like 8px or 12px with a consistent scale.</p>
-
-
-      <h3>Colors <span class="badge">colors.css</span></h3>
-
-      <p>Defines raw color values.</p>
-
-      <h4>Examples</h4>
-
-      <div class="card code-card"><pre><code class="language-css">--color-brand-300
---color-brand-500
---color-neutral-0
---color-neutral-900</code></pre></div>
-
-      <p>These tokens are value-based, without semantic context.</p>
-
-      <h3>Radius and borders <span class="badge">radius-and-borders.css</span></h3>
-
-      <p>Defines shape-related decisions.</p>
-
-      <h4>Examples</h4>
-
-      <div class="card code-card"><pre><code class="language-css">--radius-sm
---radius-md
---radius-lg
---border-width-hairline</code></pre></div>
-
-      <p>Used to ensure consistent geometry across all consumers.</p>
-
-      <h3>Elevation <span class="badge">elevation.css</span></h3>
-
-      <p>Defines depth tokens.</p>
-
-      <h4>Examples</h4>
-
-      <div class="card code-card"><pre><code class="language-css">--elevation-1
---elevation-2
---elevation-3</code></pre></div>
-
-      <p>Elevation tokens express relative depth, not specific components.</p>
-
-      <h3>Motion <span class="badge">motion.css</span></h3>
-
-      <p>Motion tokens: durations, easings, delays and composite tokens; reduced-motion policy.</p>
-
-      <h4>Durations</h4>
-      <div class="card code-card"><pre><code class="language-css">--duration-nano
---duration-micro
---duration-fast
---duration-base
---duration-moderate
---duration-slow
---duration-glacial
---duration-epic</code></pre></div>
-
-      <h4>Easing</h4>
-      <div class="card code-card"><pre><code class="language-css">--ease-linear
---ease-enter
---ease-enter-back
---ease-enter-spring
---ease-exit
---ease-exit-sharp
---ease-inout
---ease-inout-soft
---ease-inout-strong
---ease-bounce
---ease-bounce-strong
---ease-elastic
---ease-anticipate
---ease-sine-in
---ease-sine-out
---ease-sine-inout
---ease-breath
---ease-float
---ease-drift</code></pre></div>
-
-      <h4>Delays</h4>
-      <div class="card code-card"><pre><code class="language-css">--delay-none
---delay-xs
---delay-sm
---delay-md
---delay-lg
---delay-xl
---delay-2xl
---delay-3xl
---stagger-unit</code></pre></div>
-
-      <h4>Composite motion tokens</h4>
-      <div class="card code-card"><pre><code class="language-css">--motion-drop-bounce
---motion-fade-up
---motion-fade-in
---motion-scale-pop
---motion-glow-breath
---motion-pulse
---motion-particle
---motion-slide-left
---motion-slide-right
---motion-float
---motion-shimmer
---motion-skeleton
---motion-skeleton-fill
---motion-flip-in</code></pre></div>
-
-      <p>Use durations/easings for fine control, or the composite tokens for common effects.</p>
-
-      <h3>Opacity <span class="badge">opacity.css</span></h3>
-
-      <p>Defines transparency levels.</p>
-
-      <h4>Examples</h4>
-
-      <div class="card code-card"><pre><code class="language-css">--opacity-disabled
---opacity-muted
---opacity-overlay</code></pre></div>
-
-      <p>Opacity tokens avoid arbitrary alpha values.</p>
-
-      <h3>Breakpoints <span class="badge">breakpoints.css</span></h3>
-
-      <p>Defines responsive thresholds as tokens.</p>
-
-      <h4>Examples</h4>
-
-      <div class="card code-card"><pre><code class="language-css">--breakpoint-sm
---breakpoint-md
---breakpoint-lg</code></pre></div>
-
-      <p>Breakpoints define when layout decisions change.</p>
-
-      <h3>Semantic aliases <span class="badge">semantic-aliases.css</span></h3>
-
-      <p>Maps raw tokens to semantic meaning.</p>
-
-      <h4>Examples</h4>
-
-      <div class="card code-card"><pre><code class="language-css">--color-text-primary
---color-text-secondary
---color-background-surface
---color-border-subtle</code></pre></div>
-
-      <p>Semantic aliases allow design intent to evolve without changing the underlying scale.</p>
 
     </section>
   </main>

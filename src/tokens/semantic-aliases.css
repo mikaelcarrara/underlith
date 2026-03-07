@@ -4,14 +4,14 @@
     Semantic Aliases
   ============================== */
 
-  --color-bg: var(--neutral-0);
-  --color-surface: var(--neutral-0);
-  --color-text-primary: var(--neutral-900);
-  --color-text-secondary: var(--neutral-700);
-  --color-border: var(--neutral-300);
+  --ul-color-bg: var(--ul-neutral-0);
+  --ul-color-surface: var(--ul-neutral-0);
+  --ul-color-text-primary: var(--ul-neutral-900);
+  --ul-color-text-secondary: var(--ul-neutral-700);
+  --ul-color-border: var(--ul-neutral-300);
 
-  --color-brand-primary: var(--brand-500);
-  --color-brand-hover: var(--brand-700);
-  --color-text-inverse: var(--neutral-0);
+  --ul-color-brand-primary: var(--ul-brand-500);
+  --ul-color-brand-hover: var(--ul-brand-700);
+  --ul-color-text-inverse: var(--ul-neutral-0);
 
 }

@@ -69,67 +69,125 @@
     <section class="heading">
       <h1>Getting started</h1>
       <p>
-        Underlith is designed to be consumed, not imposed.<br>
-        You can adopt it incrementally, partially, or as a full
-        design foundation.
+        Underlith is the infrastructure for your own source of truth.<br>
+        Two commands for new projects. Three for existing ones.
       </p>
     </section>
 
     <section class="content">
 
-      <h2>Installation</h2>
+      <!-- ── STEP 0: INSTALL ── -->
+      <h2>Install</h2>
 
-      <p>The recommended way to start a new Underlith project is via the CLI.</p>
+      <p>Add Underlith to your project via npm:</p>
 
-      <h3>1. Via CLI (Recommended)</h3>
+      <div class="card code-card"><pre><code class="language-bash">npm install @mikaelcarrara/underlith</code></pre></div>
 
-      <div class="card code-card"><pre><code class="language-bash"># Initialize configuration
-npx Underlith init
+      <hr class="section-divider">
 
-# Generate tokens
-npm run build:tokens</code></pre></div>
+      <!-- ── PATH 1: NEW PROJECT ── -->
+      <div class="stack-badge badge-green">New project</div>
 
-      <h3>2. Manual Installation</h3>
+      <h2>Two commands. Done.</h2>
+      <p>
+        Define your brand tokens, scaffold the package, publish.
+        Every product your org builds from here installs <code>@your-org/tokens</code>
+        and inherits your design decisions automatically.
+      </p>
 
-      <p>Clone or download from GitHub:</p>
+      <div class="pipeline">
+        <span class="pipeline-cmd">$ underlith brand init</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-cmd">$ npm publish</span>
+      </div>
 
-      <div class="card code-card"><pre><code class="language-bash">git clone https://github.com/mikaelcarrara/Underlith.git</code></pre></div>
+      <h3>1. Scaffold your brand package</h3>
+      <p>Run the command and follow the prompts. Underlith will ask for your org name and generate a ready-to-publish package with your brand tokens separated from framework primitives.</p>
 
-      <p>Or download directly and include in your project.</p>
+      <div class="card code-card"><pre><code class="language-bash">underlith brand init --org acme</code></pre></div>
 
-      <h2>Import everything</h2>
+      <p>This generates:</p>
 
-      <div class="card code-card"><pre><code class="language-css">@import "path/to/Underlith/src/Underlith.css";</code></pre></div>
+      <div class="card code-card"><pre><code class="language-bash">@acme/tokens/
+├── package.json
+├── README.md
+├── acme.brand.css   ← your brand tokens
+└── acme.base.css    ← framework primitives</code></pre></div>
 
-      <p>This includes tokens, base styles, and reference components.</p>
+      <h3>2. Publish to npm</h3>
 
-      <h2>Or import only what you need</h2>
+      <div class="card code-card"><pre><code class="language-bash">cd @acme/tokens
+npm publish --access public</code></pre></div>
 
-      <div class="card code-card"><pre><code class="language-css">@import "path/to/Underlith/src/tokens.css";
-@import "path/to/Underlith/src/base.css";</code></pre></div>
+      <h3>3. Install in any project</h3>
+      <p>From this point, every product your org builds just installs the package:</p>
 
-      <!-- Tailwind section removed -->
+      <div class="card code-card"><pre><code class="language-bash">npm install @acme/tokens</code></pre></div>
 
-      <h2>Using with CSS-in-JS</h2>
+      <div class="card code-card"><pre><code class="language-css">@import "@acme/tokens/acme.brand.css";</code></pre></div>
 
-      <p>Underlith acts purely as a token layer.</p>
+      <p>Change once in the package. Every product updates on the next <code>npm update</code>.</p>
 
-      <h3>Import tokens globally</h3>
+      <hr class="section-divider">
 
-      <div class="card code-card"><pre><code class="language-javascript">import "path/to/Underlith/src/tokens.css";</code></pre></div>
+      <!-- ── PATH 2: EXISTING PROJECT ── -->
+      <div class="stack-badge badge-brown"><span class="dot"></span>Existing project</div>
+      <h2>Three commands. Zero rewrites.</h2>
+      <p>
+        Already have a design system? Map your existing variables to Underlith tokens,
+        extract your brand layer, publish. Components keep working exactly as before.
+      </p>
 
-      <h3>Use tokens inside components</h3>
+      <div class="pipeline">
+        <span class="pipeline-cmd">$ underlith init --shadcn</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-cmd">$ underlith brand init</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-cmd">$ npm publish</span>
+      </div>
 
-      <div class="card code-card"><pre><code class="language-javascript">const Button = styled.button`
-  padding: var(--space-3) var(--space-5);
-  background: var(--brand-500);
-  color: var(--neutral-0);
-  border-radius: var(--radius-md);
-`;</code></pre></div>
+      <h3>1. Map existing variables</h3>
+      <p>Point the script at your <code>globals.css</code>. It maps every CSS variable to an Underlith token without touching a single component.</p>
 
-      <p>No coupling.<br>No runtime dependency.<br>No framework assumptions.</p>
+      <div class="card code-card"><pre><code class="language-bash">underlith init --shadcn \
+  --globals ./styles/globals.css</code></pre></div>
+
+      <p>Before and after — zero component changes:</p>
+
+      <div class="card code-card"><pre><code class="language-css">/* Before */
+--primary: oklch(0.205 0 0);
+
+/* After */
+--primary: var(--ul-primary);</code></pre></div>
+
+      <h3>2. Extract your brand layer</h3>
+      <p>Underlith separates your brand values from framework primitives and scaffolds a standalone package.</p>
+
+      <div class="card code-card"><pre><code class="language-bash">underlith brand init --org acme</code></pre></div>
+
+      <h3>3. Publish</h3>
+
+      <div class="card code-card"><pre><code class="language-bash">cd @acme/tokens
+npm publish --access public</code></pre></div>
+
+      <p>From here, any project installs <code>@acme/tokens</code> and inherits the same brand decisions automatically.</p>
+
+      <hr class="section-divider">
+
+      <!-- ── PLAIN CSS / MANUAL ── -->
+      <h2>Just consuming tokens?</h2>
+      <p>If you only need to consume Underlith tokens directly — no brand package needed — import and use:</p>
+
+      <div class="card code-card"><pre><code class="language-css">@import "@mikaelcarrara/underlith/src/underlith.tokens.css";
+
+color: var(--ul-color-text);
+gap: var(--ul-space-4);
+border-radius: var(--ul-radius-md);</code></pre></div>
+
+      <p>Works with plain CSS, Tailwind, Sass, or any CSS-in-JS solution. No framework assumptions.</p>
 
     </section>
+
   </main>
 
   <footer>

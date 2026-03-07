@@ -6,9 +6,9 @@
 }
 
 .heading p {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-medium);
-  margin-bottom: var(--space-3);
-  color: var(--neutral-400);
+  font-size: var(--ul-font-size-lg);
+  font-weight: var(--ul-font-weight-medium);
+  line-height: var(--ul-line-height-medium);
+  margin-bottom: var(--ul-space-3);
+  color: var(--ul-neutral-400);
 }

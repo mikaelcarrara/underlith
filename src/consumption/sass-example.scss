@@ -4,27 +4,27 @@
 */
 
 .card {
-    padding: var(--space-4);
-    background: var(--color-surface);
-    color: var(--color-text-primary);
-    border-radius: var(--radius-md);
+    padding: var(--ul-space-4);
+    background: var(--ul-color-surface);
+    color: var(--ul-color-text-primary);
+    border-radius: var(--ul-radius-md);
 
     // Nesting is handled by Sass
     .card-header {
-        margin-bottom: var(--space-2);
-        font-size: var(--font-size-lg);
-        font-weight: var(--font-weight-bold);
+        margin-bottom: var(--ul-space-2);
+        font-size: var(--ul-font-size-lg);
+        font-weight: var(--ul-font-weight-bold);
     }
 }
 
 @mixin button-styles {
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-sm);
-    font-family: var(--font-family-base);
+    padding: var(--ul-space-2) var(--ul-space-4);
+    border-radius: var(--ul-radius-sm);
+    font-family: var(--ul-font-family-base);
 }
 
 .button-primary {
     @include button-styles;
-    background-color: var(--color-brand-primary);
-    color: var(--color-text-inverse);
+    background-color: var(--ul-color-brand-primary);
+    color: var(--ul-color-text-inverse);
 }

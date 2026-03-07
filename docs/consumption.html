@@ -77,10 +77,10 @@
 
       <h2>Plain CSS</h2>
       <div class="card code-card"><pre><code class="language-css">.card {
-  padding: var(--space-4);
-  background: var(--color-surface);
-  color: var(--color-text-primary);
-  border-radius: var(--radius-md);
+  padding: var(--ul-space-4);
+  background: var(--ul-color-surface);
+  color: var(--ul-color-text-primary);
+  border-radius: var(--ul-radius-md);
 }</code></pre></div>
 
       <h2>Tailwind (v4)</h2>
@@ -93,22 +93,22 @@
 
 @theme {
   /* Colors */
-  --color-surface: var(--color-surface);
-  --color-brand: var(--color-brand-primary);
-  --color-brand-hover: var(--color-brand-hover);
-  --color-foreground: var(--color-text-primary);
-  --color-inverse: var(--color-text-inverse);
+  --color-surface: var(--ul-color-surface);
+  --color-brand: var(--ul-color-brand-primary);
+  --color-brand-hover: var(--ul-color-brand-hover);
+  --color-foreground: var(--ul-color-text-primary);
+  --color-inverse: var(--ul-color-text-inverse);
 
   /* Spacing */
-  --spacing-2: var(--space-2);
-  --spacing-4: var(--space-4);
+  --spacing-2: var(--ul-space-2);
+  --spacing-4: var(--ul-space-4);
 
   /* Radii */
-  --radius-sm: var(--radius-sm);
-  --radius-md: var(--radius-md);
+  --radius-sm: var(--ul-radius-sm);
+  --radius-md: var(--ul-radius-md);
 
   /* Elevation */
-  --shadow-sm: var(--shadow-sm);
+  --shadow-sm: var(--ul-shadow-sm);
 }</code></pre></div>
       <div class="card code-card"><pre><code class="language-html">&lt;div class="rounded-md p-4 bg-surface text-foreground shadow-sm"&gt;
   &lt;h3 class="text-lg font-semibold mb-2"&gt;Card&lt;/h3&gt;
@@ -123,53 +123,53 @@
         Preprocessors do not transform tokens. They only organize consumption.
       </p>
       <div class="card code-card"><pre><code class="language-css">.card {
-  padding: var(--space-4);
-  background: var(--color-surface);
-  border-radius: var(--radius-md);
+  padding: var(--ul-space-4);
+  background: var(--ul-color-surface);
+  border-radius: var(--ul-radius-md);
 }</code></pre></div>
 
       <h2>CSS-in-JS</h2>
       <div class="card code-card"><pre><code class="language-typescript">// styled-components / emotion
 const Card = styled.div`
-  padding: var(--space-4);
-  background: var(--color-surface);
-  border-radius: var(--radius-md);
+  padding: var(--ul-space-4);
+  background: var(--ul-color-surface);
+  border-radius: var(--ul-radius-md);
 `;</code></pre></div>
       <div class="card code-card"><pre><code class="language-typescript">// vanilla-extract
 export const card = style({
-  padding: 'var(--space-4)',
-  background: 'var(--color-surface)',
-  borderRadius: 'var(--radius-md)',
+  padding: 'var(--ul-space-4)',
+  background: 'var(--ul-color-surface)',
+  borderRadius: 'var(--ul-radius-md)',
 });</code></pre></div>
 
       <h2>Motion</h2>
       <div class="card code-card"><pre><code class="language-css">.button {
-  transition: background var(--duration-fast) var(--ease-inout);
+  transition: background var(--ul-duration-fast) var(--ul-ease-inout);
 }
 .skeleton {
-  animation: var(--motion-skeleton);
+  animation: var(--ul-motion-skeleton);
 }</code></pre></div>
       <div class="card code-card"><pre><code class="language-typescript">// CSS-in-JS
 const Button = styled.button`
-  transition: background var(--duration-fast) var(--ease-inout);
+  transition: background var(--ul-duration-fast) var(--ul-ease-inout);
 `;
 const Skeleton = styled.div`
-  animation: var(--motion-skeleton);
+  animation: var(--ul-motion-skeleton);
 `;</code></pre></div>
 
       <h2>AI</h2>
       <div class="card code-card"><pre><code class="language-text">Generate a Card component using only:
-- space-4
-- color-surface
-- radius-md
+- ul-space-4
+- ul-color-surface
+- ul-radius-md
 
 Do not introduce hardcoded values.
 Output plain CSS.</code></pre></div>
 
       <div class="card code-card"><pre><code class="language-css">.card {
-  padding: var(--space-4);
-  background: var(--color-surface);
-  border-radius: var(--radius-md);
+  padding: var(--ul-space-4);
+  background: var(--ul-color-surface);
+  border-radius: var(--ul-radius-md);
 }</code></pre></div>
 
       <h2>JSON / JavaScript</h2>
@@ -181,7 +181,7 @@ Output plain CSS.</code></pre></div>
       <div class="card code-card"><pre><code class="language-javascript">import tokens from '../tokens.json';
 
 // Usage in JS logic
-const brandColor = tokens.color.brand.primary.value; // "var(--brand-500)"
+const brandColor = tokens.color.brand.primary.value; // "var(--ul-brand-500)"
 
 // Usage in styling libraries
 const Card = styled.div`

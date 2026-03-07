@@ -1,58 +1,58 @@
 :root {
-  --duration-nano: 80ms;
-  --duration-micro: 120ms;
-  --duration-fast: 180ms;
-  --duration-base: 250ms;
-  --duration-moderate: 350ms;
-  --duration-slow: 500ms;
-  --duration-glacial: 900ms;
-  --duration-epic: 1400ms;
+  --ul-duration-nano: 80ms;
+  --ul-duration-micro: 120ms;
+  --ul-duration-fast: 180ms;
+  --ul-duration-base: 250ms;
+  --ul-duration-moderate: 350ms;
+  --ul-duration-slow: 500ms;
+  --ul-duration-glacial: 900ms;
+  --ul-duration-epic: 1400ms;
 
-  --ease-linear: cubic-bezier(0, 0, 1, 1);
-  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
-  --ease-enter-back: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-enter-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
-  --ease-exit-sharp: cubic-bezier(0.6, 0, 0.8, 0.2);
-  --ease-inout: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-inout-soft: cubic-bezier(0.37, 0, 0.63, 1);
-  --ease-inout-strong: cubic-bezier(0.76, 0, 0.24, 1);
-  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-bounce-strong: cubic-bezier(0.2, 1.8, 0.5, 0.8);
-  --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --ease-anticipate: cubic-bezier(0.36, -0.4, 0.64, 1.4);
-  --ease-sine-in: cubic-bezier(0.47, 0, 0.745, 0.715);
-  --ease-sine-out: cubic-bezier(0.39, 0.575, 0.565, 1);
-  --ease-sine-inout: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  --ease-breath: cubic-bezier(0.45, 0.05, 0.55, 0.95);
-  --ease-float: cubic-bezier(0.37, 0.13, 0.63, 0.87);
-  --ease-drift: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ul-ease-linear: cubic-bezier(0, 0, 1, 1);
+  --ul-ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ul-ease-enter-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ul-ease-enter-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ul-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ul-ease-exit-sharp: cubic-bezier(0.6, 0, 0.8, 0.2);
+  --ul-ease-inout: cubic-bezier(0.4, 0, 0.2, 1);
+  --ul-ease-inout-soft: cubic-bezier(0.37, 0, 0.63, 1);
+  --ul-ease-inout-strong: cubic-bezier(0.76, 0, 0.24, 1);
+  --ul-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ul-ease-bounce-strong: cubic-bezier(0.2, 1.8, 0.5, 0.8);
+  --ul-ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ul-ease-anticipate: cubic-bezier(0.36, -0.4, 0.64, 1.4);
+  --ul-ease-sine-in: cubic-bezier(0.47, 0, 0.745, 0.715);
+  --ul-ease-sine-out: cubic-bezier(0.39, 0.575, 0.565, 1);
+  --ul-ease-sine-inout: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  --ul-ease-breath: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  --ul-ease-float: cubic-bezier(0.37, 0.13, 0.63, 0.87);
+  --ul-ease-drift: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  --delay-none: 0ms;
-  --delay-xs: 30ms;
-  --delay-sm: 60ms;
-  --delay-md: 100ms;
-  --delay-lg: 160ms;
-  --delay-xl: 240ms;
-  --delay-2xl: 380ms;
-  --delay-3xl: 600ms;
+  --ul-delay-none: 0ms;
+  --ul-delay-xs: 30ms;
+  --ul-delay-sm: 60ms;
+  --ul-delay-md: 100ms;
+  --ul-delay-lg: 160ms;
+  --ul-delay-xl: 240ms;
+  --ul-delay-2xl: 380ms;
+  --ul-delay-3xl: 600ms;
 
-  --stagger-unit: 40ms;
+  --ul-stagger-unit: 40ms;
 
-  --motion-drop-bounce: drop-bounce var(--duration-moderate) var(--ease-enter-spring) var(--delay-none) 1 normal both;
-  --motion-fade-up: fade-up var(--duration-base) var(--ease-enter) var(--delay-none) 1 normal both;
-  --motion-fade-in: fade-in var(--duration-base) var(--ease-enter) var(--delay-none) 1 normal both;
-  --motion-scale-pop: scale-pop var(--duration-fast) var(--ease-enter-spring) var(--delay-none) 1 normal both;
-  --motion-glow-breath: glow-breath var(--duration-epic) var(--ease-breath) var(--delay-none) infinite alternate both;
-  --motion-pulse: pulse-sine var(--duration-glacial) var(--ease-sine-inout) var(--delay-none) infinite alternate both;
-  --motion-particle: particle-drift var(--duration-epic) var(--ease-drift) var(--delay-none) infinite normal both;
-  --motion-slide-left: slide-from-right var(--duration-base) var(--ease-enter) var(--delay-none) 1 normal both;
-  --motion-slide-right: slide-from-left var(--duration-base) var(--ease-enter) var(--delay-none) 1 normal both;
-  --motion-float: float var(--duration-slow) var(--ease-float) var(--delay-none) infinite alternate both;
-  --motion-shimmer: shimmer var(--duration-epic) var(--ease-linear) var(--delay-none) infinite normal both;
-  --motion-skeleton: shimmer var(--duration-epic) var(--ease-linear) var(--delay-none) infinite normal both;
-  --motion-skeleton-fill: skeleton-fill var(--duration-glacial) var(--ease-inout-soft) var(--delay-none) infinite alternate both;
-  --motion-flip-in: flip-in var(--duration-moderate) var(--ease-anticipate) var(--delay-none) 1 normal both;
+  --ul-motion-drop-bounce: drop-bounce var(--ul-duration-moderate) var(--ul-ease-enter-spring) var(--ul-delay-none) 1 normal both;
+  --ul-motion-fade-up: fade-up var(--ul-duration-base) var(--ul-ease-enter) var(--ul-delay-none) 1 normal both;
+  --ul-motion-fade-in: fade-in var(--ul-duration-base) var(--ul-ease-enter) var(--ul-delay-none) 1 normal both;
+  --ul-motion-scale-pop: scale-pop var(--ul-duration-fast) var(--ul-ease-enter-spring) var(--ul-delay-none) 1 normal both;
+  --ul-motion-glow-breath: glow-breath var(--ul-duration-epic) var(--ul-ease-breath) var(--ul-delay-none) infinite alternate both;
+  --ul-motion-pulse: pulse-sine var(--ul-duration-glacial) var(--ul-ease-sine-inout) var(--ul-delay-none) infinite alternate both;
+  --ul-motion-particle: particle-drift var(--ul-duration-epic) var(--ul-ease-drift) var(--ul-delay-none) infinite normal both;
+  --ul-motion-slide-left: slide-from-right var(--ul-duration-base) var(--ul-ease-enter) var(--ul-delay-none) 1 normal both;
+  --ul-motion-slide-right: slide-from-left var(--ul-duration-base) var(--ul-ease-enter) var(--ul-delay-none) 1 normal both;
+  --ul-motion-float: float var(--ul-duration-slow) var(--ul-ease-float) var(--ul-delay-none) infinite alternate both;
+  --ul-motion-shimmer: shimmer var(--ul-duration-epic) var(--ul-ease-linear) var(--ul-delay-none) infinite normal both;
+  --ul-motion-skeleton: shimmer var(--ul-duration-epic) var(--ul-ease-linear) var(--ul-delay-none) infinite normal both;
+  --ul-motion-skeleton-fill: skeleton-fill var(--ul-duration-glacial) var(--ul-ease-inout-soft) var(--ul-delay-none) infinite alternate both;
+  --ul-motion-flip-in: flip-in var(--ul-duration-moderate) var(--ul-ease-anticipate) var(--ul-delay-none) 1 normal both;
 }
 
 :where(*, *::before, *::after) {
@@ -61,25 +61,25 @@
 
 /* Scroll-triggered enter tokens (progressive enhancement) */
 :root {
-  --motion-enter-timeline: auto;
-  --motion-enter-range: normal;
+  --ul-motion-enter-timeline: auto;
+  --ul-motion-enter-range: normal;
 }
 @supports (animation-timeline: view()) {
   :root {
-    --motion-enter-timeline: view();
-    --motion-enter-range: entry 0% 30%;
+    --ul-motion-enter-timeline: view();
+    --ul-motion-enter-range: entry 0% 30%;
   }
 }
 :where(.motion-enter, [data-motion~="enter"]) {
-  animation-timeline: var(--motion-enter-timeline);
-  animation-range: var(--motion-enter-range);
+  animation-timeline: var(--ul-motion-enter-timeline);
+  animation-range: var(--ul-motion-enter-range);
 }
 :where(.motion-stagger, [data-motion~="stagger"]) > * {
-  animation-delay: calc(var(--stagger-unit) * var(--index, 0));
+  animation-delay: calc(var(--ul-stagger-unit) * var(--index, 0));
 }
 
 :where(.motion-stagger, [data-motion~="stagger"]) :where(.motion-enter, [data-motion~="enter"]) {
-  animation-delay: calc(var(--stagger-unit) * var(--index, 0));
+  animation-delay: calc(var(--ul-stagger-unit) * var(--index, 0));
 }
 
 @keyframes drop-bounce {
@@ -251,14 +251,14 @@
 
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --duration-nano: 0ms;
-    --duration-micro: 0ms;
-    --duration-fast: 0ms;
-    --duration-base: 0ms;
-    --duration-moderate: 0ms;
-    --duration-slow: 0ms;
-    --duration-glacial: 0ms;
-    --duration-epic: 0ms;
+    --ul-duration-nano: 0ms;
+    --ul-duration-micro: 0ms;
+    --ul-duration-fast: 0ms;
+    --ul-duration-base: 0ms;
+    --ul-duration-moderate: 0ms;
+    --ul-duration-slow: 0ms;
+    --ul-duration-glacial: 0ms;
+    --ul-duration-epic: 0ms;
   }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

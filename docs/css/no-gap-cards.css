@@ -4,16 +4,27 @@
   border-radius: 0;
 }
 
-.no-gap-cards .card:first-child {
+.grid-3.no-gap-cards .card:first-child {
   margin-right: -1px;
-  border-top-left-radius: var(--radius-lg);
-  border-bottom-left-radius: var(--radius-lg);
+  border-top-left-radius: var(--ul-radius-lg);
+  border-bottom-left-radius: var(--ul-radius-lg);
 }
 
-.no-gap-cards .card:last-child {
+.grid-3.no-gap-cards .card:last-child {
   margin-left: -1px;
-  border-top-right-radius: var(--radius-lg);
-  border-bottom-right-radius: var(--radius-lg);
+  border-top-right-radius: var(--ul-radius-lg);
+  border-bottom-right-radius: var(--ul-radius-lg);
+}
+
+.grid-2.no-gap-cards .card:first-child {
+  margin-right: -1px;
+  border-top-left-radius: var(--ul-radius-lg);
+  border-bottom-left-radius: var(--ul-radius-lg);
+}
+
+.grid-2.no-gap-cards .card:last-child {
+  border-top-right-radius: var(--ul-radius-lg);
+  border-bottom-right-radius: var(--ul-radius-lg);
 }
 
 
@@ -21,19 +32,34 @@
 
 @media (max-width: 768px) {
 
-  .no-gap-cards .card:first-child {
+  .grid-3.no-gap-cards .card:first-child {
     margin-right: 0;
     margin-bottom: -1px;
-    border-top-left-radius: var(--radius-lg);
-    border-top-right-radius: var(--radius-lg);
+    border-top-left-radius: var(--ul-radius-lg);
+    border-top-right-radius: var(--ul-radius-lg);
     border-bottom-left-radius: 0;
   }
 
-  .no-gap-cards .card:last-child {
+  .grid-3.no-gap-cards .card:last-child {
     margin-left: 0;
     margin-top: -1px;
     border-top-right-radius: 0;
-    border-bottom-right-radius: var(--radius-lg);
-    border-bottom-left-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--ul-radius-lg);
+    border-bottom-left-radius: var(--ul-radius-lg);
   }
+
+  .grid-2.no-gap-cards .card:first-child {
+    margin-right: 0;
+    border-top-left-radius: var(--ul-radius-lg);
+    border-top-right-radius: var(--ul-radius-lg);
+    border-bottom-left-radius: 0;
+    margin-bottom: -1px;
+  }
+
+  .grid-2.no-gap-cards .card:last-child {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: var(--ul-radius-lg);
+    border-bottom-right-radius: var(--ul-radius-lg);
+  }
+  
 }

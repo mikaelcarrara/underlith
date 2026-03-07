@@ -16,6 +16,32 @@ function setDeep(obj, pathParts, value) {
     }
 }
 
+function hasDeep(obj, pathParts) {
+    let current = obj;
+    for (let i = 0; i < pathParts.length; i++) {
+        const part = pathParts[i];
+        if (current == null || typeof current !== 'object') return false;
+        if (!(part in current)) return false;
+        current = current[part];
+    }
+    return true;
+}
+
+// Deep merge helper to accumulate nested token objects across files
+function deepMerge(target, source) {
+    const isObject = (v) => v && typeof v === 'object' && !Array.isArray(v);
+    if (!isObject(target) || !isObject(source)) return source;
+    for (const key of Object.keys(source)) {
+        if (isObject(source[key])) {
+            if (!target[key]) target[key] = {};
+            deepMerge(target[key], source[key]);
+        } else {
+            target[key] = source[key];
+        }
+    }
+    return target;
+}
+
 function parseCssVariables(cssContent) {
     const tokens = {};
     const lines = cssContent.split('\n');
@@ -30,6 +56,9 @@ function parseCssVariables(cssContent) {
             // or keep it if that's the preferred token name. 
             // For now, we'll split by hyphen.
             const parts = variableName.split('-');
+            if (hasDeep(tokens, parts)) {
+                continue; // keep the first (canonical) value; ignore later overrides (e.g. reduced motion)
+            }
             setDeep(tokens, parts, {
                 value: value,
                 type: 'color', // TODO: Infer type based on file or value
@@ -74,11 +103,8 @@ async function generateTokens() {
                 const content = fs.readFileSync(path.join(tokensDir, file), 'utf8');
                 const fileTokens = parseCssVariables(content);
 
-                // Merge into main object. 
-                // Note: This simple merge assumes no key collisions across files at the top level
-                // that would overwrite existing objects entirely. 
-                // A deep merge would be safer for production but this suffices for flat token files.
-                Object.assign(allTokens, { ...allTokens, ...fileTokens });
+                // Deep-merge into the accumulator so we don't overwrite previous files' tokens
+                deepMerge(allTokens, fileTokens);
             }
         }
 

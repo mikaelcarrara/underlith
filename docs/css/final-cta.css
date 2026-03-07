@@ -1,6 +1,6 @@
 .final-cta {
   text-align: center;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--ul-border-color);
   margin: 80px 0 0 0;
 }
 
@@ -9,17 +9,17 @@
 }
 
 .final-cta h2 {
-  margin-bottom: var(--space-5);
-  font-size: var(--font-size-3xl);
+  margin-bottom: var(--ul-space-5);
+  font-size: var(--ul-font-size-3xl);
   line-height: 1.2;
 }
 
 .final-cta p {
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--ul-space-6);
 }
 
 .final-cta .buttons {
-  margin: var(--space-5) 0;
+  margin: var(--ul-space-5) 0;
 }
 
 .final-cta .cta-wrap,
@@ -30,7 +30,7 @@
 @media (max-width: 768px) {
 
   .final-cta h2 {
-    font-size: var(--font-size-2xl);
+    font-size: var(--ul-font-size-2xl);
   }
 
 }

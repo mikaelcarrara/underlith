@@ -4,8 +4,8 @@
     Opacity
   ============================== */
 
-  --opacity-disabled: 0.4;
-  --opacity-muted: 0.6;
-  --opacity-overlay: 0.9;
+  --ul-opacity-disabled: 0.4;
+  --ul-opacity-muted: 0.6;
+  --ul-opacity-overlay: 0.9;
 
 }

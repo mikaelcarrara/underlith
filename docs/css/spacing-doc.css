@@ -2,23 +2,23 @@
    Spacing
 ============================== */
 
-.spacing-list { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-3); }
-.spacing-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-3) 0; border-bottom: var(--border-width) solid var(--border-color); }
+.spacing-list { display: flex; flex-direction: column; gap: var(--ul-space-3); margin-top: var(--ul-space-3); }
+.spacing-row { display: flex; align-items: center; justify-content: space-between; gap: var(--ul-space-4); padding: var(--ul-space-3) 0; border-bottom: var(--ul-border-width) solid var(--ul-border-color); }
 .spacing-row:last-child { border-bottom: 0; }
 .spacing-sample { min-width: 200px; flex: 1; }
-.spacing-meta { display: inline-flex; gap: var(--space-2); flex-shrink: 0; }
+.spacing-meta { display: inline-flex; gap: var(--ul-space-2); flex-shrink: 0; }
 
 /* legacy card visuals no longer needed for rows */
 
 .spacing-token {
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--ul-space-2);
 }
 
 .spacing-visual {
   height: 12px;
-  background: var(--neutral-100);
-  border-radius: var(--radius-sm);
-  margin-top: var(--space-3);
+  background: var(--ul-neutral-100);
+  border-radius: var(--ul-radius-sm);
+  margin-top: var(--ul-space-3);
 }
 
 /* spacing-value removido */
@@ -26,25 +26,25 @@
 /*-*/
 
 .spacing-visual[data-space="1"] {
-  width: var(--space-1);
+  width: var(--ul-space-1);
 }
 
 .spacing-visual[data-space="2"] {
-  width: var(--space-2);
+  width: var(--ul-space-2);
 }
 
 .spacing-visual[data-space="3"] {
-  width: var(--space-3);
+  width: var(--ul-space-3);
 }
 
 .spacing-visual[data-space="4"] {
-  width: var(--space-4);
+  width: var(--ul-space-4);
 }
 
 .spacing-visual[data-space="5"] {
-  width: var(--space-5);
+  width: var(--ul-space-5);
 }
 
 .spacing-visual[data-space="6"] {
-  width: var(--space-6);
+  width: var(--ul-space-6);
 }

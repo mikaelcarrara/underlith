@@ -5,6 +5,7 @@
   margin-bottom: 80px;
   text-align: center;
   position: relative;
+  border-bottom: 1px solid var(--ul-neutral-800);
   overflow: hidden;
 }
 
@@ -29,26 +30,26 @@
 }
 
 .main-banner h1 {
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--ul-font-weight-bold);
   font-size: 3.8rem;
-  margin: var(--space-3) 0 var(--space-5) 0;
+  margin: var(--ul-space-3) 0 var(--ul-space-5) 0;
   letter-spacing: -2px;
   line-height: 1.1;
 }
 
 .main-banner h1 span {
-  color: var(--layer-01);
+  color: var(--ul-layer-01);
 }
 
 .main-banner p {
-  font-size: var(--font-size-md);
-  line-height: var(--line-height-relaxed);
+  font-size: var(--ul-font-size-md);
+  line-height: var(--ul-line-height-relaxed);
   margin: 0;
-  color: var(--neutral-400);
+  color: var(--ul-neutral-400);
 }
 
 .buttons {
-  margin: var(--space-6) 0 0 0;
+  margin: var(--ul-space-6) 0 0 0;
 }
 
 .cta,
@@ -57,27 +58,27 @@
   text-decoration: none;
   height: 43px;
   line-height: 42px;
-  padding: 0 var(--space-6);
+  padding: 0 var(--ul-space-6);
   display: inline-block;
-  margin: 0 var(--space-2);
+  margin: 0 var(--ul-space-2);
   box-sizing: border-box;
-  font-weight: var(--font-weight-semibold);
-  border-radius: var(--radius-lg);
-  font-size: var(--font-size-sm);
-  background-color: var(--neutral-900);
+  font-weight: var(--ul-font-weight-semibold);
+  border-radius: var(--ul-radius-lg);
+  font-size: var(--ul-font-size-sm);
+  background-color: var(--ul-neutral-900);
   margin: 0;
 }
 
 .cta-git {
-  color: var(--neutral-0);
+  color: var(--ul-neutral-0);
 }
 
 .cta-wrap,
 .cta-git-wrap {
   display: inline-block;
   padding: 2px;
-  border-radius: var(--radius-lg);
-  margin: 0 var(--space-1); 
+  border-radius: var(--ul-radius-lg);
+  margin: 0 var(--ul-space-1); 
 }
 
 .cta-wrap {
@@ -90,7 +91,7 @@
 
 
 .cta {
-  color: var(--neutral-0);
+  color: var(--ul-neutral-0);
 }
 
 .buttons a:hover {
@@ -100,7 +101,7 @@
 @media (max-width: 768px) {
 
   .main-banner {
-    padding: 100px var(--space-4) 70px var(--space-4);
+    padding: 100px var(--ul-space-4) 70px var(--ul-space-4);
   }
 
   .main-banner br {
@@ -114,7 +115,7 @@
   .cta-wrap,
   .cta-git-wrap {
     display: block;
-    margin: 0 0 var(--space-3) 0; 
+    margin: 0 0 var(--ul-space-3) 0; 
   }
 
   .cta,

@@ -1,17 +1,23 @@
 .content {
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--ul-space-6);
 }
 
 .content h2 {
-  margin: 2.7rem 0 var(--space-5) 0;
+  margin: 2.7rem 0 var(--ul-space-5) 0;
 }
 
 .content h3 {
-  margin: 2.7rem 0 var(--space-5) 0;
+  margin: 2.7rem 0 var(--ul-space-5) 0;
 }
 
 .content p,
 .content li {
-  line-height: var(--line-height-relaxed);
-  color: var(--neutral-300);
+  line-height: var(--ul-line-height-relaxed);
+  color: var(--ul-neutral-300);
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--ul-neutral-800, #1e1e1e);
+  margin: 48px 0;
 }

@@ -181,7 +181,7 @@ type ColorToken = UnderlithTokens['colors']['primary']; // '100' | '200' | ...
 
 // Build-time validation
 const Button = styled.button<{ spacing: SpacingToken }>`
-  padding: var(--space-${props => props.spacing});
+  padding: var(--ul-space-${props => props.spacing});
 `;</code></pre></div>
 
       <h4>4. AI Context Injection Helper</h4>
