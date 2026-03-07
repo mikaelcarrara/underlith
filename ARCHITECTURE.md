@@ -1,168 +1,193 @@
-# Underlith Project Architecture
+# Underlith Architecture
 
-This document provides a comprehensive view of the **Underlith** design tokens system, covering both its conceptual model and concrete file structure.
+Underlith is not your source of truth — it's the infrastructure to build one.
 
-## 1. Conceptual Model: The Single Source of Truth
+This document describes the conceptual model and file structure of the system.
 
-Underlith acts as the bridge between design intent and code implementation. It is designed to be **framework-agnostic**, serving as a central repository for design decisions that propagate to various platforms.
+---
 
-```mermaid
-graph TD
-    %% Layers
-    subgraph "Layer 1: Design Definition"
-        DesignTools[Design Tools]
-        Intent[Design Decisions]
-    end
+## 1. Conceptual Model
 
-    subgraph "Layer 2: Underlith System"
-        direction TB
-        Tokens[Atomic Tokens<br/>(Variables)]
-        Aliases[Semantic Aliases]
-        Base[Base Styles]
-        
-        Tokens --> Aliases
-        Aliases --> Base
-    end
+Underlith organizes design decisions into three token layers and a publishing pipeline that produces a standalone, versioned brand package consumed by any project in your org.
 
-    subgraph "Layer 3: Consumption Adapters"
-        Vanilla[Direct CSS Import]
-        CSSJS[CSS-in-JS]
-    end
+```
+┌─────────────────────────────────────────────────────┐
+│                   Base tokens                        │
+│   Raw scales: space, type, radius, motion, opacity  │
+│   Lives in: @mikaelcarrara/underlith                │
+└────────────────────────┬────────────────────────────┘
+                         │
+┌────────────────────────▼────────────────────────────┐
+│                  Brand tokens                        │
+│   Your org's color palette, identity values          │
+│   Extracted by: underlith brand init                │
+└────────────────────────┬────────────────────────────┘
+                         │
+┌────────────────────────▼────────────────────────────┐
+│               Semantic aliases                       │
+│   Intent over value: --ul-color-text, --ul-color-bg  │
+│   Travel with the brand layer                        │
+└────────────────────────┬────────────────────────────┘
+                         │
+┌────────────────────────▼────────────────────────────┐
+│              @your-org/tokens                        │
+│   Published npm package. Brand + semantic layer.     │
+│   Consumed by every product in your org.             │
+└────────────────────────┬────────────────────────────┘
+                         │
+          ┌──────────────┼──────────────┐
+          ▼              ▼              ▼
+      Plain CSS      Tailwind v4      Sass / Less
+```
 
-    subgraph "Layer 4: End Applications"
-        WebApp[Web Applications]
-        Marketing[Marketing Sites]
-        Dashboards[Dashboards/Tools]
-    end
+### The pipeline
 
-    %% Flow
-    DesignTools -.->|Specifies| Tokens
-    Intent -.->|Guards| Tokens
+**New project — 2 commands:**
+```bash
+underlith brand init --org acme
+cd @acme/tokens && npm publish --access public
+```
 
-    %% Internal Flow
-    Tokens ---> Vanilla
-    Tokens ---> CSSJS
+**Existing project — 3 commands:**
+```bash
+underlith init --shadcn --globals ./styles/globals.css
+underlith brand init --org acme
+cd @acme/tokens && npm publish --access public
+```
 
-    %% Consumption Flow
-    Vanilla --> Marketing
-    CSSJS --> Dashboards
-    Base --> Marketing
-    Base --> WebApp
+Once `@acme/tokens` is published, any product installs it and inherits all brand decisions. Change once, update everywhere via `npm update`.
 
-    %% Styling
-    classDef design fill:#e1f5fe,stroke:#01579b;
-    classDef system fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
-    classDef adapter fill:#e0f2f1,stroke:#00695c;
-    classDef app fill:#f3e5f5,stroke:#7b1fa2;
+---
 
-    class DesignTools,Intent design;
-    class Tokens,Aliases,Base system;
-    class Vanilla,CSSJS adapter;
-    class WebApp,Marketing,Dashboards app;
+## 2. Token Layers
+
+### Layer 1 — Base tokens (`src/tokens/*.css`)
+
+Framework primitives. Raw scales with no brand opinion.
+
+| File | Responsibility |
+|------|---------------|
+| `spacing.css` | Space scale — `--ul-space-1` through `--ul-space-5` |
+| `typography.css` | Font sizes, weights, line heights |
+| `colors.css` | Raw color palette — `--ul-color-brand-*`, `--ul-color-neutral-*` |
+| `radius-and-borders.css` | Shape tokens — `--ul-radius-md`, `--ul-border-width-hairline` |
+| `elevation.css` | Depth tokens — `--ul-elevation-1` through `--ul-elevation-3` |
+| `opacity.css` | Named transparency levels |
+| `breakpoints.css` | Responsive thresholds |
+| `motion.css` | Durations, easings, delays, composite motion tokens |
+
+Motion automatically respects `prefers-reduced-motion: reduce`.
+
+### Layer 2 — Brand tokens
+
+Your org's identity values. Colors, palette, brand decisions. These are the tokens `underlith brand init` extracts from `underlith.tokens.css` based on org name and `brand` keyword heuristics.
+
+Output: `@your-org/tokens/your-org.brand.css`
+
+### Layer 3 — Semantic aliases (`src/tokens/semantic-aliases.css`)
+
+Maps raw tokens to intent. What something *means*, not what it looks like.
+
+```css
+--ul-color-text: var(--ul-color-neutral-900);
+--ul-color-bg-surface: var(--ul-color-neutral-0);
+--ul-color-brand-primary: var(--ul-color-brand-500);
+```
+
+Semantic aliases travel with the brand package. Components consume aliases — never raw values. When the brand evolves, aliases update. Components never change.
+
+---
+
+## 3. File Structure
+
+```
+underlith/
+├── src/
+│   ├── underlith.css              ← main entry point (imports all)
+│   ├── underlith.tokens.css       ← tokens-only entry point
+│   ├── base.css                   ← minimal resets
+│   ├── tokens/
+│   │   ├── spacing.css
+│   │   ├── typography.css
+│   │   ├── colors.css
+│   │   ├── radius-and-borders.css
+│   │   ├── elevation.css
+│   │   ├── opacity.css
+│   │   ├── breakpoints.css
+│   │   ├── motion.css
+│   │   └── semantic-aliases.css
+│   └── components/
+│       └── components.css         ← optional reference implementation
+│
+├── scripts/
+│   ├── brand-init.js              ← underlith brand init
+│   └── underlith-init-shadcn.js   ← underlith init --shadcn
+│
+├── bin/
+│   └── underlith.js               ← CLI entry point
+│
+└── docs/                          ← documentation site
+    ├── index.html
+    ├── getting-started.html
+    ├── tokens.html
+    ├── components.html
+    ├── consumption.html
+    └── css/
+        └── documentation.css
 ```
 
 ---
 
-## 2. File System Overview
+## 4. Consumption
 
-This diagram illustrates the concrete physical structure of the project and how files relate to one another.
+### Plain CSS
+```css
+@import "@mikaelcarrara/underlith/src/underlith.tokens.css";
 
-```mermaid
-graph TD
-    %% Nodes
-    subgraph "Definitions (Source of Truth)"
-        Tokens[src/tokens/*.css]
-        Typography[typography.css]
-        Spacing[spacing.css]
-        Colors[colors.css]
-        OtherTokens[...]
-        
-        Tokens --- Typography
-        Tokens --- Spacing
-        Tokens --- Colors
-        Tokens --- OtherTokens
-    end
-
-    subgraph "Core System"
-        Base[src/base.css]
-        Underlith[src/underlith.css]
-    end
-
-    subgraph "Reference Implementation"
-        Components[src/components/components.css]
-    end
-
-    subgraph "Documentation Site"
-        DocStyles[src/documentation.css]
-        Docs[docs/*.html]
-    end
-
-    subgraph "External Consumption"
-        UserApp[User Application]
-        CSSJS[CSS-in-JS]
-    end
-
-    %% Relationships
-    
-    %% Aggregation
-    Typography --> Underlith
-    Spacing --> Underlith
-    Colors --> Underlith
-    OtherTokens --> Underlith
-    Base --> Underlith
-
-    %% Dependencies
-    Underlith -.-> Components
-    
-    %% Documentation Consumption
-    Underlith --> Docs
-    Components --> Docs
-    DocStyles --> Docs
-
-    %% External Consumption
-    Underlith --> UserApp
-    Tokens --> CSSJS
-
-    %% Styling
-    classDef file fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
-    classDef aggregate fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
-    classDef consumer fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
-
-    class Typography,Spacing,Colors,OtherTokens,Base,DocStyles,Components file;
-    class Underlith aggregate;
-    class Docs,UserApp,CSSJS consumer;
+color: var(--ul-color-text);
+gap: var(--ul-space-4);
+border-radius: var(--ul-radius-md);
 ```
 
-## Component Breakdown
+### Tailwind v4
+```css
+@import "@mikaelcarrara/underlith/src/underlith.tokens.css";
 
-### 1. Definitions (Tokens)
-Located in `src/tokens/`, these files are the atomic units of the design system. They contain **only** CSS variables (Custom Properties).
-*   **`typography.css`** — Font families, sizes, weights.
-*   **`spacing.css`** — Spacing scale (margins, paddings).
-*   **`colors.css`** — Color palette tokens.
-*   **`radius-and-borders.css`**, **`elevation.css`**, **`opacity.css`**, **`breakpoints.css`**.
-*   **`motion.css`** — Durations, easings, delays and composite motion tokens (e.g. `--motion-skeleton`, `--motion-fade-up`). Motion automatically respects `prefers-reduced-motion`.
+@theme {
+  --color-brand: var(--ul-color-brand-primary);
+  --radius-md: var(--ul-radius-md);
+}
+```
 
-### 2. Core System (Aggregation)
-*   **`src/base.css`**: Contains bare-minimum global styles (resets, box-sizing) to ensure tokens render consistently.
-*   **`src/underlith.css`**: The main entry point. It imports all token files and the base styles. This is the primary file consumers import to get the "full system".
+### Sass / Less
+```scss
+@import "underlith/src/underlith.tokens.css";
 
-### 3. Reference Implementation
-*   **`src/components/components.css`**: A lightweight, optional layer that demonstrates how tokens can be applied to standard UI elements (buttons, cards, inputs). It explicitly depends on the tokens defined in the Core System but is decoupled from the main `underlith.css` bundle to keep the core lightweight.
+$color-text: var(--ul-color-text);
 
-### 4. Documentation
-The `docs/` folder contains the static HTML site that serves as the manual for Underlith.
-*   It consumes **`src/underlith.css`** to display the design system in action.
-*   It consumes **`src/components/components.css`** to show component examples.
-*   It uses **`docs/css/**`** for site layout and specific styling (grids, headings, code blocks with Prism).
-*   Sections are organized with a Table of Contents for quick navigation.
+@mixin button-primary {
+  background: var(--ul-color-brand-primary);
+  border-radius: var(--ul-radius-md);
+}
+```
 
-### 5. External Consumption
-Underlith is designed to be framework-agnostic:
-*   **Plain CSS**: Import `underlith.css`.
-*   **CSS-in-JS**: Use the CSS variables directly in styled-components or emotion.
+### With brand package
+```css
+@import "@acme/tokens/acme.brand.css";
 
-#### Motion guidance
-- Use `--duration-*` and `--ease-*` for transitions.
-- Prefer composite tokens (e.g. `--motion-skeleton`) for common effects.
-- Reduced motion is enforced by collapsing durations under `prefers-reduced-motion: reduce`.
+/* All --ul-* tokens now carry acme brand values */
+color: var(--ul-color-text);
+background: var(--ul-color-brand-primary);
+```
+
+---
+
+## 5. Design Principles
+
+**Underlith is not your source of truth — it's the infrastructure to build one.**
+
+- Tokens are contracts, not values. Components consume intent, not numbers.
+- Brand is separated from framework primitives at generation time.
+- The published package is the single source of truth for your org. Underlith is the tool that creates and maintains it.
+- Framework agnostic by design. No runtime dependency. No coupling.
+- Change once, update everywhere — via `npm update @your-org/tokens`.

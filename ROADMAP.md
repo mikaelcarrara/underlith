@@ -8,15 +8,15 @@ Underlith's strategic milestones for 2026.
 - [x] CSS consumption examples across plain CSS and CSS-in-JS
 - [ ] JSON Schema draft for canonical token structure
 - [ ] JSON export: generate `underlith.tokens.json` as the canonical source — enables Figma sync, Style Dictionary, and mobile pipelines
-- [ ] `underlith init --shadcn` — automated integration script for shadcn/ui projects
+- [x] `underlith init --shadcn` — automated integration script for shadcn/ui projects
 
 ## Q2 2026 — Brand Layer
 
-- [ ] Separate base tokens from brand tokens at generation time
+- [x] Separate base tokens from brand tokens at generation time
   - `underlith.base.css` — framework primitives (shadcn, Tailwind)
   - `underlith.brand.css` — product-specific values (colors, fonts, brand decisions)
 - [ ] `underlith.brand.css` becomes the publishable artifact for teams to distribute as `@org/tokens`
-- [ ] Reduces adoption to two steps: integrate → publish brand layer
+- [x] Reduces adoption to two steps: integrate → publish brand layer
 - [ ] Starter templates for common stacks (vanilla CSS, React, Rails)
 
 ## Q3 2026 — Automation
