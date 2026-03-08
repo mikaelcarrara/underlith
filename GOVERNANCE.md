@@ -170,3 +170,7 @@ jobs:
 - Two products have different shades of the "same" brand color
 - A breaking token change shipped without a major version bump
 - Figma and code have different names for the same decision
+
+---
+
+*For ongoing token health and long-term ownership, see [STEWARDSHIP.md](./STEWARDSHIP.md).*
