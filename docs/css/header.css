@@ -81,7 +81,7 @@ header ul {
 
 header ul li {
   list-style: none;
-  font-size: var(--ul-font-size-sm);
+  font-size: var(--ul-font-size-xs);
   color: var(--ul-neutral-500);
   font-weight: var(--ul-font-weight-semibold);
   margin-left: var(--ul-space-6);
