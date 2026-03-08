@@ -1,5 +1,40 @@
 # Underlith Release Notes
 
+## v2.1.1 — 2026-03-08
+
+Patch release following the first live end-to-end validation of the full pipeline. Fixes a CSS output bug in `brand init`, adds the missing CSS build step, and expands documentation to reflect the validated setup flow.
+
+### CSS build pipeline
+
+- New script `scripts/build-css.js` — concatenates all files from `src/tokens/` into a single `src/underlith.tokens.css`
+- `package.json` now includes three scripts: `build:tokens`, `build:css`, and `build` (runs both)
+- `src/underlith.tokens.css` is now a generated artifact — run `npm run build` to regenerate
+
+### Bug fix: `brand init` orphaned braces
+
+The CSS parser in `brand-init.js` was pushing every `}` to both `brandLines` and `baseLines` arrays, resulting in orphaned closing braces in the output files. Fixed with a context-aware parsing approach that tracks which block is active and routes closing braces to the correct array only. Output CSS is now valid and balanced.
+
+### Documentation
+
+- **Getting Started** — expanded with CLI global install, tokens file copy step, and publish flow. Validated on a live `npm publish`. Two complete independent tutorials: new project and existing project.
+- **index.html** — Two Paths section updated with complete setup pipelines for both paths
+- Footer standardized across all pages; `.html` extensions removed from internal links
+- SEO meta descriptions aligned with current positioning
+- New repository docs added:
+  - **VISION.md** — the thinking behind each roadmap phase, from what exists today to Q4
+  - **STEWARDSHIP.md** — token lifecycle, semver for design tokens, and long-term ownership model
+- Updated repository docs:
+  - **GOVERNANCE.md** — two levels separated (Underlith core vs brand package); references STEWARDSHIP.md
+  - **ROADMAP.md** — Q4 split into Core and Integrations; MCP server added as integration item
+  - **CI.md** — updated to reflect brand init and shadcn integration workflows
+  - **DESIGNER-GUIDE.md** — change proposals now target `@your-org/tokens`, not Underlith core
+
+### Tokens
+
+- `tokens.json` regenerated and synchronized with current `src/tokens/*`
+
+To regenerate build artifacts: `npm run build`
+
 ## 2.0.0 – 2026-03-07
 
 Breaking changes:
