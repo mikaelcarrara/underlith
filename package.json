@@ -1,6 +1,6 @@
 {
     "name": "@mikaelcarrara/underlith",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "description": "Token infrastructure for design decisions that survive frameworks, platforms, and time.",
     "bin": {
         "underlith": "./bin/underlith.js"
@@ -8,7 +8,9 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build:tokens": "node scripts/generate-tokens.js"
+        "build:tokens": "node scripts/generate-tokens.js",
+        "build:css": "node scripts/build-css.js",
+        "build": "npm run build:tokens && npm run build:css"
     },
     "keywords": [
         "design-system",
@@ -21,6 +23,7 @@
         "bin",
         "scripts",
         "src",
+        "src/underlith.tokens.css",
         "index.js",
         "tokens.json",
         "README.md",

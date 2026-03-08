@@ -99,63 +99,96 @@ async function main() {
   const brandLines = [];
   const baseLines = [];
   
-  let isBrandBlock = false;
+  let isBrandBlock = false; // determined by comments
+  let insideBrandBlock = false;
+  let insideBaseBlock = false;
+  let brandDepth = 0;
+  let baseDepth = 0;
   let brandCount = 0;
   let baseCount = 0;
 
   for (const line of lines) {
     const trimmed = line.trim();
     
-    // Check for comments (start of block)
+    // Comment markers define block intent going forward
     if (trimmed.startsWith('/*')) {
-        // Heuristic: "Brand" in comment starts a brand block
-        if (trimmed.toLowerCase().includes('brand')) {
-            isBrandBlock = true;
-            brandLines.push(line);
-        } else {
-            // Any other comment block resets to base, unless we are inside a specific structure?
-            // Assuming flat structure of blocks for now.
-            isBrandBlock = false;
-            baseLines.push(line);
-        }
-        continue;
-    }
-    
-    // Structure (:root, })
-    if (trimmed.startsWith(':root') || trimmed === '}') {
+      const isBrandComment = trimmed.toLowerCase().includes('brand');
+      isBrandBlock = !!isBrandComment;
+      if (isBrandComment) {
         brandLines.push(line);
+      } else {
         baseLines.push(line);
-        continue;
+      }
+      continue;
     }
     
-    // Tokens
+    // Open root block only on the active side
+    if (trimmed.startsWith(':root')) {
+      if (isBrandBlock) {
+        brandLines.push(line);
+        brandDepth += (trimmed.includes('{') ? 1 : 0);
+        insideBrandBlock = true;
+        insideBaseBlock = false;
+      } else {
+        baseLines.push(line);
+        baseDepth += (trimmed.includes('{') ? 1 : 0);
+        insideBaseBlock = true;
+        insideBrandBlock = false;
+      }
+      continue;
+    }
+    
+    // Closing brace: send only to the array with an open block
+    if (trimmed === '}') {
+      if (brandDepth > 0) {
+        brandLines.push(line);
+        brandDepth--;
+        if (brandDepth === 0) insideBrandBlock = false;
+      } else if (baseDepth > 0) {
+        baseLines.push(line);
+        baseDepth--;
+        if (baseDepth === 0) insideBaseBlock = false;
+      } else {
+        // No active block: default to base for safety
+        baseLines.push(line);
+      }
+      continue;
+    }
+    
+    // Token lines
     if (trimmed.startsWith('--')) {
-        const tokenName = trimmed.split(':')[0];
-        const isOrgScoped = tokenName.includes(orgName);
-        const isBrandNamed = tokenName.includes('brand');
-        
-        if (isBrandBlock || isOrgScoped || isBrandNamed) {
-            brandLines.push(line);
-            brandCount++;
-        } else {
-            baseLines.push(line);
-            baseCount++;
-        }
-        continue;
+      const tokenName = trimmed.split(':')[0];
+      const isOrgScoped = tokenName.includes(orgName);
+      const isBrandNamed = tokenName.includes('brand');
+      
+      if (insideBrandBlock || isBrandBlock || isOrgScoped || isBrandNamed) {
+        brandLines.push(line);
+        brandCount++;
+      } else {
+        baseLines.push(line);
+        baseCount++;
+      }
+      continue;
     }
     
-    // Empty lines
+    // Empty line: push to currently active side
     if (trimmed === '') {
+      if (insideBrandBlock) {
         brandLines.push(line);
+      } else if (insideBaseBlock || (!insideBrandBlock && !insideBaseBlock && !isBrandBlock)) {
         baseLines.push(line);
-        continue;
+      } else {
+        // default to brand if brand block is signaled but not open yet
+        brandLines.push(line);
+      }
+      continue;
     }
     
-    // Other content (unknown)
-    if (isBrandBlock) {
-        brandLines.push(line);
+    // Other content (copy to the active side)
+    if (insideBrandBlock || isBrandBlock) {
+      brandLines.push(line);
     } else {
-        baseLines.push(line);
+      baseLines.push(line);
     }
   }
 
@@ -220,11 +253,17 @@ npm install @${orgName}/${pkgName}
   fs.writeFileSync(path.join(fullOutDir, 'README.md'), readme);
   success(`@${orgName}/${pkgName}/README.md`);
   
-  const finalBrandCss = cleanupEmptyBlocks(brandLines.join('\n'));
+  const finalizeCss = (arr) => {
+    const content = cleanupEmptyBlocks(arr.join('\n')).trim();
+    if (!content) return content;
+    if (content.includes(':root')) return content;
+    return `:root {\n${content}\n}`;
+  };
+  const finalBrandCss = finalizeCss(brandLines);
   fs.writeFileSync(path.join(fullOutDir, brandCssName), finalBrandCss + '\n');
   success(`@${orgName}/${pkgName}/${brandCssName}`);
   
-  const finalBaseCss = cleanupEmptyBlocks(baseLines.join('\n'));
+  const finalBaseCss = finalizeCss(baseLines);
   fs.writeFileSync(path.join(fullOutDir, baseCssName), finalBaseCss + '\n');
   success(`@${orgName}/${pkgName}/${baseCssName}`);
 

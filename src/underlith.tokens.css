@@ -1,0 +1,413 @@
+:root {
+
+  /* ============================== 
+    Breakpoints 
+   ============================== */
+
+  --ul-breakpoint-sm: 640px;
+  --ul-breakpoint-md: 768px;
+  --ul-breakpoint-lg: 1024px;
+
+}
+
+:root {
+
+  /* ============================== 
+    Colors 
+   ============================== */
+
+  /* Neutrals */
+  --ul-neutral-0: #ffffff;
+  --ul-neutral-50: #f9f9f9;
+  --ul-neutral-100: #f1f1f1;
+  --ul-neutral-200: #eee;
+  --ul-neutral-300: #ccc;
+  --ul-neutral-400: #999999;
+  --ul-neutral-500: #777;
+  --ul-neutral-600: #555;
+  --ul-neutral-700: #2A2C2E;
+  --ul-neutral-800: #1A1C1F;
+  --ul-neutral-900: #111;
+  --ul-neutral-1000: #0e0e0e;
+
+  /* Brand */
+  --ul-brand-300: #60a5fa;
+  --ul-brand-500: #2563eb;
+  --ul-brand-700: #1e40af;
+
+  /* Layers */
+  --ul-layer-01: #c8f542;
+  --ul-layer-02: #E187CA;
+  --ul-layer-03: #4af0c8;
+
+  /* Feedback */
+  --ul-color-success: #16a34a; /* cooler, levemente mais escuro para harmonizar com brand */
+  --ul-color-warning: #d97706; /* amber 600, menos saturado próximo ao azul neutro */
+  --ul-color-danger:  #dc2626; /* vermelho 600, contraste equilibrado com neutrals frios */
+}
+
+:root {
+
+  /* ============================== 
+    Shadows
+   ============================== */
+
+  --ul-shadow-sm: 0 1px 1px rgba(0, 0, 0, 0.04);
+  --ul-shadow-md: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --ul-shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.10);
+}
+
+:root {
+  --ul-duration-nano: 80ms;
+  --ul-duration-micro: 120ms;
+  --ul-duration-fast: 180ms;
+  --ul-duration-base: 250ms;
+  --ul-duration-moderate: 350ms;
+  --ul-duration-slow: 500ms;
+  --ul-duration-glacial: 900ms;
+  --ul-duration-epic: 1400ms;
+
+  --ul-ease-linear: cubic-bezier(0, 0, 1, 1);
+  --ul-ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ul-ease-enter-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ul-ease-enter-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ul-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ul-ease-exit-sharp: cubic-bezier(0.6, 0, 0.8, 0.2);
+  --ul-ease-inout: cubic-bezier(0.4, 0, 0.2, 1);
+  --ul-ease-inout-soft: cubic-bezier(0.37, 0, 0.63, 1);
+  --ul-ease-inout-strong: cubic-bezier(0.76, 0, 0.24, 1);
+  --ul-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ul-ease-bounce-strong: cubic-bezier(0.2, 1.8, 0.5, 0.8);
+  --ul-ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ul-ease-anticipate: cubic-bezier(0.36, -0.4, 0.64, 1.4);
+  --ul-ease-sine-in: cubic-bezier(0.47, 0, 0.745, 0.715);
+  --ul-ease-sine-out: cubic-bezier(0.39, 0.575, 0.565, 1);
+  --ul-ease-sine-inout: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  --ul-ease-breath: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  --ul-ease-float: cubic-bezier(0.37, 0.13, 0.63, 0.87);
+  --ul-ease-drift: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  --ul-delay-none: 0ms;
+  --ul-delay-xs: 30ms;
+  --ul-delay-sm: 60ms;
+  --ul-delay-md: 100ms;
+  --ul-delay-lg: 160ms;
+  --ul-delay-xl: 240ms;
+  --ul-delay-2xl: 380ms;
+  --ul-delay-3xl: 600ms;
+
+  --ul-stagger-unit: 40ms;
+
+  --ul-motion-drop-bounce: drop-bounce var(--ul-duration-moderate) var(--ul-ease-enter-spring) var(--ul-delay-none) 1 normal both;
+  --ul-motion-fade-up: fade-up var(--ul-duration-base) var(--ul-ease-enter) var(--ul-delay-none) 1 normal both;
+  --ul-motion-fade-in: fade-in var(--ul-duration-base) var(--ul-ease-enter) var(--ul-delay-none) 1 normal both;
+  --ul-motion-scale-pop: scale-pop var(--ul-duration-fast) var(--ul-ease-enter-spring) var(--ul-delay-none) 1 normal both;
+  --ul-motion-glow-breath: glow-breath var(--ul-duration-epic) var(--ul-ease-breath) var(--ul-delay-none) infinite alternate both;
+  --ul-motion-pulse: pulse-sine var(--ul-duration-glacial) var(--ul-ease-sine-inout) var(--ul-delay-none) infinite alternate both;
+  --ul-motion-particle: particle-drift var(--ul-duration-epic) var(--ul-ease-drift) var(--ul-delay-none) infinite normal both;
+  --ul-motion-slide-left: slide-from-right var(--ul-duration-base) var(--ul-ease-enter) var(--ul-delay-none) 1 normal both;
+  --ul-motion-slide-right: slide-from-left var(--ul-duration-base) var(--ul-ease-enter) var(--ul-delay-none) 1 normal both;
+  --ul-motion-float: float var(--ul-duration-slow) var(--ul-ease-float) var(--ul-delay-none) infinite alternate both;
+  --ul-motion-shimmer: shimmer var(--ul-duration-epic) var(--ul-ease-linear) var(--ul-delay-none) infinite normal both;
+  --ul-motion-skeleton: shimmer var(--ul-duration-epic) var(--ul-ease-linear) var(--ul-delay-none) infinite normal both;
+  --ul-motion-skeleton-fill: skeleton-fill var(--ul-duration-glacial) var(--ul-ease-inout-soft) var(--ul-delay-none) infinite alternate both;
+  --ul-motion-flip-in: flip-in var(--ul-duration-moderate) var(--ul-ease-anticipate) var(--ul-delay-none) 1 normal both;
+}
+
+:where(*, *::before, *::after) {
+  animation-fill-mode: both;
+}
+
+/* Scroll-triggered enter tokens (progressive enhancement) */
+:root {
+  --ul-motion-enter-timeline: auto;
+  --ul-motion-enter-range: normal;
+}
+@supports (animation-timeline: view()) {
+  :root {
+    --ul-motion-enter-timeline: view();
+    --ul-motion-enter-range: entry 0% 30%;
+  }
+}
+:where(.motion-enter, [data-motion~="enter"]) {
+  animation-timeline: var(--ul-motion-enter-timeline);
+  animation-range: var(--ul-motion-enter-range);
+}
+:where(.motion-stagger, [data-motion~="stagger"]) > * {
+  animation-delay: calc(var(--ul-stagger-unit) * var(--index, 0));
+}
+
+:where(.motion-stagger, [data-motion~="stagger"]) :where(.motion-enter, [data-motion~="enter"]) {
+  animation-delay: calc(var(--ul-stagger-unit) * var(--index, 0));
+}
+
+@keyframes drop-bounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(4px);
+  }
+  80% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes glow-breath {
+  0% {
+    opacity: 0.85;
+    filter: brightness(1) blur(0);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.15) blur(1px);
+  }
+  100% {
+    opacity: 0.85;
+    filter: brightness(1) blur(0);
+  }
+}
+
+@keyframes pulse-sine {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.92;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes particle-drift {
+  0% {
+    opacity: var(--opacity-seed, 0.8);
+    transform: translate(0, 0) scale(var(--scale-seed, 0.8)) rotate(0deg);
+  }
+  50% {
+    opacity: calc(var(--opacity-seed, 0.8) * 0.7);
+    transform: translate(
+      calc(var(--particle-dx, 24px) * 0.6 * var(--particle-spread, 1)),
+      calc(var(--particle-dy, -16px) * 0.6 * var(--particle-spread, 1))
+    ) scale(calc(var(--scale-seed, 0.8) * 1.1)) rotate(15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc(var(--particle-dx, 24px) * 1.2 * var(--particle-spread, 1)),
+      calc(var(--particle-dy, -16px) * 1.2 * var(--particle-spread, 1))
+    ) scale(calc(var(--scale-seed, 0.8) * 0.9)) rotate(30deg);
+  }
+}
+
+/* shake motion removed */
+
+@keyframes slide-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes skeleton-fill {
+  0% {
+    transform: scaleX(0.2);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes flip-in {
+  0% {
+    opacity: 0;
+    transform: perspective(800px) rotateY(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(800px) rotateY(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ul-duration-nano: 0ms;
+    --ul-duration-micro: 0ms;
+    --ul-duration-fast: 0ms;
+    --ul-duration-base: 0ms;
+    --ul-duration-moderate: 0ms;
+    --ul-duration-slow: 0ms;
+    --ul-duration-glacial: 0ms;
+    --ul-duration-epic: 0ms;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:root {
+
+  /* ============================== 
+    Opacity
+  ============================== */
+
+  --ul-opacity-disabled: 0.4;
+  --ul-opacity-muted: 0.6;
+  --ul-opacity-overlay: 0.9;
+
+}
+
+:root {
+
+  /* ==============================
+    Radius & Borders
+  ============================== */
+
+  --ul-radius-sm: 2px;
+  --ul-radius-md: 4px;
+  --ul-radius-lg: 6px;
+
+  --ul-border-width: 1px;
+  --ul-border-color: var(--ul-neutral-700);
+
+}
+
+:root {
+
+  /* ============================== 
+    Semantic Aliases
+  ============================== */
+
+  --ul-color-bg: var(--ul-neutral-0);
+  --ul-color-surface: var(--ul-neutral-0);
+  --ul-color-text-primary: var(--ul-neutral-900);
+  --ul-color-text-secondary: var(--ul-neutral-700);
+  --ul-color-border: var(--ul-neutral-300);
+
+  --ul-color-brand-primary: var(--ul-brand-500);
+  --ul-color-brand-hover: var(--ul-brand-700);
+  --ul-color-text-inverse: var(--ul-neutral-0);
+
+}
+
+:root {
+
+  /* ==============================
+    Spacing
+  ============================== */
+
+  --ul-space-1: 0.25rem;
+  --ul-space-2: 0.5rem;
+  --ul-space-3: 0.75rem;
+  --ul-space-4: 1rem;
+  --ul-space-5: 1.5rem;
+  --ul-space-6: 2rem;
+
+}
+
+:root {
+  /* ==============================
+    Typography
+  ============================== */
+
+  --ul-font-family-base: "Geist", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --ul-font-size-xs: 0.75rem;
+  --ul-font-size-sm: 0.875rem;
+  --ul-font-size-md: 1rem;
+  --ul-font-size-lg: 1.25rem;
+  --ul-font-size-xl: 1.5rem;
+  --ul-font-size-2xl: 2.1rem;
+  --ul-font-size-3xl: 2.7rem;
+
+  --ul-font-weight-regular: 400;
+  --ul-font-weight-medium: 500;
+  --ul-font-weight-semibold: 600;
+  --ul-font-weight-bold: 700;
+
+  --ul-line-height-tight: 1.25;
+  --ul-line-height-normal: 1.5;
+  --ul-line-height-relaxed: 1.75;
+}
