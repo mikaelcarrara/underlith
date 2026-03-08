@@ -24,7 +24,7 @@ The most important feature. `underlith brand init` reads your token file, separa
 This is the shift from "a token file in your project" to "a versioned, publishable contract your entire org shares." Every product installs the package. Brand decisions change once. Everything updates on `npm update`.
 
 ### shadcn/ui integration
-`underlith init --shadcn` maps existing shadcn CSS variables to Underlith semantic tokens without touching a single component. The first real test of this was a 12-year client relationship — handing over the keys to a production design system and discovering what the product needed to solve in practice.
+`underlith init --shadcn` maps existing shadcn CSS variables to Underlith semantic tokens without touching a single component. The first real test was a production shadcn/ui design system — and it revealed exactly what the product needed to solve in practice.
 
 ### Documentation
 Getting Started, Tokens, Components, Consumption, W3C Alignment, Governance — all updated to reflect the brand layer model. The site uses Underlith's own tokens to render itself.
