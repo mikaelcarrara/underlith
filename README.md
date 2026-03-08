@@ -55,22 +55,50 @@ npm install -g @mikaelcarrara/underlith
 
 This makes the `underlith` command available globally. Run this once — then use the CLI from any project.
 
-### New project — 2 commands
+### New project
 
 ```bash
-underlith brand init --org acme   # scaffold @acme/tokens package
-npm publish --access public       # publish brand layer
+# Install package locally to access the starter tokens file
+npm install @mikaelcarrara/underlith
+
+# Copy starter tokens to your project root — edit brand values before next step
+cp node_modules/@mikaelcarrara/underlith/src/underlith.tokens.css .
+
+# Scaffold your brand package — use your npm username as --org
+underlith brand init --org your-npm-username
+
+# cd into the exact path the command printed, then publish
+cd ./@your-npm-username/your-package-name
+npm publish --access public
 ```
 
-### Existing project — 3 commands
+### Existing project
 
 ```bash
-underlith init --shadcn --globals ./styles/globals.css   # map existing variables
-underlith brand init --org acme                          # extract brand layer
-npm publish --access public                              # publish
+# Install CLI globally
+npm install -g @mikaelcarrara/underlith
+
+# Map existing variables — no component rewrites
+underlith init --shadcn --globals ./styles/globals.css
+
+# Copy tokens file if not present
+cp node_modules/@mikaelcarrara/underlith/src/underlith.tokens.css .
+
+# Scaffold brand package
+underlith brand init --org your-npm-username
+
+# cd into the exact path the command printed, then publish
+cd ./@your-npm-username/your-package-name
+npm publish --access public
 ```
 
-From here, every product your org builds installs `@acme/tokens` and inherits your brand decisions automatically.
+From here, every product your org builds installs `@your-npm-username/your-package-name` and inherits your brand decisions automatically.
+
+### Install the core
+
+```bash
+npm install @mikaelcarrara/underlith
+```
 
 ---
 

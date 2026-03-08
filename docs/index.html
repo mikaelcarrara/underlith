@@ -317,15 +317,11 @@
         <!-- Greenfield -->
         <div class="card big-text">
           <div class="stack-badge badge-green">New project</div>
-          <h3>Two commands. Done.</h3>
+          <h3>Full setup. One block.</h3>
           <p class="text-small">
-            Define your brand tokens, scaffold the package, publish.
+            Install the CLI, copy the starter tokens, scaffold your brand package, publish.
             Every product your org builds from here installs <code>@your-org/tokens</code>
             and inherits your design decisions automatically.
-          </p>
-
-          <p class="text-small">
-            <strong>Install once:</strong> <code>npm install -g @mikaelcarrara/underlith</code> makes the CLI available globally.
           </p>
 
           <div class="pipeline">
@@ -335,28 +331,38 @@
           </div>
 
           <div class="impl-code">
+            <span class="c"># Install CLI globally</span><br>
+            <span class="cmd">npm install -g @mikaelcarrara/underlith</span><br>
+            <br>
+            <span class="c"># Copy starter tokens to your project root</span><br>
+            <span class="cmd">npm install @mikaelcarrara/underlith</span><br>
+            <span class="cmd">cp node_modules/@mikaelcarrara/underlith/src/underlith.tokens.css .</span><br>
+            <br>
             <span class="c"># Scaffold your brand package</span><br>
-            <span class="cmd">underlith brand init --org acme</span><br>
+            <span class="cmd">underlith brand init --org your-npm-username</span><br>
             <br>
-            <span class="c"># Publish to npm</span><br>
-            <span class="cmd">cd @acme/tokens && npm publish --access public</span><br>
-            <br>
-            <span class="c"># Any project installs it</span><br>
-            <span class="cmd">npm install @acme/tokens</span><br>
-            <span class="at">@import</span> <span class="s">"@acme/tokens/acme.brand.css"</span>;
+            <span class="c"># cd into the path the command printed, then publish</span><br>
+            <span class="cmd">cd ./@your-npm-username/your-package-name</span><br>
+            <span class="cmd">npm publish --access public</span>
           </div>
 
           <div class="steps">
             <div class="step">
               <span class="step-num green">1</span>
               <p class="text-small">
-                <strong>Run brand init:</strong> Define your brand values. The command scaffolds a ready-to-publish npm package.
+                <strong>Copy tokens:</strong> <code>underlith.tokens.css</code> is your token source. Edit brand values before running <code>brand init</code>.
               </p>
             </div>
             <div class="step">
               <span class="step-num green">2</span>
               <p class="text-small">
-                <strong>Publish once:</strong> <code>@your-org/tokens</code> becomes the shared source of truth across every product your org builds.
+                <strong>Brand init:</strong> Use your npm username as <code>--org</code>. The command prints the exact output path — use that for <code>cd</code>.
+              </p>
+            </div>
+            <div class="step">
+              <span class="step-num green">3</span>
+              <p class="text-small">
+                <strong>Publish once:</strong> <code>@your-org/tokens</code> becomes the shared source of truth. Every product installs it and inherits your brand automatically.
               </p>
             </div>
           </div>
@@ -365,15 +371,10 @@
         <!-- Existing project -->
         <div class="card big-text">
           <div class="stack-badge badge-brown">Existing project</div>
-          <h3>Three commands. Zero rewrites.</h3>
+          <h3>Full setup. Zero rewrites.</h3>
           <p class="text-small">
-            Already have a design system? Map your existing variables to Underlith tokens,
-            extract your brand layer into a standalone package, publish.
-            Components keep working exactly as before.
-          </p>
-
-          <p class="text-small">
-            <strong>Install once:</strong> <code>npm install -g @mikaelcarrara/underlith</code> makes the CLI available globally.
+            Already have a design system? Install the CLI, map your existing variables to Underlith tokens,
+            extract your brand layer, publish. Components keep working exactly as before.
           </p>
 
           <div class="pipeline">
@@ -385,17 +386,23 @@
           </div>
 
           <div class="impl-code">
-            <span class="c"># 1. Map existing variables to Underlith tokens</span><br>
-            <span class="cmd">underlith init --shadcn \</span><br>
-            <span class="cmd">&nbsp;&nbsp;--globals ./styles/globals.css</span><br>
+            <span class="c"># Install CLI globally</span><br>
+            <span class="cmd">npm install -g @mikaelcarrara/underlith</span><br>
             <br>
-            <span class="c"># Before → After (zero component changes)</span><br>
+            <span class="c"># Map existing variables — no component rewrites</span><br>
+            <span class="cmd">underlith init --shadcn --globals ./styles/globals.css</span><br>
+            <br>
+            <span class="c"># Before → After</span><br>
             <span class="p">--primary</span>: var(<span style="color: var(--ul-layer-01);">--ul-primary</span>);<br>
             <br>
-            <span class="c"># 2. Extract brand layer and scaffold package</span><br>
-            <span class="cmd">underlith brand init --org acme</span><br>
+            <span class="c"># Copy tokens file if not present</span><br>
+            <span class="cmd">cp node_modules/@mikaelcarrara/underlith/src/underlith.tokens.css .</span><br>
             <br>
-            <span class="c"># 3. Publish</span><br>
+            <span class="c"># Scaffold brand package</span><br>
+            <span class="cmd">underlith brand init --org your-npm-username</span><br>
+            <br>
+            <span class="c"># cd into the path the command printed, then publish</span><br>
+            <span class="cmd">cd ./@your-npm-username/your-package-name</span><br>
             <span class="cmd">npm publish --access public</span>
           </div>
 
@@ -403,13 +410,13 @@
             <div class="step">
               <span class="step-num amber">1</span>
               <p class="text-small">
-                <strong>Integrate:</strong> Existing variables are mapped to Underlith tokens. No component rewrites.
+                <strong>Integrate:</strong> <code>underlith init --shadcn</code> maps every existing variable to an Underlith token. No component rewrites.
               </p>
             </div>
             <div class="step">
               <span class="step-num amber">2</span>
               <p class="text-small">
-                <strong>Extract:</strong> Brand values are separated from framework primitives and scaffolded into <code>@your-org/tokens</code>.
+                <strong>Extract:</strong> Brand values are separated from framework primitives and scaffolded into <code>@your-org/tokens</code>. Use your npm username as <code>--org</code>.
               </p>
             </div>
             <div class="step">
