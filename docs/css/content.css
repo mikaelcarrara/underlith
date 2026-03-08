@@ -16,6 +16,10 @@
   color: var(--ul-neutral-300);
 }
 
+.content a {
+  color: var(--ul-brand-500);
+}
+
 .section-divider {
   border: none;
   border-top: 1px solid var(--ul-neutral-800, #1e1e1e);

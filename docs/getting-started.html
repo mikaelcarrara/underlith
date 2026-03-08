@@ -76,194 +76,124 @@
 
     <section class="content">
 
-      <!-- ── PREREQUISITES ── -->
-      <h2>Prerequisites</h2>
-      <p>Node.js 18+ and an account at <a href="https://www.npmjs.com" target="_blank">npmjs.com</a>. You'll need your npm username or org name to publish your brand package.</p>
-
-      <hr class="section-divider">
-
-      <!-- ── STEP 1: INSTALL CLI ── -->
-      <h2>Step 1 — Install the CLI globally</h2>
-
-      <p>Install Underlith globally to make the <code>underlith</code> command available in any terminal session. Run this once.</p>
-
-      <div class="card code-card"><pre><code class="language-bash">npm install -g @mikaelcarrara/underlith</code></pre></div>
-
-      <hr class="section-divider">
-
-      <!-- ── STEP 2: PROJECT SETUP ── -->
-      <h2>Step 2 — Create a project and install the package</h2>
-
-      <p>Create a folder, initialize it, and install Underlith locally. The local install gives you access to the starter tokens file.</p>
-
-      <div class="card code-card"><pre><code class="language-bash">mkdir my-project
-cd my-project
-npm init -y
-npm install @mikaelcarrara/underlith</code></pre></div>
-
-      <hr class="section-divider">
-
-      <!-- ── STEP 3: COPY TOKENS ── -->
-      <h2>Step 3 — Copy the starter tokens file</h2>
-
-      <p>Copy the base token file to your project root. This is the file Underlith reads to scaffold your brand package.</p>
-
-      <div class="card code-card"><pre><code class="language-bash">cp node_modules/@mikaelcarrara/underlith/src/underlith.tokens.css .</code></pre></div>
-
-      <p>Open <code>underlith.tokens.css</code> and edit the brand token values to match your org's colors and identity before the next step.</p>
+      <p class="text-small alert alert-warning">
+        Node.js 18+ and an account at <a href="https://www.npmjs.com" target="_blank">npmjs.com</a> required. You'll need your npm username or org name to publish your brand package.
+      </p>
 
       <hr class="section-divider">
 
       <!-- ── PATH 1: NEW PROJECT ── -->
       <div class="stack-badge badge-green">New project</div>
-      <h2>Step 4 — Scaffold your brand package</h2>
+      <h2>Full setup from scratch.</h2>
+      <p>Install the CLI, create a project, copy the starter tokens, scaffold your brand package, publish.</p>
 
-      <p>
-        Run <code>brand init</code> with your npm username or org name. Underlith reads your tokens file,
-        separates brand tokens from framework primitives, and generates a ready-to-publish package.
-      </p>
+      <div class="pipeline">
+        <span class="pipeline-cmd">$ underlith brand init</span>
+        <span class="pipeline-arrow">&#8594;</span>
+        <span class="pipeline-cmd">$ npm publish</span>
+      </div>
 
+      <h3>Step 1 &#8212; Install the CLI globally</h3>
+      <p>Run this once. Makes the <code>underlith</code> command available in any terminal session.</p>
+      <div class="card code-card"><pre><code class="language-bash">npm install -g @mikaelcarrara/underlith</code></pre></div>
+
+      <h3>Step 2 &#8212; Create a project and install the package</h3>
+      <p>The local install gives you access to the starter tokens file.</p>
+      <div class="card code-card"><pre><code class="language-bash">mkdir my-project
+cd my-project
+npm init -y
+npm install @mikaelcarrara/underlith</code></pre></div>
+
+      <h3>Step 3 &#8212; Copy the starter tokens file</h3>
+      <p>This is the file Underlith reads to scaffold your brand package. Edit brand token values before the next step.</p>
+      <div class="card code-card"><pre><code class="language-bash">cp node_modules/@mikaelcarrara/underlith/src/underlith.tokens.css .</code></pre></div>
+
+      <h3>Step 4 &#8212; Scaffold your brand package</h3>
+      <p>Use your npm username as <code>--org</code>. Underlith reads your tokens file, separates brand tokens from framework primitives, and generates a ready-to-publish package. Follow the prompts to name your package.</p>
       <div class="card code-card"><pre><code class="language-bash">underlith brand init --org your-npm-username</code></pre></div>
-
-      <p>Follow the prompts to name your package. When complete, the command shows the exact output path:</p>
-
+      <p>When complete, the command shows the exact output path &#8212; use that in the next step.</p>
       <div class="card code-card"><pre><code class="language-bash">Next steps:
   1. cd ./@your-npm-username/your-package-name
   2. Review your-npm-username.brand.css
   3. npm publish --access public</code></pre></div>
 
-      <p>This generates:</p>
-
-      <div class="card code-card"><pre><code class="language-bash">@your-npm-username/your-package-name/
-├── package.json
-├── README.md
-├── your-npm-username.brand.css   ← your brand tokens
-└── your-npm-username.base.css    ← framework primitives</code></pre></div>
-
-      <hr class="section-divider">
-
-      <!-- ── STEP 5: PUBLISH ── -->
-      <h2>Step 5 — Review and publish</h2>
-
-      <p>Use the exact path the command printed — don't guess it. The folder name reflects your org and package name.</p>
-
-      <div class="card code-card"><pre><code class="language-bash"># Use the path from the output above — e.g.:
-cd ./@your-npm-username/your-package-name
-
-# Review your brand tokens before publishing
-cat your-npm-username.brand.css
-
-# Publish
+      <h3>Step 5 &#8212; Review and publish</h3>
+      <p>Use the exact path the command printed &#8212; don't guess it.</p>
+      <div class="card code-card"><pre><code class="language-bash">cd ./@your-npm-username/your-package-name
 npm publish --access public</code></pre></div>
 
-      <hr class="section-divider">
-
-      <!-- ── STEP 6: CONSUME ── -->
-      <h2>Step 6 — Consume in any project</h2>
-
+      <h3>Step 6 &#8212; Consume in any project</h3>
       <p>From this point, every product your org builds installs the package and inherits your brand decisions automatically.</p>
-
       <div class="card code-card"><pre><code class="language-bash">npm install @your-npm-username/your-package-name</code></pre></div>
-
       <div class="card code-card"><pre><code class="language-css">@import "@your-npm-username/your-package-name/your-npm-username.brand.css";
 
 color: var(--ul-color-brand-primary);
 gap: var(--ul-space-4);
 border-radius: var(--ul-radius-md);</code></pre></div>
-
-      <p>Change a token value in the package, publish a new version, and every product updates on the next <code>npm update</code>.</p>
+      <p>Change a token value, publish a new version, and every product updates on the next <code>npm update</code>.</p>
 
       <hr class="section-divider">
 
       <!-- ── PATH 2: EXISTING PROJECT ── -->
       <div class="stack-badge badge-brown">Existing project</div>
-      <h2>Already have a design system?</h2>
-      <p>
-        Map your existing variables to Underlith tokens, extract your brand layer, publish.
-        Components keep working exactly as before — zero rewrites.
-      </p>
+      <h2>Migrate without rewrites.</h2>
+      <p>Map your existing variables to Underlith tokens, extract your brand layer, publish. Components keep working exactly as before.</p>
 
-      <div class="pipeline" style="display: none;">
+      <div class="pipeline">
         <span class="pipeline-cmd">$ underlith init --shadcn</span>
-        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-arrow">&#8594;</span>
         <span class="pipeline-cmd">$ underlith brand init</span>
-        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-arrow">&#8594;</span>
         <span class="pipeline-cmd">$ npm publish</span>
       </div>
 
-      <h3>Step 1 — Install the CLI globally</h3>
-      <p>Run this once if you haven't already.</p>
-
+      <h3>Step 1 &#8212; Install the CLI globally</h3>
+      <p>Run this once. Makes the <code>underlith</code> command available in any terminal session.</p>
       <div class="card code-card"><pre><code class="language-bash">npm install -g @mikaelcarrara/underlith</code></pre></div>
 
-      <h3>Step 2 — Install the package locally</h3>
-      <p>Install Underlith inside your existing project.</p>
-
+      <h3>Step 2 &#8212; Install the package locally</h3>
       <div class="card code-card"><pre><code class="language-bash">npm install @mikaelcarrara/underlith</code></pre></div>
 
-      <h3>Step 3 — Map existing variables</h3>
+      <h3>Step 3 &#8212; Map existing variables</h3>
       <p>Point the script at your <code>globals.css</code>. It maps every CSS variable to an Underlith token without touching a single component.</p>
-
-      <div class="card code-card"><pre><code class="language-bash">underlith init --shadcn \
-  --globals ./styles/globals.css</code></pre></div>
-
-      <p>Before and after — zero component changes:</p>
-
+      <div class="card code-card"><pre><code class="language-bash">underlith init --shadcn --globals ./styles/globals.css</code></pre></div>
+      <p>Before and after &#8212; zero component changes:</p>
       <div class="card code-card"><pre><code class="language-css">/* Before */
 --primary: oklch(0.205 0 0);
 
 /* After */
 --primary: var(--ul-primary);</code></pre></div>
 
-      <h3>Step 4 — Scaffold your brand package</h3>
-      <p>Use your npm username or org name. Underlith reads your tokens, separates brand from framework primitives, and generates a ready-to-publish package.</p>
+      <h3>Step 4 &#8212; Copy the tokens file if not present</h3>
+      <div class="card code-card"><pre><code class="language-bash">cp node_modules/@mikaelcarrara/underlith/src/underlith.tokens.css .</code></pre></div>
 
+      <h3>Step 5 &#8212; Scaffold your brand package</h3>
+      <p>Use your npm username as <code>--org</code>. The command prints the exact output path &#8212; use that for <code>cd</code>.</p>
       <div class="card code-card"><pre><code class="language-bash">underlith brand init --org your-npm-username</code></pre></div>
 
-      <p>The command shows the exact output path when complete:</p>
-
-      <div class="card code-card"><pre><code class="language-bash">Next steps:
-  1. cd ./@your-npm-username/your-package-name
-  2. Review your-npm-username.brand.css
-  3. npm publish --access public</code></pre></div>
-
-      <h3>Step 5 — Review and publish</h3>
-      <p>Use the exact path the command printed — don't guess it.</p>
-
-      <div class="card code-card"><pre><code class="language-bash"># Use the path from the output above — e.g.:
-cd ./@your-npm-username/your-package-name
-
-# Review your brand tokens before publishing
-cat your-npm-username.brand.css
-
-# Publish
+      <h3>Step 6 &#8212; Review and publish</h3>
+      <div class="card code-card"><pre><code class="language-bash">cd ./@your-npm-username/your-package-name
 npm publish --access public</code></pre></div>
 
-      <h3>Step 6 — Consume in any project</h3>
-      <p>Every product in your org installs the package and inherits your brand decisions automatically.</p>
-
+      <h3>Step 7 &#8212; Consume in any project</h3>
+      <p>Every product your org builds installs the package and inherits your brand decisions automatically.</p>
       <div class="card code-card"><pre><code class="language-bash">npm install @your-npm-username/your-package-name</code></pre></div>
-
       <div class="card code-card"><pre><code class="language-css">@import "@your-npm-username/your-package-name/your-npm-username.brand.css";
 
 color: var(--ul-color-brand-primary);
 gap: var(--ul-space-4);
 border-radius: var(--ul-radius-md);</code></pre></div>
 
-      <p>Change a token value in the package, publish a new version, and every product updates on the next <code>npm update</code>.</p>
-
       <hr class="section-divider">
 
       <!-- ── PLAIN CSS / MANUAL ── -->
       <h2>Just consuming tokens?</h2>
-      <p>If you only need to consume Underlith tokens directly — no brand package needed — import and use:</p>
-
+      <p>If you only need to consume Underlith tokens directly &#8212; no brand package needed &#8212; import and use:</p>
       <div class="card code-card"><pre><code class="language-css">@import "@mikaelcarrara/underlith/src/underlith.tokens.css";
 
 color: var(--ul-color-text);
 gap: var(--ul-space-4);
 border-radius: var(--ul-radius-md);</code></pre></div>
-
       <p>Works with plain CSS, Tailwind, Sass, or any CSS-in-JS solution. No framework assumptions.</p>
 
     </section>
