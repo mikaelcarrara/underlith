@@ -4,94 +4,99 @@ Your design system shouldn't break every time you switch frameworks.
 
 Most teams rebuild their design system from scratch after a stack migration — not because the design decisions changed, but because those decisions were never separated from the implementation. Colors hardcoded in components. Spacing defined per-framework. No single place where design intent actually lives.
 
-Underlith fixes the root cause: it treats design decisions as infrastructure.
+**Underlith is not your source of truth — it's the infrastructure to build one.**
 
-A framework-agnostic token system built on CSS Variables, Underlith is the **governance layer beneath your UI** — a stable, semantic, versionable source of truth that survives framework changes, platform expansions, and team growth.
-
-Unlike a UI library, Underlith defines only primitives: colors, spacing, typography, and motion — expressed as strict contracts, not conventions. The implementation is yours. The foundation is shared.
+A framework-agnostic token system built on CSS Variables, Underlith gives you the tools to extract your brand decisions into a versioned, publishable package that survives framework changes, platform expansions, and team growth. The implementation is yours. The foundation is shared.
 
 **[Documentation](https://mikaelcarrara.github.io/underlith)**
 
 ---
 
-## Why Underlith?
+## How it works
 
-*   **Framework Agnostic**: Works with plain CSS, Sass, CSS-in-JS, or any other styling solution.
-*   **W3C Aligned**: Follows the W3C Design Tokens Community Group architecture (Definition → Transformation → Source → Consumption).
-*   **Automation Ready**: Designed to be consumed by CI pipelines and AI agents for safe, deterministic refactors.
-*   **Governance First**: Enforces design rules via strict token contracts, not just conventions.
+Underlith organizes design decisions into three layers and a publishing pipeline:
 
----
+```
+Base tokens          →   Brand tokens         →   @your-org/tokens
+(framework           →   (your org's          →   (published package,
+ primitives)         →    identity)            →   consumed everywhere)
+--ul-space-4              --ul-color-brand-primary     npm install @acme/tokens
+--ul-radius-md            --ul-color-text              @import "acme.brand.css"
+--ul-duration-fast        --ul-color-bg-surface        change once, update everywhere
+```
 
-## Core Principles
+**New project — 2 commands:**
+```bash
+underlith brand init --org acme   # scaffold @acme/tokens package
+npm publish --access public       # publish brand layer
+```
 
-Underlith operates under strict governance to ensure it remains a reliable foundation.
+**Existing project — 3 commands:**
+```bash
+underlith init --shadcn --globals ./styles/globals.css   # map existing variables
+underlith brand init --org acme                          # extract brand layer
+npm publish --access public                              # publish
+```
 
-*   **Single Source of Truth**: The canonical repository is the only place where tokens are defined.
-*   **Tokens as Contracts**: Changing a token value is a breaking change.
-*   **Automated Validation**: CI ensures no tokens are broken and detects breaking changes automatically.
-*   **AI Compatible**: Tokens provide a bounded context that allows AI to generate and refactor UI safely.
-
-For deep dives into our operating model:
-*   [**Governance Policy**](./GOVERNANCE.md) - How we manage changes and ownership.
-*   [**CI & Automation**](./CI.md) - How automation preserves integrity.
-*   [**Contributing**](./CONTRIBUTING.md) - How to propose changes safely.
-
----
-
-## Architecture & W3C Alignment
-
-Underlith implements the "Source of Truth" layer in the W3C reference architecture:
-
-1.  **Definition**: Design intent defined in design tools.
-2.  **Transformation**: Raw data processed into usable artifacts.
-3.  **Source of Truth (Underlith)**: The detailed, versioned, and semantic definition of all tokens (CSS variables, JSON).
-4.  **Consumption**: Applications (React, Vue, iOS, Android) consuming these tokens.
-
-Read more in [W3C Alignment](./docs/w3c-alignment.html).
+From here, every product your org builds installs `@acme/tokens` and inherits your brand decisions automatically.
 
 ---
 
 ## Installation
 
-### Via NPM (Recommended)
-
 ```bash
 npm install @mikaelcarrara/underlith
 ```
 
-### From Source (local)
-
-- Copy the `src/` folder into your project and import what you need.
-- Or preview the documentation locally by opening `docs/index.html` in a browser.
-
-### Manual Download
-
-Clone or download from GitHub:
+Or clone from source:
 
 ```bash
 git clone https://github.com/mikaelcarrara/underlith.git
 ```
 
-Or download directly and include in your project.
+---
 
 ## Usage
 
-Underlith is designed to be consumed, not imposed. You can use it in multiple ways.  
-CSS consumption examples across plain CSS and CSS-in-JS.
+### Plain CSS
 
-### 1. Plain CSS
-Import the full system or valid subsets from the package:
 ```css
-/* Import everything */
-@import "@mikaelcarrara/underlith/src/underlith.css";
+@import "@mikaelcarrara/underlith/src/underlith.tokens.css";
 
-/* Or just tokens */
-@import "@mikaelcarrara/underlith/src/tokens/colors.css";
+color: var(--ul-color-text);
+gap: var(--ul-space-4);
+border-radius: var(--ul-radius-md);
 ```
 
-### 2. CSS-in-JS (styled-components/emotion)
-Use CSS Variables directly in template literals:
+### Tailwind v4
+
+```css
+@import "@mikaelcarrara/underlith/src/underlith.tokens.css";
+
+@theme {
+  --color-brand: var(--ul-color-brand-primary);
+  --radius-md: var(--ul-radius-md);
+}
+```
+
+```html
+<div class="text-brand rounded-md">...</div>
+```
+
+### Sass / Less
+
+```scss
+@import "@mikaelcarrara/underlith/src/underlith.tokens.css";
+
+$color-text: var(--ul-color-text);
+
+@mixin button-primary {
+  background: var(--ul-color-brand-primary);
+  border-radius: var(--ul-radius-md);
+}
+```
+
+### CSS-in-JS
 
 ```js
 const Button = styled.button`
@@ -103,9 +108,31 @@ const Button = styled.button`
 `;
 ```
 
-### 3. Motion tokens
-Motion tokens: durations, easings, delays and composite tokens; reduced-motion policy.  
-Available in `src/tokens/motion.css`.
+### With your brand package
+
+```css
+@import "@acme/tokens/acme.brand.css";
+
+/* All --ul-* tokens now carry acme brand values */
+color: var(--ul-color-text);
+background: var(--ul-color-brand-primary);
+```
+
+---
+
+## Token layers
+
+| Layer | Responsibility | Lives in |
+|-------|---------------|----------|
+| Base tokens | Raw scales — space, type, radius, motion, opacity | `@mikaelcarrara/underlith` |
+| Brand tokens | Your org's color palette and identity values | `@your-org/tokens` |
+| Semantic aliases | Intent over value — `--ul-color-text`, `--ul-color-bg-surface` | `@your-org/tokens` |
+
+Semantic aliases are what components consume. When your brand evolves, you update the alias. Components never change.
+
+---
+
+## Motion tokens
 
 ```css
 .tooltip {
@@ -117,24 +144,29 @@ Available in `src/tokens/motion.css`.
 }
 ```
 
+Motion automatically respects `prefers-reduced-motion: reduce`.
+
+---
+
+## Why Underlith?
+
+- **Framework agnostic** — plain CSS, Tailwind, Sass, CSS-in-JS, or any styling solution
+- **Brand layer** — separates your identity from framework primitives at generation time
+- **Publishable** — `@your-org/tokens` becomes the shared source of truth across every product
+- **W3C aligned** — follows the W3C Design Tokens Community Group architecture
+- **Automation ready** — designed for CI pipelines, linters, and AI-assisted migrations
+
 ---
 
 ## Documentation
 
-*   [**Presentation**](https://mikaelcarrara.github.io/underlith/)
-*   [**Getting Started**](https://mikaelcarrara.github.io/underlith/getting-started)
-*   [**Tokens Reference**](https://mikaelcarrara.github.io/underlith/tokens)
-*   [**Reference Components**](https://mikaelcarrara.github.io/underlith/components)
-*   [**Consumption Strategies**](https://mikaelcarrara.github.io/underlith/consumption)
-*   [**Automation & AI**](https://mikaelcarrara.github.io/underlith/automation)
-*   [**W3C Alignment**](https://mikaelcarrara.github.io/underlith/w3c-alignment)
-
----
-
-## Accessibility
-
-- Motion respects `prefers-reduced-motion: reduce` by collapsing durations to near-zero.
-- Avoid introducing hardcoded cubic-beziers or durations; use `--duration-*` and `--ease-*`.
+- [**Getting Started**](https://mikaelcarrara.github.io/underlith/getting-started)
+- [**Tokens Reference**](https://mikaelcarrara.github.io/underlith/tokens)
+- [**Reference Components**](https://mikaelcarrara.github.io/underlith/components)
+- [**Consumption Strategies**](https://mikaelcarrara.github.io/underlith/consumption)
+- [**W3C Alignment**](https://mikaelcarrara.github.io/underlith/w3c-alignment)
+- [**Architecture**](./ARCHITECTURE.md)
+- [**Roadmap**](./ROADMAP.md)
 
 ---
 
