@@ -20,6 +20,10 @@
   .grid { grid-template-columns: 1fr !important; }
 }
 
+.center-img {
+  align-items: center;
+}
+
 .grid img { width: 100%; height: auto; display: block; }
 
 .no-gap-cards {

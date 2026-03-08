@@ -11,7 +11,7 @@
   <!-- Social Media Meta Tags -->
   <meta property="og:url" content="https://mikaelcarrara.github.io/Underlith/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Underlith - Framework-agnostic design tokens system">
+  <meta property="og:title" content="Underlith - Token infrastructure for design decisions">
   <meta property="og:description"
     content="Design token infrastructure for decisions that survive frameworks, platforms, and time.">
   <meta property="og:image" content="https://mikaelcarrara.github.io/Underlith/docs/svg/social.jpg">
@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="mikaelcarrara.github.io">
   <meta property="twitter:url" content="https://mikaelcarrara.github.io/Underlith/">
-  <meta name="twitter:title" content="Underlith - Framework-agnostic design tokens system">
+  <meta name="twitter:title" content="Underlith - Token infrastructure for design decisions">
   <meta name="twitter:description"
     content="Design token infrastructure for decisions that survive frameworks, platforms, and time.">
   <meta name="twitter:image" content="https://mikaelcarrara.github.io/Underlith/docs/svg/social.jpg">
@@ -66,14 +66,14 @@
 
   <div class="main-banner">
     <img class="bg-hero" src="svg/hero3.svg" alt="" aria-hidden="true">
-    <h1>The governance layer<br> for <span>design tokens</span></h1>
+    <h1>Your brand is a contract.<br> <span>Underlith is how you enforce it.</span></h1>
     <p>
-      Design token infrastructure for decisions that survive<br> frameworks, platforms, and time.
+      Token infrastructure for design decisions that survive<br> frameworks, platforms, and time.
     </p>
     <div class="buttons">
       <div class="cta-wrap">
         <a class="cta" href="getting-started">
-          <span>Getting started</span>
+          <span>Create your source of truth</span>
         </a>
       </div>
       <div class="cta-git-wrap">
@@ -87,30 +87,28 @@
   <main>
 
     <section>
-      <div class="grid grid-2">
+      <div class="grid grid-2 center-img">
         <div>
           <div class="sub-heading">
             <p class="sub-heading-tag">
               WHAT IS UNDERLITH?
             </p>
-            <h2>Design decisions as<br> infrastructure.</h2>
+            <h2>Infrastructure for the people who decide.</h2>
           </div>
           <p>
-            Underlith is a design token system built on CSS Variables, providing a stable, framework-agnostic foundation
-            beneath the UI. It defines design decisions as constraints — not implementations.
+            Underlith separates design intent from implementation. Your tokens live in one place — versioned, publishable, consumed by every product your org builds.
           </p>
           <p>
-            Unlike UI libraries that couple design to components, Underlith defines only primitives: colors, spacing, typography, and core decisions expressed as semantic, versionable tokens.
+            When your stack changes, your decisions don't.
           </p>
           <p>
-            This separation preserves design intent across platforms and implementation layers without rewriting the design system as stacks evolve.
+            Underlith is not your source of truth. It's the infrastructure to build one.
           </p>
         </div>
         <div>
           <img src="svg/arter.svg" alt="Underlith illustration" class="main-art">
         </div>
       </div>
-
     </section>
 
     <section>
@@ -118,10 +116,10 @@
         <p class="sub-heading-tag">
           WHY UNDERLITH EXISTS
         </p>
-        <h2>Design systems shouldn't<br> break when stacks change.</h2>
+        <h2>Design decisions shouldn't<br> depend on who implements them.</h2>
         <p class="text-secondary">
-          Most design systems are framework-dependent — when the stack changes, they must be rebuilt.<br>
-          Underlith separates design decisions from implementation, so one can change without breaking the other.
+          Most teams rebuild their design system every time the stack changes —<br>
+          not because the decisions were wrong, but because they were never separated from the implementation.
         </p>
       </div>
       <div class="grid grid-3 no-gap-cards">
@@ -132,21 +130,22 @@
         </div>
         <div class="card">
           <img src="svg/topic-02-2.svg" alt="" aria-hidden="true" class="topic-art">
-          <h3>Framework independence</h3>
-          <p class="text-small">Consume tokens in Tailwind, Sass, CSS-in-JS, or plain CSS without coupling to a specific stack.</p>
+          <h3>Implementation independence</h3>
+          <p class="text-small">
+            Your brand doesn't belong to Tailwind, React, or any framework. It belongs to your org.
+          </p>
         </div>
         <div class="card">
           <img src="svg/topic-03-2.svg" alt="" aria-hidden="true" class="topic-art">
-          <h3>Shared design language</h3>
+          <h3>One vocabulary, everywhere</h3>
           <p class="text-small">
-            Designers name it color-brand-primary. Developers use --color-brand-primary. Same thing, always in sync.
+            Designers name it color-brand-primary. Developers use --ul-color-brand-primary. The AI writes it natively. Same decision, every platform.
           </p>
         </div>
       </div>
     </section>
 
     <section>
- 
       <div class="sub-heading">
         <p class="sub-heading-tag">
           PHILOSOPHY
@@ -160,25 +159,23 @@
       <div class="grid grid-3 no-gap-cards">
         <div class="card">
           <img src="svg/topic-04-2.svg" alt="" aria-hidden="true" class="topic-art">
-          <h3>Tokens as the Foundation</h3>
+          <h3>Tokens as the foundation</h3>
           <p class="text-small">Change a token once. Every platform updates automatically.</p>
         </div>
         <div class="card">
           <img src="svg/topic-05-2.svg" alt="" aria-hidden="true" class="topic-art">
-          <h3>Framework Agnosticism</h3>
+          <h3>Framework agnosticism</h3>
           <p class="text-small">Migrate from React to anything. Your design decisions stay intact.</p>
         </div>
-        <div class="card"> 
+        <div class="card">
           <img src="svg/topic-06-2.svg" alt="" aria-hidden="true" class="topic-art">
-          <h3>Single Source of Truth</h3>
-          <p class="text-small">Designers and developers reference the same values. Always.</p>
+          <h3>Decisions over implementations</h3>
+          <p class="text-small">Underlith owns the contract. Your stack owns the execution. Neither depends on the other.</p>
         </div>
       </div>
- 
     </section>
 
     <section>
-
       <div class="sub-heading">
         <p class="sub-heading-tag">
           ARCHITECTURE
@@ -215,7 +212,6 @@
     </section>
 
     <section>
-
       <div class="sub-heading">
         <p class="sub-heading-tag">
           IMPLEMENTATION
@@ -418,7 +414,6 @@
         </div>
 
       </div>
-
     </section>
 
     <section class="final-cta">
@@ -462,7 +457,7 @@
           <ul>
             <li>
               <a href="https://github.com/mikaelcarrara/underlith/blob/main/ARCHITECTURE.md"
-                target="_blank">Arquitecture <span class="external-link"></span>
+                target="_blank">Architecture <span class="external-link"></span>
               </a>
             </li>
             <li>
@@ -477,9 +472,9 @@
             </li>
             <li>
               <a href="https://github.com/mikaelcarrara/underlith/blob/main/STEWARDSHIP.md"
-                target="_blank">Stewards <span class="external-link"></span>
+                target="_blank">Stewardship <span class="external-link"></span>
               </a>
-            </li> 
+            </li>
             <li>
               <a href="https://github.com/mikaelcarrara/underlith/blob/main/CI.md" target="_blank">CI &amp; Automation <span
                   class="external-link"></span>
@@ -494,7 +489,7 @@
               <a href="https://github.com/mikaelcarrara/underlith/blob/main/CONTRIBUTING.md"
                 target="_blank">Contributing <span class="external-link"></span>
               </a>
-            </li> 
+            </li>
             <li>
               <a href="https://github.com/mikaelcarrara/underlith/blob/main/DESIGNER-GUIDE.md"
                 target="_blank">Designer Guide <span class="external-link"></span>
@@ -529,8 +524,5 @@
     </section>
   </footer>
 
-  <!-- interaction removed: keep default banner animation -->
-
 </body>
-
 </html>
