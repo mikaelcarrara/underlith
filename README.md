@@ -47,6 +47,14 @@ Semantic aliases are what components consume. When your brand evolves, you updat
 
 ## Getting started
 
+### Install the CLI
+
+```bash
+npm install -g @mikaelcarrara/underlith
+```
+
+This makes the `underlith` command available globally. Run this once — then use the CLI from any project.
+
 ### New project — 2 commands
 
 ```bash
@@ -63,12 +71,6 @@ npm publish --access public                              # publish
 ```
 
 From here, every product your org builds installs `@acme/tokens` and inherits your brand decisions automatically.
-
-### Install the core
-
-```bash
-npm install @mikaelcarrara/underlith
-```
 
 ---
 

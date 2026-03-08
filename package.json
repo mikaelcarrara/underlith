@@ -1,7 +1,7 @@
 {
     "name": "@mikaelcarrara/underlith",
-    "version": "2.0.0",
-    "description": "Framework-agnostic design tokens system",
+    "version": "2.1.0",
+    "description": "Token infrastructure for design decisions that survive frameworks, platforms, and time.",
     "bin": {
         "underlith": "./bin/underlith.js"
     },
