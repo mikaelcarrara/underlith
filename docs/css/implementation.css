@@ -130,14 +130,14 @@
 /* Code block inside cards */
 
 .impl-code {
-  border-radius: 6px;
+  border-radius: var( --ul-radius-lg);
   background: var(--ul-neutral-1000);
   padding: 12px 14px;
   font-family: 'SF Mono', 'Fira Code', monospace;
   font-size: 11px;
   line-height: 1.75;
-  margin: var(--ul-space-3, 16px) 0;
-  overflow-x: hidden;
+  margin: var(--ul-space-3) 0 0 0;
+  box-sizing: border-box;
   word-break: break-word;
 }
 
