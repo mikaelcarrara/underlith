@@ -445,6 +445,31 @@ jobs:
       - run: npm run lint:tokens</code></pre>
       </div>
 
+      <h2>Reduced motion</h2>
+      <p>
+        Motion tokens respeitam automaticamente preferências de acessibilidade. Em ambientes com
+        <code>prefers-reduced-motion: reduce</code>, as durações colapsam para quase zero.
+      </p>
+      <div class="card code-card">
+  <pre><code class="language-css">@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ul-duration-nano: 0ms;
+    --ul-duration-micro: 0ms;
+    --ul-duration-fast: 0ms;
+    --ul-duration-base: 0ms;
+    --ul-duration-moderate: 0ms;
+    --ul-duration-slow: 0ms;
+    --ul-duration-glacial: 0ms;
+    --ul-duration-epic: 0ms;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}</code></pre>
+      </div>
+
       <h2>What’s next</h2>
       <p>A slice of the <a href="https://github.com/mikaelcarrara/underlith/blob/main/ROADMAP.md" target="_blank">Roadmap</a> focused on Automation & AI.</p>
 
