@@ -137,8 +137,12 @@
   font-size: 11px;
   line-height: 1.75;
   margin: var(--ul-space-3, 16px) 0;
-  overflow-x: hidden;
-  word-break: break-word;
+  overflow-x: auto;
+  white-space: pre;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 }
 
 .impl-code .c  { color: #2e2e2e; }   /* comment */
@@ -148,3 +152,10 @@
 .impl-code .at { color: #c586c0; }   /* at-rule */
 .impl-code .s  { color: #ce9178; }   /* string */
 .impl-code .del { color: #555; text-decoration: line-through; }
+
+/* Ensure nested <pre> does not overflow on mobile */
+.impl-code pre {
+  margin: 0;
+  white-space: pre;
+  max-width: 100%;
+}
