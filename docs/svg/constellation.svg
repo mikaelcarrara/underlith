@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-168 -122 336 244" width="880" height="640" style="background:#111;display:block;">
+  <defs>
+
+    <!-- Radial fade mask: edges fade to transparent -->
+    <radialGradient id="edgeFade" cx="50%" cy="50%" r="50%">
+      <stop offset="75%" stop-color="white" stop-opacity="1"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="fadeMask">
+      <rect x="-168" y="-122" width="336" height="244" fill="url(#edgeFade)"/>
+    </mask>
+
+    <!-- Center glow -->
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#c8f542" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#c8f542" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Node glows -->
+    <radialGradient id="glowPurple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#a78bfa" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#7eb8f7" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#7eb8f7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowOrange" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#f59e6b" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#f59e6b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowGreen" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#34d399" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowPink" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#f472b6" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Center circle gradient -->
+    <radialGradient id="centerCircle" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#c8f542" stop-opacity="0.20"/>
+      <stop offset="55%"  stop-color="#0d1f0a" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#060a04" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Clip to viewBox -->
+    <clipPath id="vbClip">
+      <rect x="-168" y="-122" width="336" height="244"/>
+    </clipPath>
+
+  </defs>
+
+  <!-- Everything clipped and faded -->
+  <g clip-path="url(#vbClip)" mask="url(#fadeMask)">
+
+    <!-- ── Orbit rings (dashed, subtle) ── -->
+    <ellipse cx="0" cy="0" rx="110" ry="79" fill="none"
+      stroke="#c8f542" stroke-opacity="0.07" stroke-width="0.7"
+      stroke-dasharray="4 9"/>
+    <ellipse cx="0" cy="0" rx="135" ry="97" fill="none"
+      stroke="#c8f542" stroke-opacity="0.04" stroke-width="0.6"
+      stroke-dasharray="2 13"/>
+
+    <!-- ── Center glow halo ── -->
+    <circle cx="0" cy="0" r="80" fill="url(#centerGlow)"/>
+
+    <!-- ════════════════════════════════
+         NODE: FIGMA  — purple
+         orbit rx=140 ry=100, dur=18s
+    ════════════════════════════════ -->
+    <g id="nFigma">
+      <!-- Connection line animated via animateMotion on a proxy point -->
+      <!-- We animate the node group along an ellipse path -->
+      <animateMotion dur="18s" repeatCount="indefinite"
+        path="M 118 0 A 118 85 0 1 1 117.9999 -0.001 Z"/>
+
+      <!-- Glow halo -->
+      <circle cx="0" cy="0" r="22" fill="url(#glowPurple)" opacity="0.8"/>
+      <!-- Pulse ring -->
+      <circle cx="0" cy="0" r="10" fill="none"
+        stroke="#a78bfa" stroke-width="0.8" stroke-opacity="0.4">
+        <animate attributeName="r"      values="10;16;10" dur="3.2s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="3.2s" repeatCount="indefinite"/>
+      </circle>
+      <!-- Core -->
+      <circle cx="0" cy="0" r="5.5" fill="#a78bfa"/>
+      <circle cx="0" cy="0" r="2"   fill="white" opacity="0.9"/>
+      <!-- Label -->
+      <text x="0" y="14" text-anchor="middle"
+        font-family="'SF Mono','Fira Code',monospace" font-size="6.5"
+        fill="#c8f542" fill-opacity="0.4" letter-spacing="0.08em">FIGMA</text>
+    </g>
+
+    <!-- ════════════════════════════════
+         NODE: ADMIN  — blue
+         orbit rx=118 ry=85, dur=14s
+    ════════════════════════════════ -->
+    <g id="nAdmin">
+      <animateMotion dur="14s" repeatCount="indefinite"
+        path="M 100 0 A 100 72 0 1 1 99.9999 -0.001 Z"
+        keyPoints="0.42;1;0.42" keyTimes="0;0.5;1" calcMode="linear"/>
+      <circle cx="0" cy="0" r="20" fill="url(#glowBlue)" opacity="0.8"/>
+      <circle cx="0" cy="0" r="9" fill="none"
+        stroke="#7eb8f7" stroke-width="0.8" stroke-opacity="0.4">
+        <animate attributeName="r"      values="9;15;9"   dur="2.8s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="2.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="0" cy="0" r="5"   fill="#7eb8f7"/>
+      <circle cx="0" cy="0" r="1.8" fill="white" opacity="0.9"/>
+      <text x="0" y="13" text-anchor="middle"
+        font-family="'SF Mono','Fira Code',monospace" font-size="6.5"
+        fill="#c8f542" fill-opacity="0.4" letter-spacing="0.08em">ADMIN</text>
+    </g>
+
+    <!-- ════════════════════════════════
+         NODE: WEB APP — orange
+         orbit rx=132 ry=95, dur=22s
+    ════════════════════════════════ -->
+    <g id="nWeb">
+      <animateMotion dur="22s" repeatCount="indefinite"
+        path="M 112 0 A 112 80 0 1 1 111.9999 -0.001 Z"
+        keyPoints="0.75;1;0.75" keyTimes="0;0.5;1" calcMode="linear"/>
+      <circle cx="0" cy="0" r="21" fill="url(#glowOrange)" opacity="0.8"/>
+      <circle cx="0" cy="0" r="9" fill="none"
+        stroke="#f59e6b" stroke-width="0.8" stroke-opacity="0.4">
+        <animate attributeName="r"      values="9;15;9"   dur="3.6s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="3.6s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="0" cy="0" r="5"   fill="#f59e6b"/>
+      <circle cx="0" cy="0" r="1.8" fill="white" opacity="0.9"/>
+      <text x="0" y="13" text-anchor="middle"
+        font-family="'SF Mono','Fira Code',monospace" font-size="6.5"
+        fill="#c8f542" fill-opacity="0.4" letter-spacing="0.08em">WEB APP</text>
+    </g>
+
+    <!-- ════════════════════════════════
+         NODE: MOBILE — green
+         orbit rx=124 ry=89, dur=16s
+    ════════════════════════════════ -->
+    <g id="nMobile">
+      <animateMotion dur="16s" repeatCount="indefinite"
+        path="M 106 0 A 106 76 0 1 1 105.9999 -0.001 Z"
+        keyPoints="0.58;1;0.58" keyTimes="0;0.5;1" calcMode="linear"/>
+      <circle cx="0" cy="0" r="20" fill="url(#glowGreen)" opacity="0.8"/>
+      <circle cx="0" cy="0" r="9" fill="none"
+        stroke="#34d399" stroke-width="0.8" stroke-opacity="0.4">
+        <animate attributeName="r"      values="9;14;9"   dur="3s"   repeatCount="indefinite"/>
+        <animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="3s"   repeatCount="indefinite"/>
+      </circle>
+      <circle cx="0" cy="0" r="5"   fill="#34d399"/>
+      <circle cx="0" cy="0" r="1.8" fill="white" opacity="0.9"/>
+      <text x="0" y="13" text-anchor="middle"
+        font-family="'SF Mono','Fira Code',monospace" font-size="6.5"
+        fill="#c8f542" fill-opacity="0.4" letter-spacing="0.08em">MOBILE</text>
+    </g>
+
+    <!-- ════════════════════════════════
+         NODE: AI AGENT — pink
+         orbit rx=155 ry=112, dur=26s
+    ════════════════════════════════ -->
+    <g id="nAgent">
+      <animateMotion dur="26s" repeatCount="indefinite"
+        path="M 130 0 A 130 94 0 1 1 129.9999 -0.001 Z"
+        keyPoints="0.22;1;0.22" keyTimes="0;0.5;1" calcMode="linear"/>
+      <circle cx="0" cy="0" r="24" fill="url(#glowPink)" opacity="0.8"/>
+      <circle cx="0" cy="0" r="9" fill="none"
+        stroke="#f472b6" stroke-width="0.8" stroke-opacity="0.4">
+        <animate attributeName="r"      values="9;16;9"   dur="4s"   repeatCount="indefinite"/>
+        <animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="4s"   repeatCount="indefinite"/>
+      </circle>
+      <circle cx="0" cy="0" r="5"   fill="#f472b6"/>
+      <circle cx="0" cy="0" r="1.8" fill="white" opacity="0.9"/>
+      <text x="0" y="13" text-anchor="middle"
+        font-family="'SF Mono','Fira Code',monospace" font-size="6.5"
+        fill="#c8f542" fill-opacity="0.4" letter-spacing="0.08em">AI AGENT</text>
+    </g>
+
+    <!-- ── Center node ── -->
+    <!-- Pulsing halo -->
+    <circle cx="0" cy="0" r="42" fill="none"
+      stroke="#c8f542" stroke-opacity="0.07" stroke-width="0.8">
+      <animate attributeName="r"             values="42;50;42" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-opacity" values="0.07;0;0.07" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Fill -->
+    <circle cx="0" cy="0" r="28" fill="url(#centerCircle)"/>
+    <circle cx="0" cy="0" r="28" fill="none"
+      stroke="#c8f542" stroke-opacity="0.28" stroke-width="0.8"/>
+    <!-- Label -->
+    <text x="0" y="-5" text-anchor="middle"
+      font-family="'SF Mono','Fira Code',monospace" font-size="7" font-weight="600"
+      fill="#c8f542" letter-spacing="0.04em">@your-org</text>
+    <text x="0" y="6" text-anchor="middle"
+      font-family="'SF Mono','Fira Code',monospace" font-size="7" font-weight="600"
+      fill="#c8f542" letter-spacing="0.04em">/tokens</text>
+
+  </g>
+</svg>
