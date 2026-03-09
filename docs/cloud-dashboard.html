@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Underlith Cloud Dashboard — MVP</title>
+  <link rel="icon" type="image/svg+xml" href="./svg/logo.svg">
+
+  <meta name="description" content="Control plane for Underlith token infrastructure: projects, versions, dependencies.">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="../src/underlith.css">
+  <link rel="stylesheet" href="css/documentation.css">
+  <link rel="stylesheet" href="../src/components/components.css">
+
+  <style>
+    .tabs { display: inline-flex; gap: var(--ul-space-2); margin-top: var(--ul-space-3); }
+    .tabs button {
+      background: transparent; border: var(--ul-border-width) solid var(--ul-border-color);
+      padding: var(--ul-space-2) var(--ul-space-3); border-radius: var(--ul-radius-md);
+      color: var(--ul-neutral-200); cursor: pointer;
+    }
+    .tabs button[aria-selected="true"] { background: var(--ul-neutral-800); }
+    .kpi { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--ul-space-4); }
+    .kpi .card h4 { margin: 0 0 var(--ul-space-1); }
+    .muted { color: var(--ul-neutral-400); }
+    .token-pill { display:inline-block; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--ul-border-color); margin: 2px 6px 6px 0; font-size: var(--ul-font-size-sm); cursor: pointer; }
+    .token-pill:hover { background: var(--ul-neutral-800); }
+    .two-col { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--ul-space-6); }
+    @media (max-width: 900px) { .kpi { grid-template-columns: 1fr 1fr; } .two-col { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <section>
+      <h1>
+        <a href="./">
+          <img src="svg/logo.svg" alt="Underlith logo">
+          <span>Underlith</span>
+        </a>
+      </h1>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="menu-button" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <ul>
+        <li><a href="./">Presentation</a></li>
+        <li><a href="getting-started">Getting started</a></li>
+        <li><a href="tokens">Tokens reference</a></li>
+        <li><a href="consumption">Consumption strategies</a></li>
+      </ul>
+    </section>
+  </header>
+
+  <main>
+    <section class="heading">
+      <h1>Underlith Cloud Dashboard</h1>
+      <p>Minimal control plane for token infrastructure: projects, versions, and dependency relationships.</p>
+      <div class="tabs" role="tablist" aria-label="Dashboard Views">
+        <button role="tab" aria-selected="true" aria-controls="view-projects" id="tab-projects">Projects</button>
+        <button role="tab" aria-selected="false" aria-controls="view-package" id="tab-package">Token Package</button>
+        <button role="tab" aria-selected="false" aria-controls="view-adoption" id="tab-adoption">Version Adoption</button>
+        <button role="tab" aria-selected="false" aria-controls="view-graph" id="tab-graph">Token Dependency Graph</button>
+      </div>
+    </section>
+
+    <section class="content" id="view-projects" role="tabpanel" aria-labelledby="tab-projects">
+      <div class="kpi">
+        <div class="card"><h4>Total Projects</h4><p id="kpi-total-projects" class="muted">—</p></div>
+        <div class="card"><h4>Up-to-date</h4><p id="kpi-up-to-date" class="muted">—</p></div>
+        <div class="card"><h4>Outdated</h4><p id="kpi-outdated" class="muted">—</p></div>
+        <div class="card"><h4>Latest Version</h4><p id="kpi-latest-version" class="muted">—</p></div>
+      </div>
+      <div class="card">
+        <h2>Projects registry</h2>
+        <table class="table" id="projects-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Repository</th>
+              <th>Framework</th>
+              <th>Token package</th>
+              <th>Token version</th>
+              <th>Last sync</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="content" id="view-package" role="tabpanel" aria-labelledby="tab-package" hidden>
+      <div class="two-col">
+        <div>
+          <div class="card">
+            <h2>Package</h2>
+            <p id="pkg-name" class="muted">—</p>
+            <ul>
+              <li><strong>Latest version:</strong> <span id="pkg-latest">—</span></li>
+              <li><strong>Publish date:</strong> <span id="pkg-date">—</span></li>
+              <li><strong>Consuming projects:</strong> <span id="pkg-consumers">—</span></li>
+              <li><strong>Token count:</strong> <span id="pkg-count">—</span></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Token list</h3>
+            <div id="token-list"></div>
+            <p class="muted">Click a token to open its dependency view.</p>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <h3>Token dependency (detail)</h3>
+            <p class="muted" id="token-detail-empty">Select a token to see where it is used.</p>
+            <div id="token-detail" hidden>
+              <p><strong>Token:</strong> <span id="token-detail-name"></span></p>
+              <ul id="token-detail-projects"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="view-adoption" role="tabpanel" aria-labelledby="tab-adoption" hidden>
+      <div class="card">
+        <h2>Projects on older versions</h2>
+        <table class="table" id="adoption-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Current version</th>
+              <th>Latest</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="content" id="view-graph" role="tabpanel" aria-labelledby="tab-graph" hidden>
+      <div class="card">
+        <h2>Token usage</h2>
+        <table class="table" id="graph-table">
+          <thead>
+            <tr>
+              <th>Token</th>
+              <th>Used in (# projects)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <section>
+      <div class="footer-main">
+        <div style="text-align: center;">
+          <img src="svg/logo.svg" alt="Underlith logo">
+        </div>
+        <div>
+          <h3>Documentation</h3>
+          <ul>
+            <li><a href="getting-started">Getting Started</a></li>
+            <li><a href="tokens">Tokens</a></li>
+            <li><a href="components">Components</a></li>
+            <li><a href="consumption">Consumption</a></li>
+            <li><a href="w3c-alignment">W3C Alignment</a></li>
+            <li><a href="governance">Governance</a></li>
+          </ul>
+        </div>
+        <div class="footer-mds">
+          <h3>Project</h3>
+          <ul>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/ARCHITECTURE.md" target="_blank">Architecture <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/ROADMAP.md" target="_blank">Roadmap <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/VISION.md" target="_blank">Vision <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/STEWARDSHIP.md" target="_blank">Stewards <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/CI.md" target="_blank">CI &amp; Automation <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/GOVERNANCE.md" target="_blank">Governance <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/CONTRIBUTING.md" target="_blank">Contributing <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/DESIGNER-GUIDE.md" target="_blank">Designer Guide <span class="external-link"></span></a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Community</h3>
+          <ul>
+            <li><a href="https://github.com/mikaelcarrara/underlith" target="_blank">GitHub Repository <span class="external-link"></span></a></li>
+            <li><a href="https://www.npmjs.com/package/@mikaelcarrara/underlith" target="_blank">NPM Package <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/issues" target="_blank">Report an Issue <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/discussions" target="_blank">Discussions <span class="external-link"></span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 <a href="https://www.behance.net/mikaelmcarrara" target="_blank">Mikael Carrara</a>. Released
+          under the <a href="https://github.com/mikaelcarrara/underlith/blob/main/LICENSE" target="_blank">MIT License</a>.</p>
+        <a class="css-valid-badge" href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank" rel="noopener">
+          <span class="wrap">
+            <span class="inner"><span class="dot" aria-hidden="true"></span>Valid CSS</span>
+          </span>
+        </a>
+      </div>
+    </section>
+  </footer>
+
+  <script>
+    window.__UL_DASHBOARD_FALLBACK = {
+      "package": {
+        "name": "@acme/tokens",
+        "latestVersion": "2.3.0",
+        "publishDate": "2026-03-01",
+        "tokenCount": 126,
+        "categories": {
+          "colors": [
+            "--ul-color-primary",
+            "--ul-color-neutral-900",
+            "--ul-color-neutral-0"
+          ],
+          "spacing": [
+            "--ul-space-sm",
+            "--ul-space-md",
+            "--ul-space-lg"
+          ],
+          "typography": [
+            "--ul-font-size-md",
+            "--ul-font-weight-medium"
+          ],
+          "radius": [
+            "--ul-radius-sm",
+            "--ul-radius-md"
+          ]
+        }
+      },
+      "projects": [
+        {
+          "name": "web-app",
+          "repo": "https://github.com/acme/web-app",
+          "framework": "Next.js",
+          "tokenPackage": "@acme/tokens",
+          "tokenVersion": "2.3.0",
+          "lastSync": "2026-03-09T10:00:00Z"
+        },
+        {
+          "name": "marketing-site",
+          "repo": "https://github.com/acme/marketing-site",
+          "framework": "Astro",
+          "tokenPackage": "@acme/tokens",
+          "tokenVersion": "2.1.0",
+          "lastSync": "2026-03-06T12:00:00Z"
+        },
+        {
+          "name": "mobile-app",
+          "repo": "https://github.com/acme/mobile-app",
+          "framework": "React Native",
+          "tokenPackage": "@acme/tokens",
+          "tokenVersion": "2.2.0",
+          "lastSync": "2026-03-08T15:00:00Z"
+        },
+        {
+          "name": "design-system",
+          "repo": "https://github.com/acme/design-system",
+          "framework": "Vite + TS",
+          "tokenPackage": "@acme/tokens",
+          "tokenVersion": "2.3.0",
+          "lastSync": "2026-03-09T09:00:00Z"
+        }
+      ],
+      "dependencies": {
+        "--ul-space-md": [
+          "web-app",
+          "mobile-app",
+          "marketing-site",
+          "design-system"
+        ],
+        "--ul-color-primary": [
+          "web-app",
+          "marketing-site",
+          "design-system"
+        ],
+        "--ul-radius-sm": [
+          "web-app",
+          "mobile-app"
+        ]
+      }
+    };
+  </script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

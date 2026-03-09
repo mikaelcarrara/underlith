@@ -1,0 +1,79 @@
+{
+  "package": {
+    "name": "@acme/tokens",
+    "latestVersion": "2.3.0",
+    "publishDate": "2026-03-01",
+    "tokenCount": 126,
+    "categories": {
+      "colors": [
+        "--ul-color-primary",
+        "--ul-color-neutral-900",
+        "--ul-color-neutral-0"
+      ],
+      "spacing": [
+        "--ul-space-sm",
+        "--ul-space-md",
+        "--ul-space-lg"
+      ],
+      "typography": [
+        "--ul-font-size-md",
+        "--ul-font-weight-medium"
+      ],
+      "radius": [
+        "--ul-radius-sm",
+        "--ul-radius-md"
+      ]
+    }
+  },
+  "projects": [
+    {
+      "name": "web-app",
+      "repo": "https://github.com/acme/web-app",
+      "framework": "Next.js",
+      "tokenPackage": "@acme/tokens",
+      "tokenVersion": "2.3.0",
+      "lastSync": "2026-03-09T10:00:00Z"
+    },
+    {
+      "name": "marketing-site",
+      "repo": "https://github.com/acme/marketing-site",
+      "framework": "Astro",
+      "tokenPackage": "@acme/tokens",
+      "tokenVersion": "2.1.0",
+      "lastSync": "2026-03-06T12:00:00Z"
+    },
+    {
+      "name": "mobile-app",
+      "repo": "https://github.com/acme/mobile-app",
+      "framework": "React Native",
+      "tokenPackage": "@acme/tokens",
+      "tokenVersion": "2.2.0",
+      "lastSync": "2026-03-08T15:00:00Z"
+    },
+    {
+      "name": "design-system",
+      "repo": "https://github.com/acme/design-system",
+      "framework": "Vite + TS",
+      "tokenPackage": "@acme/tokens",
+      "tokenVersion": "2.3.0",
+      "lastSync": "2026-03-09T09:00:00Z"
+    }
+  ],
+  "dependencies": {
+    "--ul-space-md": [
+      "web-app",
+      "mobile-app",
+      "marketing-site",
+      "design-system"
+    ],
+    "--ul-color-primary": [
+      "web-app",
+      "marketing-site",
+      "design-system"
+    ],
+    "--ul-radius-sm": [
+      "web-app",
+      "mobile-app"
+    ]
+  }
+}
