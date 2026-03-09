@@ -428,6 +428,39 @@ Motion
         <li>Governance and CI guidance with token-aware checks</li>
       </ul>
 
+      <h2>CI inputs & outputs</h2>
+      <p>CI opera sobre entradas canônicas e gera artefatos determinísticos.</p>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Inputs</h3>
+          <ul>
+            <li><code>src/tokens/**</code> — definições base</li>
+            <li><code>underlith.tokens.css</code> — fonte canônica</li>
+            <li><code>your-org.brand.css</code> — camada de marca</li>
+            <li>Código de consumidores (lint token-aware)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Outputs</h3>
+          <ul>
+            <li><code>underlith.tokens.css</code></li>
+            <li><code>underlith.css</code></li>
+            <li><code>your-org.brand.css</code> e <code>your-org.base.css</code></li>
+            <li>Relatórios de CI (lint, breaking changes, auditorias)</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Core CI jobs</h2>
+      <ul>
+        <li><strong>build:tokens</strong> — gera artefatos a partir da fonte</li>
+        <li><strong>lint:tokens</strong> — valida esquema, nomes e aliases</li>
+        <li><strong>breaking-change detection</strong> — protege o contrato</li>
+        <li><strong>lint:code</strong> (token-aware) — bloqueia valores hardcoded</li>
+        <li><strong>visual-regression</strong> (recomendado) — garante equivalência visual</li>
+        <li><strong>audit-log</strong> — rastreabilidade de gerações e refactors</li>
+      </ul>
+
       <h2>CI quickstart</h2>
       <div class="card code-card">
   <pre><code class="language-yaml">name: Tokens CI
