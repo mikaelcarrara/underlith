@@ -125,14 +125,14 @@
               <rect x="48" y="84" width="160" height="10" rx="4" fill="var(--ul-neutral-600)"></rect>
               <rect x="48" y="104" width="208" height="10" rx="4" fill="var(--ul-neutral-600)"></rect>
               <!-- Token‑colored button -->
-              <rect x="48" y="132" width="112" height="16" rx="8" fill="var(--ul-brand-600)"></rect>
+              <rect x="48" y="132" width="112" height="16" rx="8" fill="var(--ul-brand-500)"></rect>
               <!-- Product B panel (mirrors A exactly) -->
               <rect x="336" y="40" width="272" height="140" rx="12" fill="var(--ul-neutral-800)" stroke="var(--ul-neutral-600)"></rect>
               <rect x="352" y="60" width="192" height="12" rx="4" fill="var(--ul-neutral-500)"></rect>
               <rect x="352" y="84" width="160" height="10" rx="4" fill="var(--ul-neutral-600)"></rect>
               <rect x="352" y="104" width="208" height="10" rx="4" fill="var(--ul-neutral-600)"></rect>
               <!-- Token‑colored button (same) -->
-              <rect x="352" y="132" width="112" height="16" rx="8" fill="var(--ul-brand-600)"></rect>
+              <rect x="352" y="132" width="112" height="16" rx="8" fill="var(--ul-brand-500)"></rect>
             </svg>
           </div>
           <h3>After: Unified via tokens</h3>
@@ -203,8 +203,9 @@ font-size: 14px;</code></pre>
 
       <div class="card code-card">
   <pre><code class="language-css">color: var(--ul-color-brand-primary);
-padding: var(--ul-space-md);
-border-radius: var(--ul-radius-sm);</code></pre>
+padding: var(--ul-space-3);
+border-radius: var(--ul-radius-sm);
+font-size: var(--ul-font-size-sm);</code></pre>
       </div>
 
       <p>
@@ -284,7 +285,7 @@ Validated UI output</code></pre>
       <p>CI suggests the correct token:</p>
 
       <div class="card code-card">
-  <pre><code class="language-css">padding: var(--ul-space-md);</code></pre>
+  <pre><code class="language-css">padding: var(--ul-space-3);</code></pre>
       </div>
 
       <p>
@@ -363,13 +364,27 @@ Validated UI output</code></pre>
       <div class="card code-card">
   <pre><code class="language-text">Generate a Card component using only the following tokens:
 
- Colors
+Colors
 --ul-color-neutral-0
 --ul-color-neutral-200
 --ul-color-neutral-900
+--ul-color-brand-primary
+
+Spacing
+--ul-space-3
+--ul-space-4
 
 Radius
---ul-radius-md</code></pre>
+--ul-radius-sm
+--ul-radius-md
+
+Typography
+--ul-font-size-sm
+--ul-font-weight-medium
+
+Motion
+--ul-duration-fast
+--ul-ease-inout</code></pre>
       </div>
 
       <p>
@@ -403,7 +418,34 @@ Radius
 
       <hr class="section-divider">
 
-      <h2>What's next</h2>
+      <h2>What’s available today</h2>
+      <ul>
+        <li>Design tokens: spacing, typography, radius, colors (neutral/brand), opacity, elevation</li>
+        <li>Motion tokens: durations, easings, composite animations and reduced‑motion policy</li>
+        <li>Semantic aliases for consumption (e.g., <code>--ul-color-text</code>, <code>--ul-color-border</code>)</li>
+        <li>CSS-first consumption via <code>src/underlith.css</code></li>
+        <li>CLI flows: <code>underlith init --shadcn</code> and <code>underlith brand init</code></li>
+        <li>Governance and CI guidance with token-aware checks</li>
+      </ul>
+
+      <h2>CI quickstart</h2>
+      <div class="card code-card">
+  <pre><code class="language-yaml">name: Tokens CI
+on:
+  pull_request:
+    paths:
+      - 'src/tokens/**'
+jobs:
+  build-tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm ci
+      - run: npm run build:tokens
+      - run: npm run lint:tokens</code></pre>
+      </div>
+
+      <h2>What’s next</h2>
       <p>A slice of the <a href="https://github.com/mikaelcarrara/underlith/blob/main/ROADMAP.md" target="_blank">Roadmap</a> focused on Automation & AI.</p>
 
       <h3>Q3 2026 — Automation</h3>
