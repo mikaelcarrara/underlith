@@ -1,5 +1,21 @@
 # Underlith Release Notes
 
+## v2.1.2 — 2026-03-10
+
+### Documentation
+
+- Header e footer padronizados em todas as páginas; navegação principal unificada: Home, Tokens reference, CLI Integration, AI & Agents
+- getting-started.html renomeado para cli-integration.html; consumo (consumption.html) removido; links internos atualizados
+- Título e meta descriptions padronizados em todas as páginas (description, og:description, twitter:description) conforme index.html
+- Pequenas correções de marcação em ai-agents.html
+
+### Infraestrutura do repositório
+
+- .gitattributes adicionado para normalizar finais de linha (LF) e marcar arquivos binários; renormalização aplicada
+
+Notas:
+- Esta versão contém apenas atualizações de documentação e housekeeping; sem mudanças de API ou pacote publicado
+
 ## v2.1.1 — 2026-03-08
 
 Patch release following the first live end-to-end validation of the full pipeline. Fixes a CSS output bug in `brand init`, adds the missing CSS build step, and expands documentation to reflect the validated setup flow.
