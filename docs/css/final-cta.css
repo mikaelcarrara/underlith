@@ -1,7 +1,7 @@
 .final-cta {
   text-align: center;
-  border-top: 1px solid var(--ul-border-color);
-  margin: 80px 0 0 0;
+  border-bottom: 2px solid var(--ul-neutral-800);
+  padding: 90px 0;
 }
 
 .final-cta>div {
@@ -12,6 +12,7 @@
   margin-bottom: var(--ul-space-5);
   font-size: var(--ul-font-size-3xl);
   line-height: 1.2;
+  margin-top: 0;
 }
 
 .final-cta p {
@@ -19,7 +20,7 @@
 }
 
 .final-cta .buttons {
-  margin: var(--ul-space-5) 0;
+  margin: var(--ul-space-5) 0 0 0;
 }
 
 .final-cta .cta-wrap,

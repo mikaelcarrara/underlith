@@ -11,6 +11,7 @@
 @import "tokens-layers.css";
 @import "layout.css";
 @import "agent-thinking.css";
+@import "early-adapters.css";
 @import "final-cta.css";
 @import "palette.css";
 @import "spacing-doc.css";
@@ -45,36 +46,6 @@
 
 .arquitecture-section .card  img {
   margin-top: var(--ul-space-1);
-}
-
-
-/* Logos */
-
-.early-adopters img {
-  width: 100%;
-  border-radius: var(--ul-radius-md);
-}
-
-.early-adopters a {
-  display: block;
-  position: relative;
-  border-radius: var(--ul-radius-md);
-  overflow: hidden;
-}
-
-.early-adopters a img {
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: grayscale(100%) contrast(1.05);
-  opacity: 0.5;
-  transition: filter var(--ul-duration-fast) var(--ul-ease-inout), opacity var(--ul-duration-fast) var(--ul-ease-inout);
-}
-
-.early-adopters a:hover img,
-.early-adopters a:focus-visible img {
-  filter: none;
-  opacity: 1;
 }
 
 

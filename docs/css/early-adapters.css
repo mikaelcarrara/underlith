@@ -2,7 +2,18 @@
   text-align: center;
   background: var(--ul-neutral-1000);
   border-radius: var(--ul-radius-lg);
+  margin-top: 60px;
 }
+
+.early-adopters h2 {
+  font-weight: var( --ul-font-weight-regular);
+  color: var(--ul-neutral-300);
+}
+
+.early-adopters h2 span {
+  font-weight: var(--ul-font-weight-semibold);
+}
+
 
 .early-adopters .sub-heading-tag {
   display: inline-block;
@@ -21,6 +32,7 @@
 
 .early-adopters li {
   display: inline-block;
+  margin: 0 var(--ul-space-1);
 }
 
 .early-adopters a {
@@ -42,4 +54,11 @@
 .early-adopters a:focus-visible img {
   filter: none;
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .early-adopters li {
+    display: block;
+    margin: 0;
+  }
 }
