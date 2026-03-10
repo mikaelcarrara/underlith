@@ -94,12 +94,12 @@ underlith audit     # token adoption coverage report
 
 | File | Status |
 |------|--------|
-| `automation-ai.html` | ✓ updated |
+| `ai-agents.html` | ✓ updated |
 | `OVERVIEW.md` | ✓ three main layers, Observability moved to roadmap |
 | `GOVERNANCE.md` | ✓ three levels, token drift, agent-readiness, CI table |
 | `README.md` | ✓ usage examples show `@your-org/tokens`, not underlith direct |
 | `.cursorrules` | ✓ governance-only, for users to drop in their project |
-| `agent-thinking.html` | ✓ animated agent thinking UI for automation-ai section |
+| `agent-thinking.html` | ✓ animated agent thinking UI for AI & Agents section |
 | `governance.html` | ✓ aligned with GOVERNANCE.md |
 
 ---
@@ -112,13 +112,13 @@ Animated component simulating an AI agent operating within token governance rule
 - Each group ends with a dry observational summary line
 - Color rules: `--ul-*` token names in lime, `var(` in white, `.tsx` files near-white, status column colored
 - Metaphor: what a `.cursorrules` with Underlith governance rules does in practice
-- Intended for the `automation-ai.html` page, section "Token governance for AI-generated UI"
+- Intended for the `ai-agents.html` page, section "Token governance for AI-generated UI"
 
 ---
 
 ## Pending
 
-- [ ] Integrate `agent-thinking.html` into `automation-ai.html` section
+- [ ] Integrate `agent-thinking.html` into `ai-agents.html` section
 - [ ] Commit all docs to main repo
 - [ ] Rafael to merge Kobana PR and publish `@kobana/tokens`
 - [ ] `underlith migrate` — roadmap implementation
