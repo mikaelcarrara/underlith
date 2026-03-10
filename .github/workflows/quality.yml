@@ -1,0 +1,35 @@
+name: Quality
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  eol:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check CRLF line endings
+        run: |
+          set -e
+          crlf_files=$(git ls-files -z | xargs -0 grep -Il $'\r' || true)
+          if [ -n "$crlf_files" ]; then
+            echo "CRLF line endings found in:"
+            echo "$crlf_files"
+            exit 1
+          fi
+      - name: Verify .gitattributes normalization
+        run: |
+          set -e
+          git config core.autocrlf false
+          git config core.eol lf
+          git add --renormalize -N .
+          changed=$(git diff --name-only --cached)
+          if [ -n "$changed" ]; then
+            echo "Files would be normalized by .gitattributes:"
+            echo "$changed"
+            exit 1
+          fi
