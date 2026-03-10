@@ -1,16 +1,22 @@
 # Underlith
 
-**Token infrastructure for design systems.**
+**Infrastructure for design token governance.**
 
-Underlith doesn't replace your design decisions — it gives you the infrastructure to **own them**.
+Underlith turns design decisions into **enforceable systems**.
 
-Most teams rebuild their design system after a stack migration — not because the design decisions changed, but because those decisions were never separated from the implementation.
+Most teams rebuild their design system after a stack migration — not because the decisions changed, but because those decisions were never separated from the implementation.
 
 Colors hardcoded in components.  
 Spacing defined per framework.  
-No single place where design intent actually lives.
+Design intent scattered across codebases.
 
-By separating **design decisions from implementation**, Underlith ensures your design system survives stack migrations.
+When design decisions live inside implementations, they disappear every time the stack changes.
+
+Underlith separates **design decisions from implementation** and gives teams the infrastructure to **govern them across frameworks and platforms**.
+
+One versioned token layer.  
+Every framework.  
+Every product.
 
 **Underlith is not your source of truth — it's the infrastructure to build one.**
 
