@@ -38,6 +38,28 @@ If you are unsure whether a change should live here, open an **Issue** before su
 
 ---
 
+## Line endings (EOL) and editors
+
+To ensure consistent diffs and cross‑platform behavior:
+
+- All text files use LF line endings
+- `.gitattributes` enforces LF for text files and marks binary assets
+- `.editorconfig` configures editors to save with LF and common formatting basics
+- On Windows, configure your local Git for LF:
+  ```bash
+  git config core.autocrlf input
+  git config core.eol lf
+  ```
+- If you see unexpected EOL changes, renormalize locally:
+  ```bash
+  git add --renormalize .
+  git commit -m "Normalize line endings"
+  ```
+- CI quality gate fails PRs that contain CRLF or files that would be normalized by `.gitattributes`  
+  Workflow: https://github.com/mikaelcarrara/underlith/actions/workflows/quality.yml
+
+---
+
 ## What you can contribute
 
 You may contribute:
