@@ -48,6 +48,33 @@
 }
 
 
+/* Logos */
+
+.early-adopters img {
+  width: 100%;
+  border-radius: var(--ul-radius-md);
+}
+
+.early-adopters .card a {
+  display: block;
+  position: relative;
+  border-radius: var(--ul-radius-md);
+  overflow: hidden;
+}
+
+.early-adopters .card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(100%) contrast(1.05);
+  transition: filter var(--ul-duration-fast) var(--ul-ease-inout);
+}
+
+.early-adopters .card a:hover img,
+.early-adopters .card a:focus-visible img {
+  filter: none;
+}
+
 
 
 /* ==============================
