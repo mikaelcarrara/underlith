@@ -67,12 +67,14 @@
   height: auto;
   display: block;
   filter: grayscale(100%) contrast(1.05);
-  transition: filter var(--ul-duration-fast) var(--ul-ease-inout);
+  opacity: 0.5;
+  transition: filter var(--ul-duration-fast) var(--ul-ease-inout), opacity var(--ul-duration-fast) var(--ul-ease-inout);
 }
 
 .early-adopters .card a:hover img,
 .early-adopters .card a:focus-visible img {
   filter: none;
+  opacity: 1;
 }
 
 
