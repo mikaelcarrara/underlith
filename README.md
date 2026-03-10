@@ -1,6 +1,15 @@
 # Underlith
 
 [![Quality](https://github.com/mikaelcarrara/underlith/actions/workflows/quality.yml/badge.svg?branch=main)](https://github.com/mikaelcarrara/underlith/actions/workflows/quality.yml)
+[![Docs](https://github.com/mikaelcarrara/underlith/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/mikaelcarrara/underlith/actions/workflows/pages.yml)
+[![npm version](https://img.shields.io/npm/v/%40mikaelcarrara%2Funderlith?logo=npm)](https://www.npmjs.com/package/@mikaelcarrara/underlith)
+[![npm downloads](https://img.shields.io/npm/dm/%40mikaelcarrara%2Funderlith)](https://www.npmjs.com/package/@mikaelcarrara/underlith)
+[![License: MIT](https://img.shields.io/github/license/mikaelcarrara/underlith)](LICENSE)
+[![Node >= 18](https://img.shields.io/badge/node-%3E%3D18-339933?logo=node.js&logoColor=white)](package.json)
+[![Release tag](https://img.shields.io/github/v/tag/mikaelcarrara/underlith?label=tag)](https://github.com/mikaelcarrara/underlith/tags)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fmikaelcarrara.github.io%2Funderlith)](https://mikaelcarrara.github.io/underlith)
+[![Issues](https://img.shields.io/github/issues/mikaelcarrara/underlith)](https://github.com/mikaelcarrara/underlith/issues)
+[![Discussions](https://img.shields.io/github/discussions/mikaelcarrara/underlith)](https://github.com/mikaelcarrara/underlith/discussions)
 
 **Infrastructure for design token governance.**
 
@@ -39,7 +48,6 @@ To ensure consistent diffs and behavior across operating systems:
 
 This keeps the repo clean and prevents spurious EOL diffs in PRs.
 
-# License
 # Why Underlith?
 
 - **Framework agnostic** — plain CSS, Tailwind, Sass, CSS-in-JS, or any styling solution
