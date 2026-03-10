@@ -34,7 +34,6 @@ https://mikaelcarrara.github.io/underlith
 Underlith separates design decisions from implementation through **three layers and a publishing pipeline**.
 
 ```
-
 Base tokens          →   Brand tokens              →   @your-org/tokens
 (framework               (your org's                   (published package,
 primitives)              identity)                     consumed everywhere)
@@ -42,11 +41,10 @@ primitives)              identity)                     consumed everywhere)
 --ul-space-4              --ul-color-brand-primary      npm install @acme/tokens
 --ul-radius-md            --ul-color-text               @import "acme.brand.css"
 --ul-duration-fast        --ul-color-bg-surface         change once, update everywhere
-
-````
+```
 
 | Layer | Responsibility | Package |
-|------|---------------|--------|
+|-------|---------------|---------|
 | **Base tokens** | Raw scales — space, type, radius, motion, opacity | `@mikaelcarrara/underlith` |
 | **Brand tokens** | Your organization's identity values | `@your-org/tokens` |
 | **Semantic aliases** | Intent over value (`--ul-color-text`, `--ul-color-bg-surface`) | `@your-org/tokens` |
@@ -63,7 +61,7 @@ When the brand evolves, **aliases change — components don't.**
 
 ```bash
 npm install -g @mikaelcarrara/underlith
-````
+```
 
 This makes the `underlith` command available globally.
 
@@ -116,10 +114,13 @@ From here, every product installs your token package and inherits your brand dec
 
 # Usage
 
+Once you have published `@your-org/tokens`, that is the only import your products need.
+Underlith is the infrastructure that generated it — your token package is the source of truth.
+
 ## Plain CSS
 
 ```css
-@import "@mikaelcarrara/underlith/src/underlith.tokens.css";
+@import "@your-org/tokens/your-org.brand.css";
 
 color: var(--ul-color-text);
 gap: var(--ul-space-4);
@@ -131,10 +132,11 @@ border-radius: var(--ul-radius-md);
 ## Tailwind v4
 
 ```css
-@import "@mikaelcarrara/underlith/src/underlith.tokens.css";
+@import "@your-org/tokens/your-org.brand.css";
 
 @theme {
   --color-brand: var(--ul-color-brand-primary);
+  --font-sans: var(--ul-font-sans);
   --radius-md: var(--ul-radius-md);
 }
 ```
@@ -144,9 +146,7 @@ border-radius: var(--ul-radius-md);
 ## Sass / Less
 
 ```scss
-@import "@mikaelcarrara/underlith/src/underlith.tokens.css";
-
-$color-text: var(--ul-color-text);
+@import "@your-org/tokens/your-org.brand.css";
 
 @mixin button-primary {
   background: var(--ul-color-brand-primary);
@@ -159,6 +159,7 @@ $color-text: var(--ul-color-text);
 ## CSS-in-JS
 
 ```js
+// globals.css already imports @your-org/tokens — just consume the tokens
 const Button = styled.button`
   padding: var(--ul-space-2) var(--ul-space-4);
   background: var(--ul-color-brand-primary);
@@ -167,19 +168,6 @@ const Button = styled.button`
   transition: background var(--ul-duration-fast) var(--ul-ease-inout);
 `;
 ```
-
----
-
-## Using your brand package
-
-```css
-@import "@acme/tokens/acme.brand.css";
-
-color: var(--ul-color-text);
-background: var(--ul-color-brand-primary);
-```
-
-All `--ul-*` tokens now carry **Acme brand values**.
 
 ---
 
@@ -195,11 +183,23 @@ All `--ul-*` tokens now carry **Acme brand values**.
 }
 ```
 
-Motion tokens automatically respect:
+Motion tokens automatically respect `prefers-reduced-motion: reduce`.
 
+---
+
+## When your brand evolves
+
+Update the token in your brand package, bump the version, and publish.
+
+```bash
+# Edit underlith.tokens.css in your @your-org/tokens package
+# then:
+npm version minor
+npm publish --access public
 ```
-prefers-reduced-motion: reduce
-```
+
+Every product inherits the change on `npm update @your-org/tokens`.  
+No component changes. No manual propagation.
 
 ---
 
@@ -213,7 +213,7 @@ prefers-reduced-motion: reduce
 * Consumption Strategies
 * W3C Alignment
 
-[https://mikaelcarrara.github.io/underlith](https://mikaelcarrara.github.io/underlith)
+https://mikaelcarrara.github.io/underlith
 
 ---
 

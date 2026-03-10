@@ -1,32 +1,47 @@
 {
     "name": "@mikaelcarrara/underlith",
     "version": "2.1.1",
-    "description": "Token infrastructure for design decisions that survive frameworks, platforms, and time.",
+    "description": "Governable design tokens for teams building across frameworks and platforms.",
+    "author": "Mikael Carrara",
+    "license": "MIT",
     "bin": {
         "underlith": "./bin/underlith.js"
     },
     "main": "index.js",
+    "preferGlobal": true,
+    "engines": {
+        "node": ">=18"
+    },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "node bin/underlith.js",
         "build:tokens": "node scripts/generate-tokens.js",
         "build:css": "node scripts/build-css.js",
-        "build": "npm run build:tokens && npm run build:css"
+        "build": "npm run build:tokens && npm run build:css",
+        "test": "echo \"No tests yet\""
     },
     "keywords": [
         "design-system",
         "design-tokens",
-        "css-variables"
+        "css-variables",
+        "design-token-governance",
+        "frontend-infrastructure",
+        "ui-governance"
     ],
-    "author": "Mikael Carrara",
-    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mikaelcarrara/underlith"
+    },
+    "homepage": "https://github.com/mikaelcarrara/underlith",
+    "bugs": {
+        "url": "https://github.com/mikaelcarrara/underlith/issues"
+    },
     "files": [
         "bin",
         "scripts",
         "src",
-        "src/underlith.tokens.css",
         "index.js",
         "tokens.json",
-        "README.md",
-        "underlith.config.js"
+        "underlith.config.js",
+        "README.md"
     ]
 }
