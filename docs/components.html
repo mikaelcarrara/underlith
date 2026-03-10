@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Underlith - The governance layer for design tokens</title>
   <link rel="icon" type="image/svg+xml" href="./svg/logo.svg">
   <meta name="description"
-    content="Design token infrastructure for decisions that survive frameworks, platforms, and time.">
+    content="Governable design tokens for teams building across frameworks and platforms.">
 
   <!-- Social Media Meta Tags -->
   <meta property="og:url" content="https://mikaelcarrara.github.io/Underlith/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Underlith - Token infrastructure for design decisions">
+  <meta property="og:title" content="Underlith - The governance layer for design tokens">
   <meta property="og:description"
     content="Design token infrastructure for decisions that survive frameworks, platforms, and time.">
   <meta property="og:image" content="https://mikaelcarrara.github.io/Underlith/docs/svg/social.jpg">
@@ -20,15 +20,20 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="mikaelcarrara.github.io">
   <meta property="twitter:url" content="https://mikaelcarrara.github.io/Underlith/">
-  <meta name="twitter:title" content="Underlith - Token infrastructure for design decisions">
+  <meta name="twitter:title" content="Underlith - The governance layer for design tokens">
   <meta name="twitter:description"
-    content="Design token infrastructure for decisions that survive frameworks, platforms, and time.">
+    content="Governable design tokens for teams building across frameworks and platforms.">
   <meta name="twitter:image" content="https://mikaelcarrara.github.io/Underlith/docs/svg/social.jpg">
 
   <!-- Design System -->
   <link rel="stylesheet" href="../src/underlith.css">
   <link rel="stylesheet" href="css/documentation.css">
   <link rel="stylesheet" href="../src/components/components.css">
+
+  <!-- Syntax Highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </head>
 
 <body>
@@ -53,10 +58,11 @@
       </label>
 
       <ul>
-        <li><a href="./">Presentation</a></li>
+        <li><a href="./">Home</a></li>
         <li><a href="getting-started">Getting started</a></li>
         <li><a href="tokens">Tokens reference</a></li>
-        <li><a href="consumption">Consumption strategies</a></li>
+        <li><a href="consumption">Consumption</a></li>
+        <li><a href="automation-ai">Automation &amp; AI</a></li>
       </ul>
     </section>
   </header>
@@ -326,20 +332,20 @@
               <!-- Text -->
               <div class="form-group">
                 <label class="form-label" for="name">Name</label>
-                <input class="form-input" type="text" id="name" />
+                <input class="form-input" type="text" id="name">
               </div>
 
               <!-- Email -->
               <div class="form-group">
                 <label class="form-label" for="email">E-mail</label>
-                <input class="form-input" type="email" id="email" />
+                <input class="form-input" type="email" id="email">
               </div>
             </div>
             <div>
               <!-- CPF -->
               <div class="form-group">
                 <label class="form-label" for="cpf">CPF</label>
-                <input class="form-input" type="text" id="cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" autocomplete="off" />
+                <input class="form-input" type="text" id="cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" autocomplete="off">
               </div>
 
               <!-- Select -->
@@ -726,20 +732,26 @@
         <div>
           <h3>Documentation</h3>
           <ul>
-            <li><a href="getting-started">Getting Started</a></li>
-            <li><a href="tokens">Tokens</a></li>
+            <li><a href="getting-started">Getting started</a></li>
+            <li><a href="tokens">Tokens reference</a></li>
             <li><a href="components">Components</a></li>
             <li><a href="consumption">Consumption</a></li>
             <li><a href="w3c-alignment">W3C Alignment</a></li>
             <li><a href="governance">Governance</a></li>
+            <li><a href="automation-ai">Automation &amp; AI</a></li>
           </ul>
         </div>
         <div class="footer-mds">
-          <h3>Project</h3>
+          <h3>Canonical</h3>
           <ul>
             <li>
+              <a href="https://github.com/mikaelcarrara/underlith/blob/main/OVERVIEW.md"
+                target="_blank">Overview <span class="external-link"></span>
+              </a>
+            </li>
+            <li>
               <a href="https://github.com/mikaelcarrara/underlith/blob/main/ARCHITECTURE.md"
-                target="_blank">Arquitecture <span class="external-link"></span>
+                target="_blank">Architecture <span class="external-link"></span>
               </a>
             </li>
             <li>
@@ -754,11 +766,11 @@
             </li>
             <li>
               <a href="https://github.com/mikaelcarrara/underlith/blob/main/STEWARDSHIP.md"
-                target="_blank">Stewards <span class="external-link"></span>
+                target="_blank">Stewardship <span class="external-link"></span>
               </a>
             </li> 
             <li>
-              <a href="https://github.com/mikaelcarrara/underlith/blob/main/CI.md" target="_blank">CI &amp; Automation <span
+              <a href="https://github.com/mikaelcarrara/underlith/blob/main/CI.md" target="_blank">CI <span
                   class="external-link"></span>
                 </a>
             </li>

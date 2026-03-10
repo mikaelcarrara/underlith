@@ -121,8 +121,8 @@
   margin-top: 1px;
 }
 
-.step-num.green { background: #0d1f0d; color: #6fcf6f; border: 1px solid #6fcf6f; }
-.step-num.amber { background: #1f1a0a; color: #a8a48d; border: 1px solid #a8a48d; }
+.step-num.green { color: #6fcf6f; border: 1px solid #6fcf6f; }
+.step-num.amber { color: #a8a48d; border: 1px solid #a8a48d; }
 
 .step strong { font-weight: 600; }
 
@@ -130,14 +130,14 @@
 /* Code block inside cards */
 
 .impl-code {
-  border-radius: 6px;
+  border-radius: var( --ul-radius-lg);
   background: var(--ul-neutral-1000);
   padding: 12px 14px;
   font-family: 'SF Mono', 'Fira Code', monospace;
   font-size: 11px;
   line-height: 1.75;
-  margin: var(--ul-space-3, 16px) 0;
-  overflow-x: hidden;
+  margin: var(--ul-space-3) 0 0 0;
+  box-sizing: border-box;
   word-break: break-word;
 }
 

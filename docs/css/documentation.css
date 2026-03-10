@@ -30,6 +30,24 @@
   margin-top: 0;
 }
 
+.arquitecture-section .sub-heading {
+  text-align: center;
+}
+
+.arquitecture-section .card {
+  padding-top: var(--ul-space-1);
+}
+
+.arquitecture-section .card h3 {
+  margin-top: var(--ul-space-5);
+}
+
+.arquitecture-section .card  img {
+  margin-top: var(--ul-space-1);
+}
+
+
+
 
 /* ==============================
    Typography section layout

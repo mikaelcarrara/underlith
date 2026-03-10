@@ -1,67 +1,64 @@
-
 .layer-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin: 24px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ul-space-1);
+  margin: var(--ul-space-5) 0 var(--ul-space-6);
 }
 
 .layer-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 18px;
-    border-radius: 6px;
-    border: 1px solid transparent;
-    position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--ul-space-3);
+  padding: var(--ul-space-3) var(--ul-space-4);
+  border-radius: var(--ul-radius-lg);
+  border: var(--ul-border-width) solid transparent;
+  position: relative;
 }
 
 .layer-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
+  width: var(--ul-space-2);
+  height: var(--ul-space-2);
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .layer-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    min-width: 100px;
-    color: var(--ul-layer-01);
+  font-size: var(--ul-font-size-xs);
+  font-weight: var(--ul-font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  min-width: 100px;
+  color: var(--ul-layer-01);
 }
 
 .layer-desc {
-    font-size: 13px;
-    color: #888;
-    flex: 1;
+  font-size: var(--ul-font-size-sm);
+  color: var(--ul-neutral-500);
+  flex: 1;
 }
 
 .layer-example {
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 11px;
-    color: var(--ul-layer-01);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: var(--ul-font-size-xs);
+  color: var(--ul-layer-01);
 }
 
 .token-group {
-    margin-bottom: var(--ul-space-6);
-
+  margin-bottom: var(--ul-space-6);
 }
 
 .token-group-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: var(--ul-space-3);
+  margin-bottom: var(--ul-space-2);
 }
 
-
 .token-group-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--ul-layer-01);
-    margin-top: -3px;
-    flex-shrink: 0;
+  width: var(--ul-space-2);
+  height: var(--ul-space-2);
+  border-radius: 50%;
+  background: var(--ul-layer-01);
+  margin-top: -3px;
+  flex-shrink: 0;
 }
