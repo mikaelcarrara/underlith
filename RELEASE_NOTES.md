@@ -1,5 +1,23 @@
 # Underlith Release Notes
 
+## v2.1.3 — 2026-03-10
+
+### Documentation & SEO
+
+- Aligned page titles and social meta tags (Open Graph and Twitter) across all docs to the Governance style
+- Normalized `og:url`, `twitter:url` and asset paths to lowercase `underlith`
+- Removed obsolete `docs/index-2.html`
+- Added README badges: Docs, npm version/downloads, License, Node >= 18, Release Notes, Website, Issues, Discussions
+
+### Repository & CI
+
+- Added `.editorconfig` to enforce LF and basic formatting in editors
+- Introduced “Quality” workflow: fails on CRLF and pending `.gitattributes` normalization
+- Documented EOL policy in README and CONTRIBUTING
+
+Notes:
+- Docs and infrastructure updates only; no API or published package changes
+
 ## v2.1.2 — 2026-03-10
 
 ### Documentation
