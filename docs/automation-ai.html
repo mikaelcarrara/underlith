@@ -34,6 +34,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
 </head>
 
 <body>
@@ -59,102 +60,234 @@
         <li><a href="getting-started">Getting started</a></li>
         <li><a href="tokens">Tokens reference</a></li>
         <li><a href="consumption">Consumption</a></li>
-        <li>Automation &amp; AI</li>
+        <li>AI &amp; Agents</li>
       </ul>
     </section>
   </header>
 
   <main>
 
-    <section class="heading">
-      <h1>AI & Automation</h1>
-      <p>
-        Underlith enables safe automation and AI-assisted UI generation.<br>
-        Tokens provide the constraints that keep automated workflows aligned with the design system.
-      </p>
-    </section>
-
-    <section class="content">
-      <h2>Before vs. After</h2>
-      <p>Brand consistency across multiple products within the same company.</p>
-
-      <div class="grid grid-2 no-gap-cards">
-
-        <div class="card">
-          <div class="banner">
-            <svg viewBox="0 0 640 220" width="100%" height="140" role="img" aria-label="Fragmented brand across products">
-              <rect x="0" y="0" width="640" height="220" fill="var(--ul-neutral-700)"></rect>
-              <!-- Product A panel -->
-              <rect x="24" y="32" width="280" height="156" rx="12" fill="var(--ul-neutral-800)" stroke="var(--ul-neutral-600)"></rect>
-              <rect x="44" y="52" width="180" height="14" rx="4" fill="var(--ul-neutral-500)"></rect>
-              <rect x="44" y="76" width="132" height="10" rx="4" fill="var(--ul-neutral-600)"></rect>
-              <rect x="44" y="96" width="208" height="10" rx="4" fill="var(--ul-neutral-600)"></rect>
-              <!-- Button - rounded pill and different color -->
-              <rect x="44" y="128" width="104" height="22" rx="12" fill="#3b82f6"></rect>
-              <!-- Card accent -->
-              <rect x="44" y="160" width="64" height="8" rx="4" fill="#10b981"></rect>
-              <!-- Product B panel (different rhythm, sizes, colors) -->
-              <rect x="336" y="40" width="280" height="148" rx="8" fill="var(--ul-neutral-800)" stroke="var(--ul-neutral-600)"></rect>
-              <rect x="352" y="56" width="156" height="18" rx="3" fill="var(--ul-neutral-500)"></rect>
-              <rect x="352" y="84" width="120" height="8" rx="3" fill="var(--ul-neutral-600)"></rect>
-              <rect x="352" y="102" width="188" height="8" rx="3" fill="var(--ul-neutral-600)"></rect>
-              <!-- Button - square-ish and different brand hue -->
-              <rect x="352" y="128" width="112" height="18" rx="4" fill="#ef4444"></rect>
-              <!-- Card accent -->
-              <rect x="352" y="154" width="74" height="10" rx="4" fill="#f59e0b"></rect>
-            </svg>
-          </div>
-          <h3>Before: Fragmented across products</h3>
-          <p class="doc-mt-2">Each product ships its own look & feel. Drift accumulates.</p>
+    <section class="content ai-agents">
+      
+      <div class="grid grid-2 center-img"">
+        <div>
+          <h1>AI &amp; Agents</h1>
+          <p>
+            Tokens are the constraint layer that makes<br> <strong>AI-generated UI</strong> safe.
+          </p>
+          <p>Editors, automation pipelines, and AI agents can now write components, refactor styles, and modify layouts directly inside the codebase.</p>
+          <p>The faster you ship without governance, the faster your brand fragments.</p>
+          <p>Underlith keeps generated UI inside the same design contracts that govern everything else.</p>
         </div>
+        <div>
+          <div class="container">
+            <div class="agent-header">
+              <div class="agent-dot"></div>
+              <span class="agent-label">Agent thinking</span>
+            </div>
+            <div class="timeline">
+              <div class="timeline-cursor"></div>
 
-        <div class="card">
-          <div class="banner">
-            <svg viewBox="0 0 640 220" width="100%" height="140" role="img" aria-label="Unified brand across products via tokens">
-              <defs>
-                <pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse">
-                  <path d="M 16 0 L 0 0 0 16" fill="none" stroke="var(--ul-neutral-700)" stroke-width="1"/>
-                </pattern>
-              </defs>
-              <rect x="0" y="0" width="640" height="220" fill="var(--ul-neutral-700)"></rect>
-              <!-- Subtle grid -->
-              <rect x="0" y="0" width="640" height="220" fill="url(#grid)" opacity="0.35"></rect>
-              <!-- Product A panel (token-aligned) -->
-              <rect x="32" y="40" width="272" height="140" rx="12" fill="var(--ul-neutral-800)" stroke="var(--ul-neutral-600)"></rect>
-              <rect x="48" y="60" width="192" height="12" rx="4" fill="var(--ul-neutral-500)"></rect>
-              <rect x="48" y="84" width="160" height="10" rx="4" fill="var(--ul-neutral-600)"></rect>
-              <rect x="48" y="104" width="208" height="10" rx="4" fill="var(--ul-neutral-600)"></rect>
-              <!-- Token‑colored button -->
-              <rect x="48" y="132" width="112" height="16" rx="8" fill="var(--ul-brand-500)"></rect>
-              <!-- Product B panel (mirrors A exactly) -->
-              <rect x="336" y="40" width="272" height="140" rx="12" fill="var(--ul-neutral-800)" stroke="var(--ul-neutral-600)"></rect>
-              <rect x="352" y="60" width="192" height="12" rx="4" fill="var(--ul-neutral-500)"></rect>
-              <rect x="352" y="84" width="160" height="10" rx="4" fill="var(--ul-neutral-600)"></rect>
-              <rect x="352" y="104" width="208" height="10" rx="4" fill="var(--ul-neutral-600)"></rect>
-              <!-- Token‑colored button (same) -->
-              <rect x="352" y="132" width="112" height="16" rx="8" fill="var(--ul-brand-500)"></rect>
-            </svg>
+              <!-- GROUP: resolve -->
+              <div class="thought-group" data-delay="0">resolve</div>
+
+              <div class="thought" data-delay="120">
+                <div class="thought-row">
+                  <span class="thought-type">import</span>
+                  <span class="thought-token is-file">@acme/tokens</span>
+                  <span class="thought-arrow">→</span>
+                  <span class="thought-value">acme.brand.css</span>
+                  <span class="thought-status ok">✓ loaded</span>
+                </div>
+              </div>
+
+              <div class="thought" data-delay="320">
+                <div class="thought-row">
+                  <span class="thought-type">check</span>
+                  <span class="thought-token is-var"><span class="var-name">--ul-color-brand-primary</span></span>
+                  <span class="thought-status ok">✓</span>
+                </div>
+                <div class="thought-sub">resolves → oklch(0.91 0.22 122) via @acme/tokens</div>
+              </div>
+
+              <div class="thought" data-delay="520">
+                <div class="thought-row">
+                  <span class="thought-type">check</span>
+                  <span class="thought-token is-var"><span class="var-name">--ul-color-text</span></span>
+                  <span class="thought-status ok">✓</span>
+                </div>
+                <div class="thought-sub">resolves → oklch(0.98 0 0) · contract loaded · 3 tokens resolved</div>
+              </div>
+
+              <!-- GROUP: validate -->
+              <div class="thought-group" data-delay="700">validate</div>
+
+              <div class="thought" data-delay="820">
+                <div class="thought-row">
+                  <span class="thought-type">scan</span>
+                  <span class="thought-token is-file">Button.tsx</span>
+                  <span class="thought-arrow">—</span>
+                  <span class="thought-value">checking for literals</span>
+                </div>
+              </div>
+
+              <div class="thought" data-delay="1020">
+                <div class="thought-row">
+                  <span class="thought-type">lint</span>
+                  <span class="thought-token is-file">background-color</span>
+                  <span class="thought-arrow">→</span>
+                  <span class="thought-value"><span class="var-prefix">var(</span><span class="var-name-inline">--ul-color-brand-primary</span><span class="var-prefix">)</span></span>
+                  <span class="thought-status ok">✓</span>
+                </div>
+              </div>
+
+              <div class="thought" data-delay="1200">
+                <div class="thought-row">
+                  <span class="thought-type">lint</span>
+                  <span class="thought-token is-file">padding</span>
+                  <span class="thought-arrow">→</span>
+                  <span class="thought-value"><span class="var-prefix">var(</span><span class="var-name-inline">--ul-space-3</span><span class="var-prefix">)</span></span>
+                  <span class="thought-status ok">✓</span>
+                </div>
+              </div>
+
+              <div class="thought" data-delay="1420">
+                <div class="thought-row">
+                  <span class="thought-type">lint</span>
+                  <span class="thought-token is-file">border-radius</span>
+                  <span class="thought-arrow">→</span>
+                  <span class="thought-value"><span class="var-prefix">var(</span><span class="var-name-inline">--ul-radius-sm</span><span class="var-prefix">)</span></span>
+                  <span class="thought-status ok">✓</span>
+                </div>
+                <div class="thought-sub">3 properties · 0 literals · consumption path intact</div>
+              </div>
+
+              <!-- GROUP: drift check -->
+              <div class="thought-group" data-delay="1620">drift</div>
+
+              <div class="thought" data-delay="1740">
+                <div class="thought-row">
+                  <span class="thought-type">drift</span>
+                  <span class="thought-token is-file">Badge.tsx</span>
+                  <span class="thought-arrow">—</span>
+                  <span class="thought-value">color: #3b82f6</span>
+                  <span class="thought-status blocked">✗ literal</span>
+                </div>
+                <div class="thought-sub">expected: <span class="var-prefix">var(</span><span class="var-name-inline">--ul-color-info</span><span class="var-prefix">)</span> — replacing</div>
+              </div>
+
+              <div class="thought" data-delay="1980">
+                <div class="thought-row">
+                  <span class="thought-type">fix</span>
+                  <span class="thought-token is-var"><span class="var-name">--ul-color-info</span></span>
+                  <span class="thought-arrow">→</span>
+                  <span class="thought-value">oklch(0.70 0.13 240)</span>
+                  <span class="thought-status ok">✓ patched</span>
+                </div>
+                <div class="thought-sub">1 literal intercepted · 1 replacement applied</div>
+              </div>
+
+              <!-- GROUP: output -->
+              <div class="thought-group" data-delay="2240">output</div>
+
+              <div class="thought" data-delay="2360">
+                <div class="thought-row">
+                  <span class="thought-type">write</span>
+                  <span class="thought-token is-file">Button.tsx</span>
+                  <span class="thought-status ok">✓ no changes</span>
+                </div>
+              </div>
+
+              <div class="thought" data-delay="2520">
+                <div class="thought-row">
+                  <span class="thought-type">write</span>
+                  <span class="thought-token is-file">Badge.tsx</span>
+                  <span class="thought-status info">1 fix applied</span>
+                </div>
+                <div class="thought-sub">2 files processed · 1 patched · brand contract enforced</div>
+              </div>
+
+              <div class="thought" data-delay="2720">
+                <div class="thought-row">
+                  <span class="thought-type">result</span>
+                  <span class="thought-token is-file">lint:tokens-check</span>
+                  <span class="thought-status ok">✓ passed</span>
+                </div>
+                <div class="thought-sub">0 literals · 0 unmapped vars · governance intact</div>
+              </div>
+
+            </div>
+            <div class="agent-footer" id="footer">
+              <span class="footer-label">token coverage</span>
+              <div class="footer-bar">
+                <div class="footer-bar-fill" id="barFill"></div>
+              </div>
+              <span class="footer-count" id="coverageCount">0%</span>
+            </div>
           </div>
-          <h3>After: Unified via tokens</h3>
-          <p class="doc-mt-2">Shared design tokens align all products to the same brand.</p>
+          <script>
+            const items       = Array.from(document.querySelectorAll('.thought, .thought-group'));
+            const footer      = document.getElementById('footer');
+            const barFill     = document.getElementById('barFill');
+            const coverageCount = document.getElementById('coverageCount');
+            const cursor      = document.querySelector('.timeline-cursor');
+            const timeline    = document.querySelector('.timeline');
+            let timers = [];
+
+            const STEP = 220;
+
+            function moveCursorTo(el) {
+              const tlRect = timeline.getBoundingClientRect();
+              const elRect = el.getBoundingClientRect();
+              const row = el.querySelector ? el.querySelector('.thought-row') : null;
+              const refRect = row ? row.getBoundingClientRect() : elRect;
+              const targetTop = refRect.top - tlRect.top + (refRect.height / 2) - 3.5;
+              cursor.style.top = targetTop + 'px';
+            }
+
+            function animateCount(target, duration) {
+              const start = performance.now();
+              function step(now) {
+                const p = Math.min((now - start) / duration, 1);
+                const ease = 1 - Math.pow(1 - p, 3);
+                coverageCount.textContent = Math.round(ease * target) + '%';
+                if (p < 1) requestAnimationFrame(step);
+              }
+              requestAnimationFrame(step);
+            }
+
+            function run() {
+              // Show cursor at start
+              cursor.style.opacity = '1';
+              moveCursorTo(items[0]);
+
+              items.forEach((el, i) => {
+                const t = setTimeout(() => {
+                  el.classList.add('visible');
+                  moveCursorTo(el);
+                  // On last item, fade cursor out
+                  if (i === items.length - 1) {
+                    setTimeout(() => { cursor.style.opacity = '0'; }, 600);
+                  }
+                }, i * STEP);
+                timers.push(t);
+              });
+
+              const totalDelay = items.length * STEP + 300;
+              const t1 = setTimeout(() => {
+                footer.classList.add('visible');
+                setTimeout(() => {
+                  barFill.style.width = '94%';
+                  animateCount(94, 1800);
+                }, 200);
+              }, totalDelay);
+              timers.push(t1);
+            }
+
+            run();
+          </script>
         </div>
       </div>
-      
-      <hr class="section-divider">
-
-      <p>
-        Modern tooling can generate UI automatically.
-      </p>
-
-      <p>
-        Editors, automation pipelines, and AI agents can now write components, refactor styles,
-        and modify layouts directly inside the codebase.
-      </p>
-
-      <p>
-        For this to scale safely, generated UI must follow the same design decisions that govern the rest of the system.
-        Underlith provides the token infrastructure that allows automation to operate safely inside those constraints.
-      </p>
 
       <hr class="section-divider">
 
@@ -187,83 +320,6 @@ font-size: 14px;</code></pre>
       <p>
         Automation accelerates development.
         Without governance, it also accelerates <strong>design drift</strong>.
-      </p>
-
-      <hr class="section-divider">
-
-      <h2>Token governance for AI-generated UI</h2>
-
-      <p>
-        Underlith turns design tokens into enforceable infrastructure.
-      </p>
-
-      <p>
-        Instead of generating arbitrary values, AI generates UI through tokens.
-      </p>
-
-      <div class="card code-card">
-  <pre><code class="language-css">color: var(--ul-color-brand-primary);
-padding: var(--ul-space-3);
-border-radius: var(--ul-radius-sm);
-font-size: var(--ul-font-size-sm);</code></pre>
-      </div>
-
-      <p>
-        This ensures that both human-written and machine-generated code follow the same visual system.
-      </p>
-
-      <p>
-        Tokens act as <strong>hard constraints, not suggestions.</strong>
-      </p>
-
-      <hr class="section-divider">
-
-      <p>
-        Modern tooling can generate UI automatically.
-      </p>
-
-      <p>
-        Editors, automation pipelines, and AI agents can now write components, refactor styles,
-        and modify layouts directly inside the codebase.
-      </p>
-
-      <p>
-        For this to scale safely, generated UI must follow the same design decisions that govern the rest of the system.
-        Underlith provides the token infrastructure that allows automation to operate safely inside those constraints.
-      </p>
-
-      <hr class="section-divider">
-
-      <h2>The Problem</h2>
-      <h3>AI generates hardcoded UI</h3>
-
-      <p>
-        When AI generates UI without design constraints, it usually produces raw values.
-      </p>
-
-      <div class="card code-card">
-  <pre><code class="language-css">color: #3b82f6;
-padding: 12px;
-border-radius: 6px;
-font-size: 14px;</code></pre>
-      </div>
-
-      <p>
-        These values may look correct in isolation, but they bypass the design system.
-      </p>
-
-      <p>At scale this leads to:</p>
-
-      <ul>
-        <li>duplicated values across components</li>
-        <li>inconsistent spacing and typography</li>
-        <li>UI that slowly diverges from the brand</li>
-      </ul>
-
-      <p>
-        This is token drift — and automation accelerates it.
-        Without governance, the faster you ship, the faster your brand fragments.
-        See <a href="governance">Governance</a> for the full drift detection model.
       </p>
 
       <hr class="section-divider">
@@ -502,7 +558,7 @@ Motion
 
       <h2>CI inputs & outputs</h2>
       <p>CI operates on canonical inputs and produces deterministic artifacts.</p>
-      <div class="grid grid-2">
+      <div class="grid grid-2 no-gap-cards">
         <div class="card">
           <h3>Inputs</h3>
           <ul>
@@ -623,12 +679,17 @@ jobs:
             <li><a href="consumption">Consumption</a></li>
             <li><a href="w3c-alignment">W3C Alignment</a></li>
             <li><a href="governance">Governance</a></li>
-            <li><a href="automation-ai">Automation &amp; AI</a></li>
+            <li><a href="automation-ai">AI &amp; Agents</a></li>
           </ul>
         </div>
         <div class="footer-mds">
-          <h3>Canonical</h3>
+          <h3>Project</h3>
           <ul>
+            <li>
+              <a href="https://github.com/mikaelcarrara/underlith/blob/main/OVERVIEW.md"
+                target="_blank">Overview <span class="external-link"></span>
+              </a>
+            </li>
             <li>
               <a href="https://github.com/mikaelcarrara/underlith/blob/main/ARCHITECTURE.md"
                 target="_blank">Architecture <span class="external-link"></span>

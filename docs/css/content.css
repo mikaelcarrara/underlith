@@ -25,3 +25,28 @@
   border-top: 1px solid var(--ul-neutral-800, #1e1e1e);
   margin: 48px 0;
 }
+
+.ai-agents {
+  margin-top: 100px;
+}
+
+.ai-agents h1 {
+  font-size: 4rem;
+  margin: 0 0 var(--ul-space-6) 0;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .ai-agents {
+    margin-top: 0;
+  }
+
+  .ai-agents h1 {
+    font-size: var(--ul-font-size-2xl);
+    margin-bottom: var(--ul-space-3);
+  }
+
+}

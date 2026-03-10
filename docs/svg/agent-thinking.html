@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Thinking — Underlith</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* @acme/tokens — source of truth */
+    --ul-color-bg:            #0e0e0e;
+    --ul-color-surface:       #141414;
+    --ul-color-border:        rgba(255,255,255,0.06);
+    --ul-color-border-bright: rgba(255,255,255,0.12);
+    --ul-color-text:          rgba(255,255,255,0.85);
+    --ul-color-text-dim:      rgba(255,255,255,0.35);
+    --ul-color-text-muted:    rgba(255,255,255,0.18);
+    --ul-color-brand-primary: #c8f542;
+    --ul-color-brand-dim:     rgba(200,245,66,0.12);
+    --ul-color-brand-glow:    rgba(200,245,66,0.06);
+    --ul-color-success:       #34d399;
+    --ul-color-warning:       #f59e6b;
+    --ul-color-error:         #f472b6;
+    --ul-color-info:          #7eb8f7;
+
+    --ul-font-mono:    'JetBrains Mono', monospace;
+    --ul-font-display: 'Syne', sans-serif;
+
+    --ul-space-1: 4px;
+    --ul-space-2: 8px;
+    --ul-space-3: 12px;
+    --ul-space-4: 16px;
+    --ul-space-6: 24px;
+    --ul-space-8: 32px;
+
+    --ul-radius-sm: 4px;
+    --ul-radius-md: 8px;
+    --ul-radius-lg: 12px;
+
+    --ul-duration-fast:     120ms;
+    --ul-duration-base:     240ms;
+    --ul-duration-moderate: 400ms;
+    --ul-duration-slow:     700ms;
+    --ul-ease-out:    cubic-bezier(0.0, 0.0, 0.2, 1);
+    --ul-ease-inout:  cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--ul-color-bg);
+    color: var(--ul-color-text);
+    font-family: var(--ul-font-mono);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--ul-space-8);
+  }
+
+  .container {
+    width: 100%;
+    max-width: 560px;
+  }
+
+  /* ── Header ── */
+  .agent-header {
+    display: flex;
+    align-items: center;
+    gap: var(--ul-space-3);
+    margin-bottom: var(--ul-space-6);
+    padding-left: 17px; /* align with timeline, 3px left offset */
+  }
+
+  .agent-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ul-color-success);
+    box-shadow: 0 0 12px var(--ul-color-success);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--ul-color-success); }
+    50%       { opacity: 0.5; box-shadow: 0 0 20px var(--ul-color-success); }
+  }
+
+  .agent-label {
+    font-family: var(--ul-font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .agent-source {
+    margin-left: auto;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    color: var(--ul-color-text-muted);
+    border: 1px solid var(--ul-color-border);
+    padding: 3px 8px;
+    border-radius: var(--ul-radius-sm);
+  }
+
+  /* ── Timeline container ── */
+  .timeline {
+    position: relative;
+    padding-left: 20px;
+  }
+
+  /* Vertical line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--ul-color-brand-primary) 8%,
+      var(--ul-color-brand-primary) 92%,
+      transparent
+    );
+    opacity: 0.25;
+  }
+
+  /* Traveling dot — JS controlled */
+  .timeline-cursor {
+    position: absolute;
+    left: -3px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--ul-color-brand-primary);
+    box-shadow: 0 0 10px var(--ul-color-brand-primary);
+    top: 0;
+    opacity: 0;
+    transition: top 180ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease;
+  }
+
+  /* ── Thought items ── */
+  .thought {
+    position: relative;
+    padding: var(--ul-space-2) 0 var(--ul-space-3) var(--ul-space-4);
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity var(--ul-duration-moderate) var(--ul-ease-out),
+      transform var(--ul-duration-moderate) var(--ul-ease-out);
+  }
+
+  .thought.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* dot on the line for each thought */
+  .thought::before {
+    content: '';
+    position: absolute;
+    left: -3px;
+    top: 13px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--ul-color-bg);
+    border: 1px solid var(--ul-color-border-bright);
+    transition: border-color var(--ul-duration-base) var(--ul-ease-out),
+                background   var(--ul-duration-base) var(--ul-ease-out);
+  }
+
+  .thought.visible::before {
+    background: var(--ul-color-brand-dim);
+    border-color: var(--ul-color-brand-primary);
+  }
+
+  .thought-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--ul-space-2);
+    flex-wrap: wrap;
+  }
+
+  .thought-type {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ul-color-text-muted);
+    flex-shrink: 0;
+    width: 56px;
+  }
+
+  .thought-token {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--ul-color-brand-primary);
+    letter-spacing: 0.02em;
+  }
+
+  /* --ul-* token names: lime. var( prefix: white. rest: dim */
+  .thought-token.is-var .var-prefix { color: rgba(255,255,255,0.75); }
+  .thought-token.is-var .var-name   { color: var(--ul-color-brand-primary); }
+  .thought-token.is-var .var-suffix { color: rgba(255,255,255,0.75); }
+
+  .thought-token.is-file {
+    color: rgba(255,255,255,0.82);
+  }
+
+  .thought-token.is-cmd {
+    color: var(--ul-color-brand-primary);
+  }
+
+  .thought-arrow {
+    font-size: 10px;
+    color: var(--ul-color-text-muted);
+  }
+
+  .thought-value {
+    font-size: 11px;
+    color: var(--ul-color-text-dim);
+    letter-spacing: 0.01em;
+  }
+
+  .thought-status {
+    margin-left: auto;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  .thought-status.ok      { color: var(--ul-color-success); }
+  .thought-status.warn    { color: var(--ul-color-warning); }
+  .thought-status.blocked { color: var(--ul-color-error); }
+  .thought-status.info    { color: var(--ul-color-info); }
+
+  /* Sub-line */
+  .thought-sub {
+    font-size: 10px;
+    color: var(--ul-color-text-muted);
+    margin-top: 3px;
+    padding-left: 64px;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+  }
+
+  /* ── Group separator ── */
+  .thought-group {
+    margin-top: var(--ul-space-2);
+    margin-bottom: var(--ul-space-1);
+    padding-left: var(--ul-space-4);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ul-color-text-muted);
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity var(--ul-duration-slow) var(--ul-ease-out),
+      transform var(--ul-duration-slow) var(--ul-ease-out);
+  }
+  .thought-group.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── Footer status ── */
+  .agent-footer {
+    margin-top: var(--ul-space-6);
+    padding-top: var(--ul-space-4);
+    border-top: 1px solid var(--ul-color-border);
+    display: flex;
+    align-items: center;
+    gap: var(--ul-space-3);
+    opacity: 0;
+    transition: opacity var(--ul-duration-slow) var(--ul-ease-out);
+  }
+  .agent-footer.visible { opacity: 1; }
+
+  .footer-bar {
+    flex: 1;
+    height: 2px;
+    background: var(--ul-color-border);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+  .footer-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--ul-color-brand-primary);
+    border-radius: 1px;
+    transition: width 1.8s var(--ul-ease-inout);
+  }
+
+  .footer-label {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ul-color-text-muted);
+    white-space: nowrap;
+  }
+  .footer-count {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--ul-color-brand-primary);
+    white-space: nowrap;
+  }
+
+
+
+  .var-prefix      { color: rgba(255,255,255,0.7); }
+  .var-name-inline { color: var(--ul-color-brand-primary); }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="agent-header">
+    <div class="agent-dot"></div>
+    <span class="agent-label">Agent thinking</span>
+    <span class="agent-source">@acme/tokens v2.1.0</span>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-cursor"></div>
+
+    <!-- GROUP: resolve -->
+    <div class="thought-group" data-delay="0">resolve</div>
+
+    <div class="thought" data-delay="120">
+      <div class="thought-row">
+        <span class="thought-type">import</span>
+        <span class="thought-token is-file">@acme/tokens</span>
+        <span class="thought-arrow">→</span>
+        <span class="thought-value">acme.brand.css</span>
+        <span class="thought-status ok">✓ loaded</span>
+      </div>
+    </div>
+
+    <div class="thought" data-delay="320">
+      <div class="thought-row">
+        <span class="thought-type">check</span>
+        <span class="thought-token is-var"><span class="var-name">--ul-color-brand-primary</span></span>
+        <span class="thought-status ok">✓</span>
+      </div>
+      <div class="thought-sub">resolves → oklch(0.91 0.22 122) via @acme/tokens</div>
+    </div>
+
+    <div class="thought" data-delay="520">
+      <div class="thought-row">
+        <span class="thought-type">check</span>
+        <span class="thought-token is-var"><span class="var-name">--ul-color-text</span></span>
+        <span class="thought-status ok">✓</span>
+      </div>
+      <div class="thought-sub">resolves → oklch(0.98 0 0) · contract loaded · 3 tokens resolved</div>
+    </div>
+
+    <!-- GROUP: validate -->
+    <div class="thought-group" data-delay="700">validate</div>
+
+    <div class="thought" data-delay="820">
+      <div class="thought-row">
+        <span class="thought-type">scan</span>
+        <span class="thought-token is-file">Button.tsx</span>
+        <span class="thought-arrow">—</span>
+        <span class="thought-value">checking for literals</span>
+      </div>
+    </div>
+
+    <div class="thought" data-delay="1020">
+      <div class="thought-row">
+        <span class="thought-type">lint</span>
+        <span class="thought-token is-file">background-color</span>
+        <span class="thought-arrow">→</span>
+        <span class="thought-value"><span class="var-prefix">var(</span><span class="var-name-inline">--ul-color-brand-primary</span><span class="var-prefix">)</span></span>
+        <span class="thought-status ok">✓</span>
+      </div>
+    </div>
+
+    <div class="thought" data-delay="1200">
+      <div class="thought-row">
+        <span class="thought-type">lint</span>
+        <span class="thought-token is-file">padding</span>
+        <span class="thought-arrow">→</span>
+        <span class="thought-value"><span class="var-prefix">var(</span><span class="var-name-inline">--ul-space-3</span><span class="var-prefix">)</span></span>
+        <span class="thought-status ok">✓</span>
+      </div>
+    </div>
+
+    <div class="thought" data-delay="1420">
+      <div class="thought-row">
+        <span class="thought-type">lint</span>
+        <span class="thought-token is-file">border-radius</span>
+        <span class="thought-arrow">→</span>
+        <span class="thought-value"><span class="var-prefix">var(</span><span class="var-name-inline">--ul-radius-sm</span><span class="var-prefix">)</span></span>
+        <span class="thought-status ok">✓</span>
+      </div>
+      <div class="thought-sub">3 properties · 0 literals · consumption path intact</div>
+    </div>
+
+    <!-- GROUP: drift check -->
+    <div class="thought-group" data-delay="1620">drift</div>
+
+    <div class="thought" data-delay="1740">
+      <div class="thought-row">
+        <span class="thought-type">drift</span>
+        <span class="thought-token is-file">Badge.tsx</span>
+        <span class="thought-arrow">—</span>
+        <span class="thought-value">color: #3b82f6</span>
+        <span class="thought-status blocked">✗ literal</span>
+      </div>
+      <div class="thought-sub">expected: <span class="var-prefix">var(</span><span class="var-name-inline">--ul-color-info</span><span class="var-prefix">)</span> — replacing</div>
+    </div>
+
+    <div class="thought" data-delay="1980">
+      <div class="thought-row">
+        <span class="thought-type">fix</span>
+        <span class="thought-token is-var"><span class="var-name">--ul-color-info</span></span>
+        <span class="thought-arrow">→</span>
+        <span class="thought-value">oklch(0.70 0.13 240)</span>
+        <span class="thought-status ok">✓ patched</span>
+      </div>
+      <div class="thought-sub">1 literal intercepted · 1 replacement applied</div>
+    </div>
+
+    <!-- GROUP: output -->
+    <div class="thought-group" data-delay="2240">output</div>
+
+    <div class="thought" data-delay="2360">
+      <div class="thought-row">
+        <span class="thought-type">write</span>
+        <span class="thought-token is-file">Button.tsx</span>
+        <span class="thought-status ok">✓ no changes</span>
+      </div>
+    </div>
+
+    <div class="thought" data-delay="2520">
+      <div class="thought-row">
+        <span class="thought-type">write</span>
+        <span class="thought-token is-file">Badge.tsx</span>
+        <span class="thought-status info">1 fix applied</span>
+      </div>
+      <div class="thought-sub">2 files processed · 1 patched · brand contract enforced</div>
+    </div>
+
+    <div class="thought" data-delay="2720">
+      <div class="thought-row">
+        <span class="thought-type">result</span>
+        <span class="thought-token is-file">lint:tokens-check</span>
+        <span class="thought-status ok">✓ passed</span>
+      </div>
+      <div class="thought-sub">0 literals · 0 unmapped vars · governance intact</div>
+    </div>
+
+  </div>
+
+  <div class="agent-footer" id="footer">
+    <span class="footer-label">token coverage</span>
+    <div class="footer-bar">
+      <div class="footer-bar-fill" id="barFill"></div>
+    </div>
+    <span class="footer-count" id="coverageCount">0%</span>
+  </div>
+
+</div>
+
+<script>
+  const items       = Array.from(document.querySelectorAll('.thought, .thought-group'));
+  const footer      = document.getElementById('footer');
+  const barFill     = document.getElementById('barFill');
+  const coverageCount = document.getElementById('coverageCount');
+  const cursor      = document.querySelector('.timeline-cursor');
+  const timeline    = document.querySelector('.timeline');
+  let timers = [];
+
+  const STEP = 220;
+
+  function moveCursorTo(el) {
+    const tlRect = timeline.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    const row = el.querySelector ? el.querySelector('.thought-row') : null;
+    const refRect = row ? row.getBoundingClientRect() : elRect;
+    const targetTop = refRect.top - tlRect.top + (refRect.height / 2) - 3.5;
+    cursor.style.top = targetTop + 'px';
+  }
+
+  function animateCount(target, duration) {
+    const start = performance.now();
+    function step(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      coverageCount.textContent = Math.round(ease * target) + '%';
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function run() {
+    // Show cursor at start
+    cursor.style.opacity = '1';
+    moveCursorTo(items[0]);
+
+    items.forEach((el, i) => {
+      const t = setTimeout(() => {
+        el.classList.add('visible');
+        moveCursorTo(el);
+        // On last item, fade cursor out
+        if (i === items.length - 1) {
+          setTimeout(() => { cursor.style.opacity = '0'; }, 600);
+        }
+      }, i * STEP);
+      timers.push(t);
+    });
+
+    const totalDelay = items.length * STEP + 300;
+    const t1 = setTimeout(() => {
+      footer.classList.add('visible');
+      setTimeout(() => {
+        barFill.style.width = '94%';
+        animateCount(94, 1800);
+      }, 200);
+    }, totalDelay);
+    timers.push(t1);
+  }
+
+  run();
+</script>
+
+</body>
+</html>
