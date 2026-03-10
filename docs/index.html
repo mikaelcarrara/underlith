@@ -6,31 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Underlith - The governance layer for design tokens</title>
   <link rel="icon" type="image/svg+xml" href="./svg/logo.svg">
-  <meta name="description"
-    content="Governable design tokens for teams building across frameworks and platforms.">
-
-  <!-- Social Media Meta Tags -->
+  <meta name="description" content="Governable design tokens for teams building across frameworks and platforms.">
   <meta property="og:url" content="https://mikaelcarrara.github.io/Underlith/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Underlith - The governance layer for design tokens">
-  <meta property="og:description"
-    content="Design token infrastructure for decisions that survive frameworks, platforms, and time.">
+  <meta property="og:description" content="Design token infrastructure for decisions that survive frameworks, platforms, and time.">
   <meta property="og:image" content="https://mikaelcarrara.github.io/Underlith/docs/svg/social.jpg">
-
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="mikaelcarrara.github.io">
   <meta property="twitter:url" content="https://mikaelcarrara.github.io/Underlith/">
   <meta name="twitter:title" content="Underlith - The governance layer for design tokens">
-  <meta name="twitter:description"
-    content="Governable design tokens for teams building across frameworks and platforms.">
+  <meta name="twitter:description" content="Governable design tokens for teams building across frameworks and platforms.">
   <meta name="twitter:image" content="https://mikaelcarrara.github.io/Underlith/docs/svg/social.jpg">
-
-  <!-- Design System -->
   <link rel="stylesheet" href="../src/underlith.css">
   <link rel="stylesheet" href="css/documentation.css">
   <link rel="stylesheet" href="../src/components/components.css">
-
-  <!-- Syntax Highlighting -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
@@ -46,14 +36,10 @@
           <span>Underlith</span>
         </a>
       </h1>
-
       <input type="checkbox" id="menu-toggle" class="menu-toggle">
       <label for="menu-toggle" class="menu-button" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </label>
-
       <ul>
         <li>Home</li>
         <li><a href="tokens">Tokens reference</a></li>
@@ -66,43 +52,30 @@
   <div class="main-banner">
     <img class="bg-hero" src="svg/hero3.svg" alt="" aria-hidden="true">
     <h1>Your brand is a contract.<br> <span>Underlith enforces it.</span></h1>
-    <p>
-      Governable design tokens for teams building across<br> frameworks and platforms.
-    </p>
+    <p>Governable design tokens for teams building across<br> frameworks and platforms.</p>
     <div class="buttons">
       <div class="cta-wrap">
-        <a class="cta" href="getting-started">
-          <span>Create your source of truth</span>
-        </a>
+        <a class="cta" href="cli-integration"><span>Create your source of truth</span></a>
       </div>
       <div class="cta-git-wrap">
-        <a class="cta-git" href="https://github.com/mikaelcarrara/Underlith">
-          GitHub
-        </a>
+        <a class="cta-git" href="https://github.com/mikaelcarrara/Underlith">GitHub</a>
       </div>
     </div>
   </div>
 
   <main>
 
+    <!-- WHAT IS UNDERLITH -->
     <section>
       <div class="grid grid-2 center-img">
         <div>
           <div class="sub-heading">
-            <p class="sub-heading-tag">
-              WHAT IS UNDERLITH?
-            </p>
+            <p class="sub-heading-tag">WHAT IS UNDERLITH?</p>
             <h2>Infrastructure for the people who decide.</h2>
           </div>
-          <p>
-            Underlith separates design intent from implementation. Your tokens live in one place — versioned, publishable, consumed by every product your org builds.
-          </p>
-          <p>
-            When your stack changes, your decisions don't.
-          </p>
-          <p>
-            Underlith is not your source of truth. It's the infrastructure to build one.
-          </p>
+          <p>Underlith separates design intent from implementation. Your tokens live in one place — versioned, publishable, consumed by every product your org builds.</p>
+          <p>When your stack changes, your decisions don't.</p>
+          <p>Underlith is not your source of truth. It's the infrastructure to build one.</p>
         </div>
         <div>
           <img src="svg/arter.svg" alt="Underlith illustration" class="main-art">
@@ -110,11 +83,10 @@
       </div>
     </section>
 
+    <!-- WHY UNDERLITH EXISTS -->
     <section>
       <div class="sub-heading">
-        <p class="sub-heading-tag">
-          WHY UNDERLITH EXISTS
-        </p>
+        <p class="sub-heading-tag">WHY UNDERLITH EXISTS</p>
         <h2>Design decisions shouldn't<br> depend on who implements them.</h2>
         <p class="text-secondary">
           Most teams rebuild their design system every time the stack changes —<br>
@@ -123,54 +95,42 @@
       </div>
       <div class="grid grid-3 no-gap-cards">
         <div class="card">
-          <img src="svg/topic-01-2.svg" alt="" aria-hidden="true" class="topic-art">
-          <h3>Tokens as contracts</h3>
-          <p class="text-small">Design decisions become stable, versionable interfaces between design and code.</p>
+          <img src="svg/topic-06-2.svg" alt="" aria-hidden="true" class="topic-art">
+          <h3>Drift is structural, not accidental</h3>
+          <p class="text-small">When design values live inside components, every team that ships independently creates a new version of the brand. Governance at the token layer is the only fix that scales.</p>
         </div>
         <div class="card">
-          <img src="svg/topic-02-2.svg" alt="" aria-hidden="true" class="topic-art">
-          <h3>Implementation independence</h3>
-          <p class="text-small">
-            Your brand doesn't belong to Tailwind, React, or any framework. It belongs to your org.
-          </p>
+          <img src="svg/topic-05-2.svg" alt="" aria-hidden="true" class="topic-art">
+          <h3>Your brand doesn't belong to your framework</h3>
+          <p class="text-small">Tailwind changes. React changes. Your brand shouldn't have to. <code>@your-org/tokens</code> is the layer that survives every migration.</p>
         </div>
         <div class="card">
-          <img src="svg/topic-03-2.svg" alt="" aria-hidden="true" class="topic-art">
-          <h3>One vocabulary, everywhere</h3>
-          <p class="text-small">
-            Designers name it color-brand-primary. Developers use --ul-color-brand-primary. The AI writes it natively. Same decision, every platform.
-          </p>
+          <img src="svg/topic-04-2.svg" alt="" aria-hidden="true" class="topic-art">
+          <h3>One decision, every platform</h3>
+          <p class="text-small">Change a token once. Web, mobile, admin, AI agents — every product updates on the next <code>npm update</code>. No manual propagation. No divergence.</p>
         </div>
       </div>
     </section>
 
+    <!-- ARCHITECTURE -->
     <section class="arquitecture-section">
       <div class="sub-heading">
-        <p class="sub-heading-tag">
-          ARCHITECTURE
-        </p>
+        <p class="sub-heading-tag">ARCHITECTURE</p>
         <h2>The three layers that make tokens governable.</h2>
         <p class="text-secondary">
           Token infrastructure beneath your stack. CLI tooling for zero-friction adoption.<br>
           Governance to make sure decisions stay decisions.
         </p>
       </div>
-
       <div class="grid grid-2 no-gap-cards">
         <div class="card">
           <div>
             <h3>Token infrastructure</h3>
-            <p class="text-small">
-              Your tokens live in one versioned, publishable file. Every product installs the package and inherits your brand decisions automatically.
-            </p>
+            <p class="text-small">Your tokens live in one versioned, publishable file. Every product installs the package and inherits your brand decisions automatically.</p>
             <h3>CLI Integration</h3>
-            <p class="text-small">
-              Underlith brand init scaffolds your @org/tokens package in minutes. underlith init --shadcn maps an existing design system without touching a single component.
-            </p>
+            <p class="text-small">Underlith brand init scaffolds your @org/tokens package in minutes. underlith init --shadcn maps an existing design system without touching a single component.</p>
             <h3>Governance Tooling</h3>
-            <p class="text-small">
-              Lint rules, CI checks, and audit commands ensure tokens are actually used — and that no literal values slip through.
-            </p>
+            <p class="text-small">Lint rules, CI checks, and audit commands ensure tokens are actually used — and that no literal values slip through.</p>
           </div>
         </div>
         <div class="card">
@@ -179,83 +139,43 @@
       </div>
     </section>
 
+    <!-- IMPLEMENTATION -->
     <section>
       <div class="sub-heading">
-        <p class="sub-heading-tag">
-          PHILOSOPHY
-        </p>
-        <h2>Principles that guide every decision.</h2>
-        <p class="text-secondary">
-          These principles define the architectural foundation of Underlith<br> across all its layers.
-        </p>
-      </div>
-
-      <div class="grid grid-3 no-gap-cards">
-        <div class="card">
-          <img src="svg/topic-04-2.svg" alt="" aria-hidden="true" class="topic-art">
-          <h3>Tokens as the foundation</h3>
-          <p class="text-small">Change a token once. Every platform updates automatically.</p>
-        </div>
-        <div class="card">
-          <img src="svg/topic-05-2.svg" alt="" aria-hidden="true" class="topic-art">
-          <h3>Framework agnosticism</h3>
-          <p class="text-small">Migrate from React to anything. Your design decisions stay intact.</p>
-        </div>
-        <div class="card">
-          <img src="svg/topic-06-2.svg" alt="" aria-hidden="true" class="topic-art">
-          <h3>Decisions over implementations</h3>
-          <p class="text-small">Underlith owns the contract. Your stack owns the execution. Neither depends on the other.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="sub-heading">
-        <p class="sub-heading-tag">
-          IMPLEMENTATION
-        </p>
+        <p class="sub-heading-tag">IMPLEMENTATION</p>
         <h2>Works with your stack. Any stack.</h2>
         <p class="text-secondary">
           Install the package once. From there, consume tokens exactly the way your stack expects —<br>
           no adapters, no plugins, no build-time magic required.
         </p>
       </div>
-
       <div class="grid grid-3 no-gap-cards">
 
-        <!-- CSS Variables -->
         <div class="card big-text">
           <div class="stack-badge css-badge"><span class="dot"></span>CSS Variables</div>
           <h3>Plain CSS</h3>
-          <p class="text-small">Import the token file and use CSS custom properties directly. Works in any project — no framework needed.</p>
-
+          <p class="text-small">Import your brand package and use CSS custom properties directly. Works in any project — no framework needed.</p>
           <div class="impl-code">
-            <span class="c"># Install</span><br>
-            <span class="cmd">npm install @mikaelcarrara/underlith</span><br>
+            <span class="c"># Install your brand package</span><br>
+            <span class="cmd">npm install @your-org/tokens</span><br>
             <br>
             <span class="c"># Import</span><br>
-            <span class="at">@import</span> <span class="s">"underlith/src/underlith.tokens.css"</span>;<br>
+            <span class="at">@import</span> <span class="s">"@your-org/tokens/your-org.brand.css"</span>;<br>
             <br>
             <span class="c"># Use</span><br>
             <span class="p">color</span>: var(<span style="color: var(--ul-layer-01);">--ul-color-text</span>);<br>
             <span class="p">gap</span>: var(<span style="color: var(--ul-layer-01);">--ul-space-4</span>);<br>
             <span class="p">border-radius</span>: var(<span style="color: var(--ul-layer-01);">--ul-radius-md</span>);
           </div>
-
-          <p class="text-small">
-            <a class="view-more" href="tokens.html">View all tokens →</a>
-          </p>
         </div>
 
-        <!-- Tailwind v4 -->
         <div class="card big-text">
           <div class="stack-badge tw-badge"><span class="dot"></span>Tailwind v4</div>
           <h3>Native @theme</h3>
-          <p class="text-small">Tailwind v4 reads CSS variables natively via <code>@theme</code>. Import Underlith tokens and Tailwind utilities consume them automatically — no config file needed.</p>
-
+          <p class="text-small">Tailwind v4 reads CSS variables natively via <code>@theme</code>. Import your brand package and Tailwind utilities consume them automatically — no config file needed.</p>
           <div class="impl-code">
             <span class="c"># Import in your main CSS</span><br>
-            <span class="at">@import</span> <span class="s">"underlith/src/underlith.tokens.css"</span>;<br>
+            <span class="at">@import</span> <span class="s">"@your-org/tokens/your-org.brand.css"</span>;<br>
             <br>
             <span class="at">@theme</span> {<br>
             &nbsp;&nbsp;<span class="p">--color-brand</span>: var(<span style="color: var(--ul-layer-01);">--ul-color-brand-primary</span>);<br>
@@ -265,116 +185,71 @@
             <span class="c"># Use Tailwind classes normally</span><br>
             <pre style="color: var(--ul-layer-03);">&lt;button className="text-white" /&gt;</pre>
           </div>
-
-          <p class="text-small">
-            <a class="view-more" href="consumption.html">Consumption examples →</a>
-          </p>
         </div>
 
-        <!-- Sass / Less -->
         <div class="card big-text">
           <div class="stack-badge sass-badge"><span class="dot"></span>Sass / Less</div>
-          <h3>Variables & Mixins</h3>
-          <p class="text-small">Reference Underlith tokens inside Sass variables or mixins. Adopt without rewriting a single existing rule.</p>
-
+          <h3>Variables &amp; Mixins</h3>
+          <p class="text-small">Reference your brand tokens inside Sass variables or mixins. Adopt without rewriting a single existing rule.</p>
           <div class="impl-code">
             <span class="c"># Import</span><br>
-            <span class="at">@import</span> <span class="s">"underlith/src/underlith.tokens.css"</span>;<br>
+            <span class="at">@import</span> <span class="s">"@your-org/tokens/your-org.brand.css"</span>;<br>
             <br>
             <span class="c"># Map to Sass variable</span><br>
             <span class="p">$color-text</span>: var(<span style="color: var(--ul-layer-01);">--ul-color-text</span>);<br>
             <br>
             <span class="c"># Before → After</span><br>
             <span class="del">color: $old-text-color;</span><br>
-<pre style="color: var(--ul-layer-03);">@mixin button-primary {
-&nbsp;&nbsp;background: $old-text-color;
+            <pre style="color: var(--ul-layer-03);">@mixin button-primary {
+&nbsp;&nbsp;background: $color-text;
 }</pre>
           </div>
-
-          <p class="text-small">
-            <a class="view-more" href="tokens.html">Available tokens →</a>
-          </p>
         </div>
 
       </div>
     </section>
 
+    <!-- TWO PATHS -->
     <section>
       <div class="sub-heading">
         <p class="sub-heading-tag">TWO PATHS</p>
         <h2>The infrastructure for your<br>own source of truth.</h2>
         <p class="text-secondary">
-          Underlith doesn't replace your design decisions — it gives you the infrastructure to own them.<br>
           Whether you're starting from scratch or migrating an existing system, the destination is the same:<br>
-          one package where your brand lives, versioned and shareable across every product.
+          one package where your brand lives, versioned and shareable across every product.<br>
         </p>
       </div>
-
       <div class="grid grid-2 no-gap-cards">
 
-        <!-- Greenfield -->
         <div class="card big-text">
           <div class="stack-badge badge-green">New project</div>
           <h3>Full setup. One block.</h3>
-          <p class="text-small">
-            Install the CLI, copy the starter tokens, scaffold your brand package, publish.
-            Every product your org builds from here installs <code>@your-org/tokens</code>
-            and inherits your design decisions automatically.
-          </p>
-
+          <p class="text-small">Install the CLI, copy the starter tokens, scaffold your brand package, publish. Every product your org builds from here installs <code>@your-org/tokens</code> and inherits your design decisions automatically.</p>
           <div class="pipeline">
             <span class="pipeline-cmd">$ underlith brand init</span>
             <span class="pipeline-arrow">→</span>
             <span class="pipeline-cmd">$ npm publish</span>
           </div>
-
-          <div class="impl-code">
-            <span class="c"># Install CLI globally</span><br>
-            <span class="cmd">npm install -g @mikaelcarrara/underlith</span><br>
-            <br>
-            <span class="c"># Copy starter tokens to your project root</span><br>
-            <span class="cmd">npm install @mikaelcarrara/underlith</span><br>
-            <span class="cmd">cp node_modules/@mikaelcarrara/underlith/src/underlith.tokens.css .</span><br>
-            <br>
-            <span class="c"># Scaffold your brand package</span><br>
-            <span class="cmd">underlith brand init --org your-npm-username</span><br>
-            <br>
-            <span class="c"># cd into the path the command printed, then publish</span><br>
-            <span class="cmd">cd ./@your-npm-username/your-package-name</span><br>
-            <span class="cmd">npm publish --access public</span>
-          </div>
-
           <div class="steps">
             <div class="step">
               <span class="step-num green">1</span>
-              <p class="text-small">
-                <strong>Copy tokens:</strong> <code>underlith.tokens.css</code> is your token source. Edit brand values before running <code>brand init</code>.
-              </p>
+              <p class="text-small"><strong>Copy tokens:</strong> <code>underlith.tokens.css</code> is your token source. Edit brand values before running <code>brand init</code>.</p>
             </div>
             <div class="step">
               <span class="step-num green">2</span>
-              <p class="text-small">
-                <strong>Brand init:</strong> Use your npm username as <code>--org</code>. The command prints the exact output path — use that for <code>cd</code>.
-              </p>
+              <p class="text-small"><strong>Brand init:</strong> Use your npm username as <code>--org</code>. The command prints the exact output path.</p>
             </div>
             <div class="step">
               <span class="step-num green">3</span>
-              <p class="text-small">
-                <strong>Publish once:</strong> <code>@your-org/tokens</code> becomes the shared source of truth. Every product installs it and inherits your brand automatically.
-              </p>
+              <p class="text-small"><strong>Publish once:</strong> <code>@your-org/tokens</code> becomes the shared source of truth. Every product inherits your brand automatically.</p>
             </div>
           </div>
         </div>
 
-        <!-- Existing project -->
         <div class="card big-text">
           <div class="stack-badge badge-brown">Existing project</div>
           <h3>Full setup. Zero rewrites.</h3>
-          <p class="text-small">
-            Already have a design system? Install the CLI, map your existing variables to Underlith tokens,
-            extract your brand layer, publish. Components keep working exactly as before.
-          </p>
-
+          <p class="text-small">Already have a design system? Map your existing variables to Underlith tokens, extract your brand layer, publish. Components keep working exactly as before.</p>
           <div class="pipeline">
             <span class="pipeline-cmd">$ underlith init --shadcn</span>
             <span class="pipeline-arrow">→</span>
@@ -382,70 +257,42 @@
             <span class="pipeline-arrow">→</span>
             <span class="pipeline-cmd">$ npm publish</span>
           </div>
-
-          <div class="impl-code">
-            <span class="c"># Install CLI globally</span><br>
-            <span class="cmd">npm install -g @mikaelcarrara/underlith</span><br>
-            <br>
-            <span class="c"># Map existing variables — no component rewrites</span><br>
-            <span class="cmd">underlith init --shadcn --globals ./styles/globals.css</span><br>
-            <br>
-            <span class="c"># Before → After</span><br>
-            <span class="p">--primary</span>: var(<span style="color: var(--ul-layer-01);">--ul-primary</span>);<br>
-            <br>
-            <span class="c"># Copy tokens file if not present</span><br>
-            <span class="cmd">cp node_modules/@mikaelcarrara/underlith/src/underlith.tokens.css .</span><br>
-            <br>
-            <span class="c"># Scaffold brand package</span><br>
-            <span class="cmd">underlith brand init --org your-npm-username</span><br>
-            <br>
-            <span class="c"># cd into the path the command printed, then publish</span><br>
-            <span class="cmd">cd ./@your-npm-username/your-package-name</span><br>
-            <span class="cmd">npm publish --access public</span>
-          </div>
-
           <div class="steps">
             <div class="step">
               <span class="step-num amber">1</span>
-              <p class="text-small">
-                <strong>Integrate:</strong> <code>underlith init --shadcn</code> maps every existing variable to an Underlith token. No component rewrites.
-              </p>
+              <p class="text-small"><strong>Integrate:</strong> <code>underlith init --shadcn</code> maps every existing variable to an Underlith token. No component rewrites.</p>
             </div>
             <div class="step">
               <span class="step-num amber">2</span>
-              <p class="text-small">
-                <strong>Brand init:</strong> Use your npm username as <code>--org</code>. The command prints the exact output path — use that for <code>cd</code>.
-              </p>
+              <p class="text-small"><strong>Brand init:</strong> Use your npm username as <code>--org</code>. The command prints the exact output path.</p>
             </div>
             <div class="step">
               <span class="step-num amber">3</span>
-              <p class="text-small">
-                <strong>Publish once:</strong> <code>@your-org/tokens</code> becomes the shared source of truth. Every product installs it and inherits your brand automatically.
-              </p>
+              <p class="text-small"><strong>Publish once:</strong> <code>@your-org/tokens</code> becomes the shared source of truth. Every product inherits your brand automatically.</p>
             </div>
           </div>
         </div>
 
+        <div class="buttons">
+          <a href="cli-integration" class="view-more">Full setup guide →</a>
+        </div>
+
       </div>
     </section>
 
+    <!-- FINAL CTA -->
     <section class="final-cta">
       <div>
-        <h2>
-          Stop rebuilding your<br> design system every time<br> you switch frameworks.
-        </h2>
-        <p class="text-secondary">
-          One token layer. Every platform. Zero divergence.
-        </p>
+        <h2>Stop rebuilding your<br> design system every time<br> you switch frameworks.</h2>
+        <p class="text-secondary">One token layer. Every platform. Zero divergence.</p>
         <div class="buttons">
           <div class="cta-wrap">
-            <a class="cta" href="getting-started">
-              <span>Create your source of truth</span>
-            </a>
+            <a class="cta" href="cli-integration"><span>Create your source of truth</span></a>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
@@ -467,75 +314,31 @@
         <div class="footer-mds">
           <h3>Project</h3>
           <ul>
-            <li>
-              <a href="https://github.com/mikaelcarrara/underlith/blob/main/OVERVIEW.md"
-                target="_blank">Overview <span class="external-link"></span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/mikaelcarrara/underlith/blob/main/ARCHITECTURE.md"
-                target="_blank">Architecture <span class="external-link"></span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/mikaelcarrara/underlith/blob/main/ROADMAP.md"
-                target="_blank">Roadmap <span class="external-link"></span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/mikaelcarrara/underlith/blob/main/VISION.md"
-                target="_blank">Vision <span class="external-link"></span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/mikaelcarrara/underlith/blob/main/STEWARDSHIP.md"
-                target="_blank">Stewardship <span class="external-link"></span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/mikaelcarrara/underlith/blob/main/CI.md" target="_blank">CI <span
-                  class="external-link"></span>
-                </a>
-            </li>
-            <li>
-              <a href="https://github.com/mikaelcarrara/underlith/blob/main/GOVERNANCE.md"
-                target="_blank">Governance <span class="external-link"></span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/mikaelcarrara/underlith/blob/main/CONTRIBUTING.md"
-                target="_blank">Contributing <span class="external-link"></span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/mikaelcarrara/underlith/blob/main/DESIGNER-GUIDE.md"
-                target="_blank">Designer Guide <span class="external-link"></span>
-              </a>
-            </li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/OVERVIEW.md" target="_blank">Overview <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/ARCHITECTURE.md" target="_blank">Architecture <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/ROADMAP.md" target="_blank">Roadmap <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/VISION.md" target="_blank">Vision <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/STEWARDSHIP.md" target="_blank">Stewardship <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/CI.md" target="_blank">CI <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/GOVERNANCE.md" target="_blank">Governance <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/CONTRIBUTING.md" target="_blank">Contributing <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/blob/main/DESIGNER-GUIDE.md" target="_blank">Designer Guide <span class="external-link"></span></a></li>
           </ul>
         </div>
         <div>
           <h3>Community</h3>
           <ul>
-            <li><a href="https://github.com/mikaelcarrara/underlith" target="_blank">GitHub Repository <span
-                  class="external-link"></span></a></li>
-            <li><a href="https://www.npmjs.com/package/@mikaelcarrara/underlith" target="_blank">NPM Package <span
-                  class="external-link"></span></a></li>
-            <li><a href="https://github.com/mikaelcarrara/underlith/issues" target="_blank">Report an Issue <span
-                  class="external-link"></span></a></li>
-            <li><a href="https://github.com/mikaelcarrara/underlith/discussions" target="_blank">Discussions <span
-                  class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith" target="_blank">GitHub Repository <span class="external-link"></span></a></li>
+            <li><a href="https://www.npmjs.com/package/@mikaelcarrara/underlith" target="_blank">NPM Package <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/issues" target="_blank">Report an Issue <span class="external-link"></span></a></li>
+            <li><a href="https://github.com/mikaelcarrara/underlith/discussions" target="_blank">Discussions <span class="external-link"></span></a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 <a href="https://www.behance.net/mikaelmcarrara" target="_blank">Mikael Carrara</a>. Released
-          under the <a href="https://github.com/mikaelcarrara/underlith/blob/main/LICENSE"
-            target="_blank">MIT License</a>.</p>
+        <p>&copy; 2026 <a href="https://www.behance.net/mikaelmcarrara" target="_blank">Mikael Carrara</a>. Released under the <a href="https://github.com/mikaelcarrara/underlith/blob/main/LICENSE" target="_blank">MIT License</a>.</p>
         <a class="css-valid-badge" href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank" rel="noopener">
-          <span class="wrap">
-            <span class="inner"><span class="dot" aria-hidden="true"></span>Valid CSS</span>
-          </span>
+          <span class="wrap"><span class="inner"><span class="dot" aria-hidden="true"></span>Valid CSS</span></span>
         </a>
       </div>
     </section>
