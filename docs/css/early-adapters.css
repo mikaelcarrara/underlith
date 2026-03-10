@@ -1,0 +1,44 @@
+.early-adopters {
+  text-align: center;
+  background: var(--ul-neutral-1000);
+  border-radius: var(--ul-radius-lg);
+}
+
+.early-adopters .sub-heading-tag {
+  background: linear-gradient(135deg, #C8F542, #E187CA 50%, #4AF0C8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.early-adopters ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.early-adopters li {
+  display: inline-block;
+}
+
+.early-adopters a {
+  display: block;
+  position: relative;
+  border-radius: var(--ul-radius-lg);
+  overflow: hidden;
+}
+
+.early-adopters a img {
+  width: 150px;
+  border-radius: var(--ul-radius-md);
+  filter: grayscale(100%) contrast(1.05);
+  opacity: 0.5;
+  transition: filter var(--ul-duration-fast) var(--ul-ease-inout), opacity var(--ul-duration-fast) var(--ul-ease-inout);
+}
+
+.early-adopters a:hover img,
+.early-adopters a:focus-visible img {
+  filter: none;
+  opacity: 1;
+}
