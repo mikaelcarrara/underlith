@@ -1,5 +1,7 @@
 # Underlith
 
+[![Quality](https://github.com/mikaelcarrara/underlith/actions/workflows/quality.yml/badge.svg?branch=main)](https://github.com/mikaelcarrara/underlith/actions/workflows/quality.yml)
+
 **Infrastructure for design token governance.**
 
 Underlith turns design decisions into **enforceable systems**.
@@ -25,6 +27,19 @@ https://mikaelcarrara.github.io/underlith
 
 ---
 
+# Line Endings (EOL)
+
+To ensure consistent diffs and behavior across operating systems:
+
+- All text files are stored with LF line endings in the repository
+- .gitattributes enforces LF for text files and marks binaries
+- .editorconfig configures editors to save with LF and common formatting basics
+- On Windows, the repository config uses core.autocrlf=input and core.eol=lf to avoid CRLF conversions
+- CI validates EOL policy: fails if CRLF is present or if .gitattributes would renormalize files
+
+This keeps the repo clean and prevents spurious EOL diffs in PRs.
+
+# License
 # Why Underlith?
 
 - **Framework agnostic** — plain CSS, Tailwind, Sass, CSS-in-JS, or any styling solution
