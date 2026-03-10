@@ -4,17 +4,17 @@
 
 ### Documentation
 
-- Header e footer padronizados em todas as páginas; navegação principal unificada: Home, Tokens reference, CLI Integration, AI & Agents
-- getting-started.html renomeado para cli-integration.html; consumo (consumption.html) removido; links internos atualizados
-- Título e meta descriptions padronizados em todas as páginas (description, og:description, twitter:description) conforme index.html
-- Pequenas correções de marcação em ai-agents.html
+- Standardized header and footer across all pages; unified primary navigation: Home, Tokens reference, CLI Integration, AI & Agents
+- Renamed getting-started.html to cli-integration.html; removed consumption.html; updated internal links
+- Unified page title and meta descriptions (description, og:description, twitter:description) across all pages to match index.html
+- Minor markup fixes in ai-agents.html
 
-### Infraestrutura do repositório
+### Repository infrastructure
 
-- .gitattributes adicionado para normalizar finais de linha (LF) e marcar arquivos binários; renormalização aplicada
+- Added .gitattributes to normalize end-of-line to LF and mark binary assets; applied renormalization
 
-Notas:
-- Esta versão contém apenas atualizações de documentação e housekeeping; sem mudanças de API ou pacote publicado
+Notes:
+- Docs-only and housekeeping changes; no API or published package changes
 
 ## v2.1.1 — 2026-03-08
 
