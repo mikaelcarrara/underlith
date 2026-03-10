@@ -252,18 +252,27 @@ npm install @${orgName}/${pkgName}
   
   fs.writeFileSync(path.join(fullOutDir, 'README.md'), readme);
   success(`@${orgName}/${pkgName}/README.md`);
-  
-  const finalizeCss = (arr) => {
-    const content = cleanupEmptyBlocks(arr.join('\n')).trim();
-    if (!content) return content;
-    if (content.includes(':root')) return content;
+
+  const finalizeBrandCss = (arr) => {
+    // Remove any accidental root wrappers or stray braces, keep only token/comment lines
+    const stripped = arr.filter((line) => {
+      const t = line.trim();
+      return t !== '' && t !== ':root {' && t !== '}';
+    });
+    const content = cleanupEmptyBlocks(stripped.join('\n')).trim();
     return `:root {\n${content}\n}`;
   };
-  const finalBrandCss = finalizeCss(brandLines);
+  const finalizeBaseCss = (arr) => {
+    // Preserve structure for base (multiple :root blocks and at-rules)
+    const content = cleanupEmptyBlocks(arr.join('\n')).trim();
+    return content.endsWith('\n') ? content : content + '';
+  };
+
+  const finalBrandCss = finalizeBrandCss(brandLines);
   fs.writeFileSync(path.join(fullOutDir, brandCssName), finalBrandCss + '\n');
   success(`@${orgName}/${pkgName}/${brandCssName}`);
   
-  const finalBaseCss = finalizeCss(baseLines);
+  const finalBaseCss = finalizeBaseCss(baseLines);
   fs.writeFileSync(path.join(fullOutDir, baseCssName), finalBaseCss + '\n');
   success(`@${orgName}/${pkgName}/${baseCssName}`);
 
