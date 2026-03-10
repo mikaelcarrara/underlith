@@ -63,7 +63,7 @@ Applications consume these packages directly, ensuring that **design decisions p
 
 ## Architecture
 
-Underlith is composed of **four main layers**.
+Underlith is composed of **three main layers**.
 
 ---
 
@@ -162,25 +162,6 @@ underlith audit
 
 
 can scan a repository and report **token adoption coverage**.
-
----
-
-### Observability *(Future Control Plane)*
-
-At organizational scale, token governance benefits from **visibility**.
-
-A future **control plane** could provide:
-
-- Project registry
-- Token version tracking
-- Dependency graphs
-- Blast radius analysis for token changes
-
-This would allow organizations to understand:
-
-- Which projects depend on which tokens
-- Which versions are deployed
-- Which changes affect which products
 
 ---
 
@@ -369,6 +350,14 @@ Bidirectional token sync between **design tooling and production tokens**.
 ##### MCP
 
 An MCP server bundled in the token package, allowing AI tools and editors to query **organization tokens directly**.
+
+---
+
+#### Future — Control Plane *(beyond Q4)*
+
+At organizational scale, token governance benefits from **visibility**.
+
+A future control plane could provide project registry, token version tracking, dependency graphs, and blast radius analysis for token changes — enabling teams to understand which products depend on which tokens and which changes affect which surfaces.
 
 ---
 

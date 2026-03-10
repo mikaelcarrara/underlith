@@ -218,22 +218,98 @@ font-size: var(--ul-font-size-sm);</code></pre>
 
       <hr class="section-divider">
 
-      <h2>Governance model for automation</h2>
+      <p>
+        Modern tooling can generate UI automatically.
+      </p>
 
       <p>
-        Underlith separates responsibilities across three layers.
+        Editors, automation pipelines, and AI agents can now write components, refactor styles,
+        and modify layouts directly inside the codebase.
+      </p>
+
+      <p>
+        For this to scale safely, generated UI must follow the same design decisions that govern the rest of the system.
+        Underlith provides the token infrastructure that allows automation to operate safely inside those constraints.
+      </p>
+
+      <hr class="section-divider">
+
+      <h2>The Problem</h2>
+      <h3>AI generates hardcoded UI</h3>
+
+      <p>
+        When AI generates UI without design constraints, it usually produces raw values.
       </p>
 
       <div class="card code-card">
-  <pre><code class="language-text">Design intent
+  <pre><code class="language-css">color: #3b82f6;
+padding: 12px;
+border-radius: 6px;
+font-size: 14px;</code></pre>
+      </div>
+
+      <p>
+        These values may look correct in isolation, but they bypass the design system.
+      </p>
+
+      <p>At scale this leads to:</p>
+
+      <ul>
+        <li>duplicated values across components</li>
+        <li>inconsistent spacing and typography</li>
+        <li>UI that slowly diverges from the brand</li>
+      </ul>
+
+      <p>
+        This is token drift — and automation accelerates it.
+        Without governance, the faster you ship, the faster your brand fragments.
+        See <a href="governance">Governance</a> for the full drift detection model.
+      </p>
+
+      <hr class="section-divider">
+
+      <h2>Token governance for AI-generated UI</h2>
+
+      <p>
+        Underlith turns design tokens into enforceable infrastructure.
+      </p>
+
+      <p>
+        Instead of generating arbitrary values, AI generates UI through tokens.
+      </p>
+
+      <div class="card code-card">
+  <pre><code class="language-css">color: var(--ul-color-brand-primary);
+padding: var(--ul-space-3);
+border-radius: var(--ul-radius-sm);
+font-size: var(--ul-font-size-sm);</code></pre>
+      </div>
+
+      <p>
+        This ensures that both human-written and machine-generated code follow the same visual system.
+      </p>
+
+      <p>
+        Tokens act as <strong>hard constraints, not suggestions.</strong>
+      </p>
+
+      <hr class="section-divider">
+
+      <h2>Governance model for automation</h2>
+
+      <p>
+        Underlith separates responsibilities across three levels.
+        AI and automation operate at Level 3 — as product consumers, not decision-makers.
+      </p>
+
+      <div class="card code-card">
+  <pre><code class="language-text">Level 1 — Underlith core (primitives, slow, stable)
       ↓
-Tokens
+Level 2 — @your-org/tokens (brand contract, your cadence)
       ↓
-@your-org/tokens
+Level 3 — Every product: web app, mobile, admin, AI agent
       ↓
-CI enforcement
-      ↓
-AI & automation
+CI enforcement (drift check, contrast, visual regression)
       ↓
 Validated UI output</code></pre>
       </div>
@@ -268,29 +344,25 @@ Validated UI output</code></pre>
         CI fails when tokens violate the contract.
       </p>
 
-      <h3>Code validation</h3>
+      <h3>Drift detection</h3>
 
       <div class="card code-card">
-  <pre><code class="language-bash">lint:code</code></pre>
+  <pre><code class="language-bash">lint:tokens-check</code></pre>
       </div>
 
-      <p>Detects hardcoded design values in the codebase.</p>
+      <p>Detects hardcoded design values in the codebase — hex, rgb, hsl, oklch literals and <code>var(--</code> references not resolving to <code>--ul-*</code> or <code>--ul-color-*</code>.</p>
 
-      <p>Example:</p>
+      <p>Example — drift detected:</p>
 
       <div class="card code-card">
   <pre><code class="language-css">padding: 12px;</code></pre>
       </div>
 
-      <p>CI suggests the correct token:</p>
+      <p>Expected:</p>
 
       <div class="card code-card">
   <pre><code class="language-css">padding: var(--ul-space-3);</code></pre>
       </div>
-
-      <p>
-        This prevents raw values from entering the system.
-      </p>
 
       <h3>Contract protection</h3>
 
@@ -334,7 +406,7 @@ Validated UI output</code></pre>
 
       <p>
         Separates base tokens from brand tokens and scaffolds a publishable
-        <code>@your-org/tokens</code> package.
+        <code>@your-org/tokens</code> package — your Level 2 brand contract.
       </p>
 
       <p>
@@ -418,11 +490,11 @@ Motion
 
       <hr class="section-divider">
 
-      <h2>What’s available today</h2>
+      <h2>What's available today</h2>
       <ul>
-        <li>Design tokens: spacing, typography, radius, colors (neutral/brand), opacity, elevation</li>
-        <li>Motion tokens: durations, easings, composite animations and reduced‑motion policy</li>
-        <li>Semantic aliases for consumption (e.g., <code>--ul-color-text</code>, <code>--ul-color-border</code>)</li>
+        <li>Design tokens: spacing, typography, radius, colors (neutral/brand), opacity, elevation, status</li>
+        <li>Motion tokens: durations, easings, composite animations and reduced-motion policy</li>
+        <li>Semantic aliases for consumption via <code>var(--ul-color-*)</code> — single consumption path</li>
         <li>CSS-first consumption via <code>src/underlith.css</code></li>
         <li>CLI flows: <code>underlith init --shadcn</code> and <code>underlith brand init</code></li>
         <li>Governance and CI guidance with token-aware checks</li>
@@ -437,7 +509,7 @@ Motion
             <li><code>src/tokens/**</code> — base token definitions</li>
             <li><code>underlith.tokens.css</code> — canonical source</li>
             <li><code>your-org.brand.css</code> — brand layer</li>
-            <li>Consumer code (token‑aware lint)</li>
+            <li>Consumer code (token-aware lint)</li>
           </ul>
         </div>
         <div class="card">
@@ -455,10 +527,11 @@ Motion
       <ul>
         <li><strong>build:tokens</strong> — generate artifacts from the canonical source</li>
         <li><strong>lint:tokens</strong> — validate schema, naming and aliases</li>
-        <li><strong>breaking‑change detection</strong> — protect the token contract</li>
-        <li><strong>lint:code</strong> (token‑aware) — block hardcoded design values</li>
-        <li><strong>visual‑regression</strong> (recommended) — ensure visual equivalence</li>
-        <li><strong>audit‑log</strong> — record generations and refactors</li>
+        <li><strong>lint:tokens-check</strong> — block hardcoded design values in components</li>
+        <li><strong>breaking-change detection</strong> — protect the token contract</li>
+        <li><strong>test:contrast</strong> — validate WCAG AA contrast minimums for status and brand tokens</li>
+        <li><strong>visual-regression</strong> (recommended) — ensure visual equivalence</li>
+        <li><strong>audit-log</strong> — record generations and refactors</li>
       </ul>
 
       <h2>CI quickstart</h2>
@@ -468,49 +541,58 @@ on:
   pull_request:
     paths:
       - 'src/tokens/**'
+      - 'styles/**'
 jobs:
   build-tokens:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: npm ci
       - run: npm run build:tokens
-      - run: npm run lint:tokens</code></pre>
+      - run: npm run lint:tokens
+
+  drift-check:
+    runs-on: ubuntu-latest
+    needs: build-tokens
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm run lint:tokens-check</code></pre>
       </div>
 
       <h2>Reduced motion</h2>
       <p>
         Motion tokens automatically respect accessibility preferences. When
-        <code>prefers-reduced-motion: reduce</code> is set, durations collapse to near‑zero.
+        <code>prefers-reduced-motion: reduce</code> is set, durations collapse to near-zero.
       </p>
       <div class="card code-card">
   <pre><code class="language-css">@media (prefers-reduced-motion: reduce) {
   :root {
-    --ul-duration-nano: 0ms;
-    --ul-duration-micro: 0ms;
-    --ul-duration-fast: 0ms;
-    --ul-duration-base: 0ms;
+    --ul-duration-nano:     0ms;
+    --ul-duration-micro:    0ms;
+    --ul-duration-fast:     0ms;
+    --ul-duration-base:     0ms;
     --ul-duration-moderate: 0ms;
-    --ul-duration-slow: 0ms;
-    --ul-duration-glacial: 0ms;
-    --ul-duration-epic: 0ms;
+    --ul-duration-slow:     0ms;
+    --ul-duration-glacial:  0ms;
+    --ul-duration-epic:     0ms;
   }
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation-duration:        0.01ms !important;
+    animation-iteration-count: 1      !important;
+    transition-duration:       0.01ms !important;
   }
 }</code></pre>
       </div>
 
-      <h2>What’s next</h2>
+      <h2>What's next</h2>
       <p>A slice of the <a href="https://github.com/mikaelcarrara/underlith/blob/main/ROADMAP.md" target="_blank">Roadmap</a> focused on Automation & AI.</p>
 
       <h3>Q3 2026 — Automation</h3>
       <ul>
-        <li>Token‑aware linter: detect hardcoded values that should be tokens</li>
-        <li>Pre‑commit hooks: block commits with hardcoded design values</li>
-        <li>CI templates: breaking‑change detection and token audits</li>
+        <li>Token-aware linter: detect hardcoded values that should be tokens</li>
+        <li>Pre-commit hooks: block commits with hardcoded design values</li>
+        <li>CI templates: breaking-change detection and token audits</li>
         <li><code>underlith audit</code>: report token adoption coverage across projects</li>
       </ul>
 
@@ -519,9 +601,9 @@ jobs:
         <li>TypeScript types for token names: autocomplete and build-time validation</li>
         <li>Visual regression harness for reference components</li>
         <li><code>underlith migrate</code>: AI-assisted migration from legacy values to tokens</li>
-        <li><strong>MCP</strong> (Integration): expose tokens via Model Context Protocol to editors/AI</li>
+        <li><strong>MCP</strong> (Integration): expose tokens via Model Context Protocol to editors and AI agents</li>
       </ul>
-
+    
     </section>
 
   </main>
