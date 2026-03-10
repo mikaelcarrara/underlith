@@ -5,7 +5,8 @@
 }
 
 .early-adopters .sub-heading-tag {
-  background: linear-gradient(135deg, #C8F542, #E187CA 50%, #4AF0C8);
+  display: inline-block;
+  background: linear-gradient(90deg, #C8F542, #E187CA 50%, #4AF0C8);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
