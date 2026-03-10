@@ -5,31 +5,31 @@
    ============================== */
 
   /* Neutrals */
-  --ul-neutral-0: #ffffff;
-  --ul-neutral-50: #f9f9f9;
-  --ul-neutral-100: #f1f1f1;
-  --ul-neutral-200: #eee;
-  --ul-neutral-300: #ccc;
-  --ul-neutral-400: #999999;
-  --ul-neutral-500: #777;
-  --ul-neutral-600: #555;
-  --ul-neutral-700: #2A2C2E;
-  --ul-neutral-800: #1A1C1F;
-  --ul-neutral-900: #111;
-  --ul-neutral-1000: #0e0e0e;
+  --ul-neutral-0:         #ffffff;
+  --ul-neutral-50:        #f9f9f9;
+  --ul-neutral-100:       #f1f1f1;
+  --ul-neutral-200:       #eee;
+  --ul-neutral-300:       #ccc;
+  --ul-neutral-400:       #999999;
+  --ul-neutral-500:       #777;
+  --ul-neutral-600:       #555;
+  --ul-neutral-700:       #2A2C2E;
+  --ul-neutral-800:       #1A1C1F;
+  --ul-neutral-900:       #111;
+  --ul-neutral-1000:      #0e0e0e;
 
   /* Brand */
-  --ul-brand-300: #60a5fa;
-  --ul-brand-500: #2563eb;
-  --ul-brand-700: #1e40af;
+  --ul-brand-300:         #60a5fa;
+  --ul-brand-500:         #2563eb;
+  --ul-brand-700:         #1e40af;
 
   /* Layers */
-  --ul-layer-01: #c8f542;
-  --ul-layer-02: #E187CA;
-  --ul-layer-03: #4af0c8;
+  --ul-layer-01:          #c8f542;
+  --ul-layer-02:          #E187CA;
+  --ul-layer-03:          #4af0c8;
 
   /* Feedback */
-  --ul-color-success: #16a34a; /* cooler, levemente mais escuro para harmonizar com brand */
-  --ul-color-warning: #d97706; /* amber 600, menos saturado próximo ao azul neutro */
-  --ul-color-danger:  #dc2626; /* vermelho 600, contraste equilibrado com neutrals frios */
+  --ul-color-success:     #16a34a;
+  --ul-color-warning:     #d97706;
+  --ul-color-danger:      #dc2626;
 }
