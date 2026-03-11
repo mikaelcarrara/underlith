@@ -1,5 +1,14 @@
 # Underlith Release Notes
 
+## v2.1.4 — 2026-03-10
+
+### CLI
+
+- Fix: brand-init CSS braces — sanitize brand output to a single :root block and strip stray braces. Base output preserves multiple :root blocks and at-rules.
+
+Notes:
+- Patch release for CLI only; no token/API changes
+
 ## v2.1.3 — 2026-03-10
 
 ### Documentation & SEO
