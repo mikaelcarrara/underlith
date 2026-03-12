@@ -22,3 +22,8 @@ Thumbs.db
 # Temporary files
 *.tmp
 .cache/
+
+# Local brand scaffolds (CLI test outputs)
+tmp-brand/
+tmp-brand2/
+tmp-brand*/
